@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroMockup from "@/assets/hero-mockup.png";
+import InteractiveDemo from "./InteractiveDemo";
 
 const HeroSection = () => {
   return (
@@ -51,14 +51,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-16 md:mt-24"
         >
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border/50 shadow-2xl shadow-primary/5">
-            <img
-              src={heroMockup}
-              alt="Foldora AI application interface showing organized files"
-              className="w-full"
-              loading="eager"
-            />
-          </div>
+          <InteractiveDemo />
         </motion.div>
       </div>
     </section>
