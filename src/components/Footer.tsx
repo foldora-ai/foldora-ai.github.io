@@ -4,14 +4,19 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div className="flex items-center gap-2 text-lg font-bold text-foreground">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
-              <span className="text-sm font-bold text-primary-foreground">F</span>
-            </div>
+            <img
+              src="/favicon.ico"
+              alt="Foldora AI"
+              className="h-8 w-8 object-contain"
+            />
             Foldora AI
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-foreground">Download</a>
+            {/* <a href="#" className="transition-colors hover:text-foreground">Download</a> */}
+            <a href="https://foldora.gumroad.com/l/foldora" target="_blank" className="transition-colors hover:text-foreground">
+              Download
+            </a>
             <a href="#features" className="transition-colors hover:text-foreground">Features</a>
             <a href="#" className="transition-colors hover:text-foreground">Privacy</a>
             <a href="#" className="transition-colors hover:text-foreground">Support</a>

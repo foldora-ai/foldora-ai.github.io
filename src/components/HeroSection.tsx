@@ -31,11 +31,14 @@ const HeroSection = () => {
 
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
-              href="#pricing"
+              // href="#pricing"
+              href="https://foldora.gumroad.com/l/foldora"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3 5.5L7.5 3v18L3 18.5V5.5zm4.5-2.5l5 2.5V15l-5-2.5V3zm5 2.5l5-2.5v15l-5 2.5V5.5zm5-2.5L21 5.5v13L17.5 21V3z" />
+                {/* <path d="M3 5.5L7.5 3v18L3 18.5V5.5zm4.5-2.5l5 2.5V15l-5-2.5V3zm5 2.5l5-2.5v15l-5 2.5V5.5zm5-2.5L21 5.5v13L17.5 21V3z" /> */}
               </svg>
               Download for Windows
             </a>

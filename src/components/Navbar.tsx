@@ -10,9 +10,14 @@ const Navbar = () => {
     >
       <div className="container flex h-16 items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-lg font-bold text-foreground">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
-            <span className="text-sm font-bold text-primary-foreground">F</span>
-          </div>
+
+          <img
+            src="/favicon.ico"
+            alt="Foldora AI"
+            className="h-8 w-8 object-contain"
+          />
+
+
           Foldora AI
         </a>
         <div className="hidden items-center gap-8 md:flex">
@@ -21,7 +26,10 @@ const Navbar = () => {
           <a href="#pricing" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Pricing</a>
         </div>
         <a
-          href="#pricing"
+          // href="#pricing"
+          href="https://foldora.gumroad.com/l/foldora"
+          target="_blank"
+          rel="noopener noreferrer"          
           className="rounded-full bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
         >
           Download
