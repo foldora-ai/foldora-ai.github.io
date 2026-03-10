@@ -1,54 +1,55 @@
 import { motion } from "framer-motion";
-import beforeImg from "@/assets/before-messy.png";
-import afterImg from "@/assets/after-clean.png";
+import demoImg from "@/assets/foldora-demo.png"; // your combined screenshot
 
 const DemoSection = () => {
   return (
     <section className="section-padding">
       <div className="container">
+
+        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="mx-auto max-w-2xl text-center"
         >
           <h2 className="text-3xl font-bold text-foreground md:text-5xl">
-            See the <span className="text-gradient">difference</span>
+            From <span className="text-gradient">chaos</span> to clarity
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground md:text-lg">
-            From chaos to clarity in one click.
+
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Foldora analyzes your messy folders and proposes a clean structure instantly.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/10 px-4 py-1.5 text-sm font-medium text-destructive">
-              Before
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img src={beforeImg} alt="Messy downloads folder before Foldora" className="w-full" loading="lazy" />
-            </div>
-          </motion.div>
+        {/* Screenshot */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mt-16 max-w-5xl"
+        >
+          <div className="overflow-hidden rounded-3xl border border-primary/20 bg-card shadow-2xl">
+            <img
+              src={demoImg}
+              alt="Foldora AI organizing messy folders into a clean structure"
+              className="w-full"
+              loading="lazy"
+            />
+          </div>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-          >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              After
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img src={afterImg} alt="Clean organized folders after Foldora" className="w-full" loading="lazy" />
-            </div>
-          </motion.div>
-        </div>
+        {/* Caption */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-3 max-w-xl text-center text-sm text-muted-foreground/90"
+        >
+          Preview how Foldora reorganizes your folders before applying changes.
+        </motion.p>
+
       </div>
     </section>
   );

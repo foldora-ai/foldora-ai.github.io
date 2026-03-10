@@ -32,7 +32,7 @@ const PricingSection = () => {
             <div className="rounded-[1.25rem] bg-card p-10 text-center">
               <h3 className="text-xl font-semibold text-foreground">Foldora AI</h3>
               <div className="mt-6 flex items-baseline justify-center gap-1">
-                <span className="text-6xl font-extrabold text-foreground">$19</span>
+                <span className="text-6xl font-extrabold text-foreground">$29</span>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">One-time purchase</p>
 
@@ -45,12 +45,34 @@ const PricingSection = () => {
                 ))}
               </ul>
 
-              <a
+              {/* <a
                 href="#"
                 className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-gradient-primary py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
               >
                 Download Foldora
-              </a>
+              </a> */}
+
+              <div className="mt-8 flex flex-col gap-3">
+
+                <a
+                  href="https://foldora.gumroad.com/l/foldora"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-gradient-primary py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
+                >
+                  Buy with Card 
+                </a>
+
+                <a
+                  href="https://www.paypal.com/ncp/payment/YDYSDRF5NRCUW"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-[#FFC439] py-4 text-base font-semibold text-black transition-opacity hover:opacity-90"
+                >
+                  Pay with PayPal
+                </a>
+
+              </div>
             </div>
           </div>
         </motion.div>
