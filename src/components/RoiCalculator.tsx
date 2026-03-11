@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const PRICE = 29;
+const PRICE = 19;
 
 export default function RoiCalculator() {
   const [hours, setHours] = useState(3);

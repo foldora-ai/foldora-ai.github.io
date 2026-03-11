@@ -32,7 +32,7 @@ const PricingSection = () => {
             <div className="rounded-[1.25rem] bg-card p-10 text-center">
               <h3 className="text-xl font-semibold text-foreground">Foldora AI</h3>
               <div className="mt-6 flex items-baseline justify-center gap-1">
-                <span className="text-6xl font-extrabold text-foreground">$29</span>
+                <span className="text-6xl font-extrabold text-foreground">$19</span>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">One-time purchase</p>
 
