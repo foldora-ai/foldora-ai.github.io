@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import demoImg from "@/assets/foldora-demo.png"; // your combined screenshot
+import demoGif from "../assets/foldora-demo.gif";
+import demoImg from "../assets/foldora-demo.png";
 
 const DemoSection = () => {
   return (
@@ -22,7 +23,8 @@ const DemoSection = () => {
           </p>
         </motion.div>
 
-        {/* Screenshot */}
+
+        {/* GIF Demo */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,25 +32,50 @@ const DemoSection = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto mt-16 max-w-5xl"
         >
+
+          <p className="text-center text-xs text-primary/80 mb-3">
+            Real demo – no edits
+          </p>
+
           <div className="overflow-hidden rounded-3xl border border-primary/20 bg-card shadow-2xl">
             <img
-              src={demoImg}
-              alt="Foldora AI organizing messy folders into a clean structure"
-              className="w-full"
-              loading="lazy"
+              src={demoGif}
+              alt="Foldora automatically organizing messy folders"
+              className="w-full pointer-events-none"
             />
           </div>
+
         </motion.div>
+
 
         {/* Caption */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mx-auto mt-3 max-w-xl text-center text-sm text-muted-foreground/90"
+          className="mx-auto mt-4 max-w-xl text-center text-sm text-muted-foreground/90"
         >
-          Preview how Foldora reorganizes your folders before applying changes.
+          Messy folder → organized automatically in seconds.
         </motion.p>
+
+
+        {/* Screenshot */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto mt-12 max-w-5xl"
+        >
+          <div className="overflow-hidden rounded-3xl border border-primary/10 bg-card shadow-xl">
+            <img
+              src={demoImg}
+              alt="Foldora interface preview"
+              className="w-full"
+              loading="lazy"
+            />
+          </div>
+        </motion.div>
 
       </div>
     </section>
