@@ -27,3 +27,5 @@ https://foldora-ai.github.io
 Read how Foldora works as an AI file organizer:
 
 https://foldora-ai.github.io/ai-file-organizer
+
+![Foldora demo](demo.gif)
