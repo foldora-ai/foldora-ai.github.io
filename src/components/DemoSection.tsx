@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import demoGif from "../assets/foldora-demo.gif";
+import demoVideo from "../assets/foldora-demo.mp4";
 import demoImg from "../assets/foldora-demo.png";
 
 const DemoSection = () => {
@@ -47,7 +47,7 @@ const DemoSection = () => {
               height="700"
               className="w-full pointer-events-none"
             >
-              <source src="src\assets\foldora-demo.mp4" type="video/mp4" />
+              <source src="/foldora-demo.mp4" type="video/mp4" />
             </video>
           </div>
 
