@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { Brain, Eye, Undo2, WifiOff, Zap } from "lucide-react";
+import { Brain, Eye, Undo2, WifiOff, Zap, FileText } from "lucide-react";
 
 const features = [
   { icon: Brain, title: "AI File Organization", desc: "Automatically categorizes files into meaningful folders." },
-  { icon: Eye, title: "Preview Before Changes", desc: "See the folder structure before applying changes." },
-  { icon: Undo2, title: "Undo Anytime", desc: "Instantly revert if you want your original structure back." },
   { icon: WifiOff, title: "Works Offline", desc: "All processing happens locally on your computer." },
   { icon: Zap, title: "Fast Processing", desc: "Organize hundreds of files in seconds." },
+  { icon: Eye, title: "Preview Before Changes", desc: "See the folder structure before applying changes." },
+  { icon: Undo2, title: "Undo Anytime", desc: "Instantly revert if you want your original structure back." },
+  { icon: FileText, title: "Smart File Renaming", desc: "Automatically turn messy filenames like IMG_4829.png into clear, meaningful names." },
 ];
 
 const FeaturesSection = () => {

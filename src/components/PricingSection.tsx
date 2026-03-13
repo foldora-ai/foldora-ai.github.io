@@ -17,6 +17,9 @@ const PricingSection = () => {
             Simple <span className="text-gradient">pricing</span>
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
+            Ready to Transform Your Workflow?
+          </p>          
+          <p className="mt-4 text-muted-foreground md:text-lg">
             Pay once, use forever. No subscriptions.
           </p>
         </motion.div>
@@ -71,6 +74,12 @@ const PricingSection = () => {
                 >
                   Pay with PayPal
                 </a>
+                <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mt-4">
+                  <span>✓ Runs fully offline</span>
+                  <span>✓ One-time purchase</span>                  
+                  <span>✓ Preview changes before applying</span>
+                  <span>✓ Renames messy filenames automatically</span>
+                </div>
 
               </div>
             </div>

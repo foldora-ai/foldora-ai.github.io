@@ -4,50 +4,54 @@ import InteractiveDemo from "./InteractiveDemo";
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
-      {/* Background glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-primary/8 blur-[120px]" />
-      </div>
-
       <div className="container relative text-center">
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
+
+          {/* Badge */}
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-muted-foreground">
-            <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            Now available for Windows
+            AI File Organizer
           </div>
 
           <h1 className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-7xl">
-            Automatically organize your{" "}
-            <span className="text-gradient">messy folders.</span>
+            Automatically organize
+            <br />
+            <span className="text-gradient">your messy folders</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
             Foldora AI analyzes and sorts your files into clean, structured folders in seconds.
           </p>
 
+          {/* CTA */}
           <div className="mt-10 flex flex-col items-center gap-4">
+
             <a
-              // href="#pricing"
               href="https://foldora.gumroad.com/l/foldora"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
             >
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                {/* <path d="M3 5.5L7.5 3v18L3 18.5V5.5zm4.5-2.5l5 2.5V15l-5-2.5V3zm5 2.5l5-2.5v15l-5 2.5V5.5zm5-2.5L21 5.5v13L17.5 21V3z" /> */}
-              </svg>
-              Download for Windows
+              Download Foldora 
             </a>
-            <p className="text-sm text-muted-foreground">
-              Private • Local AI • One-time purchase
-            </p>
+
+            {/* Trust bullets */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <span>✓ Works fully offline</span>
+              <span>✓ Preview before applying changes</span>
+              <span>✓ CPU only (no GPU required)</span>
+              <span>✓ One-time purchase</span>
+            </div>
+
           </div>
+
         </motion.div>
 
+        {/* Demo */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,6 +60,7 @@ const HeroSection = () => {
         >
           <InteractiveDemo />
         </motion.div>
+
       </div>
     </section>
   );
