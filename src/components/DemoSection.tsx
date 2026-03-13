@@ -43,11 +43,12 @@ const DemoSection = () => {
               muted
               loop
               playsInline
+              preload="auto"
               width="1200"
               height="700"
               className="w-full pointer-events-none"
             >
-              <source src="/foldora-demo.mp4" type="video/mp4" />
+              <source src={demoVideo} type="video/mp4" />
             </video>
           </div>
 
