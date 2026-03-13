@@ -23,7 +23,19 @@ const PricingSection = () => {
             Pay once, use forever. No subscriptions.
           </p>
         </motion.div>
+        <div className="text-center mb-6">
+          <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-2">
+            🚀 Launch price
+          </span>
 
+          <h3 className="text-2xl font-bold">
+            $19 <span className="text-muted-foreground line-through ml-2">$39</span>
+          </h3>
+
+          <p className="text-sm text-muted-foreground mt-1">
+            Early adopter price — will increase soon
+          </p>
+        </div>        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

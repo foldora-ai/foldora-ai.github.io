@@ -37,7 +37,7 @@ export default function RoiCalculator() {
 
             {/* Hours */}
             <div>
-              <label className="text-sm font-medium">
+              <label htmlFor="hours" className="text-sm font-medium">
                 Hours spent organizing files per week
               </label>
               <input
@@ -55,7 +55,7 @@ export default function RoiCalculator() {
 
             {/* Hourly rate */}
             <div>
-              <label className="text-sm font-medium">
+              <label htmlFor="rate" className="text-sm font-medium">
                 Your hourly value ($)
               </label>
               <input
@@ -74,7 +74,7 @@ export default function RoiCalculator() {
 
             {/* Weeks */}
             <div>
-              <label className="text-sm font-medium">
+              <label htmlFor="weeks" className="text-sm font-medium">
                 Working weeks per year
               </label>
               <input

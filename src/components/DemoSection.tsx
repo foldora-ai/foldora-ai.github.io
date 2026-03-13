@@ -38,11 +38,17 @@ const DemoSection = () => {
           </p>
 
           <div className="overflow-hidden rounded-3xl border border-primary/20 bg-card shadow-2xl">
-            <img
-              src={demoGif}
-              alt="Foldora automatically organizing messy folders"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              width="1200"
+              height="700"
               className="w-full pointer-events-none"
-            />
+            >
+              <source src="src\assets\foldora-demo.mp4" type="video/mp4" />
+            </video>
           </div>
 
         </motion.div>

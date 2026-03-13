@@ -16,6 +16,7 @@ import SupportedFileTypes from "@/components/SupportedFileTypes";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <main>
       <Navbar />
       <HeroSection />
       <ProblemSection />
@@ -30,7 +31,9 @@ const Index = () => {
       <FAQSection />
       <PricingSection />
       <Footer />
+      </main>
     </div>
+
   );
 };
 
