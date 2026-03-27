@@ -31,7 +31,6 @@ const PricingSection = () => {
           <h3 className="text-2xl font-bold">
             $14.99 <span className="text-muted-foreground line-through ml-2">$39</span>
           </h3>
-
           <p className="text-sm text-muted-foreground mt-1">
             Early adopter price — will increase soon
           </p>
