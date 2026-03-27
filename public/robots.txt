@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://foldora-ai.github.io/sitemap.xml
