@@ -28,6 +28,7 @@ const PricingSection = () => {
             🚀 Launch price
           </span>
 
+
           <h3 className="text-2xl font-bold">
             $14.99 <span className="text-muted-foreground line-through ml-2">$39</span>
           </h3>
