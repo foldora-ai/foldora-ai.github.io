@@ -51,7 +51,7 @@ const HeroSection = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M2 3l9-1v10H2V3zm11-1l9-1v11h-9V2zM2 13h9v10l-9-1V13zm11 0h9v11l-9-1V13z"/>
                 </svg>
-                Download for Windows
+                Download for Windows Or Linux
               </a>
 
               {/* SECONDARY (macOS) */}
