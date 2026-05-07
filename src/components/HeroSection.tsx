@@ -71,6 +71,11 @@ const HeroSection = () => {
 
             </div>
 
+            {/* Compatibility */}
+            <div className="mt-4 text-sm text-white/70">
+              Windows 10/11 | macOS Intel & Apple Silicon (M1/M2/M3)
+            </div>
+
             {/* Trust bullets */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span>✓ 100% offline (your files never leave your PC)</span>
