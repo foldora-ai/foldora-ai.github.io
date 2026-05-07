@@ -36,7 +36,7 @@ const HowItWorksSection = () => {
               className="relative rounded-2xl border border-border bg-gradient-card p-8 text-center"
             >
               <span className="text-5xl font-extrabold text-gradient opacity-30">{s.step}</span>
-              <div className="mx-auto mt-4 flex h-14.99 w-14.99 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+              <div className="mx-auto mt-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                 <s.icon className="h-7 w-7" />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-foreground">{s.title}</h3>
