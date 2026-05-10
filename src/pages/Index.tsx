@@ -31,9 +31,9 @@ const Index = () => {
       <RoiCalculator />
       <FAQSection />
       <PricingSection />
+      <ArticleSection />
       <Footer />
       </main>
-      <ArticleSection />
     </div>
 
   );
