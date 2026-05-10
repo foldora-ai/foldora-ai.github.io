@@ -11,6 +11,7 @@ import WhyUseSection from "@/components/WhyUseSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import SupportedFileTypes from "@/components/SupportedFileTypes";
+import ArticleSection from "@/components/ArticleSection";
 // import HowItWorksQuick from "@/components/HowItWorksQuick";
 
 const Index = () => {
@@ -32,6 +33,7 @@ const Index = () => {
       <PricingSection />
       <Footer />
       </main>
+      <ArticleSection />
     </div>
 
   );
