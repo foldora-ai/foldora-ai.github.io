@@ -30,7 +30,7 @@ const PricingSection = () => {
 
 
           <h3 className="text-2xl font-bold">
-            $14.99 <span className="text-muted-foreground line-through ml-2">$39</span>
+            $19.99 <span className="text-muted-foreground line-through ml-2">$39</span>
           </h3>
           <p className="text-sm text-muted-foreground mt-1">
             Early adopter price — will increase soon
@@ -47,7 +47,7 @@ const PricingSection = () => {
             <div className="rounded-[1.25rem] bg-card p-10 text-center">
               <h3 className="text-xl font-semibold text-foreground">Foldora AI</h3>
               <div className="mt-6 flex items-baseline justify-center gap-1">
-                <span className="text-6xl font-extrabold text-foreground">$14.99</span>
+                <span className="text-6xl font-extrabold text-foreground">$19.99</span>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">One-time purchase - No subscription</p>
 
