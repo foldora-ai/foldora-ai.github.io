@@ -76,6 +76,19 @@ const HeroSection = () => {
               Windows 10/11 | macOS Intel & Apple Silicon (M1/M2/M3)
             </div>
 
+            {/* Payment trust */}
+            <div className="mt-3 text-sm text-white/60">
+              Secure checkout •{" "}
+              <a
+                href="#paypal"
+                className="text-white/80 hover:text-white transition-colors cursor-pointer"
+              >
+                PayPal accepted
+              </a>{" "}
+              • One-time purchase
+            </div>
+
+
             {/* Trust bullets */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span>✓ 100% offline (your files never leave your PC)</span>

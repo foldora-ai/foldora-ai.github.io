@@ -67,7 +67,7 @@ const PricingSection = () => {
                 Download Foldora
               </a> */}
 
-              <div className="mt-8 flex flex-col gap-3">
+              <div id="paypal" className="mt-8 flex flex-col gap-3">
 
                 <a
                   href="https://foldora.gumroad.com/l/foldora"
