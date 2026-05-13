@@ -22,12 +22,15 @@ const Footer = () => {
             <a href="#" className="transition-colors hover:text-foreground">Support</a>
           </nav>
 
-          <a
+          <p className="text-sm text-muted-foreground">
+            team.foldora@outlook.com
+          </p>
+          {/* <a
             href="mailto:team.foldora@outlook.com"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             team.foldora@outlook.com
-          </a>
+          </a> */}
         </div>
 
         <p className="mt-8 text-center text-xs text-muted-foreground">
