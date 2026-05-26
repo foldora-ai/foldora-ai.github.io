@@ -1,6 +1,6 @@
 # Foldora — AI File Organizer for Windows & macOS
 
-![Foldora demo](https://github.com/foldora-ai/foldora-ai.github.io/blob/main/src/assets/foldora-demo.gif)
+![Foldora demo](https://github.com/foldora-ai/foldoraai.com/blob/main/src/assets/foldora-demo.gif)
 
 Foldora is an AI-powered file organizer that automatically cleans messy folders such as Downloads, Desktop, and Documents.
 
@@ -90,13 +90,13 @@ Foldora is useful for:
 
 # 📥 Download Foldora
 
-👉 https://foldora-ai.github.io/?src=github
+👉 https://foldoraai.com/?src=github
 
 ---
 
 # 🌐 Website
 
-https://foldora-ai.github.io
+https://foldoraai.com
 
 ---
 
@@ -104,23 +104,23 @@ https://foldora-ai.github.io
 
 ## AI File Organizer
 
-https://foldora-ai.github.io/ai-file-organizer/
+https://foldoraai.com/ai-file-organizer/
 
 ## Best File Organizer For Windows
 
-https://foldora-ai.github.io/best-file-organizer-windows/
+https://foldoraai.com/best-file-organizer-windows/
 
 ## Organize Downloads Folder Automatically
 
-https://foldora-ai.github.io/blog/organize-downloads-folder-automatically
+https://foldoraai.com/blog/organize-downloads-folder-automatically
 
 ## Offline AI File Organizer
 
-https://foldora-ai.github.io/blog/offline-ai-file-organizer
+https://foldoraai.com/blog/offline-ai-file-organizer
 
 ## Foldora vs Hazel
 
-https://foldora-ai.github.io/alternatives/hazel
+https://foldoraai.com/alternatives/hazel
 
 ---
 
