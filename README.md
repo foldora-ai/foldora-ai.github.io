@@ -1,6 +1,6 @@
 # Foldora — AI File Organizer for Windows & macOS
 
-![Foldora demo](https://github.com/foldora-ai/foldoraai.com/blob/main/src/assets/foldora-demo.gif)
+![Foldora demo](https://github.com/foldora-ai/foldora-ai.github.io/blob/main/src/assets/foldora-demo.gif)
 
 Foldora is an AI-powered file organizer that automatically cleans messy folders such as Downloads, Desktop, and Documents.
 
