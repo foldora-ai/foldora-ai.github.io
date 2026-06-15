@@ -5,12 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import BlogPost from "./pages/BlogPost";
-import ComparisonPage from "./pages/ComparisonPage";
 import DocsPage from "./pages/DocsPage";
-import UseCasePage from "./pages/UseCasePage";
 import CategoryPage from "./pages/CategoryPage";
 import FeaturePage from "./pages/FeaturePage";
+import SeoContentPage from "./pages/SeoContentPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,14 +20,19 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-          
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/alternatives/:slug" element={<ComparisonPage />} />
+          <Route path="/blog/:slug" element={<SeoContentPage />} />
+          <Route path="/alternatives/:slug" element={<SeoContentPage />} />
           <Route path="/docs/:slug" element={<DocsPage />} />
-          <Route path="/use-cases/:slug" element={<UseCasePage />} />
+          <Route path="/use-cases/:slug" element={<SeoContentPage />} />
           <Route path="/features/:slug" element={<FeaturePage />} />
           <Route path="/category/:slug" element={<CategoryPage />} />
+          <Route path="/ai-file-organizer" element={<SeoContentPage />} />
+          <Route path="/best-file-organizer-windows" element={<SeoContentPage />} />
+          <Route path="/clean-downloads-folder" element={<SeoContentPage />} />
+          <Route path="/organize-files-windows" element={<SeoContentPage />} />
+          <Route path="/organize-files-automatically" element={<SeoContentPage />} />
+          <Route path="/rename-files-automatically" element={<SeoContentPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -1,250 +1,70 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AI File Renaming | Foldora</title>
-<meta name="description" content="Automatically rename files into meaningful readable names.">
-<link rel="canonical" href="https://foldoraai.com/features/smart-file-renaming/">
-
-<style>
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  background:#020817;
-  color:#e2e8f0;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:0 20px;
-}
-
-.hero{
-  padding:120px 0 80px;
-  border-bottom:1px solid #1e293b;
-}
-
-.badge{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:999px;
-  border:1px solid #334155;
-  color:#94a3b8;
-  font-size:14px;
-}
-
-h1{
-  font-size:56px;
-  line-height:1.1;
-  color:white;
-  margin-top:24px;
-}
-
-.subtitle{
-  font-size:22px;
-  color:#94a3b8;
-  line-height:1.7;
-  margin-top:24px;
-}
-
-.updated{
-  margin-top:24px;
-  color:#64748b;
-  font-size:14px;
-}
-
-.article{
-  padding:80px 0;
-}
-
-.section{
-  margin-bottom:70px;
-}
-
-.section h2{
-  color:white;
-  font-size:32px;
-  margin-bottom:24px;
-}
-
-.section p{
-  color:#cbd5e1;
-  line-height:1.9;
-  font-size:18px;
-}
-
-.card{
-  border:1px solid #1e293b;
-  background:#0f172a;
-  border-radius:24px;
-  padding:40px;
-  margin-top:80px;
-}
-
-.card-grid{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  margin-top:30px;
-}
-
-.card-item{
-  border:1px solid #334155;
-  border-radius:16px;
-  padding:20px;
-  text-decoration:none;
-  color:white;
-}
-
-.card-item:hover{
-  background:#1e293b;
-}
-
-.cta{
-  text-align:center;
-}
-
-.button{
-  display:inline-block;
-  margin-top:30px;
-  padding:16px 28px;
-  border-radius:999px;
-  background:#22c55e;
-  color:#052e16;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.features{
-  margin-top:20px;
-  color:#94a3b8;
-  font-size:14px;
-}
-
-.footer-space{
-  height:80px;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI File Renaming | Foldora</title>
+  <meta name="description" content="Automatically rename files into meaningful readable names. Follow practical setup, review, privacy, and troubleshooting guidance for Foldora.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://foldoraai.com/rename-files-automatically/">
+  <link rel="icon" href="/favicon.ico">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/"},{"@type":"WebPage","@id":"https://foldoraai.com/features/smart-file-renaming/#page","url":"https://foldoraai.com/features/smart-file-renaming/","name":"AI File Renaming","description":"Automatically rename files into meaningful readable names. Follow practical setup, review, privacy, and troubleshooting guidance for Foldora.","dateModified":"2026-06-14","inLanguage":"en","isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Features","item":"https://foldoraai.com/ai-file-organizer/"},{"@type":"ListItem","position":3,"name":"AI File Renaming","item":"https://foldoraai.com/features/smart-file-renaming/"}]}]}</script>
+  <style>
+    :root{color-scheme:dark;--bg:#020817;--card:#0f172a;--line:#243244;--text:#e2e8f0;--muted:#a8b3c5;--green:#22c55e}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}
+    a{color:#86efac}
+    .container{width:min(100% - 40px,980px);margin-inline:auto}
+    header{border-bottom:1px solid var(--line);background:rgba(2,8,23,.96)}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:24px}
+    nav .links{display:flex;gap:20px;flex-wrap:wrap}
+    nav a{text-decoration:none;color:var(--text)}
+    .brand{font-weight:800}
+    .hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+    .eyebrow{color:#86efac;font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    h1{max-width:850px;margin:12px 0 20px;color:white;font-size:clamp(2.5rem,7vw,4.5rem);line-height:1.05;letter-spacing:-.04em}
+    h2{margin:0 0 18px;color:white;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2}
+    h3{color:white;line-height:1.3}
+    .lede{max-width:760px;color:var(--muted);font-size:1.2rem}
+    .breadcrumbs{padding-top:28px;color:var(--muted);font-size:.9rem}
+    .breadcrumbs a{color:var(--muted)}
+    main{padding:60px 0 90px}
+    section{margin-bottom:64px}
+    .answer,.card,.cta{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:28px}
+    .answer{border-left:4px solid var(--green)}
+    .answer p{font-size:1.1rem;margin:0}
+    .updated{margin-top:16px;color:#7f8ba0;font-size:.85rem}
+    ol{padding-left:24px}
+    li{margin-bottom:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .card p{color:var(--muted)}
+    .label{margin-bottom:4px;color:#7f8ba0;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    table{width:100%;border-collapse:collapse;border:1px solid var(--line);background:var(--card)}
+    th,td{padding:16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+    th{color:white}
+    td{color:var(--muted)}
+    .faq{padding:22px 0;border-bottom:1px solid var(--line)}
+    .faq h3{margin:0 0 8px}
+    .faq p{margin:0;color:var(--muted)}
+    .related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .related a{display:block;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:white}
+    .cta{text-align:center}
+    .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}
+    footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
+    @media(max-width:700px){.grid,.related{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
 </head>
-
 <body>
-
-<div class="container">
-
-  <div class="hero">
-
-    <div class="badge">
-      AI File Organization
-    </div>
-
-    <h1>AI File Renaming</h1>
-
-    <p class="subtitle">
-      Automatically rename files into meaningful readable names.
-    </p>
-
-  </div>
-
-  <div class="article">
-
-    
-      <div class="section">
-        <h2>Messy filenames create confusion</h2>
-        <p><br>Files like IMG_4829.png become impossible to identify later.<br>        </p>
-      </div>
-    
-      <div class="section">
-        <h2>Foldora generates meaningful filenames</h2>
-        <p><br>Foldora automatically generates cleaner descriptive filenames using local AI.<br>        </p>
-      </div>
-    
-
-    <div class="card">
-
-      <h2>Related Resources</h2>
-
-      <div class="card-grid">
-
-        <a class="card-item" href="/features/offline-processing/">
-          <h3>Offline AI File Organization</h3>
-          <p>Learn how Foldora processes files locally.</p>
-        </a>
-
-        <a class="card-item" href="/features/downloads-cleanup/">
-          <h3>Automatic Downloads Cleanup</h3>
-          <p>Clean and structure messy downloads folders.</p>
-        </a>
-
-        <a class="card-item" href="/alternatives/hazel/">
-          <h3>Foldora vs Hazel</h3>
-          <p>Compare Foldora with Hazel.</p>
-        </a>
-
-        <a class="card-item" href="/category/downloads/">
-          <h3>Downloads Folder Guides</h3>
-          <p>Explore organization workflows.</p>
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="card cta">
-
-      <h2>Organize your files automatically</h2>
-
-      <p>
-        Foldora uses local AI to clean messy folders in seconds.
-      </p>
-
-      <a
-        class="button"
-        href="https://foldora.gumroad.com/l/foldora"
-      >
-        Download Foldora
-      </a>
-
-      <div class="features">
-        ✓ 100% offline • ✓ No subscription • ✓ Local AI processing
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <h2>Related Articles</h2>
-
-      <div class="card-grid">
-
-        <a class="card-item" href="/blog/clean-desktop-clutter/">
-          Clean Desktop Clutter
-        </a>
-
-        <a class="card-item" href="/blog/ai-file-organizer-for-windows/">
-          AI File Organizer For Windows
-        </a>
-
-        <a class="card-item" href="/blog/organize-pdfs-automatically/">
-          Organize PDFs Automatically
-        </a>
-
-        <a class="card-item" href="/blog/offline-ai-file-organizer/">
-          Offline AI File Organizer
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="footer-space"></div>
-
+  <header><nav class="container"><a class="brand" href="/">Foldora AI</a><a href="/ai-file-organizer/">Product</a><a href="/docs/privacy/">Privacy</a></nav></header>
+  <div class="container breadcrumbs"><a href="/">Home</a> / <span>AI File Renaming</span></div>
+  <section class="hero"><div class="container"><div class="eyebrow">feature</div><h1>AI File Renaming</h1><p class="lede">Automatically rename files into meaningful readable names.</p></div></section>
+  <main class="container">
+    <section class="answer"><h2>Direct answer</h2><p>Automatically rename files into meaningful readable names. Foldora keeps the organization workflow local and lets you review changes before applying them.</p></section>
+    <section><h2>What to know</h2><h3>Messy filenames create confusion</h3><p>Files like IMG_4829.png become impossible to identify later.</p><h3>Foldora generates meaningful filenames</h3><p>Foldora automatically generates cleaner descriptive filenames using local AI.</p></section>
+    <section><h2>Step-by-step</h2><ol><li>Files like IMG_4829.png become impossible to identify later.</li><li>Foldora automatically generates cleaner descriptive filenames using local AI.</li><li>Review the proposed result before applying changes to important files.</li></ol></section>
+    <section><h2>Example</h2><div class="card"><p>Start with a small representative folder, confirm that the resulting names and locations match your workflow, and only then process a larger collection.</p></div></section>
+    <section><h2>Frequently asked questions</h2><article class="faq"><h3>What does ai file renaming mean in Foldora?</h3><p>Automatically rename files into meaningful readable names.</p></article><article class="faq"><h3>Can I review the result before applying changes?</h3><p>Yes. Foldora is designed to show proposed organization and naming changes for review.</p></article><article class="faq"><h3>Does this workflow require cloud file uploads?</h3><p>No. Foldora performs its file organization workflow locally.</p></article></section>
+    <section><h2>Related resources</h2><div class="related"><a href="/ai-file-organizer/">AI File Organizer</a><a href="/organize-files-windows/">Organize Files on Windows</a><a href="/features/offline-processing/">Offline Processing</a><a href="/docs/privacy/">Foldora Privacy</a></div></section>
+  </main>
+  <footer><div class="container">Foldora AI</div></footer>
 </body>
 </html>

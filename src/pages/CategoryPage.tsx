@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 
 import { categories } from "@/content/categories";
-import { blogPosts } from "@/content/blog";
+import { seoPages } from "@/content/seoPages";
 
 const CategoryPage = () => {
   const { slug } = useParams();
@@ -33,8 +33,9 @@ const CategoryPage = () => {
   return (
     <>
       <SeoHead
-        title={category.title}
+        title={`${category.title} | Foldora`}
         description={category.description}
+        canonical={`https://foldoraai.com/category/${slug}/`}
       />
 
       <Navbar />
@@ -64,26 +65,27 @@ const CategoryPage = () => {
 
             <div className="grid gap-6 md:grid-cols-2">
 
-              {category.posts.map((slug) => {
-                const post =
-                  blogPosts[slug as keyof typeof blogPosts];
-
-                return (
+              {seoPages
+                .filter((page) => {
+                  if (slug === "productivity") return page.topic === "workflows";
+                  if (slug === "downloads") return page.topic === "downloads";
+                  return page.topic === slug;
+                })
+                .map((post) => (
                   <a
-                    key={slug}
-                    href={`/blog/${slug}`}
+                    key={post.route}
+                    href={`/${post.route}/`}
                     className="rounded-2xl border border-border bg-card p-8 transition-colors hover:border-primary/40"
                   >
                     <h2 className="text-2xl font-bold">
-                      {post.title}
+                      {post.h1}
                     </h2>
 
                     <p className="mt-4 text-muted-foreground">
                       {post.description}
                     </p>
                   </a>
-                );
-              })}
+                ))}
 
             </div>
 

@@ -1,134 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
-
   <url>
     <loc>https://foldoraai.com/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
-  <!-- Blog -->
-
   <url>
-    <loc>https://foldoraai.com/blog/organize-downloads-folder-automatically</loc>
+    <loc>https://foldoraai.com/ai-file-organizer/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/organize-pdfs-automatically</loc>
+    <loc>https://foldoraai.com/best-file-organizer-windows/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/clean-desktop-clutter</loc>
+    <loc>https://foldoraai.com/clean-downloads-folder/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/organize-screenshots-automatically</loc>
+    <loc>https://foldoraai.com/organize-files-windows/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/rename-files-automatically</loc>
+    <loc>https://foldoraai.com/organize-files-automatically/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/ai-file-organizer-for-windows</loc>
+    <loc>https://foldoraai.com/rename-files-automatically/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/offline-ai-file-organizer</loc>
+    <loc>https://foldoraai.com/blog/organize-pdfs-automatically/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/organize-work-files</loc>
+    <loc>https://foldoraai.com/blog/organize-screenshots-automatically/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/organize-research-documents</loc>
+    <loc>https://foldoraai.com/blog/organize-research-documents/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/organize-invoices-automatically</loc>
+    <loc>https://foldoraai.com/blog/organize-invoices-automatically/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/desktop-file-management</loc>
+    <loc>https://foldoraai.com/blog/organize-downloads-folder-automatically/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/blog/digital-file-minimalism</loc>
+    <loc>https://foldoraai.com/blog/clean-desktop-clutter/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
-  <!-- Categories -->
-
   <url>
-    <loc>https://foldoraai.com/category/downloads</loc>
+    <loc>https://foldoraai.com/blog/desktop-file-management/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/category/productivity</loc>
+    <loc>https://foldoraai.com/blog/offline-ai-file-organizer/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/category/windows</loc>
+    <loc>https://foldoraai.com/blog/digital-file-minimalism/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/category/privacy</loc>
+    <loc>https://foldoraai.com/use-cases/students/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
-  <!-- Features -->
-
   <url>
-    <loc>https://foldoraai.com/features/offline-processing</loc>
+    <loc>https://foldoraai.com/use-cases/freelancers/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/features/smart-file-renaming</loc>
+    <loc>https://foldoraai.com/use-cases/researchers/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/features/downloads-cleanup</loc>
+    <loc>https://foldoraai.com/use-cases/accountants/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
-  <!-- Alternatives -->
-
   <url>
-    <loc>https://foldoraai.com/alternatives/hazel</loc>
+    <loc>https://foldoraai.com/alternatives/hazel/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/alternatives/file-juggler</loc>
+    <loc>https://foldoraai.com/alternatives/file-juggler/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
-  <!-- Docs -->
-
   <url>
-    <loc>https://foldoraai.com/docs/install</loc>
+    <loc>https://foldoraai.com/alternatives/power-automate/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/docs/privacy</loc>
+    <loc>https://foldoraai.com/alternatives/manual-organization/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/docs/troubleshooting</loc>
+    <loc>https://foldoraai.com/docs/install/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/docs/how-it-works</loc>
+    <loc>https://foldoraai.com/docs/privacy/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/docs/supported-file-types</loc>
+    <loc>https://foldoraai.com/docs/troubleshooting/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
-  <!-- Use Cases -->
-
   <url>
-    <loc>https://foldoraai.com/use-cases/students</loc>
+    <loc>https://foldoraai.com/docs/how-it-works/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
   <url>
-    <loc>https://foldoraai.com/use-cases/freelancers</loc>
+    <loc>https://foldoraai.com/docs/supported-file-types/</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
-
+  <url>
+    <loc>https://foldoraai.com/category/downloads/</loc>
+    <lastmod>2026-06-14</lastmod>
+  </url>
+  <url>
+    <loc>https://foldoraai.com/category/productivity/</loc>
+    <lastmod>2026-06-14</lastmod>
+  </url>
+  <url>
+    <loc>https://foldoraai.com/category/windows/</loc>
+    <lastmod>2026-06-14</lastmod>
+  </url>
+  <url>
+    <loc>https://foldoraai.com/category/privacy/</loc>
+    <lastmod>2026-06-14</lastmod>
+  </url>
 </urlset>

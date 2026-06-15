@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsx scripts/generate-static-pages.ts && vite build",
+    "build": "tsx scripts/generate-static-pages.ts && tsx scripts/audit-static-pages.ts && vite build",
+    "seo:check": "tsx scripts/generate-static-pages.ts && tsx scripts/audit-static-pages.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "deploy": "npm run build && cp -r dist/* docs/",
+    "deploy": "npm run build && shx cp -r dist/* docs/",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
