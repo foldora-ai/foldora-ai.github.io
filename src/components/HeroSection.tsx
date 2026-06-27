@@ -1,17 +1,42 @@
 import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, Download, Eye, ShieldCheck, WifiOff } from "lucide-react";
+
 import InteractiveDemo from "./InteractiveDemo";
+import { checkoutUrl, product } from "@/config/product";
+import { trackEvent } from "@/lib/analytics";
+
+const trustItems = [
+  { icon: WifiOff, label: "Runs locally" },
+  { icon: Eye, label: "Preview first" },
+  { icon: ShieldCheck, label: "No cloud upload" },
+  { icon: CheckCircle2, label: "One-time purchase" },
+];
 
 const HeroSection = () => {
+  const checkout = checkoutUrl("homepage", "hero-primary");
+
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
-      <div className="container relative text-center">
+    <section className="relative overflow-hidden border-b border-border/60 pt-28 md:pt-36">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage: "linear-gradient(to bottom, black, transparent 72%)",
+        }}
+      />
+
+      <div className="container relative pb-16 md:pb-24">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="mx-auto max-w-4xl text-center"
         >
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-muted-foreground">
-            AI File Organizer
+          <div className="mx-auto inline-flex items-center gap-2 rounded-md border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-sm font-medium text-emerald-200">
+            <span className="h-2 w-2 rounded-full bg-emerald-300" />
+            Local AI file organizer for Windows and macOS
           </div>
 
           <h1 className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-7xl">
@@ -56,21 +81,30 @@ const HeroSection = () => {
             <div className="mt-3 text-sm text-white/60">
               Secure checkout - PayPal accepted - One-time purchase
             </div>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            {product.price.display} one-time purchase. Windows 10/11 and macOS Intel or Apple Silicon.
+          </p>
 
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-              <span>100% offline (your files never leave your computer)</span>
-              <span>Preview before applying changes</span>
-              <span>CPU only (no GPU required)</span>
-              <span>One-time purchase (no subscription)</span>
-            </div>
+          <div className="mx-auto mt-7 grid max-w-3xl grid-cols-2 gap-2 text-left sm:grid-cols-4">
+            {trustItems.map((item) => (
+              <div
+                key={item.label}
+                className="flex min-h-11 items-center gap-2 rounded-md border border-border/70 bg-background/70 px-3 text-sm text-secondary-foreground backdrop-blur"
+              >
+                <item.icon className="h-4 w-4 shrink-0 text-primary" />
+                <span className="truncate">{item.label}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          id="demo"
+          initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 md:mt-24"
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="mx-auto mt-12 max-w-6xl md:mt-16"
         >
           <InteractiveDemo />
         </motion.div>
