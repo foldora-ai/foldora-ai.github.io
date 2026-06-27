@@ -161,7 +161,7 @@ export const seoPages: SeoPage[] = [
     steps: [
       "List the folders and file types that create the most repeated work.",
       "Decide whether you prefer automatic suggestions or explicit if-then rules.",
-      "Check local-processing, preview, rollback, and platform requirements.",
+      "Check local-processing, preview, backup, and platform requirements.",
       "Test one representative folder before applying a tool to a large archive.",
     ],
     examples: [
@@ -382,6 +382,89 @@ export const seoPages: SeoPage[] = [
       "best-file-organizer-windows",
       "clean-downloads-folder",
       "blog/desktop-file-management",
+    ],
+  },
+  {
+    route: "organize-files-mac",
+    kind: "landing",
+    topic: "workflows",
+    title: "File Organizer for macOS: Clean Folders with Local AI",
+    h1: "File Organizer for macOS",
+    description:
+      "Organize Downloads, Desktop, Documents, screenshots, PDFs, and work folders on macOS with local AI suggestions and a preview before changes.",
+    eyebrow: "macOS file organization",
+    updatedAt,
+    directAnswer:
+      "A macOS file organizer should help clean common inbox folders such as Downloads, Desktop, Documents, screenshots, PDFs, and work folders without hiding what will change. Foldora supports macOS and can propose folders and clearer filenames locally, then lets you review the suggested structure before applying approved moves or renames.",
+    problemTitle: "macOS folders become inboxes for every app",
+    problem: [
+      "Browsers, Messages, Mail, design tools, scanners, and collaboration apps can all leave files in Downloads or Desktop. The result is a mixed folder where screenshots, invoices, exported PDFs, ZIP files, and active work sit together.",
+      "Finder search helps when a filename is clear, but camera names, scanned document names, and repeated final versions are hard to understand later. Useful organization needs both a destination folder and a filename that still makes sense outside the original folder.",
+    ],
+    steps: [
+      "Choose a focused macOS folder such as Downloads, Desktop, Documents, or a project folder.",
+      "Let Foldora analyze filenames and supported content locally on the Mac.",
+      "Review proposed folders and filenames before any move or rename is applied.",
+      "Apply only the changes that match how you expect to find those files later.",
+    ],
+    examples: [
+      {
+        title: "Mixed Downloads on a Mac",
+        before: "Screenshot 2026-06-01.png, invoice_1042.pdf, archive.zip, notes.docx",
+        after:
+          "Screenshots/Project References, Finance/Invoices, Archives, Documents/Notes",
+      },
+      {
+        title: "Desktop cleanup",
+        before: "Screen recordings, exported PDFs, active drafts, and temporary images",
+        after:
+          "Media/Captures, Documents/Exports, Work/Active Drafts, Review Needed",
+      },
+    ],
+    comparison: {
+      title: "Foldora, Finder, or manual folders?",
+      summary:
+        "Use the method that matches the amount of context and review you need.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Local AI suggestions for mixed macOS folders",
+          tradeoff: "Suggestions should be reviewed before applying",
+        },
+        {
+          option: "Finder search and tags",
+          bestFor: "Finding known files and adding lightweight labels",
+          tradeoff: "Does not automatically create a durable folder structure",
+        },
+        {
+          option: "Manual sorting",
+          bestFor: "Small high-value folders",
+          tradeoff: "Repeated work grows as Downloads and Desktop fill again",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Does Foldora support macOS?",
+        answer:
+          "Yes. Foldora supports macOS as well as Windows 10 and Windows 11.",
+      },
+      {
+        question: "Does Foldora upload my Mac files?",
+        answer:
+          "Foldora's organization workflow is designed around local analysis, so files do not need to be uploaded to a cloud organizer.",
+      },
+      {
+        question: "Can I preview macOS file changes?",
+        answer:
+          "Yes. Review proposed folders and filenames before applying moves or renames to important Mac folders.",
+      },
+    ],
+    related: [
+      "ai-file-organizer",
+      "organize-files-automatically",
+      "rename-files-automatically",
+      "blog/offline-ai-file-organizer",
     ],
   },
   {
@@ -1606,7 +1689,7 @@ export const seoPages: SeoPage[] = [
     title: "Foldora vs Hazel: AI Suggestions or macOS Rules",
     h1: "Foldora vs Hazel",
     description:
-      "Compare Foldora and Hazel by platform, setup model, local processing, renaming, and automation depth. Foldora is Windows-first; Hazel is built for macOS.",
+      "Compare Foldora and Hazel by platform, setup model, local processing, renaming, and automation depth. Foldora is for Windows; Hazel is built for macOS.",
     eyebrow: "File organizer comparison",
     updatedAt,
     directAnswer:
@@ -1614,7 +1697,7 @@ export const seoPages: SeoPage[] = [
     problemTitle: "This comparison is primarily about platform and control model",
     problem: [
       "Hazel watches chosen macOS folders and performs user-defined actions based on attributes and patterns. It is well suited to users who want precise, persistent automation rules.",
-      "Foldora is Windows-first and focuses on context-aware organization and renaming suggestions that run locally. It is intended to reduce the amount of rule authoring for mixed folders.",
+      "Foldora is a Windows app focused on context-aware organization and renaming suggestions that run locally. It is intended to reduce the amount of rule authoring for mixed folders.",
     ],
     steps: [
       "Choose the platform you need to support.",
@@ -1642,7 +1725,7 @@ export const seoPages: SeoPage[] = [
         {
           option: "Foldora",
           bestFor: "Windows users wanting local AI suggestions",
-          tradeoff: "Less rule and macOS integration depth",
+          tradeoff: "No verified macOS support in this repository",
         },
         {
           option: "Hazel",

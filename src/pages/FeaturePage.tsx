@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 
 import { features } from "@/content/features";
+import { absoluteUrl, checkoutUrl } from "@/config/product";
+import { trackEvent } from "@/lib/analytics";
 
 const FeaturePage = () => {
   const { slug } = useParams();
@@ -32,8 +34,10 @@ const FeaturePage = () => {
   return (
     <>
       <SeoHead
-        title={post.title}
+        title={`${post.title} | Foldora`}
         description={post.description}
+        canonical={absoluteUrl(`features/${slug}`)}
+        robots="noindex,follow"
       />
 
       <Navbar />
@@ -86,16 +90,22 @@ const FeaturePage = () => {
               </h2>
 
               <p className="mt-4 text-muted-foreground">
-                Foldora uses local AI to clean messy folders in seconds.
+                Foldora uses local AI to organize messy folders with a preview step.
               </p>
 
               <a
-                href="https://foldora.gumroad.com/l/foldora"
+                href={checkoutUrl("feature-page", `features-${slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("checkout_link_clicked", {
+                    provider: "gumroad",
+                    location: `features/${slug}`,
+                  })
+                }
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
               >
-                Download Foldora
+                Download for Windows
               </a>
 
             </div>

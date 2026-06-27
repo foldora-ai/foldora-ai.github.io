@@ -10,8 +10,9 @@ import {
   type SeoFaq,
   type SeoPage,
 } from "../src/content/seoPages";
+import { product, site } from "../src/config/product";
 
-const SITE_URL = "https://foldoraai.com";
+const SITE_URL = site.url;
 const OUTPUT_DIR = path.resolve("public");
 const UPDATED_AT = "2026-06-14";
 
@@ -55,7 +56,6 @@ const redirects: Record<string, string> = {
   "blog/ai-file-organizer-for-windows": "best-file-organizer-windows",
   "blog/organize-work-files": "blog/desktop-file-management",
   "alternatives/dropit": "best-file-organizer-windows",
-  "organize-files-mac": "organize-files-automatically",
 };
 
 const allKnownRoutes = new Set([
@@ -84,6 +84,15 @@ function stripIndent(value: string): string {
 
 function absoluteUrl(route = ""): string {
   return `${SITE_URL}/${route ? `${route}/` : ""}`;
+}
+
+function trackedCheckout(campaign: string, content: string): string {
+  const url = new URL(product.checkout.cardUrl);
+  url.searchParams.set("utm_source", "foldoraai.com");
+  url.searchParams.set("utm_medium", "organic");
+  url.searchParams.set("utm_campaign", campaign);
+  url.searchParams.set("utm_content", content);
+  return url.toString().replaceAll("&", "&amp;");
 }
 
 function writeRoute(route: string, html: string): void {
@@ -300,6 +309,38 @@ function schemaForPage(page: SeoPage): object {
           item: item.url,
         })),
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: page.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+      ...(page.route === "ai-file-organizer"
+        ? [
+            {
+              "@type": "SoftwareApplication",
+              name: product.productName,
+              url: `${SITE_URL}/`,
+              applicationCategory: "FileManagementApplication",
+              operatingSystem: product.platforms.supported.join(", "),
+              description:
+                "Foldora organizes and renames messy folders with local AI and a preview step before changes are applied.",
+              featureList: product.claims,
+              offers: {
+                "@type": "Offer",
+                price: product.price.amount.toFixed(2),
+                priceCurrency: product.price.currency,
+                url: product.checkout.cardUrl,
+              },
+              publisher: { "@id": `${SITE_URL}/#organization` },
+            },
+          ]
+        : []),
     ],
   };
 }
@@ -314,6 +355,13 @@ function basicSchema(route: string, title: string, description: string): object 
         "@id": `${SITE_URL}/#organization`,
         name: "Foldora AI",
         url: `${SITE_URL}/`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "Foldora AI",
+        url: `${SITE_URL}/`,
+        publisher: { "@id": `${SITE_URL}/#organization` },
       },
       {
         "@type": "WebPage",
@@ -340,12 +388,12 @@ function basicSchema(route: string, title: string, description: string): object 
 
 function analyticsHead(): string {
   return `
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${site.analyticsMeasurementId}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-HZ5J8QN6FF');
+      gtag('config', '${site.analyticsMeasurementId}', {'anonymize_ip': true});
     </script>`;
 }
 
@@ -418,7 +466,7 @@ function renderMainPage(page: SeoPage): string {
   const canonical = absoluteUrl(page.route);
   const breadcrumbs = breadcrumbItems(page.route, page.h1);
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
-  const campaign = encodeURIComponent(page.route.replaceAll("/", "-"));
+  const campaign = page.route.replaceAll("/", "-");
 
   return `<!doctype html>
 <html lang="en">
@@ -430,6 +478,7 @@ function renderMainPage(page: SeoPage): string {
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="${page.kind === "landing" ? "website" : "article"}">
   <meta property="og:title" content="${escapeHtml(page.title)}">
   <meta property="og:description" content="${escapeHtml(page.description)}">
@@ -452,7 +501,7 @@ ${analyticsHead()}
         <a href="/best-file-organizer-windows/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="https://foldora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-header&amp;utm_content=${campaign}">Download</a>
+      <a href="${trackedCheckout("seo-header", campaign)}">Download for Windows</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -538,10 +587,10 @@ ${analyticsHead()}
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="https://foldora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-page&amp;utm_content=${campaign}">Download Foldora</a>
+      <a class="button" href="${trackedCheckout("seo-page", campaign)}">Download for Windows</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI · Local, privacy-focused file organization</div></footer>
+  <footer><div class="container">Foldora AI - Local, privacy-focused file organization</div></footer>
 </body>
 </html>`;
 }
@@ -594,9 +643,22 @@ function renderSupportPage(page: SupportPage): string {
     : "noindex,follow";
   const faqs = supportFaqs(page);
   const steps = page.sections.map((section) => stripIndent(section.content));
-  const schema = JSON.stringify(
-    basicSchema(page.route, page.title, metaDescription),
-  ).replaceAll("<", "\\u003c");
+  const supportSchema = basicSchema(page.route, page.title, metaDescription) as {
+    "@context": string;
+    "@graph": object[];
+  };
+  supportSchema["@graph"].push({
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  });
+  const schema = JSON.stringify(supportSchema).replaceAll("<", "\\u003c");
 
   return `<!doctype html>
 <html lang="en">
@@ -608,7 +670,17 @@ function renderSupportPage(page: SupportPage): string {
   <meta name="robots" content="${robots}">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(page.title)}">
+  <meta property="og:description" content="${escapeHtml(metaDescription)}">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:site_name" content="Foldora AI">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="${escapeHtml(page.title)}">
+  <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
   <script type="application/ld+json">${schema}</script>
+${analyticsHead()}
   <style>${pageStyles()}</style>
 </head>
 <body>
@@ -654,7 +726,17 @@ function renderCategoryPage(slug: string): string {
   <meta name="robots" content="index,follow,max-snippet:-1">
   <link rel="canonical" href="${absoluteUrl(route)}">
   <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(category.title)}">
+  <meta property="og:description" content="${escapeHtml(metaDescription)}">
+  <meta property="og:url" content="${absoluteUrl(route)}">
+  <meta property="og:site_name" content="Foldora AI">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="${escapeHtml(category.title)}">
+  <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
   <script type="application/ld+json">${schema}</script>
+${analyticsHead()}
   <style>${pageStyles()}</style>
 </head>
 <body>
@@ -749,7 +831,7 @@ function writeLlmsTxt(): void {
 
   const content = `# Foldora AI
 
-> Foldora is a Windows-first AI file organizer that categorizes and renames files locally. Users can review proposed changes before applying them.
+> Foldora is a ${product.platforms.positioning} that categorizes and renames files locally. Users can review proposed changes before applying them. Verified supported systems: ${product.platforms.supported.join(", ")}.
 
 ## Core pages
 

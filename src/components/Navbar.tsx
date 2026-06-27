@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
+
+import { checkoutUrl } from "@/config/product";
+import { trackEvent } from "@/lib/analytics";
 
 const Navbar = () => {
+  const checkout = checkoutUrl("site-nav", "header-download");
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -24,15 +30,28 @@ const Navbar = () => {
           <a href="/#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Features</a>
           <a href="/#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">How It Works</a>
           <a href="/#pricing" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Pricing</a>
+          <a href="/#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a>
         </div>
+        <a href="/#pricing" className="rounded-lg border border-border p-2 text-muted-foreground md:hidden" aria-label="Open pricing and FAQ">
+          <Menu className="h-5 w-5" />
+        </a>
         <a
-          // href="#pricing"
-          href="https://foldora.gumroad.com/l/foldora"
+          href={checkout}
           target="_blank"
-          rel="noopener noreferrer"          
-          className="rounded-full bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackEvent("platform_download_cta_clicked", {
+              platform: "windows",
+              location: "header",
+            });
+            trackEvent("checkout_link_clicked", {
+              provider: "gumroad",
+              location: "header",
+            });
+          }}
+          className="hidden rounded-lg bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background sm:inline-flex"
         >
-          Download
+          Download Now
         </a>
       </div>
     </motion.nav>

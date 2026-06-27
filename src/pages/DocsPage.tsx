@@ -5,11 +5,22 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 
 import { docs } from "@/content/docs";
+import { absoluteUrl, checkoutUrl } from "@/config/product";
+import { trackEvent } from "@/lib/analytics";
+import { breadcrumbSchema } from "@/lib/seo";
+import { useEffect } from "react";
 
 const DocsPage = () => {
   const { slug } = useParams();
 
   const post = docs[slug as keyof typeof docs];
+
+  useEffect(() => {
+    if (!post || !slug) return;
+    trackEvent("documentation_page_viewed", {
+      page: `docs/${slug}`,
+    });
+  }, [post, slug]);
 
   if (!post) {
     return (
@@ -32,8 +43,19 @@ const DocsPage = () => {
   return (
     <>
       <SeoHead
-        title={post.title}
+        title={`${post.title} | Foldora`}
         description={post.description}
+        canonical={absoluteUrl(`docs/${slug}`)}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            breadcrumbSchema([
+              { name: "Home" },
+              { name: "Documentation", route: "docs/how-it-works" },
+              { name: post.title, route: `docs/${slug}` },
+            ]),
+          ],
+        }}
       />
 
       <Navbar />
@@ -90,12 +112,18 @@ const DocsPage = () => {
               </p>
 
               <a
-                href="https://foldora.gumroad.com/l/foldora"
+                href={checkoutUrl("docs", `docs-${slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("checkout_link_clicked", {
+                    provider: "gumroad",
+                    location: `docs/${slug}`,
+                  });
+                }}
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
               >
-                Download Foldora
+                Download for Windows
               </a>
 
             </div>

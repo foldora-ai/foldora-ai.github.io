@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { FolderX, Clock, FileSearch } from "lucide-react";
 
 const problems = [
-  { icon: FolderX, title: "Messy Downloads", desc: "Hundreds of random files piling up with no structure." },
-  { icon: FileSearch, title: "Unorganized Documents", desc: "Important files buried in chaos, impossible to find." },
-  { icon: Clock, title: "Wasted Time", desc: "Hours spent manually sorting and renaming files." },
+  { icon: FolderX, title: "Mixed Downloads", desc: "Receipts, screenshots, PDFs, installers, and work files land in one place." },
+  { icon: FileSearch, title: "Unclear filenames", desc: "Names like scan0001.pdf and final-final.docx stop making sense later." },
+  { icon: Clock, title: "Repeated cleanup", desc: "Manual sorting takes attention every time a folder gets messy again." },
 ];
 
 const ProblemSection = () => {
@@ -19,10 +19,10 @@ const ProblemSection = () => {
           className="text-center"
         >
           <h2 className="text-3xl font-bold text-foreground md:text-5xl">
-            Your files are a <span className="text-gradient">mess.</span>
+            Your folder is not broken. It is doing too many jobs.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground md:text-lg">
-            We've all been there. Foldora fixes it automatically.
+            Foldora helps turn a file inbox into a reviewed structure you can browse and search.
           </p>
         </motion.div>
 

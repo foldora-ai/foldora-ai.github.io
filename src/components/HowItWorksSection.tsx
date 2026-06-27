@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { FolderOpen, Cpu, Sparkles } from "lucide-react";
+import { Cpu, Eye, FolderOpen, Sparkles } from "lucide-react";
 
 const steps = [
   { icon: FolderOpen, step: "01", title: "Select a Folder", desc: "Choose any folder on your computer you want organized." },
-  { icon: Cpu, step: "02", title: "AI Analyzes Files", desc: "Foldora scans file types, names, and contents using local AI." },
-  { icon: Sparkles, step: "03", title: "Auto-Organized", desc: "Your files are sorted into clean, structured folders instantly." },
+  { icon: Cpu, step: "02", title: "Analyze Locally", desc: "Foldora reviews filenames and supported content on your device." },
+  { icon: Eye, step: "03", title: "Preview Suggestions", desc: "Inspect proposed folders and filenames before anything changes." },
+  { icon: Sparkles, step: "04", title: "Apply Approved Changes", desc: "Move and rename only after the structure fits how you search for files." },
 ];
 
 const HowItWorksSection = () => {
@@ -21,11 +22,11 @@ const HowItWorksSection = () => {
             How it <span className="text-gradient">works</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground md:text-lg">
-            Three simple steps to a perfectly organized file system.
+            A controlled workflow for organizing files without handing them to a cloud organizer.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <motion.div
               key={s.step}

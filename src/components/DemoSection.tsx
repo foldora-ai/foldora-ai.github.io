@@ -1,89 +1,40 @@
-import { motion } from "framer-motion";
 import demoVideo from "../assets/foldora-demo.mp4";
 import demoImg from "../assets/foldora-demo.png";
 
 const DemoSection = () => {
   return (
-    <section className="section-padding">
+    <section id="demo" className="section-padding">
       <div className="container">
-
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-2xl text-center"
-        >
+        <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-foreground md:text-5xl">
-            From <span className="text-gradient">chaos</span> to clarity
+            See the review workflow before you buy
           </h2>
 
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Foldora analyzes your messy folders and proposes a clean structure instantly.
+            Foldora is not meant to hide file changes. Use the demo area to understand the analyze, preview, and apply flow.
           </p>
-        </motion.div>
+        </div>
 
-
-        {/* GIF Demo */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto mt-16 max-w-5xl"
-        >
-
-          <p className="text-center text-xs text-primary/80 mb-3">
-            Real demo – no edits
-          </p>
-
-          <div className="overflow-hidden rounded-3xl border border-primary/20 bg-card shadow-2xl">
+        <div className="mx-auto mt-12 max-w-5xl">
+          <div className="overflow-hidden rounded-xl border border-primary/20 bg-card shadow-2xl">
             <video
-              autoPlay
+              controls
               muted
-              loop
               playsInline
-              preload="auto"
+              preload="metadata"
+              poster={demoImg}
               width="1200"
               height="700"
-              className="w-full pointer-events-none"
+              className="aspect-[12/7] w-full bg-background"
             >
               <source src={demoVideo} type="video/mp4" />
             </video>
           </div>
+        </div>
 
-        </motion.div>
-
-
-        {/* Caption */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mx-auto mt-4 max-w-xl text-center text-sm text-muted-foreground/90"
-        >
-          Messy folder → organized automatically in seconds.
-        </motion.p>
-
-
-        {/* Screenshot */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto mt-12 max-w-5xl"
-        >
-          <div className="overflow-hidden rounded-3xl border border-primary/10 bg-card shadow-xl">
-            <img
-              src={demoImg}
-              alt="Foldora interface preview"
-              className="w-full"
-              loading="lazy"
-            />
-          </div>
-        </motion.div>
-
+        <p className="mx-auto mt-4 max-w-xl text-center text-sm text-muted-foreground/90">
+          The important step is the preview: review proposed folders and filenames before applying changes to important files.
+        </p>
       </div>
     </section>
   );

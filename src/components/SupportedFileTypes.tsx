@@ -1,21 +1,6 @@
-const fileTypes = [
-  {
-    title: "Images",
-    types: ["PNG", "JPG", "JPEG", "GIF", "WEBP"],
-  },
-  {
-    title: "Documents",
-    types: ["PDF", "DOCX", "TXT"],
-  },
-  {
-    title: "Spreadsheets",
-    types: ["XLSX", "CSV"],
-  },
-  {
-    title: "Presentations",
-    types: ["PPT", "PPTX"],
-  },
-];
+import { product } from "@/config/product";
+
+const fileTypes = Object.entries(product.supportedFileTypes);
 
 const SupportedFileTypes = () => {
   return (
@@ -26,19 +11,19 @@ const SupportedFileTypes = () => {
           Supported File Types
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
 
-          {fileTypes.map((type, i) => (
+          {fileTypes.map(([title, types]) => (
             <div
-              key={i}
+              key={title}
               className="rounded-xl border border-border bg-card p-6 text-center"
             >
               <h3 className="font-semibold text-lg mb-3">
-                {type.title}
+                {title}
               </h3>
 
                 <div className="flex flex-wrap justify-center gap-2">
-                {type.types.map((t) => (
+                {types.map((t) => (
                     <span
                     key={t}
                     className="px-2 py-1 text-xs rounded-md bg-secondary text-muted-foreground"

@@ -1,17 +1,33 @@
 const articles = [
   {
-    title: "How To Organize Downloads Folder Automatically",
-    href: "/blog/organize-downloads-folder-automatically",
+    title: "AI file organizer",
+    href: "/ai-file-organizer/",
+    description: "When local AI organization is useful, where rules are better, and how previews reduce filing mistakes.",
   },
-
   {
-    title: "Best AI File Organizer For Windows",
-    href: "/blog/ai-file-organizer-for-windows",
+    title: "Clean Downloads automatically",
+    href: "/clean-downloads-folder/",
+    description: "A practical workflow for documents, screenshots, installers, invoices, and temporary files.",
   },
-
   {
-    title: "Foldora vs Hazel",
-    href: "/alternatives/hazel",
+    title: "Rename files automatically",
+    href: "/rename-files-automatically/",
+    description: "How to turn unclear downloaded names into names that make sense in search results.",
+  },
+  {
+    title: "Offline AI file organizer",
+    href: "/blog/offline-ai-file-organizer/",
+    description: "What local processing protects, what it does not, and what to verify before using any AI organizer.",
+  },
+  {
+    title: "Foldora vs File Juggler",
+    href: "/alternatives/file-juggler/",
+    description: "Compare local AI suggestions with detailed Windows file automation rules.",
+  },
+  {
+    title: "Install Foldora",
+    href: "/docs/install/",
+    description: "Installation expectations, first-folder guidance, and support links.",
   },
 ];
 
@@ -19,102 +35,30 @@ const ArticleSection = () => {
   return (
     <section className="border-t border-border py-24">
       <div className="container">
-
         <div className="mx-auto max-w-3xl text-center">
-
-          <h2 className="text-4xl font-bold md:text-5xl">
-            Popular File Organization Guides
+          <h2 className="text-3xl font-bold md:text-5xl">
+            Helpful file organization guides
           </h2>
 
-          <p className="mt-6 text-xl text-muted-foreground">
-            Learn how to organize downloads folders, PDFs, screenshots,
-            desktop clutter, and work files automatically using AI.
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Start with the page that matches your folder, file type, or buying question.
           </p>
-
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-          <a
-            href="/blog/organize-downloads-folder-automatically"
-            className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
-          >
-            <h3 className="text-2xl font-bold">
-              How To Organize Downloads Folder Automatically
-            </h3>
-
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Automatically clean and organize messy Downloads folders using local AI.
-            </p>
-          </a>
-
-          <a
-            href="/blog/ai-file-organizer-for-windows"
-            className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
-          >
-            <h3 className="text-2xl font-bold">
-              Best AI File Organizer For Windows
-            </h3>
-
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Discover AI-powered file organization workflows for Windows users.
-            </p>
-          </a>
-
-          <a
-            href="/alternatives/hazel"
-            className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
-          >
-            <h3 className="text-2xl font-bold">
-              Foldora vs Hazel
-            </h3>
-
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Compare Foldora and Hazel for automatic file organization workflows.
-            </p>
-          </a>
-
-          <a
-            href="/features/offline-processing"
-            className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
-          >
-            <h3 className="text-2xl font-bold">
-              Offline AI Processing
-            </h3>
-
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Learn how Foldora processes files locally without cloud uploads.
-            </p>
-          </a>
-
-          <a
-            href="/docs/install"
-            className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
-          >
-            <h3 className="text-2xl font-bold">
-              Foldora Installation Guide
-            </h3>
-
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Install Foldora and start organizing files automatically in minutes.
-            </p>
-          </a>
-
-          <a
-            href="/category/productivity"
-            className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
-          >
-            <h3 className="text-2xl font-bold">
-              Productivity File Organization
-            </h3>
-
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Improve productivity using structured AI-powered file organization.
-            </p>
-          </a>
-
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {articles.map((article) => (
+            <a
+              key={article.href}
+              href={article.href}
+              className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+            >
+              <h3 className="text-xl font-semibold">{article.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {article.description}
+              </p>
+            </a>
+          ))}
         </div>
-
       </div>
     </section>
   );

@@ -5,14 +5,11 @@ const HeroSection = () => {
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
       <div className="container relative text-center">
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-
-          {/* Badge */}
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-muted-foreground">
             AI File Organizer
           </div>
@@ -27,81 +24,48 @@ const HeroSection = () => {
             Foldora AI analyzes and sorts your files into clean, structured folders in seconds.
           </p>
 
-          {/* CTA */}
           <div className="mt-10 flex flex-col items-center gap-4">
-
-            {/* <a
-              href="https://foldora.gumroad.com/l/foldora"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
-            >
-              Download Foldora 
-            </a> */}
-
-            <div className="flex flex-col sm:flex-row gap-4">
-
-              {/* PRIMARY (Windows) */}
+            <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="https://foldora.gumroad.com/l/foldora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2 3l9-1v10H2V3zm11-1l9-1v11h-9V2zM2 13h9v10l-9-1V13zm11 0h9v11l-9-1V13z"/>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M2 3l9-1v10H2V3zm11-1l9-1v11h-9V2zM2 13h9v10l-9-1V13zm11 0h9v11l-9-1V13z" />
                 </svg>
                 Download for Windows
               </a>
 
-              {/* SECONDARY (macOS) */}
               <a
                 href="https://foldora.gumroad.com/l/foldora"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full 
-                          bg-gradient-to-r from-[#111] to-[#222] 
-                          px-8 py-4 text-lg font-semibold text-white 
-                          border border-white/10 
-                          hover:border-white/20 hover:bg-[#1a1a1a] 
-                          transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-[#111] to-[#222] px-8 py-4 text-lg font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1a1a1a]"
               >
-                🍎 Download for macOS
+                <span aria-hidden="true">🍎</span>
+                Download for macOS
               </a>
-
             </div>
 
-            {/* Compatibility */}
             <div className="mt-4 text-sm text-white/70">
-              Windows 10/11 | macOS Intel & Apple Silicon (M1/M2/M3)
+              Windows 10/11 | macOS Intel and Apple Silicon
             </div>
 
-            {/* Payment trust */}
             <div className="mt-3 text-sm text-white/60">
-              Secure checkout •{" "}
-              <a
-                href="#paypal"
-                className="text-white/80 hover:text-white transition-colors cursor-pointer"
-              >
-                PayPal accepted
-              </a>{" "}
-              • One-time purchase
+              Secure checkout - PayPal accepted - One-time purchase
             </div>
 
-
-            {/* Trust bullets */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-              <span>✓ 100% offline (your files never leave your PC)</span>
-              <span>✓ Preview before applying changes</span>
-              <span>✓ CPU only (no GPU required)</span>
-              <span>✓ One-time purchase (no subscription)</span>
+              <span>100% offline (your files never leave your computer)</span>
+              <span>Preview before applying changes</span>
+              <span>CPU only (no GPU required)</span>
+              <span>One-time purchase (no subscription)</span>
             </div>
-
           </div>
-
         </motion.div>
 
-        {/* Demo */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,7 +74,6 @@ const HeroSection = () => {
         >
           <InteractiveDemo />
         </motion.div>
-
       </div>
     </section>
   );

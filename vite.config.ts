@@ -16,6 +16,15 @@ export default defineConfig(({ mode }) => ({
   build: {
     minify: "esbuild",
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom", "react-router-dom", "react-helmet-async"],
+          animation: ["framer-motion"],
+          charts: ["recharts"],
+        },
+      },
+    },
   },
   
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),

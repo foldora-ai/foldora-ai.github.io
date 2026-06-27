@@ -1,6 +1,6 @@
 # Foldora AI
 
-> Foldora is a Windows-first AI file organizer that categorizes and renames files locally. Users can review proposed changes before applying them.
+> Foldora is a Windows and macOS desktop app that categorizes and renames files locally. Users can review proposed changes before applying them. Verified supported systems: Windows 10, Windows 11, macOS.
 
 ## Core pages
 
@@ -8,13 +8,14 @@
 - [Best File Organizer for Windows](https://foldoraai.com/best-file-organizer-windows/): Compare AI, rule-based, and manual file organization for Windows. See which approach fits Downloads cleanup, renaming, privacy, and large folders.
 - [How to Clean Your Downloads Folder Automatically](https://foldoraai.com/clean-downloads-folder/): Clean and organize a crowded Windows Downloads folder with a repeatable workflow for documents, installers, archives, images, and temporary files.
 - [How to Organize Files Automatically on Windows](https://foldoraai.com/organize-files-windows/): Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.
+- [File Organizer for macOS](https://foldoraai.com/organize-files-mac/): Organize Downloads, Desktop, Documents, screenshots, PDFs, and work folders on macOS with local AI suggestions and a preview before changes.
 - [Organize Files Automatically Without Losing Control](https://foldoraai.com/organize-files-automatically/): A safe workflow for categorizing, renaming, and archiving thousands of files with previews, small batches, and a structure built for retrieval.
 - [How to Rename Files Automatically](https://foldoraai.com/rename-files-automatically/): Automatically rename PDFs, invoices, screenshots, and work documents with readable patterns while keeping previews and local processing.
 - [File Organization for Students](https://foldoraai.com/use-cases/students/): Organize course readings, lecture slides, assignments, notes, and screenshots with a semester system that remains easy to archive.
 - [File Organization for Freelancers](https://foldoraai.com/use-cases/freelancers/): Organize briefs, contracts, invoices, source files, deliverables, and feedback with a repeatable client folder lifecycle.
 - [File Organization for Researchers](https://foldoraai.com/use-cases/researchers/): Organize literature, protocols, data, analysis, figures, manuscripts, and administrative records without replacing specialist research tools.
 - [File Organization for Accountants](https://foldoraai.com/use-cases/accountants/): Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.
-- [Foldora vs Hazel](https://foldoraai.com/alternatives/hazel/): Compare Foldora and Hazel by platform, setup model, local processing, renaming, and automation depth. Foldora is Windows-first; Hazel is built for macOS.
+- [Foldora vs Hazel](https://foldoraai.com/alternatives/hazel/): Compare Foldora and Hazel by platform, setup model, local processing, renaming, and automation depth. Foldora is for Windows; Hazel is built for macOS.
 - [Foldora vs File Juggler](https://foldoraai.com/alternatives/file-juggler/): Compare Foldora's local AI suggestions with File Juggler's Windows file automation rules for moving, renaming, deleting, and document-based workflows.
 - [Foldora vs Microsoft Power Automate](https://foldoraai.com/alternatives/power-automate/): Compare a focused local AI file organizer with Microsoft's broader workflow automation platform for desktop, cloud, and business processes.
 - [Automatic vs Manual File Organization](https://foldoraai.com/alternatives/manual-organization/): Compare automatic and manual file organization by setup time, review, control, scale, consistency, and the types of files each method handles best.

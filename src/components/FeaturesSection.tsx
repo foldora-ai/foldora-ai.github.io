@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Brain, Eye, Undo2, WifiOff, Zap, FileText } from "lucide-react";
+import { Brain, Eye, FileText, FolderTree, ShieldCheck, WifiOff } from "lucide-react";
 
 const features = [
-  { icon: Brain, title: "AI File Organization", desc: "Automatically categorizes files into meaningful folders." },
-  { icon: WifiOff, title: "Works Offline", desc: "All processing happens locally on your computer." },
-  { icon: Zap, title: "Fast Processing", desc: "Organize hundreds of files in seconds." },
-  { icon: Eye, title: "Preview Before Changes", desc: "See the folder structure before applying changes." },
-  { icon: Undo2, title: "Undo Anytime", desc: "Instantly revert if you want your original structure back." },
-  { icon: FileText, title: "Smart File Renaming", desc: "Automatically turn messy filenames like IMG_4829.png into clear, meaningful names." },
+  { icon: Brain, title: "Local AI suggestions", desc: "Analyze filenames and supported content on your device." },
+  { icon: FolderTree, title: "Folder organization", desc: "Group mixed files into folders that reflect purpose and context." },
+  { icon: FileText, title: "Smart file renaming", desc: "Turn unclear names like scan0001.pdf into names that are easier to understand." },
+  { icon: Eye, title: "Preview before changes", desc: "Review proposed folders and filenames before applying them." },
+  { icon: WifiOff, title: "Offline organization workflow", desc: "Files do not need to be uploaded to a cloud organizer." },
+  { icon: ShieldCheck, title: "Privacy-focused by design", desc: "Use Foldora on local folders such as Downloads, Desktop, Documents, invoices, and PDFs." },
 ];
 
 const FeaturesSection = () => {
@@ -21,10 +21,10 @@ const FeaturesSection = () => {
           className="text-center"
         >
           <h2 className="text-3xl font-bold text-foreground md:text-5xl">
-            Packed with <span className="text-gradient">features</span>
+            File organization features that keep you in control
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground md:text-lg">
-            Everything you need to keep your files perfectly organized.
+            Foldora focuses on practical cleanup work: organization, renaming, privacy, and review.
           </p>
         </motion.div>
 

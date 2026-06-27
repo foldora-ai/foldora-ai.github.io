@@ -1,4 +1,4 @@
-# Foldora — AI File Organizer for Windows & macOS
+# Foldora - AI File Organizer for Windows & macOS
 
 ![Foldora demo](https://github.com/foldora-ai/foldora-ai.github.io/blob/main/src/assets/foldora-demo.gif)
 
