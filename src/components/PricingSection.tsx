@@ -176,7 +176,7 @@ const PricingSection = () => {
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="text-lg font-semibold text-foreground">Support and purchase issues</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Need installation help or have a checkout issue? Contact Foldora support, or review the checkout provider purchase-support page.
+                Need installation help or have a checkout issue? Contact Foldora support.
               </p>
               <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -190,14 +190,6 @@ const PricingSection = () => {
                 >
                   <Mail className="h-4 w-4" />
                   Contact support
-                </a>
-                <a
-                  href={product.refundPolicy.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary/50"
-                >
-                  {product.refundPolicy.label}
                 </a>
               </div>
             </div>

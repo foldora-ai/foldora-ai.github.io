@@ -44,11 +44,6 @@ export const product = {
     Images: ["PNG", "JPG", "JPEG", "GIF", "WEBP"],
     Archives: ["ZIP"],
   },
-  refundPolicy: {
-    label: "Gumroad purchase support",
-    url: "https://gumroad.com/help/article/47-what-to-do-if-you-have-an-issue-with-a-purchase",
-    note: "No product-specific refund policy was found in the repository.",
-  },
 };
 
 export function checkoutUrl(source: string, content: string, medium = "organic"): string {
