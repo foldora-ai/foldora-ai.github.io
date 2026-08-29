@@ -52,7 +52,7 @@ const HeroSection = () => {
           <div className="mt-10 flex flex-col items-center gap-4">
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://foldora.gumroad.com/l/foldora"
+                href="https://computora.gumroad.com/l/foldora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
@@ -64,7 +64,7 @@ const HeroSection = () => {
               </a>
 
               <a
-                href="https://foldora.gumroad.com/l/foldora"
+                href="https://computora.gumroad.com/l/foldora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-[#111] to-[#222] px-8 py-4 text-lg font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1a1a1a]"

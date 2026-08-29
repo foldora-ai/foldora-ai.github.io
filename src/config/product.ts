@@ -15,7 +15,7 @@ export const product = {
     billing: "one-time purchase",
   },
   checkout: {
-    cardUrl: "https://foldora.gumroad.com/l/foldora",
+    cardUrl: "https://computora.gumroad.com/l/foldora",
     paypalUrl: "https://www.paypal.com/ncp/payment/YDYSDRF5NRCUW",
   },
   platforms: {
