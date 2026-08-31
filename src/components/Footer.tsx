@@ -12,6 +12,9 @@ const Footer = () => {
             <img src="/favicon.ico" alt="" className="h-8 w-8 object-contain" />
             Foldora AI
           </a>
+          <a href="https://computoraai.com/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            By Computora AI
+          </a>
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground" aria-label="Footer navigation">
             <a
