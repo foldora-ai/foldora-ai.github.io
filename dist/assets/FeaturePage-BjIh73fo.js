@@ -1,4 +1,4 @@
-import{j as e}from"./animation-BRsySF4U.js";import{N as s,F as a,S as n}from"./SeoHead-CaIjp8il.js";import{b as i,t as c,a as d}from"./index-Di7dKuo2.js";import{d as m}from"./react-DK_JcHL8.js";import"./charts-C_KtFLeW.js";const u={"offline-processing":{title:"Offline AI File Organization",description:"Foldora processes files locally without cloud uploads.",sections:[{title:"Privacy-first architecture",content:`
+import{j as e}from"./animation-BRsySF4U.js";import{N as s,F as a,S as n}from"./SeoHead-DsYz8pwS.js";import{b as i,t as c,a as d}from"./index-Dntip6HA.js";import{d as m}from"./react-DK_JcHL8.js";import"./charts-C_KtFLeW.js";const u={"offline-processing":{title:"Offline AI File Organization",description:"Foldora processes files locally without cloud uploads.",sections:[{title:"Privacy-first architecture",content:`
 Foldora processes files directly on your device.
 
 Your files never leave your computer.
