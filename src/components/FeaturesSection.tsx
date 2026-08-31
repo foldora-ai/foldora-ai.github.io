@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { Brain, Eye, FileText, FolderTree, ShieldCheck, WifiOff } from "lucide-react";
+import { Brain, CalendarDays, Eye, FileText, FolderTree, ShieldCheck, Tags, WifiOff } from "lucide-react";
 
 const features = [
   { icon: Brain, title: "Local AI suggestions", desc: "Analyze filenames and supported content on your device." },
   { icon: FolderTree, title: "Folder organization", desc: "Group mixed files into folders that reflect purpose and context." },
+  { icon: CalendarDays, title: "Organize by modified date", desc: "Sort files into clear Year and Month folders when a timeline is the right way to find them." },
+  { icon: Tags, title: "Organize by file type", desc: "Group files by category and extension for fast, predictable cleanup." },
   { icon: FileText, title: "Smart file renaming", desc: "Turn unclear names like scan0001.pdf into names that are easier to understand." },
   { icon: Eye, title: "Preview before changes", desc: "Review proposed folders and filenames before applying them." },
   { icon: WifiOff, title: "Offline organization workflow", desc: "Files do not need to be uploaded to a cloud organizer." },
@@ -24,7 +26,7 @@ const FeaturesSection = () => {
             File organization features that keep you in control
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground md:text-lg">
-            Foldora focuses on practical cleanup work: organization, renaming, privacy, and review.
+            Foldora focuses on practical cleanup work: organize by context, modified date, or file type, then rename and review before applying changes.
           </p>
         </motion.div>
 

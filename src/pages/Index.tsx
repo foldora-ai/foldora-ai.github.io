@@ -31,7 +31,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Foldora AI File Organizer for Windows and macOS | Offline and Private"
-        description="Foldora organizes and renames messy Downloads, Desktop, Documents, PDFs, invoices, and work files with local AI on Windows and macOS."
+        description="Foldora is an AI file organizer for Windows and macOS. Organize and rename messy folders with local AI, or sort files by modified date and file type."
         canonical={absoluteUrl()}
         schema={homepageSchema(homepageFaqs)}
       />

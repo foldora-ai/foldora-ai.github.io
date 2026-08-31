@@ -33,6 +33,8 @@ export const product = {
     "Analyzes supported files locally",
     "No cloud upload is required for organization workflows",
     "Preview proposed folders and filenames before applying changes",
+    "Organize files by modified date (Year / Month)",
+    "Organize files by type (Category / Extension)",
     "Organizes and renames files",
     "One-time purchase, not a subscription",
   ],
