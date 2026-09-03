@@ -40,9 +40,9 @@ const HeroSection = () => {
           </div>
 
           <h1 className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-7xl">
-            Clean and organize
+            Organize messy Downloads
             <br />
-            <span className="text-gradient">your messy files automatically</span>
+            <span className="text-gradient">by type and date</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
@@ -83,7 +83,7 @@ const HeroSection = () => {
             </div>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            {product.price.display} one-time purchase. Windows 10/11 and macOS Intel or Apple Silicon.
+            Launch price: {product.price.display} one-time. Windows 10/11 and macOS Intel or Apple Silicon.
           </p>
 
           <div className="mx-auto mt-7 grid max-w-3xl grid-cols-2 gap-2 text-left sm:grid-cols-4">
