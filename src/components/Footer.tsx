@@ -12,7 +12,8 @@ const Footer = () => {
             <img src="/favicon.ico" alt="" className="h-8 w-8 object-contain" />
             Foldora AI
           </a>
-          <a href="https://computoraai.com/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <a href="https://computoraai.com/" className="group inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary transition-shadow group-hover:shadow-[0_0_10px_hsl(var(--primary))]" />
             By Computora AI
           </a>
 
