@@ -9,9 +9,11 @@ export const site = {
 export const product = {
   productName: "Foldora",
   price: {
-    amount: 14.99,
+    amount: 19.99,
     currency: "USD",
-    display: "$14.99",
+    display: "$19.99",
+    referenceDisplay: "$29.99",
+    label: "Early-adopter price",
     billing: "one-time purchase",
   },
   checkout: {

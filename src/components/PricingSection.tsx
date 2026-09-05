@@ -50,18 +50,18 @@ const PricingSection = () => {
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-xl border border-primary/30 bg-card p-8">
             <div className="text-sm font-semibold uppercase tracking-wide text-primary">
-              Launch price
+              {product.price.label}
             </div>
             <div className="mt-4 flex items-end gap-2">
               <span className="text-5xl font-extrabold text-foreground">
                 {product.price.display}
               </span>
-              <span className="pb-2 text-2xl font-bold text-muted-foreground line-through">
-                $49
-              </span>
+              <del className="pb-2 text-2xl font-bold text-muted-foreground">
+                {product.price.referenceDisplay}
+              </del>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
-              Early adopter price - will increase soon
+              Lifetime access at the early-adopter price. One payment, no subscription.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">
