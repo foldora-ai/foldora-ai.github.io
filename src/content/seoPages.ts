@@ -79,8 +79,8 @@ export const seoPages: SeoPage[] = [
     route: "ai-file-organizer",
     kind: "landing",
     topic: "workflows",
-    title: "AI File Organizer for Windows | Private and Offline",
-    h1: "AI File Organizer for Windows",
+    title: "Best Offline AI File Organizer for Windows",
+    h1: "Best Offline AI File Organizer for Windows",
     description:
       "Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.",
     eyebrow: "Local AI file organization",
@@ -264,8 +264,8 @@ export const seoPages: SeoPage[] = [
     route: "clean-downloads-folder",
     kind: "landing",
     topic: "downloads",
-    title: "Clean Your Downloads Folder Automatically on Windows",
-    h1: "How to Clean Your Downloads Folder Automatically",
+    title: "Organize Downloads Automatically on Windows",
+    h1: "Organize Downloads Automatically on Windows",
     description:
       "Clean and organize a crowded Windows Downloads folder with a repeatable workflow for documents, installers, archives, images, and temporary files.",
     eyebrow: "Downloads cleanup workflow",
@@ -510,7 +510,7 @@ export const seoPages: SeoPage[] = [
     kind: "landing",
     topic: "workflows",
     title: "How to Organize Thousands of Files Automatically",
-    h1: "Organize Files Automatically Without Losing Control",
+    h1: "How to Organize Thousands of Files",
     description:
       "A safe workflow for categorizing, renaming, and archiving thousands of files with previews, small batches, and a structure built for retrieval.",
     eyebrow: "Large file collection workflow",
@@ -671,8 +671,8 @@ export const seoPages: SeoPage[] = [
     route: "blog/organize-pdfs-automatically",
     kind: "guide",
     topic: "pdfs",
-    title: "How to Organize PDFs Automatically",
-    h1: "How to Organize PDFs Automatically",
+    title: "Rename and Organize PDFs Automatically",
+    h1: "Rename and Organize PDFs Automatically",
     description:
       "Organize PDFs by purpose, project, person, and date instead of keeping every document in one PDF folder. Includes examples for study, finance, and work.",
     eyebrow: "PDF organization guide",
@@ -1238,8 +1238,8 @@ export const seoPages: SeoPage[] = [
     route: "blog/offline-ai-file-organizer",
     kind: "guide",
     topic: "privacy",
-    title: "Offline AI File Organizers: Privacy and Tradeoffs",
-    h1: "What Is an Offline AI File Organizer?",
+    title: "AI File Organizer Without Cloud Uploads",
+    h1: "AI File Organizer Without Cloud Uploads",
     description:
       "Learn how offline AI file organization differs from cloud processing, what local processing protects, and what to verify before using it.",
     eyebrow: "Privacy and local AI",
@@ -2141,6 +2141,101 @@ export const seoPages: SeoPage[] = [
     ],
   },
 ];
+
+const sortioBase = seoPages.find((page) => page.route === "alternatives/file-juggler");
+const sortioEvidence: SeoEvidence = {
+  title: "See Foldora's review-first workflow",
+  summary: "A real Foldora application frame and the recorded demo show the local desktop flow used to choose a folder and review organization before applying changes.",
+  facts: [
+    { label: "Workflow", value: "Choose, preview, approve" },
+    { label: "Processing model", value: "Local desktop workflow" },
+  ],
+  media: [
+    { kind: "image", src: "/evidence/foldora-demo.png", alt: "Foldora AI application workspace", caption: "Foldora application frame from the local desktop workflow." },
+    { kind: "video", src: "/foldora-demo.mp4", alt: "Foldora AI local file organization workflow", caption: "A short product demonstration of Foldora's review-first organization flow." },
+  ],
+  note: "A demo illustrates the workflow, not universal classification accuracy. Test representative files and keep a backup before a large move.",
+};
+
+if (sortioBase) {
+  seoPages.push(
+    {
+      ...sortioBase,
+      route: "alternatives/sortio",
+      title: "Foldora vs Sortio | Private Windows File Organization",
+      h1: "Foldora vs Sortio",
+      description: "Compare Foldora and Sortio for Windows file organization, privacy, previews, renaming, and ongoing automation before choosing a workflow.",
+      eyebrow: "AI file organizer comparison",
+      directAnswer: "Choose Foldora when you want a focused Windows workflow that analyzes supported file metadata locally, proposes folders and names, and keeps every move reviewable. Choose Sortio when you want a cross-platform organizer built around prompts, content-aware routing, and ongoing automation. Verify processing settings before using either tool with sensitive material.",
+      problemTitle: "The important difference is workflow control and processing scope",
+      problem: [
+        "Foldora is designed for a review-first Windows workflow: select a folder, inspect proposed categories and names, then apply only the changes you approve. Its local approach is useful when file privacy and a bounded desktop workflow matter.",
+        "Sortio is positioned as a cross-platform AI organizer that can rename and route files from prompts, with optional content-aware analysis and ongoing automation. That flexibility makes processing settings and review controls important comparison points.",
+      ],
+      steps: [
+        "List the folders, formats, and privacy requirements that matter to you.",
+        "Check whether analysis uses filenames and metadata only or reads file contents.",
+        "Compare preview, exclusion, conflict, undo, and ongoing-automation controls.",
+        "Test both tools on a copied representative folder before a large archive.",
+      ],
+      examples: [
+        { title: "Private Windows backlog", before: "Invoices, research PDFs, screenshots, and installers in Downloads", after: "Foldora proposes a local, reviewable structure before anything moves" },
+        { title: "Prompt-driven cross-platform intake", before: "Mixed files arriving across Mac, Windows, and Linux folders", after: "Sortio routes files from prompts and ongoing automation settings" },
+      ],
+      comparison: {
+        title: "Foldora and Sortio at a glance",
+        summary: "Both reduce manual filing, but their strongest use cases are different.",
+        rows: [
+          { option: "Foldora", bestFor: "Windows users who want local, preview-first organization", tradeoff: "Focused desktop workflow with supported file types" },
+          { option: "Sortio", bestFor: "Cross-platform prompt-based routing and automation", tradeoff: "Review processing settings carefully for sensitive files" },
+          { option: "Manual or rule-based tools", bestFor: "Small folders or highly predictable conditions", tradeoff: "More repeated work or more rule maintenance" },
+        ],
+      },
+      faqs: [
+        { question: "Is Foldora or Sortio better for private Windows files?", answer: "Foldora is designed around local, preview-first Windows organization. With any tool, verify exactly which signals are processed locally and whether optional content analysis sends data elsewhere." },
+        { question: "Does Sortio organize files automatically?", answer: "Sortio is positioned around prompt-based sorting, renaming, and ongoing automation. Review its current settings and preview behavior before enabling recurring actions." },
+        { question: "Can I review Foldora changes before applying them?", answer: "Yes. Foldora shows proposed destinations and names so you can exclude or correct items before applying a move." },
+      ],
+      related: ["ai-file-organizer", "best-file-organizer-windows", "blog/offline-ai-file-organizer", "organize-files-automatically"],
+      evidence: sortioEvidence,
+    },
+    {
+      ...sortioBase,
+      route: "alternatives/sortio-alternative",
+      title: "Best Sortio Alternative for Windows | Foldora",
+      h1: "Best Sortio Alternative for Windows",
+      description: "Looking for a Sortio alternative on Windows? Compare Foldora's local, review-first file organization with prompt-based automation.",
+      eyebrow: "Sortio alternative for Windows",
+      directAnswer: "Foldora is a strong Sortio alternative when you want a Windows-focused file organizer that analyzes supported metadata locally, shows proposed folders and names before moving anything, and avoids requiring an always-on automation workflow. It is a better fit when bounded review and local control matter more than prompt-driven cross-platform routing.",
+      problemTitle: "Choose the alternative around your privacy and review needs",
+      problem: [
+        "A Sortio alternative should be compared on more than feature count. Check platform support, whether content is read, where analysis occurs, and whether you can inspect every destination before changes are applied.",
+        "Foldora focuses on a smaller promise: local Windows organization with clear proposed destinations, exclusions, conflict checks, and a human approval step.",
+      ],
+      steps: ["Decide whether you need cross-platform support or a focused Windows app.", "Confirm whether filenames and metadata are enough for your workflow.", "Review proposed destinations, collision handling, exclusions, and undo.", "Start with a copied Downloads or project folder before a full archive."],
+      examples: [
+        { title: "Review-first Windows cleanup", before: "A sensitive Downloads folder with inconsistent document names", after: "Foldora proposes categories and names locally for approval" },
+        { title: "Ongoing prompt automation", before: "A multi-platform intake folder with recurring routing rules", after: "A prompt-based organizer may be preferable when automation is the priority" },
+      ],
+      comparison: {
+        title: "Sortio alternatives compared",
+        summary: "The right alternative depends on whether you value local review, rules, or cross-platform automation.",
+        rows: [
+          { option: "Foldora", bestFor: "Private Windows organization with a review step", tradeoff: "Not intended as a broad cross-platform automation hub" },
+          { option: "Sortio", bestFor: "Prompt-based cross-platform organization and routing", tradeoff: "Processing and automation settings need careful review" },
+          { option: "Rule-based Windows automation", bestFor: "Stable conditions and recurring deterministic actions", tradeoff: "Rules require setup and maintenance" },
+        ],
+      },
+      faqs: [
+        { question: "What is the best Sortio alternative for Windows?", answer: "Foldora is a strong fit when local analysis, clear previews, and a focused Windows workflow matter more than cross-platform prompt automation." },
+        { question: "Can Foldora replace Sortio for every workflow?", answer: "No. Sortio may be a better fit for users who need cross-platform prompt routing and ongoing automation. Compare the workflow you actually need." },
+        { question: "Does Foldora require cloud uploads?", answer: "Foldora's organization workflow is designed around local processing, so files do not need to be uploaded to a cloud organizer." },
+      ],
+      related: ["alternatives/sortio", "ai-file-organizer", "features/offline-processing", "docs/privacy"],
+      evidence: sortioEvidence,
+    },
+  );
+}
 
 export const seoPagesByRoute = Object.fromEntries(
   seoPages.map((page) => [page.route, page]),

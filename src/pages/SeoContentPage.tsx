@@ -8,6 +8,8 @@ import { checkoutUrl } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo";
 
+const bundleUrl = "https://computora.gumroad.com/l/computoraai";
+
 const SeoContentPage = () => {
   const location = useLocation();
   const route = location.pathname.replace(/^\/|\/$/g, "");
@@ -208,20 +210,30 @@ const SeoContentPage = () => {
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Run local AI on Windows, review proposed folders and filenames, then apply the changes you approve.
             </p>
-            <a
-              href={checkoutUrl("seo-page", page.route.replaceAll("/", "-"))}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackEvent("checkout_link_clicked", {
-                  provider: "gumroad",
-                  location: page.route,
-                })
-              }
-              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground"
-            >
-              Download for Windows
-            </a>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <a
+                href={checkoutUrl("seo-page", page.route.replaceAll("/", "-"))}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("checkout_link_clicked", {
+                    provider: "gumroad",
+                    location: page.route,
+                  })
+                }
+                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground"
+              >
+                Download for Windows
+              </a>
+              <a
+                href={bundleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-primary/40 px-6 py-3 font-semibold text-foreground transition-colors hover:border-primary"
+              >
+                Get the complete bundle
+              </a>
+            </div>
           </section>
         </div>
       </main>
