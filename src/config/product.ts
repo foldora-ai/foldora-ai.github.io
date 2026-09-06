@@ -12,7 +12,7 @@ export const product = {
     amount: 19.99,
     currency: "USD",
     display: "$19.99",
-    referenceDisplay: "$29.99",
+    referenceDisplay: "$49",
     label: "Early-adopter price",
     billing: "one-time purchase",
   },
