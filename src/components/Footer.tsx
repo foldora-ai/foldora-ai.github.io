@@ -49,13 +49,13 @@ const Footer = () => {
               Support
             </a>
             <a href="https://computoraai.com/" className="transition-colors hover:text-foreground">
-              Computora AI
+              Computora AI desktop software
             </a>
             <a href="https://cleanoraai.com/" className="transition-colors hover:text-foreground">
-              Cleanora AI
+              Cleanora Downloads folder organizer
             </a>
             <a href="https://galoriaai.com/" className="transition-colors hover:text-foreground">
-              Galoria AI
+              Galoria AI photo organizer
             </a>
           </nav>
 

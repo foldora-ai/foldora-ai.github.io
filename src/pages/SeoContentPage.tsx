@@ -68,6 +68,46 @@ const SeoContentPage = () => {
             </p>
           </section>
 
+          {page.evidence && (
+            <section aria-labelledby="evidence-title">
+              <h2 id="evidence-title" className="text-3xl font-bold">
+                {page.evidence.title}
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                {page.evidence.summary}
+              </p>
+              <dl className="mt-8 grid gap-4 sm:grid-cols-2">
+                {page.evidence.facts.map((fact) => (
+                  <div key={fact.label} className="rounded-2xl border border-border bg-card p-5">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-primary">
+                      {fact.label}
+                    </dt>
+                    <dd className="mt-2 text-lg font-semibold text-foreground">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-8 grid gap-6">
+                {page.evidence.media.map((item) => (
+                  <figure key={item.src} className="overflow-hidden rounded-2xl border border-border bg-card">
+                    {item.kind === "video" ? (
+                      <video controls preload="metadata" playsInline aria-label={item.alt} className="w-full bg-black">
+                        <source src={item.src} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={item.src} alt={item.alt} loading="lazy" className="h-auto w-full" />
+                    )}
+                    <figcaption className="border-t border-border px-5 py-4 text-sm text-muted-foreground">
+                      {item.caption}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <p className="mt-5 rounded-xl border border-border bg-secondary/40 p-4 text-sm leading-relaxed text-muted-foreground">
+                {page.evidence.note}
+              </p>
+            </section>
+          )}
+
           <section>
             <h2 className="text-3xl font-bold">{page.problemTitle}</h2>
             {page.problem.map((paragraph) => (

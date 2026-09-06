@@ -35,6 +35,22 @@ export interface SeoComparison {
   }>;
 }
 
+export interface SeoEvidence {
+  title: string;
+  summary: string;
+  facts: Array<{
+    label: string;
+    value: string;
+  }>;
+  media: Array<{
+    kind: "image" | "video";
+    src: string;
+    alt: string;
+    caption: string;
+  }>;
+  note: string;
+}
+
 export interface SeoPage {
   route: string;
   kind: SeoPageKind;
@@ -52,6 +68,7 @@ export interface SeoPage {
   comparison: SeoComparison;
   faqs: SeoFaq[];
   related: string[];
+  evidence?: SeoEvidence;
   indexable?: boolean;
 }
 
@@ -65,11 +82,11 @@ export const seoPages: SeoPage[] = [
     title: "AI File Organizer for Windows | Private and Offline",
     h1: "AI File Organizer for Windows",
     description:
-      "Organize, categorize, and rename files on Windows with local AI. Foldora works offline and lets you preview changes before applying them.",
+      "Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.",
     eyebrow: "Local AI file organization",
-    updatedAt,
+    updatedAt: "2026-09-06",
     directAnswer:
-      "An AI file organizer analyzes file names and document context, then proposes useful folders and clearer names. Foldora does this locally on Windows, so files do not need to be uploaded to a cloud service. You select a folder, review the proposed structure, and apply the changes you want.",
+      "Foldora is an AI file organizer for Windows that analyzes filenames and supported document context locally, then proposes useful folders and clearer names. Your organization workflow does not require cloud file uploads: choose a folder, inspect the proposed structure, and apply only the changes you approve.",
     problemTitle: "Why ordinary file sorting stops working",
     problem: [
       "Downloads, Desktop, and Documents folders mix unrelated material: invoices, screenshots, installers, research PDFs, archives, and work files. File-type folders help at first, but they do not explain which client, project, course, or year a file belongs to.",
@@ -134,9 +151,30 @@ export const seoPages: SeoPage[] = [
           "Common starting points are Downloads, Desktop, Documents, and project folders. Use a focused folder first so the proposed structure is easy to review.",
       },
     ],
+    evidence: {
+      title: "Measured runtime benchmark and real product demo",
+      summary:
+        "On September 6, 2026, Foldora's repeatable runtime benchmark completed 40,000 schema classifications and a bounded file-discovery fixture on a modest Windows 11 laptop. The recorded product demo shows the local desktop workflow.",
+      facts: [
+        { label: "Runtime classifications", value: "40,000 in 1.2745 seconds" },
+        { label: "File discovery", value: "1,001 files in 0.0091 seconds" },
+        { label: "Ignored dependency fixture", value: "300 files under node_modules" },
+        { label: "Test computer", value: "Windows 11 Pro, Core i5-8350U, 8 GB RAM" },
+      ],
+      media: [
+        {
+          kind: "video",
+          src: "/foldora-demo.mp4",
+          alt: "Recorded Foldora AI desktop file-organization workflow",
+          caption: "Recorded Foldora desktop workflow: choose a directory, review the organization process, and keep control before applying changes.",
+        },
+      ],
+      note:
+        "The benchmark measures the local runtime classifier and bounded file discovery, not end-to-end AI model latency or accuracy on every possible folder. Results vary by hardware, storage, file type, and file contents.",
+    },
     related: [
       "best-file-organizer-windows",
-      "clean-downloads-folder",
+      "blog/foldora-file-organizer-benchmark",
       "rename-files-automatically",
       "features/offline-processing",
     ],
@@ -2004,6 +2042,102 @@ export const seoPages: SeoPage[] = [
       "ai-file-organizer",
       "alternatives/file-juggler",
       "blog/digital-file-minimalism",
+    ],
+  },
+  {
+    route: "blog/foldora-file-organizer-benchmark",
+    kind: "guide",
+    topic: "workflows",
+    title: "File Organizer Benchmark | Test Method and Results",
+    h1: "Foldora File Organizer Benchmark",
+    description:
+      "See Foldora's reproducible Windows runtime benchmark, test environment, measured results, product demonstration, and the limits of what the test proves.",
+    eyebrow: "Reproducible product evidence",
+    updatedAt: "2026-09-06",
+    directAnswer:
+      "Foldora's September 6, 2026 runtime benchmark completed 40,000 schema-classification calls in 1.2745 seconds and discovered 1,001 eligible files in 0.0091 seconds. It ran on Windows 11 Pro with an Intel Core i5-8350U and 8 GB of RAM. These are runtime measurements, not a claim of perfect organization accuracy.",
+    problemTitle: "What this benchmark is designed to verify",
+    problem: [
+      "The benchmark checks two bounded parts of the local workflow: repeated schema classification and recursive file discovery. Its discovery fixture creates 1,200 normal files plus 300 dependency files under node_modules, applies a 1,001-file limit, and verifies that the dependency directory is ignored.",
+      "It deliberately does not turn a synthetic timing result into a broad accuracy claim. Real folders contain larger documents, unusual formats, slower drives, and ambiguous context, so Foldora keeps the proposed result reviewable before changes are applied.",
+    ],
+    steps: [
+      "Create four representative classification inputs covering an invoice, source code, a vacation photo, and meeting notes.",
+      "Run those four inputs 10,000 times through the local schema classifier for 40,000 total classifications.",
+      "Create 1,200 eligible files and 300 files inside an ignored node_modules directory.",
+      "Run recursive discovery with a 1,001-file safety limit and record elapsed time and the returned file count.",
+    ],
+    examples: [
+      {
+        title: "Classification workload",
+        before: "Four text-and-extension inputs repeated 10,000 times",
+        after: "40,000 runtime classifications completed in 1.2745 seconds",
+      },
+      {
+        title: "Discovery workload",
+        before: "1,200 normal files plus 300 dependency files",
+        after: "1,001 eligible files returned in 0.0091 seconds; dependency files ignored",
+      },
+    ],
+    comparison: {
+      title: "Evidence, meaning, and limits",
+      summary: "Each measurement answers a narrow question so the result is useful without overstating it.",
+      rows: [
+        {
+          option: "Runtime classification",
+          bestFor: "Checking repeated local schema decisions",
+          tradeoff: "Does not include full document extraction or model loading",
+        },
+        {
+          option: "File discovery",
+          bestFor: "Checking bounded recursive scanning and ignored directories",
+          tradeoff: "Uses small synthetic files on one SSD-backed computer",
+        },
+        {
+          option: "Real-folder acceptance test",
+          bestFor: "Evaluating whether suggested folders fit your own workflow",
+          tradeoff: "Requires human review because useful organization is contextual",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Is 1.2745 seconds the time required to organize a folder?",
+        answer: "No. It is the time for 40,000 runtime schema-classification calls. End-to-end time also depends on model startup, file reading, hardware, and the selected folder.",
+      },
+      {
+        question: "Does the benchmark prove 100% classification accuracy?",
+        answer: "No. It measures repeatable runtime work. Foldora exposes a preview because ambiguous files still need a person to approve the proposed result.",
+      },
+      {
+        question: "Why publish the hardware?",
+        answer: "Timings without an environment are difficult to interpret. The test used Windows 11 Pro, a Core i5-8350U, and 8 GB of RAM.",
+      },
+    ],
+    evidence: {
+      title: "Results recorded on the test machine",
+      summary: "The benchmark was executed from the current Foldora workspace immediately before these results were published.",
+      facts: [
+        { label: "Runtime classifications", value: "40,000 in 1.2745 seconds" },
+        { label: "Eligible files discovered", value: "1,001 in 0.0091 seconds" },
+        { label: "Excluded dependency files", value: "300" },
+        { label: "Environment", value: "Windows 11 Pro, Core i5-8350U, 8 GB RAM" },
+      ],
+      media: [
+        {
+          kind: "video",
+          src: "/foldora-demo.mp4",
+          alt: "Foldora AI desktop application demonstration",
+          caption: "Product demonstration accompanying the narrow runtime measurements above.",
+        },
+      ],
+      note: "One machine and one synthetic fixture cannot represent every user's files. The raw timings are reported without converting them into a guaranteed speed or accuracy claim.",
+    },
+    related: [
+      "ai-file-organizer",
+      "docs/how-it-works",
+      "docs/privacy",
+      "docs/troubleshooting",
     ],
   },
 ];

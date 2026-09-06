@@ -435,12 +435,23 @@ function pageStyles(): string {
     .faq{padding:22px 0;border-bottom:1px solid var(--line)}
     .faq h3{margin:0 0 8px}
     .faq p{margin:0;color:var(--muted)}
+    .evidence-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
+    .evidence-fact{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+    .evidence-fact dt{color:var(--green);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .evidence-fact dd{margin:8px 0 0;color:white;font-size:1.05rem;font-weight:700}
+    .evidence-media{display:grid;gap:18px;margin-top:24px}
+    .evidence-media figure{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+    .evidence-media img,.evidence-media video{display:block;width:100%;height:auto;background:#000}
+    .evidence-media figcaption{padding:14px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    .evidence-note{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--muted);font-size:.9rem}
     .related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .related a{display:block;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:white}
     .cta{text-align:center}
     .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    @media(max-width:700px){.grid,.related{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}`;
+    footer a{color:var(--muted)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
+    @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}`;
 }
 
 function relatedTitle(route: string): string {
@@ -460,6 +471,34 @@ function relatedTitle(route: string): string {
     .split("-")
     .map((word) => word[0].toUpperCase() + word.slice(1))
     .join(" ");
+}
+
+function renderEvidence(page: SeoPage): string {
+  if (!page.evidence) return "";
+
+  return `<section aria-labelledby="evidence-title">
+    <h2 id="evidence-title">${escapeHtml(page.evidence.title)}</h2>
+    <p>${escapeHtml(page.evidence.summary)}</p>
+    <dl class="evidence-facts">
+      ${page.evidence.facts
+        .map(
+          (fact) => `<div class="evidence-fact"><dt>${escapeHtml(fact.label)}</dt><dd>${escapeHtml(fact.value)}</dd></div>`,
+        )
+        .join("")}
+    </dl>
+    <div class="evidence-media">
+      ${page.evidence.media
+        .map(
+          (item) => `<figure>${
+            item.kind === "video"
+              ? `<video controls preload="metadata" playsinline aria-label="${escapeHtml(item.alt)}"><source src="${escapeHtml(item.src)}" type="video/mp4"></video>`
+              : `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy">`
+          }<figcaption>${escapeHtml(item.caption)}</figcaption></figure>`,
+        )
+        .join("")}
+    </div>
+    <p class="evidence-note">${escapeHtml(page.evidence.note)}</p>
+  </section>`;
 }
 
 function renderMainPage(page: SeoPage): string {
@@ -526,6 +565,7 @@ ${analyticsHead()}
       <p>${escapeHtml(page.directAnswer)}</p>
       <div class="updated">Reviewed and updated ${escapeHtml(page.updatedAt)}</div>
     </section>
+${renderEvidence(page)}
     <section>
       <h2>${escapeHtml(page.problemTitle)}</h2>
       ${page.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
@@ -590,7 +630,7 @@ ${analyticsHead()}
       <a class="button" href="${trackedCheckout("seo-page", campaign)}">Download for Windows</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI - Local, privacy-focused file organization</div></footer>
+  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
 </body>
 </html>`;
 }

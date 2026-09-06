@@ -15,6 +15,10 @@ export const docs = {
         content: `The supported systems are ${product.platforms.supported.join(", ")}. Use the installer or download package provided by the checkout flow for your platform.`,
       },
       {
+        title: "Current release information",
+        content: "These instructions apply to Foldora 1.0.1 and were reviewed on September 6, 2026. Use only the package delivered through the official Foldora checkout and download flow.",
+      },
+      {
         title: "Choose a focused folder first",
         content: `Start with Downloads, Desktop, Documents, screenshots, PDFs, invoices, or a work folder small enough to review carefully.`,
       },
@@ -65,6 +69,14 @@ export const docs = {
       {
         title: "Preview unexpected suggestions",
         content: `If suggestions do not match your workflow, do not apply them. Narrow the folder scope or organize a smaller batch.`,
+      },
+      {
+        title: "AI engine fails to initialize on Windows",
+        content: "Restart Windows after installation. If the error mentions c10.dll or WinError 126, repair or install the Microsoft Visual C++ Redistributable (x64), check whether security software quarantined a packaged DLL, then reinstall Foldora from the official download. Include the exact error message when contacting support.",
+      },
+      {
+        title: "Release and platform details",
+        content: "This troubleshooting guide applies to Foldora 1.0.1 on Windows 10, Windows 11, and the supported macOS packages. It was reviewed on September 6, 2026.",
       },
       {
         title: "Support",

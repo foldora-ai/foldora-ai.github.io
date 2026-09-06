@@ -4,7 +4,7 @@
 
 ## Core pages
 
-- [AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Organize, categorize, and rename files on Windows with local AI. Foldora works offline and lets you preview changes before applying them.
+- [AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.
 - [Best File Organizer for Windows](https://foldoraai.com/best-file-organizer-windows/): Compare AI, rule-based, and manual file organization for Windows. See which approach fits Downloads cleanup, renaming, privacy, and large folders.
 - [How to Clean Your Downloads Folder Automatically](https://foldoraai.com/clean-downloads-folder/): Clean and organize a crowded Windows Downloads folder with a repeatable workflow for documents, installers, archives, images, and temporary files.
 - [How to Organize Files Automatically on Windows](https://foldoraai.com/organize-files-windows/): Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.

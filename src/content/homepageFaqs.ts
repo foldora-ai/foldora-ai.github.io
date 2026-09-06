@@ -11,7 +11,7 @@ export const homepageFaqs = [
   },
   {
     q: "Can I undo changes?",
-    a: "The repository does not document a guaranteed one-click undo feature. Use the preview carefully and keep a backup before large move or rename operations.",
+    a: "Foldora emphasizes preview before applying changes. Keep a current backup before large move or rename operations; the current product page does not advertise a guaranteed one-click undo workflow.",
   },
   {
     q: "Does it require a subscription?",
@@ -35,6 +35,6 @@ export const homepageFaqs = [
   },
   {
     q: "What happens if it does not work on my device?",
-    a: `Contact support at ${site.supportEmail}. The repository does not contain a Foldora-specific refund guarantee, so purchase issues should be handled through support and the checkout provider.`,
+    a: `Check the installation and troubleshooting pages, then contact ${site.supportEmail} with your operating-system version, downloaded filename, and exact error message. Purchase issues are handled through support and the checkout provider.`,
   },
 ];
