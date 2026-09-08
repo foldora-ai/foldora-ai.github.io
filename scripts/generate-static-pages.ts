@@ -236,6 +236,13 @@ function validatePages(): void {
 }
 
 function breadcrumbItems(route: string, title: string) {
+  if (route === "alternatives") {
+    return [
+      { name: "Home", url: absoluteUrl() },
+      { name: title, url: absoluteUrl(route) },
+    ];
+  }
+
   const [section] = route.split("/");
   const sectionNames: Record<string, string> = {
     blog: "Guides",
@@ -247,7 +254,7 @@ function breadcrumbItems(route: string, title: string) {
   };
   const sectionRoutes: Record<string, string> = {
     blog: "category/productivity",
-    alternatives: "best-file-organizer-windows",
+    alternatives: "alternatives",
     "use-cases": "category/productivity",
     docs: "docs/how-it-works",
     features: "ai-file-organizer",
@@ -542,7 +549,7 @@ ${analyticsHead()}
       <div class="links">
         <a href="/ai-file-organizer/">Product</a>
         <a href="/category/productivity/">Guides</a>
-        <a href="/best-file-organizer-windows/">Comparisons</a>
+        <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
       <a href="${trackedCheckout("seo-header", campaign)}">Download for Windows</a>
@@ -786,7 +793,7 @@ ${analyticsHead()}
   <style>${pageStyles()}</style>
 </head>
 <body>
-  <header><nav class="container"><a class="brand" href="/">Foldora AI</a><a href="/ai-file-organizer/">Product</a><a href="/best-file-organizer-windows/">Comparisons</a></nav></header>
+  <header><nav class="container"><a class="brand" href="/">Foldora AI</a><a href="/ai-file-organizer/">Product</a><a href="/alternatives/">Comparisons</a></nav></header>
   <div class="container breadcrumbs"><a href="/">Home</a> / <span>Topics</span> / <span>${escapeHtml(category.title)}</span></div>
   <section class="hero"><div class="container"><div class="eyebrow">Topic hub</div><h1>${escapeHtml(category.title)}</h1><p class="lede">${escapeHtml(category.description)} Start with the guide that matches your folder, document type, or workflow.</p></div></section>
   <main class="container">

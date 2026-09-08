@@ -30,7 +30,7 @@ const Navbar = () => {
           <a href="https://computoraai.com/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Computora AI</a>
           <a href="/#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Features</a>
           <a href="/#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">How It Works</a>
-          <a href="/best-file-organizer-windows/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Comparisons</a>
+          <a href="/alternatives/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Comparisons</a>
           <a href="/#pricing" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Pricing</a>
           <a href="/#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a>
         </div>

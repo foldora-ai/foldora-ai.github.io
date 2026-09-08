@@ -21,6 +21,7 @@
 - [Automatic vs Manual File Organization](https://foldoraai.com/alternatives/manual-organization/): Compare automatic and manual file organization by setup time, review, control, scale, consistency, and the types of files each method handles best.
 - [Foldora vs Sortio](https://foldoraai.com/alternatives/sortio/): Compare Foldora and Sortio for Windows file organization, privacy, previews, renaming, and ongoing automation before choosing a workflow.
 - [Best Sortio Alternative for Windows](https://foldoraai.com/alternatives/sortio-alternative/): Looking for a Sortio alternative on Windows? Compare Foldora's local, review-first file organization with prompt-based automation.
+- [AI File Organizer Alternatives](https://foldoraai.com/alternatives/): Compare Foldora with Sortio, Hazel, File Juggler, Power Automate, and manual organization for private, review-first file management.
 
 ## Documentation
 

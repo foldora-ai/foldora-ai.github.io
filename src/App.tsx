@@ -42,6 +42,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="/blog/:slug" element={<SeoContentPage />} />
             <Route path="/alternatives/:slug" element={<SeoContentPage />} />
+            <Route path="/alternatives" element={<SeoContentPage />} />
             <Route path="/docs/:slug" element={<DocsPage />} />
             <Route path="/use-cases/:slug" element={<SeoContentPage />} />
             <Route path="/features/:slug" element={<FeaturePage />} />
