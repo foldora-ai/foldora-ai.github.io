@@ -11,6 +11,7 @@ export function organizationSchema() {
     "@id": `${site.url}/#organization`,
     name: site.name,
     url: `${site.url}/`,
+    sameAs: ["https://github.com/foldora-ai"],
     contactPoint: {
       "@type": "ContactPoint",
       email: site.supportEmail,

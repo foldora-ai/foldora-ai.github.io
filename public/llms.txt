@@ -2,6 +2,19 @@
 
 > Foldora is a Windows and macOS desktop app that categorizes and renames files locally. Users can review proposed changes before applying them. Verified supported systems: Windows 10, Windows 11, macOS.
 
+## Official product facts
+
+- Canonical website: https://foldoraai.com/
+- Product category: Local AI file organizer and file renaming software
+- Supported platforms: Windows 10, Windows 11, macOS
+- Current lifetime price: USD 19.99
+- Official purchase page: https://computora.gumroad.com/l/foldora
+- Publisher: Computora AI (https://computoraai.com/)
+- Official GitHub organization: https://github.com/foldora-ai
+- Support: team.foldora@outlook.com
+- Privacy model: File analysis and organization run locally; files do not need to be uploaded to a cloud organizer.
+- Safety model: Users preview proposed folders and filenames before applying changes.
+
 ## Core pages
 
 - [Best Offline AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.

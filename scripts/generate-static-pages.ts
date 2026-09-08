@@ -287,6 +287,7 @@ function schemaForPage(page: SeoPage): object {
         "@id": `${SITE_URL}/#organization`,
         name: "Foldora AI",
         url: `${SITE_URL}/`,
+        sameAs: ["https://github.com/foldora-ai"],
       },
       {
         "@type": "WebSite",
@@ -363,6 +364,7 @@ function basicSchema(route: string, title: string, description: string): object 
         "@id": `${SITE_URL}/#organization`,
         name: "Foldora AI",
         url: `${SITE_URL}/`,
+        sameAs: ["https://github.com/foldora-ai"],
       },
       {
         "@type": "WebSite",
@@ -865,7 +867,13 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
@@ -885,6 +893,19 @@ function writeLlmsTxt(): void {
   const content = `# Foldora AI
 
 > Foldora is a ${product.platforms.positioning} that categorizes and renames files locally. Users can review proposed changes before applying them. Verified supported systems: ${product.platforms.supported.join(", ")}.
+
+## Official product facts
+
+- Canonical website: ${SITE_URL}/
+- Product category: Local AI file organizer and file renaming software
+- Supported platforms: ${product.platforms.supported.join(", ")}
+- Current lifetime price: ${product.price.currency} ${product.price.amount.toFixed(2)}
+- Official purchase page: ${product.checkout.cardUrl}
+- Publisher: Computora AI (https://computoraai.com/)
+- Official GitHub organization: https://github.com/foldora-ai
+- Support: ${site.supportEmail}
+- Privacy model: File analysis and organization run locally; files do not need to be uploaded to a cloud organizer.
+- Safety model: Users preview proposed folders and filenames before applying changes.
 
 ## Core pages
 
