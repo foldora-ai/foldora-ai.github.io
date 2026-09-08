@@ -15,7 +15,7 @@ import { product, site } from "../src/config/product";
 const SITE_URL = site.url;
 const BUNDLE_URL = "https://computora.gumroad.com/l/computoraai";
 const OUTPUT_DIR = path.resolve("public");
-const UPDATED_AT = "2026-06-14";
+const UPDATED_AT = "2026-09-08";
 
 interface SupportPage {
   route: string;
@@ -524,9 +524,13 @@ function renderMainPage(page: SeoPage): string {
   <meta property="og:description" content="${escapeHtml(page.description)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:site_name" content="Foldora AI">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${SITE_URL}/icon-512.png">
+  <meta property="og:image:alt" content="${escapeHtml(page.title)} — Foldora AI">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(page.title)}">
   <meta name="twitter:description" content="${escapeHtml(page.description)}">
+  <meta name="twitter:image" content="${SITE_URL}/icon-512.png">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>

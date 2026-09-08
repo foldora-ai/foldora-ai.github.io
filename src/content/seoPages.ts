@@ -72,7 +72,7 @@ export interface SeoPage {
   indexable?: boolean;
 }
 
-const updatedAt = "2026-06-14";
+const updatedAt = "2026-09-08";
 
 export const seoPages: SeoPage[] = [
   {
