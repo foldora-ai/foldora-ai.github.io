@@ -14,10 +14,14 @@
   <meta property="og:description" content="Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.">
   <meta property="og:url" content="https://foldoraai.com/use-cases/accountants/">
   <meta property="og:site_name" content="Foldora AI">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://foldoraai.com/icon-512.png">
+  <meta property="og:image:alt" content="File Organization for Accountants and Bookkeepers — Foldora AI">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="File Organization for Accountants and Bookkeepers">
   <meta name="twitter:description" content="Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/"},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/use-cases/accountants/#page","url":"https://foldoraai.com/use-cases/accountants/","headline":"File Organization for Accountants","name":"File Organization for Accountants and Bookkeepers","description":"Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.","dateModified":"2026-06-14","inLanguage":"en","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Use Cases","item":"https://foldoraai.com/category/productivity/"},{"@type":"ListItem","position":3,"name":"File Organization for Accountants","item":"https://foldoraai.com/use-cases/accountants/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should an accounting filename contain?","acceptedAnswer":{"@type":"Answer","text":"Use client or entity, accounting period, institution or vendor, and document type. Add status only when it is operationally useful."}},{"@type":"Question","name":"Can financial documents be processed with AI?","acceptedAnswer":{"@type":"Answer","text":"Only under the firm's privacy, security, and professional obligations. Verify exactly where and how document content is processed."}},{"@type":"Question","name":"Should source documents and workpapers be separate?","acceptedAnswer":{"@type":"Answer","text":"Yes. Separating original evidence from analysis and final outputs improves review and preserves the source record."}}]}]}</script>
+  <meta name="twitter:image" content="https://foldoraai.com/icon-512.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/"},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/use-cases/accountants/#page","url":"https://foldoraai.com/use-cases/accountants/","headline":"File Organization for Accountants","name":"File Organization for Accountants and Bookkeepers","description":"Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.","dateModified":"2026-09-08","inLanguage":"en","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Use Cases","item":"https://foldoraai.com/category/productivity/"},{"@type":"ListItem","position":3,"name":"File Organization for Accountants","item":"https://foldoraai.com/use-cases/accountants/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should an accounting filename contain?","acceptedAnswer":{"@type":"Answer","text":"Use client or entity, accounting period, institution or vendor, and document type. Add status only when it is operationally useful."}},{"@type":"Question","name":"Can financial documents be processed with AI?","acceptedAnswer":{"@type":"Answer","text":"Only under the firm's privacy, security, and professional obligations. Verify exactly where and how document content is processed."}},{"@type":"Question","name":"Should source documents and workpapers be separate?","acceptedAnswer":{"@type":"Answer","text":"Yes. Separating original evidence from analysis and final outputs improves review and preserves the source record."}}]}]}</script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
     <script>
@@ -63,12 +67,23 @@
     .faq{padding:22px 0;border-bottom:1px solid var(--line)}
     .faq h3{margin:0 0 8px}
     .faq p{margin:0;color:var(--muted)}
+    .evidence-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
+    .evidence-fact{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+    .evidence-fact dt{color:var(--green);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .evidence-fact dd{margin:8px 0 0;color:white;font-size:1.05rem;font-weight:700}
+    .evidence-media{display:grid;gap:18px;margin-top:24px}
+    .evidence-media figure{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+    .evidence-media img,.evidence-media video{display:block;width:100%;height:auto;background:#000}
+    .evidence-media figcaption{padding:14px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    .evidence-note{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--muted);font-size:.9rem}
     .related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .related a{display:block;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:white}
     .cta{text-align:center}
-    .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}
+    .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    @media(max-width:700px){.grid,.related{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
+    footer a{color:var(--muted)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
+    @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
 </head>
 <body>
   <header>
@@ -97,8 +112,9 @@
     <section class="answer" aria-labelledby="direct-answer">
       <h2 id="direct-answer">Direct answer</h2>
       <p>Accountants should organize files by client or entity and accounting period, separate source documents from workpapers and final deliverables, and use a consistent naming convention for statements, invoices, returns, and reports. Local automation can reduce filing work, but accounting systems and retention policies remain authoritative.</p>
-      <div class="updated">Reviewed and updated 2026-06-14</div>
+      <div class="updated">Reviewed and updated 2026-09-08</div>
     </section>
+
     <section>
       <h2>Financial files require both findability and control</h2>
       <p>The same client may generate bank statements, invoices, payroll exports, tax records, correspondence, and completed reports. Generic year folders are not enough when several entities and filing periods are involved.</p><p>These documents often contain personal and financial information. Any automated organizer should be evaluated for storage location, access, auditability, and data handling.</p>
@@ -151,8 +167,9 @@
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows, review the proposed structure and filenames, then apply the changes you approve.</p>
       <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-page&amp;utm_content=use-cases-accountants">Download for Windows</a>
+      <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI - Local, privacy-focused file organization</div></footer>
+  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
 </body>
 </html>

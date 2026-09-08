@@ -14,10 +14,14 @@
   <meta property="og:description" content="Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.">
   <meta property="og:url" content="https://foldoraai.com/blog/desktop-file-management/">
   <meta property="og:site_name" content="Foldora AI">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://foldoraai.com/icon-512.png">
+  <meta property="og:image:alt" content="Desktop File Management: Inbox, Projects, and Archive — Foldora AI">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Desktop File Management: Inbox, Projects, and Archive">
   <meta name="twitter:description" content="Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/"},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/blog/desktop-file-management/#page","url":"https://foldoraai.com/blog/desktop-file-management/","headline":"A Practical Desktop File Management System","name":"Desktop File Management: Inbox, Projects, and Archive","description":"Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.","dateModified":"2026-06-14","inLanguage":"en","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://foldoraai.com/category/productivity/"},{"@type":"ListItem","position":3,"name":"A Practical Desktop File Management System","item":"https://foldoraai.com/blog/desktop-file-management/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many inbox folders should I have?","acceptedAnswer":{"@type":"Answer","text":"Keep the natural capture points you already use, such as Downloads and Desktop, but process all of them into one consistent project and archive system."}},{"@type":"Question","name":"Should completed projects be reorganized?","acceptedAnswer":{"@type":"Answer","text":"Usually no. Move the complete project folder into the archive so its internal context and relative paths remain stable."}},{"@type":"Question","name":"Can search replace folder organization?","acceptedAnswer":{"@type":"Answer","text":"Search works well when filenames and content are reliable. A basic lifecycle still helps with status, sharing, backup, and retention."}}]}]}</script>
+  <meta name="twitter:image" content="https://foldoraai.com/icon-512.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/"},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/blog/desktop-file-management/#page","url":"https://foldoraai.com/blog/desktop-file-management/","headline":"A Practical Desktop File Management System","name":"Desktop File Management: Inbox, Projects, and Archive","description":"Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.","dateModified":"2026-09-08","inLanguage":"en","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://foldoraai.com/category/productivity/"},{"@type":"ListItem","position":3,"name":"A Practical Desktop File Management System","item":"https://foldoraai.com/blog/desktop-file-management/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many inbox folders should I have?","acceptedAnswer":{"@type":"Answer","text":"Keep the natural capture points you already use, such as Downloads and Desktop, but process all of them into one consistent project and archive system."}},{"@type":"Question","name":"Should completed projects be reorganized?","acceptedAnswer":{"@type":"Answer","text":"Usually no. Move the complete project folder into the archive so its internal context and relative paths remain stable."}},{"@type":"Question","name":"Can search replace folder organization?","acceptedAnswer":{"@type":"Answer","text":"Search works well when filenames and content are reliable. A basic lifecycle still helps with status, sharing, backup, and retention."}}]}]}</script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
     <script>
@@ -63,12 +67,23 @@
     .faq{padding:22px 0;border-bottom:1px solid var(--line)}
     .faq h3{margin:0 0 8px}
     .faq p{margin:0;color:var(--muted)}
+    .evidence-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
+    .evidence-fact{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+    .evidence-fact dt{color:var(--green);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .evidence-fact dd{margin:8px 0 0;color:white;font-size:1.05rem;font-weight:700}
+    .evidence-media{display:grid;gap:18px;margin-top:24px}
+    .evidence-media figure{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+    .evidence-media img,.evidence-media video{display:block;width:100%;height:auto;background:#000}
+    .evidence-media figcaption{padding:14px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    .evidence-note{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--muted);font-size:.9rem}
     .related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .related a{display:block;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:white}
     .cta{text-align:center}
-    .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}
+    .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    @media(max-width:700px){.grid,.related{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
+    footer a{color:var(--muted)}
+    .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
+    @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
 </head>
 <body>
   <header>
@@ -97,8 +112,9 @@
     <section class="answer" aria-labelledby="direct-answer">
       <h2 id="direct-answer">Direct answer</h2>
       <p>A maintainable desktop file system has three stages: inboxes for new files, project folders for active work, and archives for completed material. Each file should move forward through that lifecycle. Automation is most useful at the inbox stage, where categorization and renaming are repetitive.</p>
-      <div class="updated">Reviewed and updated 2026-06-14</div>
+      <div class="updated">Reviewed and updated 2026-09-08</div>
     </section>
+
     <section>
       <h2>Folders need a lifecycle, not just labels</h2>
       <p>Most organization systems describe where files go but not when they move. Without a lifecycle, finished projects remain beside active work and inbox folders become permanent storage.</p><p>The archive should preserve context while reducing daily noise. It should not require reorganizing every completed project from scratch.</p>
@@ -144,15 +160,16 @@
     <section>
       <h2>Related guides</h2>
       <div class="related">
-        <a href="/blog/clean-desktop-clutter/">How to Clean Desktop Clutter</a><a href="/blog/digital-file-minimalism/">A Practical Guide to Digital File Minimalism</a><a href="/organize-files-automatically/">Organize Files Automatically Without Losing Control</a><a href="/use-cases/freelancers/">File Organization for Freelancers</a>
+        <a href="/blog/clean-desktop-clutter/">How to Clean Desktop Clutter</a><a href="/blog/digital-file-minimalism/">A Practical Guide to Digital File Minimalism</a><a href="/organize-files-automatically/">How to Organize Thousands of Files</a><a href="/use-cases/freelancers/">File Organization for Freelancers</a>
       </div>
     </section>
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows, review the proposed structure and filenames, then apply the changes you approve.</p>
       <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-page&amp;utm_content=blog-desktop-file-management">Download for Windows</a>
+      <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI - Local, privacy-focused file organization</div></footer>
+  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
 </body>
 </html>

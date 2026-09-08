@@ -29,7 +29,7 @@ const HeroSection = () => {
 
       <div className="container relative pb-16 md:pb-24">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-4xl text-center"
@@ -101,7 +101,7 @@ const HeroSection = () => {
 
         <motion.div
           id="demo"
-          initial={{ opacity: 0, y: 36 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
           className="mx-auto mt-12 max-w-6xl md:mt-16"
