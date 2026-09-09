@@ -11,6 +11,7 @@ const CategoryPage = () => {
   const { slug } = useParams();
 
   const category = categories[slug as keyof typeof categories];
+  const isDownloadsCategory = slug === "downloads";
 
   if (!category) {
     return (
@@ -35,7 +36,12 @@ const CategoryPage = () => {
       <SeoHead
         title={`${category.title} | Foldora`}
         description={category.description}
-        canonical={`https://foldoraai.com/category/${slug}/`}
+        canonical={
+          isDownloadsCategory
+            ? "https://cleanoraai.com/category/downloads/"
+            : `https://foldoraai.com/category/${slug}/`
+        }
+        robots={isDownloadsCategory ? "noindex,follow" : undefined}
       />
 
       <Navbar />
@@ -67,14 +73,15 @@ const CategoryPage = () => {
 
               {seoPages
                 .filter((page) => {
+                  if (isDownloadsCategory) return page.topic === "downloads";
+                  if (page.indexable === false) return false;
                   if (slug === "productivity") return page.topic === "workflows";
-                  if (slug === "downloads") return page.topic === "downloads";
                   return page.topic === slug;
                 })
                 .map((post) => (
                   <a
                     key={post.route}
-                    href={`/${post.route}/`}
+                    href={post.canonicalUrl ?? `/${post.route}/`}
                     className="rounded-2xl border border-border bg-card p-8 transition-colors hover:border-primary/40"
                   >
                     <h2 className="text-2xl font-bold">

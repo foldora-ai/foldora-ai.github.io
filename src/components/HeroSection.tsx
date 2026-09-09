@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Download, Eye, ShieldCheck, WifiOff } from "lucide-react";
+import { ArrowRight, CheckCircle2, Eye, ShieldCheck, WifiOff } from "lucide-react";
 
 import InteractiveDemo from "./InteractiveDemo";
 import { checkoutUrl, product } from "@/config/product";
@@ -52,9 +52,19 @@ const HeroSection = () => {
           <div className="mt-10 flex flex-col items-center gap-4">
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://computora.gumroad.com/l/foldora"
+                href={checkout}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("platform_download_cta_clicked", {
+                    platform: "windows",
+                    location: "hero",
+                  });
+                  trackEvent("checkout_link_clicked", {
+                    provider: "gumroad",
+                    location: "hero-windows",
+                  });
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -64,12 +74,21 @@ const HeroSection = () => {
               </a>
 
               <a
-                href="https://computora.gumroad.com/l/foldora"
+                href={checkout}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent("platform_download_cta_clicked", {
+                    platform: "macos",
+                    location: "hero",
+                  });
+                  trackEvent("checkout_link_clicked", {
+                    provider: "gumroad",
+                    location: "hero-macos",
+                  });
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-[#111] to-[#222] px-8 py-4 text-lg font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1a1a1a]"
               >
-                <span aria-hidden="true">🍎</span>
                 Download for macOS
               </a>
             </div>

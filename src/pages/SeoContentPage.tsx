@@ -34,7 +34,8 @@ const SeoContentPage = () => {
       <SeoHead
         title={`${page.title} | Foldora`}
         description={page.description}
-        canonical={`https://foldoraai.com/${page.route}/`}
+        canonical={page.canonicalUrl ?? `https://foldoraai.com/${page.route}/`}
+        robots={page.indexable === false ? "noindex,follow" : undefined}
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -196,7 +197,7 @@ const SeoContentPage = () => {
               {page.related.map((route) => (
                 <a
                   key={route}
-                  href={`/${route}/`}
+                  href={seoPagesByRoute[route]?.canonicalUrl ?? `/${route}/`}
                   className="rounded-xl border border-border bg-card p-5 text-foreground transition-colors hover:border-primary/40"
                 >
                   {route.split("/").pop()?.replaceAll("-", " ")}

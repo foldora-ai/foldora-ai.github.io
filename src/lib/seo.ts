@@ -12,6 +12,12 @@ export function organizationSchema() {
     name: site.name,
     url: `${site.url}/`,
     sameAs: ["https://github.com/foldora-ai"],
+    parentOrganization: {
+      "@type": "Organization",
+      "@id": "https://computoraai.com/#organization",
+      name: "Computora AI",
+      url: "https://computoraai.com/",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       email: site.supportEmail,
@@ -33,6 +39,7 @@ export function websiteSchema() {
 export function softwareApplicationSchema() {
   return {
     "@type": "SoftwareApplication",
+    "@id": `${site.url}/#software`,
     name: product.productName ?? "Foldora",
     url: `${site.url}/`,
     applicationCategory: "FileManagementApplication",

@@ -88,6 +88,14 @@ function absoluteUrl(route = ""): string {
   return `${SITE_URL}/${route ? `${route}/` : ""}`;
 }
 
+function canonicalUrl(page: SeoPage): string {
+  return page.canonicalUrl ?? absoluteUrl(page.route);
+}
+
+function relatedHref(route: string): string {
+  return seoPagesByRoute[route]?.canonicalUrl ?? `/${route}/`;
+}
+
 function trackedCheckout(campaign: string, content: string): string {
   const url = new URL(product.checkout.cardUrl);
   url.searchParams.set("utm_source", "foldoraai.com");
@@ -279,6 +287,7 @@ function breadcrumbItems(route: string, title: string) {
 function schemaForPage(page: SeoPage): object {
   const breadcrumbs = breadcrumbItems(page.route, page.h1);
   const articleKinds = new Set(["guide", "comparison", "use-case"]);
+  const pageUrl = canonicalUrl(page);
 
   return {
     "@context": "https://schema.org",
@@ -289,6 +298,12 @@ function schemaForPage(page: SeoPage): object {
         name: "Foldora AI",
         url: `${SITE_URL}/`,
         sameAs: ["https://github.com/foldora-ai"],
+        parentOrganization: {
+          "@type": "Organization",
+          "@id": "https://computoraai.com/#organization",
+          name: "Computora AI",
+          url: "https://computoraai.com/",
+        },
       },
       {
         "@type": "WebSite",
@@ -299,8 +314,8 @@ function schemaForPage(page: SeoPage): object {
       },
       {
         "@type": articleKinds.has(page.kind) ? "Article" : "WebPage",
-        "@id": `${absoluteUrl(page.route)}#page`,
-        url: absoluteUrl(page.route),
+        "@id": `${pageUrl}#page`,
+        url: pageUrl,
         headline: page.h1,
         name: page.title,
         description: page.description,
@@ -334,6 +349,7 @@ function schemaForPage(page: SeoPage): object {
         ? [
             {
               "@type": "SoftwareApplication",
+              "@id": `${SITE_URL}/#software`,
               name: product.productName,
               url: `${SITE_URL}/`,
               applicationCategory: "FileManagementApplication",
@@ -366,6 +382,12 @@ function basicSchema(route: string, title: string, description: string): object 
         name: "Foldora AI",
         url: `${SITE_URL}/`,
         sameAs: ["https://github.com/foldora-ai"],
+        parentOrganization: {
+          "@type": "Organization",
+          "@id": "https://computoraai.com/#organization",
+          name: "Computora AI",
+          url: "https://computoraai.com/",
+        },
       },
       {
         "@type": "WebSite",
@@ -513,7 +535,10 @@ function renderEvidence(page: SeoPage): string {
 }
 
 function renderMainPage(page: SeoPage): string {
-  const canonical = absoluteUrl(page.route);
+  const canonical = canonicalUrl(page);
+  const robots = page.indexable === false
+    ? "noindex,follow"
+    : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
   const breadcrumbs = breadcrumbItems(page.route, page.h1);
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
@@ -525,7 +550,7 @@ function renderMainPage(page: SeoPage): string {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(page.title)} | Foldora</title>
   <meta name="description" content="${escapeHtml(page.description)}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="robots" content="${robots}">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
@@ -634,7 +659,7 @@ ${renderEvidence(page)}
       <div class="related">
         ${page.related
           .map(
-            (route) => `<a href="/${route}/">${escapeHtml(relatedTitle(route))}</a>`,
+            (route) => `<a href="${relatedHref(route)}">${escapeHtml(relatedTitle(route))}</a>`,
           )
           .join("")}
       </div>
@@ -761,15 +786,26 @@ ${analyticsHead()}
 function renderCategoryPage(slug: string): string {
   const category = categories[slug as keyof typeof categories];
   const route = `category/${slug}`;
+  const isDownloadsCategory = slug === "downloads";
+  const categoryCanonical = isDownloadsCategory
+    ? "https://cleanoraai.com/category/downloads/"
+    : absoluteUrl(route);
+  const categoryRobots = isDownloadsCategory
+    ? "noindex,follow"
+    : "index,follow,max-snippet:-1";
   const metaDescription = `${category.description} Browse practical Foldora guides, workflows, examples, comparisons, and related resources.`;
   const topicPages = seoPages.filter(
     (page) =>
-      page.topic === slug ||
-      (slug === "productivity" && page.topic === "workflows") ||
-      (slug === "downloads" && page.route.includes("download")) ||
-      (slug === "windows" && page.kind === "comparison"),
+      isDownloadsCategory
+        ? page.topic === "downloads"
+        : page.indexable !== false &&
+          (page.topic === slug ||
+            (slug === "productivity" && page.topic === "workflows") ||
+            (slug === "windows" && page.kind === "comparison")),
   );
-  const listedPages = topicPages.length ? topicPages : seoPages.slice(0, 6);
+  const listedPages = topicPages.length
+    ? topicPages
+    : seoPages.filter((page) => page.indexable !== false).slice(0, 6);
   const schema = JSON.stringify(
     basicSchema(route, category.title, metaDescription),
   ).replaceAll("<", "\\u003c");
@@ -781,14 +817,14 @@ function renderCategoryPage(slug: string): string {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(category.title)} | Foldora</title>
   <meta name="description" content="${escapeHtml(metaDescription)}">
-  <meta name="robots" content="index,follow,max-snippet:-1">
-  <link rel="canonical" href="${absoluteUrl(route)}">
+  <meta name="robots" content="${categoryRobots}">
+  <link rel="canonical" href="${categoryCanonical}">
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHtml(category.title)}">
   <meta property="og:description" content="${escapeHtml(metaDescription)}">
-  <meta property="og:url" content="${absoluteUrl(route)}">
+  <meta property="og:url" content="${categoryCanonical}">
   <meta property="og:site_name" content="Foldora AI">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="${escapeHtml(category.title)}">
@@ -805,7 +841,7 @@ ${analyticsHead()}
     <section class="answer"><h2>Direct answer</h2><p>${escapeHtml(category.description)} The resources below cover practical steps, examples, tool comparisons, and related workflows rather than repeating one generic organization template.</p></section>
     <section><h2>Guides in this topic</h2><div class="grid">${listedPages
       .map(
-        (page) => `<article class="card"><h3><a href="/${page.route}/">${escapeHtml(page.h1)}</a></h3><p>${escapeHtml(page.description)}</p></article>`,
+        (page) => `<article class="card"><h3><a href="${relatedHref(page.route)}">${escapeHtml(page.h1)}</a></h3><p>${escapeHtml(page.description)}</p></article>`,
       )
       .join("")}</div></section>
     <section><h2>How to choose a guide</h2><ol><li>Start with the folder or file type causing the most repeated work.</li><li>Use a persona guide when retention, privacy, or project structure matters.</li><li>Read a comparison page before adopting a new automation tool.</li><li>Test every workflow on a small backed-up folder.</li></ol></section>
@@ -843,7 +879,7 @@ function writeSitemap(): void {
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
       .map((page) => ({ route: page.route, updatedAt: UPDATED_AT })),
-    ...Object.keys(categories).map((slug) => ({
+    ...Object.keys(categories).filter((slug) => slug !== "downloads").map((slug) => ({
       route: `category/${slug}`,
       updatedAt: UPDATED_AT,
     })),
@@ -887,7 +923,11 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 function writeLlmsTxt(): void {
   const featured = seoPages
-    .filter((page) => ["landing", "comparison", "use-case"].includes(page.kind))
+    .filter(
+      (page) =>
+        page.indexable !== false &&
+        ["landing", "comparison", "use-case"].includes(page.kind),
+    )
     .map(
       (page) =>
         `- [${page.h1}](${absoluteUrl(page.route)}): ${page.description}`,

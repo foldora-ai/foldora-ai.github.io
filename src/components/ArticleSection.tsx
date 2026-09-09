@@ -5,9 +5,9 @@ const articles = [
     description: "When local AI organization is useful, where rules are better, and how previews reduce filing mistakes.",
   },
   {
-    title: "Clean Downloads automatically",
-    href: "/clean-downloads-folder/",
-    description: "A practical workflow for documents, screenshots, installers, invoices, and temporary files.",
+    title: "Foldora benchmark",
+    href: "/blog/foldora-file-organizer-benchmark/",
+    description: "Review the documented test method, measured runtime results, and limits of the current evidence.",
   },
   {
     title: "Rename files automatically",

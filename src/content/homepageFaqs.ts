@@ -22,6 +22,10 @@ export const homepageFaqs = [
     a: `Foldora supports ${product.platforms.supported.join(", ")}.`,
   },
   {
+    q: "Which languages does Foldora currently support?",
+    a: "The current release uses an English interface and generates English folder and category labels. Files with names in other languages may be scanned, but localized organization output is not currently guaranteed.",
+  },
+  {
     q: "What kinds of files can it organize?",
     a: "Foldora is positioned for messy folders containing PDFs, documents, spreadsheets, presentations, screenshots, images, archives, installers, invoices, work files, and research files.",
   },

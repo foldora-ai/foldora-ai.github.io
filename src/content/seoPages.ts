@@ -70,6 +70,7 @@ export interface SeoPage {
   related: string[];
   evidence?: SeoEvidence;
   indexable?: boolean;
+  canonicalUrl?: string;
 }
 
 const updatedAt = "2026-09-08";
@@ -2318,6 +2319,23 @@ seoPages.push({
     "alternatives/power-automate",
   ],
 });
+
+// Cleanora is the focused Downloads-cleanup product. Keep these established
+// Foldora URLs available, but make one domain the clear search owner for the
+// same intent instead of splitting relevance between sister products.
+const cleanoraCanonicalByRoute: Record<string, string> = {
+  "clean-downloads-folder": "https://cleanoraai.com/clean-downloads-folder/",
+  "blog/organize-downloads-folder-automatically":
+    "https://cleanoraai.com/blog/organize-downloads-folder-automatically/",
+};
+
+for (const page of seoPages) {
+  const canonicalUrl = cleanoraCanonicalByRoute[page.route];
+  if (canonicalUrl) {
+    page.indexable = false;
+    page.canonicalUrl = canonicalUrl;
+  }
+}
 
 export const seoPagesByRoute = Object.fromEntries(
   seoPages.map((page) => [page.route, page]),
