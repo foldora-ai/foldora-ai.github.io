@@ -16,14 +16,13 @@ const Navbar = () => {
     >
       <div className="container flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-2 text-lg font-bold text-foreground">
-
           <img
-            src="/favicon.ico"
-            alt="Foldora AI"
+            src="/foldora-logo-32.png"
+            alt=""
+            width="32"
+            height="32"
             className="h-8 w-8 object-contain"
           />
-
-
           Foldora AI
         </a>
         <div className="hidden items-center gap-8 md:flex">

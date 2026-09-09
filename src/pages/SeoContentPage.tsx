@@ -95,6 +95,12 @@ const SeoContentPage = () => {
                     {item.kind === "video" ? (
                       <video controls preload="metadata" playsInline aria-label={item.alt} className="w-full bg-black">
                         <source src={item.src} type="video/mp4" />
+                        <track
+                          kind="captions"
+                          src="/foldora-demo-captions.vtt"
+                          srcLang="en"
+                          label="English visual description"
+                        />
                       </video>
                     ) : (
                       <img src={item.src} alt={item.alt} loading="lazy" className="h-auto w-full" />

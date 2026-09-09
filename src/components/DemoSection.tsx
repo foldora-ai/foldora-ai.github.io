@@ -25,14 +25,25 @@ const DemoSection = () => {
               poster={demoImg}
               width="1200"
               height="700"
+              aria-label="Foldora AI organization preview demonstration"
+              aria-describedby="foldora-demo-description"
               className="aspect-[12/7] w-full bg-background"
             >
               <source src={demoVideo} type="video/mp4" />
+              <track
+                kind="captions"
+                src="/foldora-demo-captions.vtt"
+                srcLang="en"
+                label="English visual description"
+              />
             </video>
           </div>
         </div>
 
-        <p className="mx-auto mt-4 max-w-xl text-center text-sm text-muted-foreground/90">
+        <p
+          id="foldora-demo-description"
+          className="mx-auto mt-4 max-w-xl text-center text-sm text-muted-foreground/90"
+        >
           The important step is the preview: review proposed folders and filenames before applying changes to important files.
         </p>
       </div>

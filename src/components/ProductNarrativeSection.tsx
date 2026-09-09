@@ -46,7 +46,7 @@ const ProductNarrativeSection = () => {
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <item.icon className="h-5 w-5" />
               </div>
-              <div className="mt-5 text-xs font-semibold uppercase tracking-wide text-primary">
+              <div className="mt-5 text-xs font-semibold uppercase tracking-wide text-primary-readable">
                 {item.label}
               </div>
               <h3 className="mt-2 text-lg font-semibold text-foreground">{item.title}</h3>

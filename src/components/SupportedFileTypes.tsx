@@ -26,7 +26,7 @@ const SupportedFileTypes = () => {
                 {types.map((t) => (
                     <span
                     key={t}
-                    className="px-2 py-1 text-xs rounded-md bg-secondary text-muted-foreground"
+                    className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
                     >
                     {t}
                     </span>

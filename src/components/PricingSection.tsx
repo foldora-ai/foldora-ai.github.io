@@ -49,7 +49,7 @@ const PricingSection = () => {
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-xl border border-primary/30 bg-card p-8">
-            <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+            <div className="text-sm font-semibold uppercase tracking-wide text-primary-readable">
               {product.price.label}
             </div>
             <div className="mt-4 flex items-end gap-2">

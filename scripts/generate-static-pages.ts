@@ -524,7 +524,7 @@ function renderEvidence(page: SeoPage): string {
         .map(
           (item) => `<figure>${
             item.kind === "video"
-              ? `<video controls preload="metadata" playsinline aria-label="${escapeHtml(item.alt)}"><source src="${escapeHtml(item.src)}" type="video/mp4"></video>`
+              ? `<video controls preload="metadata" playsinline aria-label="${escapeHtml(item.alt)}"><source src="${escapeHtml(item.src)}" type="video/mp4"><track kind="captions" src="/foldora-demo-captions.vtt" srclang="en" label="English visual description"></video>`
               : `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy">`
           }<figcaption>${escapeHtml(item.caption)}</figcaption></figure>`,
         )
