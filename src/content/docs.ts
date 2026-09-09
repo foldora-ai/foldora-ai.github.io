@@ -47,6 +47,10 @@ export const docs = {
         content: `Internet access is needed for purchase, download, and updates. The checkout provider does not need your file names or file contents.`,
       },
       {
+        title: "Website support chat",
+        content: `The Foldora website uses Tawk.to for support chat. The widget loads after the page, and messages or contact details you choose to submit are handled by Tawk.to so support can respond. Do not send file contents, license keys, or other sensitive information through chat. This website support feature is separate from Foldora's local file-organization workflow.`,
+      },
+      {
         title: "Preview is still important",
         content: `Privacy does not prevent filing mistakes. Review proposed folders and filenames before moving or renaming important documents.`,
       },

@@ -16,6 +16,7 @@ const SITE_URL = site.url;
 const BUNDLE_URL = "https://computora.gumroad.com/l/computoraai";
 const OUTPUT_DIR = path.resolve("public");
 const UPDATED_AT = "2026-09-08";
+const TAWK_LOADER_TAG = '<script src="/tawk-loader.js" defer></script>';
 
 interface SupportPage {
   route: string;
@@ -646,6 +647,7 @@ ${renderEvidence(page)}
     </section>
   </main>
   <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
+  ${TAWK_LOADER_TAG}
 </body>
 </html>`;
 }
@@ -751,6 +753,7 @@ ${analyticsHead()}
     <section><h2>Related resources</h2><div class="related"><a href="/ai-file-organizer/">AI File Organizer</a><a href="/organize-files-windows/">Organize Files on Windows</a><a href="/features/offline-processing/">Offline Processing</a><a href="/docs/privacy/">Foldora Privacy</a></div></section>
   </main>
   <footer><div class="container">Foldora AI</div></footer>
+  ${TAWK_LOADER_TAG}
 </body>
 </html>`;
 }
@@ -808,6 +811,7 @@ ${analyticsHead()}
     <section><h2>How to choose a guide</h2><ol><li>Start with the folder or file type causing the most repeated work.</li><li>Use a persona guide when retention, privacy, or project structure matters.</li><li>Read a comparison page before adopting a new automation tool.</li><li>Test every workflow on a small backed-up folder.</li></ol></section>
   </main>
   <footer><div class="container">Foldora AI</div></footer>
+  ${TAWK_LOADER_TAG}
 </body>
 </html>`;
 }
