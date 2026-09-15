@@ -7,7 +7,7 @@
 - Canonical website: https://foldoraai.com/
 - Product category: Local AI file organizer and file renaming software
 - Supported platforms: Windows 10, Windows 11, macOS
-- Current lifetime price: USD 19.99
+- Current lifetime price: USD 14.99
 - Official purchase page: https://computora.gumroad.com/l/foldora
 - Publisher: Computora AI (https://computoraai.com/)
 - Official GitHub organization: https://github.com/foldora-ai
