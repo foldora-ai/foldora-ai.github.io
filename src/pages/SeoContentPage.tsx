@@ -215,7 +215,7 @@ const SeoContentPage = () => {
           <section className="rounded-3xl border border-primary/30 bg-card p-8 text-center">
             <h2 className="text-3xl font-bold">Organize a folder with Foldora</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Run local AI on Windows, review proposed folders and filenames, then apply the changes you approve.
+              {page.route === "ai-file-organizer" ? "Run local AI on Windows or macOS" : "Run local AI on Windows"}, review proposed folders and filenames, then apply the changes you approve.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
@@ -230,7 +230,7 @@ const SeoContentPage = () => {
                 }
                 className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground"
               >
-                Download for Windows
+                {page.route === "ai-file-organizer" ? "Get Foldora for Windows or macOS" : "Download for Windows"}
               </a>
               <a
                 href={bundleUrl}

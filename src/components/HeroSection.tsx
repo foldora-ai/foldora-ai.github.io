@@ -46,7 +46,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Foldora AI analyzes and sorts your files into clean, structured folders in seconds.
+            Foldora AI suggests organized folders and clearer filenames, then lets you review the plan before changing your files.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4">
@@ -103,6 +103,11 @@ const HeroSection = () => {
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
             {product.price.display} one-time purchase. Windows 10/11 and macOS Intel or Apple Silicon.
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            <a href="/ai-file-organizer/" className="underline underline-offset-4 transition-colors hover:text-foreground">
+              See how Foldora organizes files with local AI
+            </a>
           </p>
 
           <div className="mx-auto mt-7 grid max-w-3xl grid-cols-2 gap-2 text-left sm:grid-cols-4">

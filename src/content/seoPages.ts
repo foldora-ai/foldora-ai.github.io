@@ -80,21 +80,21 @@ export const seoPages: SeoPage[] = [
     route: "ai-file-organizer",
     kind: "landing",
     topic: "workflows",
-    title: "Best Offline AI File Organizer for Windows",
-    h1: "Best Offline AI File Organizer for Windows",
+    title: "AI File Organizer for Windows | Private and Offline",
+    h1: "AI File Organizer for Windows",
     description:
       "Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.",
     eyebrow: "Local AI file organization",
-    updatedAt: "2026-09-06",
+    updatedAt: "2026-09-17",
     directAnswer:
-      "Foldora is an AI file organizer for Windows that analyzes filenames and supported document context locally, then proposes useful folders and clearer names. Your organization workflow does not require cloud file uploads: choose a folder, inspect the proposed structure, and apply only the changes you approve.",
+      "Foldora is an AI file organizer for Windows that analyzes filenames and supported document context locally, then proposes useful folders and clearer names. It also runs on macOS. Choose a folder, inspect the proposed structure, and apply only the changes you approve; the organization workflow does not require cloud file uploads.",
     problemTitle: "Why ordinary file sorting stops working",
     problem: [
       "Downloads, Desktop, and Documents folders mix unrelated material: invoices, screenshots, installers, research PDFs, archives, and work files. File-type folders help at first, but they do not explain which client, project, course, or year a file belongs to.",
       "Rules and scripts can automate predictable cases, but they require setup and maintenance. Context-aware organization is more useful when filenames are inconsistent or when several document types belong to the same project.",
     ],
     steps: [
-      "Choose a Windows folder such as Downloads, Desktop, or a project archive.",
+      "Choose a folder such as Downloads, Desktop, or a project archive on Windows or macOS.",
       "Let Foldora analyze filenames and supported file content locally.",
       "Review the proposed categories, subfolders, and descriptive filenames.",
       "Apply the approved changes and keep the resulting structure for future files.",
@@ -121,7 +121,7 @@ export const seoPages: SeoPage[] = [
         {
           option: "Foldora",
           bestFor: "Context-aware local organization with minimal setup",
-          tradeoff: "Best suited to supported Windows workflows",
+          tradeoff: "Review the suggestions before applying changes; not every file type supports content analysis",
         },
         {
           option: "Rule-based tools",
@@ -139,7 +139,7 @@ export const seoPages: SeoPage[] = [
       {
         question: "Does an AI file organizer upload my files?",
         answer:
-          "Not necessarily. Foldora performs its organization workflow locally, without requiring files to be sent to a cloud organizer.",
+          "Foldora's organization workflow runs locally and does not require uploading your files to a cloud organizer. Internet access is still needed for purchase, download, and updates.",
       },
       {
         question: "Can I review changes before files move?",
@@ -150,6 +150,16 @@ export const seoPages: SeoPage[] = [
         question: "Which Windows folders can I organize?",
         answer:
           "Common starting points are Downloads, Desktop, Documents, and project folders. Use a focused folder first so the proposed structure is easy to review.",
+      },
+      {
+        question: "Does Foldora also work on a Mac?",
+        answer:
+          "Yes. Foldora supports macOS on Intel and Apple Silicon as well as Windows 10 and 11. Start with a small folder and review the proposed changes before applying them.",
+      },
+      {
+        question: "Which files can Foldora organize?",
+        answer:
+          "Foldora supports common documents such as PDF, DOCX, and TXT; spreadsheets such as XLSX and CSV; PPT and PPTX presentations; PNG, JPG, GIF, and WEBP images; and ZIP archives. The information available for analysis varies by format.",
       },
     ],
     evidence: {
@@ -177,7 +187,7 @@ export const seoPages: SeoPage[] = [
       "best-file-organizer-windows",
       "blog/foldora-file-organizer-benchmark",
       "rename-files-automatically",
-      "features/offline-processing",
+      "organize-files-mac",
     ],
   },
   {
