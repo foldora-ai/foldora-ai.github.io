@@ -105,7 +105,7 @@ const FeaturePage = () => {
                 }
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
               >
-                Download for Windows
+                Get Foldora for Windows or macOS
               </a>
 
             </div>

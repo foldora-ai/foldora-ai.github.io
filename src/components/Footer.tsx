@@ -30,7 +30,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               onClick={() => {
                 trackEvent("platform_download_cta_clicked", {
-                  platform: "windows",
+                  platform: "windows_macos",
                   location: "footer",
                 });
                 trackEvent("checkout_link_clicked", {
@@ -40,7 +40,7 @@ const Footer = () => {
               }}
               className="transition-colors hover:text-foreground"
             >
-              Download for Windows
+              Get Foldora for Windows or macOS
             </a>
             <a href="/#features" className="transition-colors hover:text-foreground">
               Features

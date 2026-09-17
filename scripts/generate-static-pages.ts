@@ -580,7 +580,7 @@ ${analyticsHead()}
         <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="${trackedCheckout("seo-header", campaign)}">${page.route === "ai-file-organizer" ? "Get Foldora for Windows or macOS" : "Download for Windows"}</a>
+      <a href="${trackedCheckout("seo-header", campaign)}">Get Foldora</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -666,8 +666,8 @@ ${renderEvidence(page)}
     </section>
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
-      <p>${page.route === "ai-file-organizer" ? "Run local AI on Windows or macOS" : "Run local AI on Windows"}, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="${trackedCheckout("seo-page", campaign)}">${page.route === "ai-file-organizer" ? "Get Foldora for Windows or macOS" : "Download for Windows"}</a>
+      <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
+      <a class="button" href="${trackedCheckout("seo-page", campaign)}">Get Foldora</a>
       <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>

@@ -42,7 +42,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
           onClick={() => {
             trackEvent("platform_download_cta_clicked", {
-              platform: "windows",
+              platform: "windows_macos",
               location: "header",
             });
             trackEvent("checkout_link_clicked", {
