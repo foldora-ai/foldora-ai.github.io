@@ -188,6 +188,7 @@ export const seoPages: SeoPage[] = [
       "blog/foldora-file-organizer-benchmark",
       "rename-files-automatically",
       "organize-files-mac",
+      "blog/offline-ai-file-organizer",
     ],
   },
   {
@@ -437,14 +438,14 @@ export const seoPages: SeoPage[] = [
     route: "organize-files-mac",
     kind: "landing",
     topic: "workflows",
-    title: "File Organizer for macOS: Clean Folders with Local AI",
-    h1: "File Organizer for macOS",
+    title: "AI File Organizer for Mac | Local, Preview-First",
+    h1: "AI File Organizer for Mac",
     description:
-      "Organize Downloads, Desktop, Documents, screenshots, PDFs, and work folders on macOS with local AI suggestions and a preview before changes.",
+      "Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.",
     eyebrow: "macOS file organization",
-    updatedAt,
+    updatedAt: "2026-09-17",
     directAnswer:
-      "A macOS file organizer should help clean common inbox folders such as Downloads, Desktop, Documents, screenshots, PDFs, and work folders without hiding what will change. Foldora supports macOS and can propose folders and clearer filenames locally, then lets you review the suggested structure before applying approved moves or renames.",
+      "Foldora is an AI file organizer for Mac that proposes folders and clearer filenames for mixed Downloads, Desktop, Documents, and project folders. Analysis runs locally on macOS, including Intel and Apple Silicon Macs. Preview the suggested moves and renames before applying only the changes you approve.",
     problemTitle: "macOS folders become inboxes for every app",
     problem: [
       "Browsers, Messages, Mail, design tools, scanners, and collaboration apps can all leave files in Downloads or Desktop. The result is a mixed folder where screenshots, invoices, exported PDFs, ZIP files, and active work sit together.",
@@ -514,6 +515,7 @@ export const seoPages: SeoPage[] = [
       "organize-files-automatically",
       "rename-files-automatically",
       "blog/offline-ai-file-organizer",
+      "alternatives/hazel",
     ],
   },
   {
@@ -1249,14 +1251,14 @@ export const seoPages: SeoPage[] = [
     route: "blog/offline-ai-file-organizer",
     kind: "guide",
     topic: "privacy",
-    title: "AI File Organizer Without Cloud Uploads",
-    h1: "AI File Organizer Without Cloud Uploads",
+    title: "Offline AI File Organizer for Windows and Mac",
+    h1: "Offline AI File Organizer for Windows and Mac",
     description:
-      "Learn how offline AI file organization differs from cloud processing, what local processing protects, and what to verify before using it.",
+      "Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.",
     eyebrow: "Privacy and local AI",
-    updatedAt,
+    updatedAt: "2026-09-17",
     directAnswer:
-      "An offline AI file organizer performs analysis on the user's device instead of sending file content to a remote model for each organization task. This reduces cloud exposure and allows organization without an internet connection. Users should still verify software updates, telemetry, permissions, and backup practices.",
+      "Foldora is an offline AI file organizer for Windows 10, Windows 11, and macOS. It analyzes supported files locally, proposes folders and clearer names, and lets you preview changes before applying them; the organization workflow does not require uploading files or an internet connection. Purchase, download, and updates are separate online activities.",
     problemTitle: "Local processing reduces one risk, not every risk",
     problem: [
       "Cloud organization can be convenient, but sensitive invoices, contracts, research, and client files may be subject to privacy or organizational policies. Local processing limits the need to transmit those files for analysis.",
@@ -1323,6 +1325,7 @@ export const seoPages: SeoPage[] = [
       "features/offline-processing",
       "docs/privacy",
       "ai-file-organizer",
+      "organize-files-mac",
       "blog/organize-research-documents",
     ],
   },
@@ -1738,18 +1741,18 @@ export const seoPages: SeoPage[] = [
     title: "Foldora vs Hazel: AI Suggestions or macOS Rules",
     h1: "Foldora vs Hazel",
     description:
-      "Compare Foldora and Hazel by platform, setup model, local processing, renaming, and automation depth. Foldora is for Windows; Hazel is built for macOS.",
+      "Compare Foldora and Hazel on Mac: local AI suggestions with a preview versus persistent folder rules and deeper macOS automation.",
     eyebrow: "File organizer comparison",
-    updatedAt,
+    updatedAt: "2026-09-17",
     directAnswer:
-      "Choose Foldora when you use Windows and want local AI to propose file categories and descriptive names with minimal rule setup. Choose Hazel when you use macOS and want deep, explicit folder rules, pattern matching, tagging, archiving, and integration with macOS automation. They target different platforms and automation styles.",
-    problemTitle: "This comparison is primarily about platform and control model",
+      "Both Foldora and Hazel run on macOS. Choose Foldora when you want local AI to propose categories and filenames for review with little rule setup. Choose Hazel when you want watched-folder rules, tagging, archiving, and deeper macOS automation. Foldora also supports Windows 10 and 11; Hazel is a Mac app.",
+    problemTitle: "On Mac, the choice is about control model, not availability",
     problem: [
       "Hazel watches chosen macOS folders and performs user-defined actions based on attributes and patterns. It is well suited to users who want precise, persistent automation rules.",
-      "Foldora is a Windows app focused on context-aware organization and renaming suggestions that run locally. It is intended to reduce the amount of rule authoring for mixed folders.",
+      "Foldora supports both macOS and Windows. Its local, context-aware organization and renaming suggestions are meant to reduce rule authoring for mixed folders, with a preview before changes are applied.",
     ],
     steps: [
-      "Choose the platform you need to support.",
+      "Confirm the devices you need to support: both apps work on Mac, but only Foldora also supports Windows.",
       "Decide whether you prefer explicit rules or AI-generated suggestions.",
       "List advanced actions such as tags, scripts, archive extraction, or app cleanup.",
       "Test the selected tool on a representative folder before wider automation.",
@@ -1761,7 +1764,7 @@ export const seoPages: SeoPage[] = [
         after: "Hazel rule moves, tags, and renames them automatically",
       },
       {
-        title: "Mixed Windows Downloads",
+        title: "Mixed Mac or Windows Downloads",
         before: "Documents with inconsistent names and several purposes",
         after: "Foldora proposes contextual folders and clearer filenames",
       },
@@ -1769,12 +1772,12 @@ export const seoPages: SeoPage[] = [
     comparison: {
       title: "Foldora and Hazel at a glance",
       summary:
-        "The products are complements across platforms more than direct substitutes.",
+        "Both are available on Mac, but they serve different organization workflows.",
       rows: [
         {
           option: "Foldora",
-          bestFor: "Windows users wanting local AI suggestions",
-          tradeoff: "No verified macOS support in this repository",
+          bestFor: "Mac and Windows users wanting local AI suggestions and a review step",
+          tradeoff: "Suggestions need review; not a substitute for detailed watched-folder rules",
         },
         {
           option: "Hazel",
@@ -1789,6 +1792,11 @@ export const seoPages: SeoPage[] = [
       ],
     },
     faqs: [
+      {
+        question: "Does Foldora work on Mac?",
+        answer:
+          "Yes. Foldora supports macOS on Intel and Apple Silicon, as well as Windows 10 and Windows 11.",
+      },
       {
         question: "Is Hazel available for Windows?",
         answer:
@@ -1806,6 +1814,7 @@ export const seoPages: SeoPage[] = [
       },
     ],
     related: [
+      "organize-files-mac",
       "alternatives/file-juggler",
       "alternatives/power-automate",
       "best-file-organizer-windows",

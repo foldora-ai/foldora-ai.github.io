@@ -11,14 +11,14 @@ Canonical host: `https://foldoraai.com`
 | Best File Organizer for Windows | best file organizer Windows | `/best-file-organizer-windows/` | Home guides, Windows hub, comparisons | File Juggler, Power Automate, Windows guide | Index |
 | Clean Downloads Folder | automatically organize Downloads folder | `/clean-downloads-folder/` | Home guides, Downloads hub | Downloads guide, PDFs, renaming | Index |
 | Organize Files Windows | file organizer for Windows | `/organize-files-windows/` | Home, Windows hub, related pages | AI organizer, Windows comparison, desktop guide | Index |
-| Organize Files Mac | file organizer for macOS | `/organize-files-mac/` | Home, AI organizer, automatic organization pages | AI organizer, offline AI, renaming | Index |
+| Organize Files Mac | AI file organizer for Mac with preview | `/organize-files-mac/` | Home, AI organizer, automatic organization pages | AI organizer, offline AI, renaming, Hazel comparison | Index |
 | Organize Files Automatically | organize many files automatically | `/organize-files-automatically/` | Related guides and broad automation pages | Renaming, Windows, manual comparison | Index |
 | Rename Files Automatically | rename files automatically | `/rename-files-automatically/` | Home guides, AI organizer | PDF, screenshots, smart renaming feature | Index |
 | Organize PDFs Automatically | organize PDFs automatically | `/blog/organize-pdfs-automatically/` | Home guides, Downloads hub | Research, invoices, supported types | Index |
 | Organize Invoices Automatically | organize invoices automatically | `/blog/organize-invoices-automatically/` | Productivity hub, accountant use case | Privacy, renaming, support docs | Index |
 | Organize Screenshots Automatically | rename and sort screenshots | `/blog/organize-screenshots-automatically/` | Productivity hub, desktop guide | Renaming, clean desktop | Index |
 | Organize Downloads Folder Automatically | downloads workflow | `/blog/organize-downloads-folder-automatically/` | Downloads hub | Clean Downloads, downloads feature | Index |
-| Offline AI File Organizer | offline/local file organizer | `/blog/offline-ai-file-organizer/` | Privacy hub, home guides | Privacy docs, AI organizer | Index |
+| Offline AI File Organizer | offline AI file organizer for Windows and Mac | `/blog/offline-ai-file-organizer/` | Privacy hub, home guides, AI organizer | Privacy docs, AI organizer, Mac organizer | Index |
 | Desktop File Management | desktop file organization | `/blog/desktop-file-management/` | Productivity hub | Clean desktop, Windows guide | Index |
 | Clean Desktop Clutter | clean desktop clutter | `/blog/clean-desktop-clutter/` | Windows/productivity hubs | Screenshots, Windows guide | Index |
 | Digital File Minimalism | reduce file clutter | `/blog/digital-file-minimalism/` | Productivity hub | Downloads, automatic organization | Index |
@@ -27,7 +27,7 @@ Canonical host: `https://foldoraai.com`
 | Freelancers Use Case | freelancer file organization | `/use-cases/freelancers/` | Productivity hub | Invoices, work files, privacy | Index |
 | Researchers Use Case | research file organization | `/use-cases/researchers/` | Productivity hub | Research guide, PDFs, offline | Index |
 | Accountants Use Case | accountant file organization | `/use-cases/accountants/` | Privacy/productivity hubs | Invoices, privacy, renaming | Index |
-| Foldora vs Hazel | Foldora vs Hazel | `/alternatives/hazel/` | Home guides, comparison pages | File Juggler, Windows comparison | Index |
+| Foldora vs Hazel | Hazel alternative for Mac: AI suggestions or rules | `/alternatives/hazel/` | Home guides, comparison pages, Mac organizer | Mac organizer, File Juggler, Windows comparison | Index |
 | Foldora vs File Juggler | Foldora vs File Juggler | `/alternatives/file-juggler/` | Home guides, comparison pages | Windows comparison, Hazel | Index |
 | Foldora vs Power Automate | Foldora vs Power Automate | `/alternatives/power-automate/` | Windows comparison | File Juggler, manual organization | Index |
 | Foldora vs Manual Organization | automatic vs manual file organization | `/alternatives/manual-organization/` | Related guides | Automatic organization, AI organizer | Index |
@@ -59,3 +59,4 @@ Canonical host: `https://foldoraai.com`
 - `robots.txt` allows crawling and points to the production sitemap.
 - GitHub Pages cannot emit server-side 301 redirects, so redirect pages use canonical tags, `noindex,follow`, meta refresh, and client-side `Navigate` fallbacks.
 - Search engines and users now see the same platform positioning: support is Windows 10, Windows 11, and macOS.
+- Use `marketing/ai-visibility-monitoring.md` and its observation TSV for a repeatable mention-and-citation check; do not treat a single assistant answer as a ranking.
