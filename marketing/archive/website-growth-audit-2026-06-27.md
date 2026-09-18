@@ -2,6 +2,12 @@
 
 Audit date: 2026-06-27
 
+> Historical snapshot, not current product or SEO guidance. The macOS-support
+> and `/organize-files-mac/` statements below describe the audit's June 2026
+> state and are obsolete. As of September 2026, Foldora supports Windows 10,
+> Windows 11, and macOS, and `/organize-files-mac/` is an indexable landing page.
+> This archive is kept outside the published `docs/` site directory.
+
 ## Initial Findings
 
 ### Conversion Problems
