@@ -1568,6 +1568,7 @@ export const seoPages: SeoPage[] = [
     related: [
       "blog/organize-invoices-automatically",
       "blog/desktop-file-management",
+      "use-cases/consultants",
       "rename-files-automatically",
       "features/offline-processing",
     ],
@@ -1729,6 +1730,7 @@ export const seoPages: SeoPage[] = [
     ],
     related: [
       "blog/organize-invoices-automatically",
+      "use-cases/small-business",
       "features/offline-processing",
       "docs/privacy",
       "rename-files-automatically",
@@ -2160,6 +2162,255 @@ export const seoPages: SeoPage[] = [
       "docs/troubleshooting",
     ],
   },
+  {
+    route: "use-cases/consultants",
+    kind: "use-case",
+    topic: "workflows",
+    title: "File Organization for Consultants and Client Projects",
+    h1: "File Organization for Consultants",
+    description:
+      "Organize consulting proposals, statements of work, research, meeting notes, deliverables, invoices, and client handoffs with a repeatable system.",
+    eyebrow: "Consultant client-file workflow",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "Consultants should organize local files by client and engagement, then separate scope, inputs, working material, meetings, deliverables, and commercial records. Use descriptive dates and statuses for documents that pass through review. Foldora can help categorize and rename a copied or local working folder, but it does not replace a client portal, permissions system, version history, or formal records policy.",
+    problemTitle: "Each engagement creates a mixed record that must remain understandable",
+    problem: [
+      "Consulting files arrive through email, meeting platforms, shared drives, and client portals. A generic Documents folder separates the proposal from the research, source material, decisions, and final report that explain the engagement as a whole.",
+      "The system also needs a clean boundary between internal work and client-ready delivery. Draft analysis, confidential notes, received data, and approved outputs should not be mixed simply because they share a file type.",
+    ],
+    steps: [
+      "Create one client folder and one dated or named subfolder for each engagement.",
+      "Separate Scope, Client Inputs, Research, Meetings, Working, Deliverables, and Billing.",
+      "Rename ambiguous downloads with the client, subject, document type, and useful date or status.",
+      "Before handoff, copy approved deliverables into a clean delivery folder and archive the complete internal record under the applicable retention policy.",
+    ],
+    examples: [
+      {
+        title: "Strategy engagement",
+        before: "proposal-final.pdf, notes.docx, data.xlsx, report-v7.pptx",
+        after:
+          "Client/Engagement/Scope, Meetings, Inputs, Analysis, Deliverables, and Billing",
+      },
+      {
+        title: "Client handoff",
+        before: "Working files and approved outputs mixed in the same project folder",
+        after:
+          "A separate Delivery folder containing only approved reports, appendices, and a readme",
+      },
+    ],
+    comparison: {
+      title: "Tools in a consultant document workflow",
+      summary:
+        "Local organization supports the engagement record, while collaboration and governance require separate systems.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Categorizing and renaming mixed local engagement files",
+          tradeoff: "Not a client portal, collaboration suite, or document management system",
+        },
+        {
+          option: "Shared drive or client portal",
+          bestFor: "Controlled exchange, permissions, and client access",
+          tradeoff: "Downloaded working files can still become inconsistent locally",
+        },
+        {
+          option: "Project management system",
+          bestFor: "Tasks, owners, deadlines, and decision tracking",
+          tradeoff: "Attachments may not form a complete durable archive",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Should consulting files be organized by client or document type?",
+        answer:
+          "Use client and engagement first. Document-type folders such as Meetings, Research, Deliverables, and Billing should sit inside the engagement so its full context stays together.",
+      },
+      {
+        question: "How should consultants name deliverables?",
+        answer:
+          "Include the client or engagement, deliverable name, meaningful version or approval status, and date when it helps distinguish review cycles. Keep draft and approved output separate.",
+      },
+      {
+        question: "Can Foldora replace a consultant client portal?",
+        answer:
+          "No. Foldora organizes supported files in selected local folders. Use an appropriate portal or shared workspace for permissions, secure exchange, collaboration, and client-facing access.",
+      },
+    ],
+    related: [
+      "use-cases/freelancers",
+      "blog/desktop-file-management",
+      "rename-files-automatically",
+      "features/offline-processing",
+    ],
+  },
+  {
+    route: "use-cases/small-business",
+    kind: "use-case",
+    topic: "workflows",
+    title: "Small Business File Organization for Windows and Mac",
+    h1: "File Organization for Small Businesses",
+    description:
+      "Organize small-business finance, operations, sales, vendor, employee, and project files with a practical local folder and naming system.",
+    eyebrow: "Small-business document workflow",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "A small business should organize durable records by business function, then by client, vendor, project, or accounting period where that context matters. Separate active work from authoritative records and archives. Foldora can help clean mixed local folders and rename supported files, but accounting, HR, legal, access-control, backup, and retention obligations still belong in the systems and policies chosen for the business.",
+    problemTitle: "Business records outgrow a personal Downloads folder quickly",
+    problem: [
+      "Quotes, contracts, receipts, statements, employee documents, marketing exports, and vendor files often begin in email or Downloads. Filing only by extension puts unrelated business decisions together and makes later retrieval depend on memory.",
+      "Not every document should share the same access or retention rule. Payroll and personnel material needs a different location from public marketing assets, while signed agreements and filed returns should remain distinct from working drafts.",
+    ],
+    steps: [
+      "Create stable top-level areas such as Finance, Operations, Sales, People, Vendors, Projects, and Archive.",
+      "Within each area, choose one consistent second level: year, client, vendor, or project rather than mixing several patterns.",
+      "Process local inboxes regularly, rename unclear files, and move authoritative records into their approved system of record.",
+      "Restrict sensitive folders, maintain tested backups, and archive records according to legal, tax, employment, and contractual requirements.",
+    ],
+    examples: [
+      {
+        title: "Monthly administration",
+        before: "Statements, supplier invoices, receipts, and exports mixed in Downloads",
+        after:
+          "Finance/2026/Month with separate Bank, Sales, Purchases, Expenses, and Filed records",
+      },
+      {
+        title: "Vendor and operations records",
+        before: "Quotes, signed terms, manuals, and renewal notices stored by file type",
+        after:
+          "Vendors/Vendor Name with Agreement, Orders, Support, Compliance, and Renewal folders",
+      },
+    ],
+    comparison: {
+      title: "Small-business file management options",
+      summary:
+        "A local organizer is useful for intake and cleanup, but core business systems remain authoritative.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Review-first cleanup of mixed local business folders",
+          tradeoff: "Does not provide accounting, HR, records management, or team permissions",
+        },
+        {
+          option: "Business system of record",
+          bestFor: "Authoritative transactions, permissions, workflow, and audit history",
+          tradeoff: "May not organize every local export and email download",
+        },
+        {
+          option: "Manual folder template",
+          bestFor: "Small, predictable collections with clear ownership",
+          tradeoff: "Consistency depends on every person following the same process",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "What top-level folders should a small business use?",
+        answer:
+          "A practical starting set is Finance, Operations, Sales, People, Vendors, Projects, and Archive. Adjust it to the business, and keep sensitive records in systems with suitable access controls.",
+      },
+      {
+        question: "Should business files be organized by year or category?",
+        answer:
+          "Use the dimension that controls retrieval. Finance often starts with year or period; client work usually starts with client and engagement; policies and templates are usually better grouped by function.",
+      },
+      {
+        question: "Is local AI enough for regulated business records?",
+        answer:
+          "No tool choice removes legal or professional obligations. Confirm storage, access, backup, retention, and security requirements, and review consequential moves and names manually.",
+      },
+    ],
+    related: [
+      "use-cases/accountants",
+      "use-cases/consultants",
+      "blog/desktop-file-management",
+      "docs/privacy",
+    ],
+  },
+  {
+    route: "alternatives/nudgefile",
+    kind: "comparison",
+    topic: "windows",
+    title: "Foldora vs NudgeFile: Review-First or Folder Monitoring",
+    h1: "Foldora vs NudgeFile",
+    description:
+      "Compare Foldora and NudgeFile for Windows file organization, including review-first cleanup, monitored folders, renaming, local AI, and workflow scope.",
+    eyebrow: "NudgeFile alternative comparison",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "Choose Foldora when you want to select a folder, review proposed categories and filenames, and approve a bounded cleanup on Windows or macOS. Consider NudgeFile when Windows folder monitoring, recurring routing, duplicate detection, and broader automated workflows are central requirements. Both products emphasize local processing, but they serve different control models, so test the current versions on copied files before choosing.",
+    problemTitle: "The main choice is reviewed batches versus monitored automation",
+    problem: [
+      "Foldora centers the person in each organization run: choose a folder, inspect proposed destinations and names, then apply approved changes. That is useful for periodic cleanup and ambiguous collections where context needs a final human decision.",
+      "NudgeFile currently presents itself as a Windows organizer that watches folders, renames files, routes documents, detects duplicates, and automates workflows with local AI. Monitoring can reduce repeated intake work, but it also makes rule scope, history, duplicate handling, and recovery important evaluation criteria.",
+    ],
+    steps: [
+      "Decide whether the target is a one-time backlog, periodic review, or an always-monitored intake folder.",
+      "Compare the current platform requirements, supported formats, content-analysis behavior, exclusions, and duplicate criteria.",
+      "Inspect how each product previews destinations, handles name collisions, records changes, and supports correction or recovery.",
+      "Run the shortlist against the same copied sample folder and verify results before using sensitive or irreplaceable files.",
+    ],
+    examples: [
+      {
+        title: "Periodic client-folder cleanup",
+        before: "A mixed project export needs contextual folders and clearer document names",
+        after:
+          "Foldora proposes a batch plan for review before the selected files move",
+      },
+      {
+        title: "Recurring Windows intake",
+        before: "New downloads need continuous routing and duplicate checks",
+        after:
+          "NudgeFile's monitored workflow may fit when recurring automation is the priority",
+      },
+    ],
+    comparison: {
+      title: "Foldora and NudgeFile at a glance",
+      summary:
+        "The products overlap in local AI organization but emphasize different operating models.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Review-first organization and renaming on Windows or macOS",
+          tradeoff: "Designed around selected cleanup runs rather than broad workflow monitoring",
+        },
+        {
+          option: "NudgeFile",
+          bestFor: "Windows folder monitoring, routing, duplicates, and recurring workflows",
+          tradeoff: "Verify current preview, recovery, and automation settings for your risk level",
+        },
+        {
+          option: "Rule-based organizer",
+          bestFor: "Deterministic conditions with fully specified actions",
+          tradeoff: "Every rule needs setup, testing, and maintenance",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Is Foldora a NudgeFile alternative?",
+        answer:
+          "Yes, when the goal is local file categorization and renaming with a review step. NudgeFile may fit better when watched folders, duplicate detection, and recurring Windows automation are required.",
+      },
+      {
+        question: "Do Foldora and NudgeFile process files locally?",
+        answer:
+          "Foldora's organization workflow runs locally, and NudgeFile currently describes its AI as local. Verify each installed version and any optional integrations before processing sensitive material.",
+      },
+      {
+        question: "Which product is better for a one-time folder cleanup?",
+        answer:
+          "Foldora's bounded choose-preview-approve workflow is designed for that job. A monitored organizer can be preferable when the same intake process must continue automatically afterward.",
+      },
+    ],
+    related: [
+      "alternatives",
+      "ai-file-organizer",
+      "best-file-organizer-windows",
+      "alternatives/file-juggler",
+    ],
+  },
 ];
 
 const sortioBase = seoPages.find((page) => page.route === "alternatives/file-juggler");
@@ -2266,11 +2517,11 @@ seoPages.push({
   title: "Best AI File Organizer Alternatives",
   h1: "AI File Organizer Alternatives",
   description:
-    "Compare Foldora with Sortio, Hazel, File Juggler, Power Automate, and manual organization for private, review-first file management.",
+    "Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.",
   eyebrow: "AI file organizer comparison hub",
-  updatedAt,
+  updatedAt: "2026-09-19",
   directAnswer:
-    "Choose Foldora when you want local, review-first file organization with proposed folders and filenames on Windows or macOS. Choose Sortio when cross-platform prompt-driven routing and ongoing automation are the priority. Hazel is a mature choice for rule-based macOS automation, File Juggler focuses on configurable Windows file rules, and Power Automate fits broader Microsoft workflows that connect files with other services.",
+    "Choose Foldora when you want local, review-first file organization with proposed folders and filenames on Windows or macOS. NudgeFile focuses on monitored Windows folders and recurring workflows, while Sortio emphasizes cross-platform prompt-driven routing. Hazel is a mature choice for rule-based macOS automation, File Juggler focuses on configurable Windows file rules, and Power Automate fits broader Microsoft workflows that connect files with other services.",
   problemTitle: "The right organizer depends on platform, privacy, and control",
   problem: [
     "Products described as AI file organizers can behave very differently. Some suggest categories from file context, some execute deterministic conditions, and others coordinate actions across cloud applications. A useful comparison should explain where processing occurs and what happens before a file moves.",
@@ -2310,6 +2561,11 @@ seoPages.push({
         tradeoff: "Processing and automation settings require careful review",
       },
       {
+        option: "NudgeFile",
+        bestFor: "Monitored Windows folders, routing, and recurring workflows",
+        tradeoff: "Automation, recovery, and duplicate settings need evaluation",
+      },
+      {
         option: "Hazel, File Juggler, or Power Automate",
         bestFor: "Explicit rules or broader workflow automation",
         tradeoff: "More configuration than a focused suggestion-based organizer",
@@ -2320,7 +2576,7 @@ seoPages.push({
     {
       question: "What is the best Foldora alternative?",
       answer:
-        "Sortio is relevant for prompt-driven cross-platform automation, Hazel for macOS rules, File Juggler for Windows rules, and Power Automate for broader Microsoft workflows. The best choice depends on your platform and preferred control model.",
+        "NudgeFile is relevant for monitored Windows workflows, Sortio for prompt-driven cross-platform automation, Hazel for macOS rules, File Juggler for Windows rules, and Power Automate for broader Microsoft workflows. The best choice depends on your platform and preferred control model.",
     },
     {
       question: "Is Foldora better than a rule-based organizer?",
@@ -2334,6 +2590,7 @@ seoPages.push({
     },
   ],
   related: [
+    "alternatives/nudgefile",
     "alternatives/sortio",
     "alternatives/hazel",
     "alternatives/file-juggler",

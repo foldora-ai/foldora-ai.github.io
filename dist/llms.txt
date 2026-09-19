@@ -31,9 +31,12 @@
 - [Foldora vs File Juggler](https://foldoraai.com/alternatives/file-juggler/): Compare Foldora's local AI suggestions with File Juggler's Windows file automation rules for moving, renaming, deleting, and document-based workflows.
 - [Foldora vs Microsoft Power Automate](https://foldoraai.com/alternatives/power-automate/): Compare a focused local AI file organizer with Microsoft's broader workflow automation platform for desktop, cloud, and business processes.
 - [Automatic vs Manual File Organization](https://foldoraai.com/alternatives/manual-organization/): Compare automatic and manual file organization by setup time, review, control, scale, consistency, and the types of files each method handles best.
+- [File Organization for Consultants](https://foldoraai.com/use-cases/consultants/): Organize consulting proposals, statements of work, research, meeting notes, deliverables, invoices, and client handoffs with a repeatable system.
+- [File Organization for Small Businesses](https://foldoraai.com/use-cases/small-business/): Organize small-business finance, operations, sales, vendor, employee, and project files with a practical local folder and naming system.
+- [Foldora vs NudgeFile](https://foldoraai.com/alternatives/nudgefile/): Compare Foldora and NudgeFile for Windows file organization, including review-first cleanup, monitored folders, renaming, local AI, and workflow scope.
 - [Foldora vs Sortio](https://foldoraai.com/alternatives/sortio/): Compare Foldora and Sortio for Windows file organization, privacy, previews, renaming, and ongoing automation before choosing a workflow.
 - [Best Sortio Alternative for Windows](https://foldoraai.com/alternatives/sortio-alternative/): Looking for a Sortio alternative on Windows? Compare Foldora's local, review-first file organization with prompt-based automation.
-- [AI File Organizer Alternatives](https://foldoraai.com/alternatives/): Compare Foldora with Sortio, Hazel, File Juggler, Power Automate, and manual organization for private, review-first file management.
+- [AI File Organizer Alternatives](https://foldoraai.com/alternatives/): Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.
 
 ## Documentation
 
