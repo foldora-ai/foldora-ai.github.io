@@ -30,6 +30,15 @@ function visibleWordCount(html: string): number {
     .filter(Boolean).length;
 }
 
+function localPublicAsset(url: string): string | undefined {
+  if (!url.startsWith(`${SITE_URL}/`)) {
+    return undefined;
+  }
+
+  const pathname = new URL(url).pathname.replace(/^\//, "");
+  return pathname ? path.join(PUBLIC_DIR, ...pathname.split("/")) : undefined;
+}
+
 const sitemap = read(path.join(PUBLIC_DIR, "sitemap.xml"));
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
   (match) => match[1],
@@ -68,6 +77,10 @@ for (const url of urls) {
     html,
     /<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i,
   );
+  const socialImage = getAttribute(
+    html,
+    /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i,
+  );
 
   if (canonical !== url) {
     errors.push(`${route}: canonical ${canonical ?? "missing"} does not match sitemap`);
@@ -83,6 +96,14 @@ for (const url of urls) {
   }
   if (!/<script[^>]+application\/ld\+json/i.test(html)) {
     errors.push(`${route}: missing JSON-LD`);
+  }
+  if (!socialImage) {
+    errors.push(`${route}: missing Open Graph image`);
+  } else {
+    const imagePath = localPublicAsset(socialImage);
+    if (imagePath && !fs.existsSync(imagePath)) {
+      errors.push(`${route}: Open Graph image does not exist: ${socialImage}`);
+    }
   }
 
   const minimumWords = route.startsWith("/category/") ? 140 : route === "/" ? 80 : 220;

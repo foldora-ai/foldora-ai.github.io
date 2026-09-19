@@ -15,6 +15,9 @@ import { product, site } from "../src/config/product";
 const SITE_URL = site.url;
 const BUNDLE_URL = "https://computora.gumroad.com/l/computoraai";
 const OUTPUT_DIR = path.resolve("public");
+const SOCIAL_IMAGE_SOURCE = path.resolve("src/assets/foldora-demo.png");
+const SOCIAL_IMAGE_PATH = "/foldora-social-preview.png";
+const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
 const UPDATED_AT = "2026-09-08";
 const TAWK_LOADER_TAG = '<script src="/tawk-loader.js" defer></script>';
 
@@ -559,13 +562,15 @@ function renderMainPage(page: SeoPage): string {
   <meta property="og:description" content="${escapeHtml(page.description)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:site_name" content="Foldora AI">
-  <meta property="og:image" content="${SITE_URL}/icon-512.png">
+  <meta property="og:image" content="${SOCIAL_IMAGE_URL}">
   <meta property="og:image:alt" content="${escapeHtml(page.title)} — Foldora AI">
+  <meta property="og:image:width" content="1902">
+  <meta property="og:image:height" content="918">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(page.title)}">
   <meta name="twitter:description" content="${escapeHtml(page.description)}">
-  <meta name="twitter:image" content="${SITE_URL}/icon-512.png">
+  <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>
@@ -758,9 +763,14 @@ function renderSupportPage(page: SupportPage): string {
   <meta property="og:description" content="${escapeHtml(metaDescription)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:site_name" content="Foldora AI">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${SOCIAL_IMAGE_URL}">
+  <meta property="og:image:alt" content="Foldora AI previewing a file organization plan">
+  <meta property="og:image:width" content="1902">
+  <meta property="og:image:height" content="918">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(page.title)}">
   <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
+  <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>
@@ -826,9 +836,14 @@ function renderCategoryPage(slug: string): string {
   <meta property="og:description" content="${escapeHtml(metaDescription)}">
   <meta property="og:url" content="${categoryCanonical}">
   <meta property="og:site_name" content="Foldora AI">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${SOCIAL_IMAGE_URL}">
+  <meta property="og:image:alt" content="Foldora AI previewing a file organization plan">
+  <meta property="og:image:width" content="1902">
+  <meta property="og:image:height" content="918">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(category.title)}">
   <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
+  <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>
@@ -964,6 +979,14 @@ ${featured}
   fs.writeFileSync(path.join(OUTPUT_DIR, "llms.txt"), content, "utf8");
 }
 
+function writeSocialPreview(): void {
+  fs.copyFileSync(
+    SOCIAL_IMAGE_SOURCE,
+    path.join(OUTPUT_DIR, SOCIAL_IMAGE_PATH.slice(1)),
+  );
+}
+
+writeSocialPreview();
 validatePages();
 
 for (const page of seoPages) {

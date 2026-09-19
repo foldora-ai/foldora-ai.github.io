@@ -13,7 +13,7 @@ const SeoHead = ({
   title,
   description,
   canonical,
-  image = "/icon-512.png",
+  image = "https://foldoraai.com/foldora-social-preview.png",
   robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
   schema,
 }: SeoHeadProps) => {
@@ -28,6 +28,8 @@ const SeoHead = ({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={`${title} — Foldora AI`} />
+      <meta property="og:image:width" content="1902" />
+      <meta property="og:image:height" content="918" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_US" />
       {canonical && <meta property="og:url" content={canonical} />}
