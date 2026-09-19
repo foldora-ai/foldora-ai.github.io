@@ -36,6 +36,10 @@
 - [Foldora vs NudgeFile](https://foldoraai.com/alternatives/nudgefile/): Compare Foldora and NudgeFile for Windows file organization, including review-first cleanup, monitored folders, renaming, local AI, and workflow scope.
 - [Foldora vs Sortio](https://foldoraai.com/alternatives/sortio/): Compare Foldora and Sortio for Windows file organization, privacy, previews, renaming, and ongoing automation before choosing a workflow.
 - [Best Sortio Alternative for Windows](https://foldoraai.com/alternatives/sortio-alternative/): Looking for a Sortio alternative on Windows? Compare Foldora's local, review-first file organization with prompt-based automation.
+- [Foldora vs DropIt](https://foldoraai.com/alternatives/dropit/): Compare Foldora and DropIt for Windows file organization, including AI suggestions, configurable rules, folder monitoring, previews, and platform support.
+- [Foldora vs TagSpaces](https://foldoraai.com/alternatives/tagspaces/): Compare Foldora and TagSpaces for private file organization, including AI folder suggestions, offline tags, search, previews, notes, and platform support.
+- [File Organization for Real Estate Agents](https://foldoraai.com/use-cases/real-estate-agents/): Organize real-estate transaction files by property, stage, document type, and status while keeping client records, working copies, and final documents distinct.
+- [File Organization for Teachers](https://foldoraai.com/use-cases/teachers/): Organize lesson plans, worksheets, slides, assessments, classroom resources, and administrative files by school year, course, unit, and teaching purpose.
 - [AI File Organizer Alternatives](https://foldoraai.com/alternatives/): Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.
 
 ## Documentation

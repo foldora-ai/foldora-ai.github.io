@@ -1405,6 +1405,7 @@ export const seoPages: SeoPage[] = [
     ],
     related: [
       "organize-files-automatically",
+      "alternatives/tagspaces",
       "blog/desktop-file-management",
       "clean-downloads-folder",
       "rename-files-automatically",
@@ -1487,6 +1488,7 @@ export const seoPages: SeoPage[] = [
     related: [
       "blog/organize-pdfs-automatically",
       "blog/organize-research-documents",
+      "use-cases/teachers",
       "rename-files-automatically",
       "features/offline-processing",
     ],
@@ -1900,6 +1902,7 @@ export const seoPages: SeoPage[] = [
     related: [
       "best-file-organizer-windows",
       "alternatives/hazel",
+      "alternatives/dropit",
       "alternatives/power-automate",
       "organize-files-windows",
     ],
@@ -2324,6 +2327,7 @@ export const seoPages: SeoPage[] = [
     related: [
       "use-cases/accountants",
       "use-cases/consultants",
+      "use-cases/real-estate-agents",
       "blog/desktop-file-management",
       "docs/privacy",
     ],
@@ -2510,6 +2514,341 @@ if (sortioBase) {
   );
 }
 
+seoPages.push(
+  {
+    route: "alternatives/dropit",
+    kind: "comparison",
+    topic: "windows",
+    title: "Foldora vs DropIt: AI Suggestions or Windows Rules",
+    h1: "Foldora vs DropIt",
+    description:
+      "Compare Foldora and DropIt for Windows file organization, including AI suggestions, configurable rules, folder monitoring, previews, and platform support.",
+    eyebrow: "DropIt alternative for Windows",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "Choose Foldora when you want local AI to propose contextual folders and clearer filenames, followed by a human review step on Windows or macOS. Choose DropIt when you want free, open-source Windows automation built from explicit filters, profiles, monitored folders, and a broad set of actions. DropIt's official download page currently lists version 8.5.1 from 2018, so verify compatibility with your current Windows environment before depending on it.",
+    problemTitle: "The choice is contextual suggestions versus configured actions",
+    problem: [
+      "DropIt matches files using conditions such as name, location, size, dates, properties, content, or regular expressions, then performs a selected action. Its official feature set includes moving, copying, renaming, compressing, extracting, monitoring folders, and maintaining profiles. That depth is useful when the condition and result can be written down in advance.",
+      "Foldora serves a different workflow. It analyzes supported files locally, proposes categories and names, and asks the user to review the plan. It is more suitable when a mixed folder contains documents whose purpose is difficult to express as one stable filename or extension rule.",
+    ],
+    steps: [
+      "Separate predictable recurring rules from ambiguous backlog cleanup in your requirements.",
+      "For DropIt, test every filter and action on copied files and confirm current operating-system compatibility.",
+      "For Foldora, inspect each proposed destination and filename, especially for sensitive or authoritative records.",
+      "Keep a backup and compare correction effort as well as initial setup time before choosing either workflow.",
+    ],
+    examples: [
+      {
+        title: "Known extension workflow",
+        before: "Every ZIP file in one intake folder must move to the same archive location",
+        after:
+          "A DropIt association can express the condition and repeat the configured action",
+      },
+      {
+        title: "Mixed document backlog",
+        before: "Contracts, reports, research, and notes have inconsistent names and extensions",
+        after:
+          "Foldora proposes contextual categories and descriptive names for review",
+      },
+    ],
+    comparison: {
+      title: "Foldora and DropIt at a glance",
+      summary:
+        "Both reduce manual moving, but one starts with suggestions and the other starts with rules.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Contextual, review-first organization on Windows or macOS",
+          tradeoff: "AI suggestions require human review and supported formats",
+        },
+        {
+          option: "DropIt",
+          bestFor: "Free Windows rules, profiles, monitoring, and varied file actions",
+          tradeoff: "Rules require setup; verify the older official release on current systems",
+        },
+        {
+          option: "Manual organization",
+          bestFor: "Small collections and consequential exceptions",
+          tradeoff: "Repeated filing effort grows as the collection changes",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Is Foldora a DropIt alternative?",
+        answer:
+          "Yes, for organizing and renaming mixed files. Foldora emphasizes local AI suggestions and review, while DropIt emphasizes user-defined Windows rules and a larger range of configured actions.",
+      },
+      {
+        question: "Is DropIt still available?",
+        answer:
+          "The official site still provides installer, portable, and source packages and lists version 8.5.1 dated 2018. Test it carefully on the Windows version you use today.",
+      },
+      {
+        question: "Which is better for monitored folders?",
+        answer:
+          "DropIt explicitly supports scanning monitored folders at intervals. Foldora is the stronger fit when you prefer a bounded choose-preview-approve cleanup rather than continuous rules.",
+      },
+    ],
+    related: [
+      "alternatives",
+      "alternatives/file-juggler",
+      "best-file-organizer-windows",
+      "alternatives/manual-organization",
+    ],
+  },
+  {
+    route: "alternatives/tagspaces",
+    kind: "comparison",
+    topic: "privacy",
+    title: "Foldora vs TagSpaces: AI Folders or Offline Tags",
+    h1: "Foldora vs TagSpaces",
+    description:
+      "Compare Foldora and TagSpaces for private file organization, including AI folder suggestions, offline tags, search, previews, notes, and platform support.",
+    eyebrow: "TagSpaces alternative comparison",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "Choose Foldora when the goal is to reorganize supported files into clearer folders and names through a review-first local workflow. Choose TagSpaces when you want an offline file manager centered on tags, search, previews, notes, and browsing without committing each item to only one folder category. TagSpaces Lite is currently presented as free and open source on Windows, macOS, and Linux; Foldora is a paid Windows and macOS organizer.",
+    problemTitle: "Folders and tags answer different retrieval questions",
+    problem: [
+      "A folder gives a file one primary location and works in ordinary File Explorer or Finder. That simplicity helps with handoff and archives, but a document that belongs to several topics may fit only one path unless it is duplicated or linked.",
+      "TagSpaces adds color-coded tags, offline search, file previews, notes, and optional local AI chat. Its tags can be appended to filenames or stored in sidecar metadata. That is useful for multi-dimensional browsing, but it introduces a tagging practice and TagSpaces-specific metadata decisions that users should understand before reorganizing a library.",
+    ],
+    steps: [
+      "Decide whether other people and ordinary system tools must understand the organization without a dedicated app.",
+      "List files that need several labels and compare that need with a stable primary folder structure.",
+      "Test Foldora's proposed moves and TagSpaces tagging or sidecar behavior on a copied representative collection.",
+      "Confirm backup, portability, search, metadata, and collaboration requirements before changing a long-lived archive.",
+    ],
+    examples: [
+      {
+        title: "Client handoff archive",
+        before: "A mixed project folder must remain understandable after delivery",
+        after:
+          "Foldora can propose conventional folders and filenames that remain visible in the operating system",
+      },
+      {
+        title: "Cross-topic reference library",
+        before: "One document belongs to several subjects, projects, and statuses",
+        after:
+          "TagSpaces can apply multiple tags and retrieve the item through search without duplicating it",
+      },
+    ],
+    comparison: {
+      title: "Foldora and TagSpaces at a glance",
+      summary:
+        "The better choice depends on whether the desired output is a new folder structure or a tagged browsing layer.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Proposed folder and filename cleanup with approval before changes",
+          tradeoff: "A folder hierarchy expresses fewer dimensions than a tag system",
+        },
+        {
+          option: "TagSpaces Lite",
+          bestFor: "Offline tags, search, previews, notes, and cross-platform browsing",
+          tradeoff: "Users must choose and maintain a tag and metadata approach",
+        },
+        {
+          option: "System file manager",
+          bestFor: "Basic navigation with no added metadata layer",
+          tradeoff: "Limited contextual organization and cross-topic retrieval",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Is Foldora a TagSpaces alternative?",
+        answer:
+          "It is an alternative when the main goal is local organization, but the models differ. Foldora proposes folders and names; TagSpaces focuses on tags, search, previews, and notes.",
+      },
+      {
+        question: "Does TagSpaces work offline?",
+        answer:
+          "TagSpaces currently describes its Lite desktop app as fully offline and available for Windows, macOS, and Linux. Optional features and storage connections should be evaluated separately.",
+      },
+      {
+        question: "Are folders or tags better?",
+        answer:
+          "Folders are portable and simple for a primary hierarchy. Tags are better when the same file needs several independent labels. Many users keep a shallow folder structure and add tags for secondary retrieval.",
+      },
+    ],
+    related: [
+      "alternatives",
+      "ai-file-organizer",
+      "blog/offline-ai-file-organizer",
+      "blog/digital-file-minimalism",
+    ],
+  },
+  {
+    route: "use-cases/real-estate-agents",
+    kind: "use-case",
+    topic: "workflows",
+    title: "File Organization for Real Estate Agents",
+    h1: "File Organization for Real Estate Agents",
+    description:
+      "Organize real-estate transaction files by property, stage, document type, and status while keeping client records, working copies, and final documents distinct.",
+    eyebrow: "Real-estate transaction workflow",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "Real-estate agents should organize transaction files around the property or transaction identifier, then separate intake, representation, disclosures, offers, inspections, financing, closing, and final records. Use consistent dates and statuses so draft, signed, and superseded documents are not confused. Foldora can help categorize and rename a copied local working folder, but it does not replace a transaction-management system, brokerage controls, e-signature history, permissions, or legal retention requirements.",
+    problemTitle: "One transaction produces documents from many people and systems",
+    problem: [
+      "A property file may combine listing material, client identification, agency agreements, disclosures, offers, amendments, inspection reports, financing documents, correspondence, photographs, and closing records. Generic client or file-type folders can split documents that need to be reviewed as one transaction.",
+      "Version and signature status matter. A draft contract, a counteroffer, and the executed agreement can have similar filenames but very different significance. Any automated cleanup must preserve the authoritative system and leave consequential decisions for human review.",
+    ],
+    steps: [
+      "Create one transaction folder using a stable property address or internal transaction identifier.",
+      "Separate Intake, Agency, Property, Offers, Due Diligence, Financing, Closing, Correspondence, and Final Records.",
+      "Rename local downloads with the property, date, document type, party or source, and meaningful signature or approval status.",
+      "Reconcile the working folder with the brokerage's approved system, then archive or retain records according to policy and jurisdiction.",
+    ],
+    examples: [
+      {
+        title: "Purchase transaction",
+        before: "disclosure.pdf, offer-final2.pdf, inspection-report.pdf, signed.pdf",
+        after:
+          "Property/Disclosures, Offers, Due Diligence, Closing, and Final Records with descriptive names",
+      },
+      {
+        title: "Multiple active properties",
+        before: "Client-first folders containing documents from different addresses",
+        after:
+          "One folder per property or transaction, with client information referenced according to brokerage policy",
+      },
+    ],
+    comparison: {
+      title: "Tools in a real-estate document workflow",
+      summary:
+        "Local cleanup can support daily work, while the approved transaction system remains authoritative.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Review-first cleanup of mixed local transaction downloads",
+          tradeoff: "Not a transaction platform, e-signature system, or compliance archive",
+        },
+        {
+          option: "Transaction-management system",
+          bestFor: "Workflow, permissions, signatures, brokerage review, and records",
+          tradeoff: "Local exports and email downloads may still need organization",
+        },
+        {
+          option: "Manual property template",
+          bestFor: "Low-volume work with an established folder standard",
+          tradeoff: "Naming and filing consistency depend on every participant",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Should real-estate files be organized by client or property?",
+        answer:
+          "Property or transaction is usually the clearer primary unit because one client can participate in several deals. Follow the brokerage's approved structure and identifiers.",
+      },
+      {
+        question: "How should signed real-estate documents be named?",
+        answer:
+          "Include the property or transaction identifier, document type, relevant date, and an accurate status such as executed only after confirming the authoritative signed version.",
+      },
+      {
+        question: "Can Foldora replace transaction-management software?",
+        answer:
+          "No. Foldora can organize supported local files, but it does not provide brokerage oversight, signatures, permissions, deadlines, audit history, or jurisdiction-specific retention controls.",
+      },
+    ],
+    related: [
+      "use-cases/consultants",
+      "use-cases/small-business",
+      "rename-files-automatically",
+      "docs/privacy",
+    ],
+  },
+  {
+    route: "use-cases/teachers",
+    kind: "use-case",
+    topic: "workflows",
+    title: "Digital File Organization for Teachers",
+    h1: "File Organization for Teachers",
+    description:
+      "Organize lesson plans, worksheets, slides, assessments, classroom resources, and administrative files by school year, course, unit, and teaching purpose.",
+    eyebrow: "Teacher digital-file workflow",
+    updatedAt: "2026-09-19",
+    directAnswer:
+      "Teachers should organize reusable resources separately from year-specific class administration, then structure active teaching files by school year, course or grade, unit, and resource type. Use consistent names for lesson plans, handouts, slides, answer keys, and assessments. Foldora can help categorize and rename supported local files, but it does not replace a learning-management system, gradebook, approved student-record storage, or district privacy requirements.",
+    problemTitle: "Reusable teaching materials and protected class records need different homes",
+    problem: [
+      "Lesson plans, worksheets, slides, readings, answer keys, and downloaded resources accumulate across years and platforms. Filing everything by file type hides which unit or learning objective the material supports and makes useful resources difficult to reuse.",
+      "Student work, grades, accommodations, and personally identifiable information require stricter handling than general lesson resources. Local processing can reduce cloud exposure, but it does not make an unapproved folder suitable for protected education records.",
+    ],
+    steps: [
+      "Separate a reusable Curriculum Library from school-year folders containing active class administration.",
+      "Within each course or grade, organize materials by unit, then Lesson Plans, Slides, Handouts, Assessments, Keys, and Reference.",
+      "Rename vague downloads with course, unit, topic, resource type, and version or date when it aids retrieval.",
+      "At year end, remove replaceable duplicates, archive the completed year, and promote only reusable approved resources into the curriculum library.",
+    ],
+    examples: [
+      {
+        title: "Reusable unit materials",
+        before: "lesson.docx, slides-final.pptx, worksheet2.pdf, answers.pdf",
+        after:
+          "Curriculum/Subject/Unit with Lesson Plans, Slides, Handouts, and Keys",
+      },
+      {
+        title: "School-year administration",
+        before: "Schedules, meeting documents, templates, and class exports mixed with lessons",
+        after:
+          "School Year/Admin, Classes, Communication, Professional Learning, and Archive",
+      },
+    ],
+    comparison: {
+      title: "Tools in a teacher file workflow",
+      summary:
+        "A local resource library complements classroom systems rather than replacing them.",
+      rows: [
+        {
+          option: "Foldora",
+          bestFor: "Cleaning mixed local teaching resources with review before moves",
+          tradeoff: "Not an LMS, gradebook, collaboration space, or student-record system",
+        },
+        {
+          option: "Learning-management system",
+          bestFor: "Distributing materials, assignments, feedback, and class access",
+          tradeoff: "Downloaded and reusable source files still need local organization",
+        },
+        {
+          option: "Manual curriculum template",
+          bestFor: "Stable course structures and carefully curated resource libraries",
+          tradeoff: "New downloads and renamed versions require consistent upkeep",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Should teachers organize files by year or subject?",
+        answer:
+          "Keep reusable curriculum by subject, course, and unit. Keep schedules, class administration, and other time-bound material inside the relevant school-year folder.",
+      },
+      {
+        question: "How should lesson-plan files be named?",
+        answer:
+          "Include course or grade, unit, topic, resource type, and a useful date or version. Use explicit labels for answer keys and assessments to prevent accidental distribution.",
+      },
+      {
+        question: "Can teachers organize student records with Foldora?",
+        answer:
+          "Only if the location and workflow comply with school or district policy. Foldora is not a student-information system, and sensitive records should remain in approved storage with suitable access controls.",
+      },
+    ],
+    related: [
+      "use-cases/students",
+      "blog/organize-pdfs-automatically",
+      "rename-files-automatically",
+      "docs/privacy",
+    ],
+  },
+);
+
 seoPages.push({
   route: "alternatives",
   kind: "comparison",
@@ -2521,7 +2860,7 @@ seoPages.push({
   eyebrow: "AI file organizer comparison hub",
   updatedAt: "2026-09-19",
   directAnswer:
-    "Choose Foldora when you want local, review-first file organization with proposed folders and filenames on Windows or macOS. NudgeFile focuses on monitored Windows folders and recurring workflows, while Sortio emphasizes cross-platform prompt-driven routing. Hazel is a mature choice for rule-based macOS automation, File Juggler focuses on configurable Windows file rules, and Power Automate fits broader Microsoft workflows that connect files with other services.",
+    "Choose Foldora when you want local, review-first file organization with proposed folders and filenames on Windows or macOS. NudgeFile focuses on monitored Windows folders, Sortio emphasizes cross-platform prompt routing, and DropIt provides explicit Windows rules and actions. TagSpaces is better suited to offline tags, search, and notes. Hazel, File Juggler, and Power Automate serve rule-based or broader automation workflows.",
   problemTitle: "The right organizer depends on platform, privacy, and control",
   problem: [
     "Products described as AI file organizers can behave very differently. Some suggest categories from file context, some execute deterministic conditions, and others coordinate actions across cloud applications. A useful comparison should explain where processing occurs and what happens before a file moves.",
@@ -2566,6 +2905,11 @@ seoPages.push({
         tradeoff: "Automation, recovery, and duplicate settings need evaluation",
       },
       {
+        option: "DropIt or TagSpaces",
+        bestFor: "Explicit Windows actions or offline tag-based retrieval",
+        tradeoff: "Different setup and metadata models from AI folder suggestions",
+      },
+      {
         option: "Hazel, File Juggler, or Power Automate",
         bestFor: "Explicit rules or broader workflow automation",
         tradeoff: "More configuration than a focused suggestion-based organizer",
@@ -2576,7 +2920,7 @@ seoPages.push({
     {
       question: "What is the best Foldora alternative?",
       answer:
-        "NudgeFile is relevant for monitored Windows workflows, Sortio for prompt-driven cross-platform automation, Hazel for macOS rules, File Juggler for Windows rules, and Power Automate for broader Microsoft workflows. The best choice depends on your platform and preferred control model.",
+        "NudgeFile is relevant for monitored Windows workflows, Sortio for prompt routing, DropIt for explicit Windows actions, TagSpaces for offline tags and search, Hazel for macOS rules, and File Juggler for Windows rules. The best choice depends on your retrieval and control model.",
     },
     {
       question: "Is Foldora better than a rule-based organizer?",
@@ -2591,6 +2935,8 @@ seoPages.push({
   ],
   related: [
     "alternatives/nudgefile",
+    "alternatives/dropit",
+    "alternatives/tagspaces",
     "alternatives/sortio",
     "alternatives/hazel",
     "alternatives/file-juggler",

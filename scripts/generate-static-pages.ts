@@ -60,7 +60,6 @@ const redirects: Record<string, string> = {
   "blog/rename-files-automatically": "rename-files-automatically",
   "blog/ai-file-organizer-for-windows": "best-file-organizer-windows",
   "blog/organize-work-files": "blog/desktop-file-management",
-  "alternatives/dropit": "best-file-organizer-windows",
 };
 
 const allKnownRoutes = new Set([
