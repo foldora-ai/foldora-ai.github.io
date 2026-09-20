@@ -18,7 +18,13 @@ const OUTPUT_DIR = path.resolve("public");
 const SOCIAL_IMAGE_SOURCE = path.resolve("src/assets/foldora-demo.png");
 const SOCIAL_IMAGE_PATH = "/foldora-social-preview.png";
 const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
-const UPDATED_AT = "2026-09-08";
+const HOME_UPDATED_AT = "2026-09-17";
+const SUPPORT_UPDATED_AT = "2026-09-08";
+const CATEGORY_UPDATED_AT: Record<string, string> = {
+  productivity: "2026-09-19",
+  windows: "2026-09-19",
+  privacy: "2026-09-17",
+};
 const TAWK_LOADER_TAG = '<script src="/tawk-loader.js" defer></script>';
 
 interface SupportPage {
@@ -197,6 +203,9 @@ function validatePages(): void {
     if (page.title.length > 65) {
       errors.push(`${page.route}: title is ${page.title.length} characters`);
     }
+    if (/\|\s*Foldora\s*$/i.test(page.title)) {
+      errors.push(`${page.route}: title must not include the rendered Foldora suffix`);
+    }
     if (page.description.length < 120 || page.description.length > 165) {
       errors.push(
         `${page.route}: description is ${page.description.length} characters (target 120-165)`,
@@ -373,7 +382,12 @@ function schemaForPage(page: SeoPage): object {
   };
 }
 
-function basicSchema(route: string, title: string, description: string): object {
+function basicSchema(
+  route: string,
+  title: string,
+  description: string,
+  dateModified: string,
+): object {
   const breadcrumbs = breadcrumbItems(route, title);
   return {
     "@context": "https://schema.org",
@@ -404,7 +418,7 @@ function basicSchema(route: string, title: string, description: string): object 
         url: absoluteUrl(route),
         name: title,
         description,
-        dateModified: UPDATED_AT,
+        dateModified,
         inLanguage: "en",
         isPartOf: { "@id": `${SITE_URL}/#website` },
       },
@@ -723,13 +737,18 @@ function supportFaqs(page: SupportPage): SeoFaq[] {
 function renderSupportPage(page: SupportPage): string {
   const canonicalRoute = page.canonicalTarget ?? page.route;
   const canonical = absoluteUrl(canonicalRoute);
-  const metaDescription = `${page.description} Follow practical setup, review, privacy, and troubleshooting guidance for Foldora.`;
+  const metaDescription = page.description;
   const robots = page.indexable
     ? "index,follow,max-snippet:-1"
     : "noindex,follow";
   const faqs = supportFaqs(page);
   const steps = page.sections.map((section) => stripIndent(section.content));
-  const supportSchema = basicSchema(page.route, page.title, metaDescription) as {
+  const supportSchema = basicSchema(
+    page.route,
+    page.title,
+    metaDescription,
+    SUPPORT_UPDATED_AT,
+  ) as {
     "@context": string;
     "@graph": object[];
   };
@@ -816,7 +835,12 @@ function renderCategoryPage(slug: string): string {
     ? topicPages
     : seoPages.filter((page) => page.indexable !== false).slice(0, 6);
   const schema = JSON.stringify(
-    basicSchema(route, category.title, metaDescription),
+    basicSchema(
+      route,
+      category.title,
+      metaDescription,
+      CATEGORY_UPDATED_AT[slug] ?? SUPPORT_UPDATED_AT,
+    ),
   ).replaceAll("<", "\\u003c");
 
   return `<!doctype html>
@@ -886,16 +910,16 @@ function renderRedirect(from: string, to: string): string {
 
 function writeSitemap(): void {
   const entries = [
-    { route: "", updatedAt: UPDATED_AT },
+    { route: "", updatedAt: HOME_UPDATED_AT },
     ...seoPages
       .filter((page) => page.indexable !== false)
       .map((page) => ({ route: page.route, updatedAt: page.updatedAt })),
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
-      .map((page) => ({ route: page.route, updatedAt: UPDATED_AT })),
+      .map((page) => ({ route: page.route, updatedAt: SUPPORT_UPDATED_AT })),
     ...Object.keys(categories).filter((slug) => slug !== "downloads").map((slug) => ({
       route: `category/${slug}`,
-      updatedAt: UPDATED_AT,
+      updatedAt: CATEGORY_UPDATED_AT[slug] ?? SUPPORT_UPDATED_AT,
     })),
   ];
 

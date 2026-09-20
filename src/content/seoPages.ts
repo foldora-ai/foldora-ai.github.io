@@ -2478,7 +2478,7 @@ if (sortioBase) {
     {
       ...sortioBase,
       route: "alternatives/sortio-alternative",
-      title: "Best Sortio Alternative for Windows | Foldora",
+      title: "Best Sortio Alternative for Windows",
       h1: "Best Sortio Alternative for Windows",
       updatedAt: "2026-09-17",
       description: "Looking for a Sortio alternative on Windows? Compare Foldora's local, review-first file organization with prompt-based automation.",

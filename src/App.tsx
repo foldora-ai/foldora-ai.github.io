@@ -57,7 +57,6 @@ const App = () => (
             <Route path="/blog/rename-files-automatically" element={<Navigate to="/rename-files-automatically/" replace />} />
             <Route path="/blog/ai-file-organizer-for-windows" element={<Navigate to="/best-file-organizer-windows/" replace />} />
             <Route path="/blog/organize-work-files" element={<Navigate to="/blog/desktop-file-management/" replace />} />
-            <Route path="/alternatives/dropit" element={<Navigate to="/best-file-organizer-windows/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

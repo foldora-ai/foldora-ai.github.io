@@ -4,6 +4,7 @@ import path from "node:path";
 const SITE_URL = "https://foldoraai.com";
 const PUBLIC_DIR = path.resolve("public");
 const ROOT_INDEX = path.resolve("index.html");
+const APP_ROUTES = path.resolve("src", "App.tsx");
 
 function read(filePath: string): string {
   return fs.readFileSync(filePath, "utf8");
@@ -147,6 +148,16 @@ for (const url of urls) {
     if (!fs.existsSync(target)) {
       errors.push(`${route}: broken internal link ${link}`);
     }
+  }
+}
+
+const appRoutes = read(APP_ROUTES);
+for (const match of appRoutes.matchAll(
+  /<Route\s+path=["']([^"']+)["']\s+element=\{<Navigate\b/g,
+)) {
+  const route = match[1].endsWith("/") ? match[1] : `${match[1]}/`;
+  if (checkedRoutes.has(route)) {
+    errors.push(`${route}: sitemap URL conflicts with a client-side redirect`);
   }
 }
 

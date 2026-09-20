@@ -4,7 +4,7 @@ export const docs = {
   install: {
     title: "How to Install Foldora",
     description:
-      "Install Foldora on a supported desktop device and start with a small folder before organizing larger file collections.",
+      "Install Foldora on Windows or macOS, confirm the system requirements, and test a small folder before organizing a larger collection.",
     sections: [
       {
         title: "Download Foldora",
@@ -36,7 +36,7 @@ export const docs = {
   privacy: {
     title: "Foldora Privacy",
     description:
-      "Learn how Foldora's local organization workflow reduces cloud exposure for messy folders and sensitive files.",
+      "Learn how Foldora processes supported files locally, how checkout and support remain separate, and how to protect sensitive folders.",
     sections: [
       {
         title: "Organization runs locally",
@@ -60,7 +60,7 @@ export const docs = {
   troubleshooting: {
     title: "Foldora Troubleshooting",
     description:
-      "Fix common Foldora installation, folder access, preview, and checkout issues.",
+      "Resolve common Foldora installation, folder-access, preview, AI initialization, download, and checkout issues on Windows and macOS.",
     sections: [
       {
         title: "Folder permissions",
@@ -92,7 +92,7 @@ export const docs = {
   "how-it-works": {
     title: "How Foldora Works",
     description:
-      "Understand how Foldora analyzes local files, proposes folders and names, and keeps you in control with a preview step.",
+      "See how Foldora analyzes supported files locally, proposes clearer folders and filenames, and lets you review the plan before applying changes.",
     sections: [
       {
         title: "Select a folder",
@@ -116,7 +116,7 @@ export const docs = {
   "supported-file-types": {
     title: "Supported File Types",
     description:
-      "See the file categories Foldora is positioned to organize and rename in messy local folders.",
+      "Check the documents, spreadsheets, presentations, images, and archives that Foldora can organize and rename in supported local workflows.",
     sections: Object.entries(product.supportedFileTypes).map(([title, types]) => ({
       title,
       content: `${types.join(", ")} files are included in the verified repository copy for supported file-type messaging.`,
