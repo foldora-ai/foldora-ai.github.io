@@ -5,6 +5,16 @@ const articles = [
     description: "When local AI organization is useful, where rules are better, and how previews reduce filing mistakes.",
   },
   {
+    title: "AI file organizer for Mac",
+    href: "/organize-files-mac/",
+    description: "Organize Mac Downloads and Desktop files with local analysis and a preview before changes.",
+  },
+  {
+    title: "Organize PDFs automatically",
+    href: "/blog/organize-pdfs-automatically/",
+    description: "A practical way to sort and rename invoices, research papers, and other PDF documents.",
+  },
+  {
     title: "Foldora benchmark",
     href: "/blog/foldora-file-organizer-benchmark/",
     description: "Review the documented test method, measured runtime results, and limits of the current evidence.",

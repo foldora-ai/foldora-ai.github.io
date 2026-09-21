@@ -4,11 +4,22 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SeoHead from "@/components/SeoHead";
 import { seoPagesByRoute } from "@/content/seoPages";
+import { docs } from "@/content/docs";
+import { features } from "@/content/features";
+import { categories } from "@/content/categories";
 import { checkoutUrl } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 const bundleUrl = "https://computora.gumroad.com/l/computoraai";
+
+const relatedTitle = (route: string) => {
+  if (seoPagesByRoute[route]) return seoPagesByRoute[route].h1;
+  if (route.startsWith("docs/")) return docs[route.slice(5) as keyof typeof docs]?.title ?? route;
+  if (route.startsWith("features/")) return features[route.slice(9) as keyof typeof features]?.title ?? route;
+  if (route.startsWith("category/")) return categories[route.slice(9) as keyof typeof categories]?.title ?? route;
+  return route.split("/").pop()?.replaceAll("-", " ") ?? route;
+};
 
 const SeoContentPage = () => {
   const location = useLocation();
@@ -206,7 +217,7 @@ const SeoContentPage = () => {
                   href={seoPagesByRoute[route]?.canonicalUrl ?? `/${route}/`}
                   className="rounded-xl border border-border bg-card p-5 text-foreground transition-colors hover:border-primary/40"
                 >
-                  {route.split("/").pop()?.replaceAll("-", " ")}
+                  {relatedTitle(route)}
                 </a>
               ))}
             </div>

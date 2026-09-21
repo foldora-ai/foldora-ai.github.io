@@ -18,7 +18,7 @@ const OUTPUT_DIR = path.resolve("public");
 const SOCIAL_IMAGE_SOURCE = path.resolve("src/assets/foldora-demo.png");
 const SOCIAL_IMAGE_PATH = "/foldora-social-preview.png";
 const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
-const HOME_UPDATED_AT = "2026-09-17";
+const HOME_UPDATED_AT = "2026-09-21";
 const SUPPORT_UPDATED_AT = "2026-09-08";
 const CATEGORY_UPDATED_AT: Record<string, string> = {
   productivity: "2026-09-19",
