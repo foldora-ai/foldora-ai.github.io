@@ -82,7 +82,7 @@ const PricingSection = () => {
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
                 <CreditCard className="h-5 w-5" />
-                Buy with card
+                Get Foldora — {product.price.display}
               </a>
 
               <a
@@ -111,6 +111,10 @@ const PricingSection = () => {
                 Checkout happens through the linked payment providers. Foldora does not need your file names or file contents for checkout.
               </p>
             </div>
+
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Checkout takes about a minute. Your download appears immediately after payment.
+            </p>
           </div>
 
           <div className="grid gap-6">
