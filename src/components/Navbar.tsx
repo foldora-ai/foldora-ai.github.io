@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
-import { checkoutUrl } from "@/config/product";
+import { checkoutUrl, product } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
 const Navbar = () => {
@@ -52,7 +52,7 @@ const Navbar = () => {
           }}
           className="hidden rounded-lg bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background sm:inline-flex"
         >
-          Download Now
+          Get Foldora · {product.price.display}
         </a>
       </div>
     </motion.nav>

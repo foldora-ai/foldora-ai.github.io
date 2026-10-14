@@ -70,7 +70,7 @@ const HeroSection = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M2 3l9-1v10H2V3zm11-1l9-1v11h-9V2zM2 13h9v10l-9-1V13zm11 0h9v11l-9-1V13z" />
                 </svg>
-                Download for Windows
+                Get Foldora for Windows
               </a>
 
               <a
@@ -90,7 +90,7 @@ const HeroSection = () => {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-[#111] to-[#222] px-8 py-4 text-lg font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1a1a1a]"
               >
                 <span aria-hidden="true">🍎</span>
-                Download for macOS
+                Get Foldora for macOS
               </a>
             </div>
 
