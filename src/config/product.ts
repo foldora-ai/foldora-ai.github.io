@@ -59,6 +59,15 @@ export function checkoutUrl(source: string, content: string, medium = "organic")
   return url.toString();
 }
 
+export function paypalCheckoutUrl(source: string, content: string, medium = "organic"): string {
+  const url = new URL(product.checkout.paypalUrl);
+  url.searchParams.set("utm_source", "foldoraai.com");
+  url.searchParams.set("utm_medium", medium);
+  url.searchParams.set("utm_campaign", source);
+  url.searchParams.set("utm_content", content);
+  return url.toString();
+}
+
 export function absoluteUrl(route = ""): string {
   return `${site.url}/${route ? `${route.replace(/^\/|\/$/g, "")}/` : ""}`;
 }

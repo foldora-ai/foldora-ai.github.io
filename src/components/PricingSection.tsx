@@ -1,6 +1,6 @@
 import { Check, CreditCard, Mail, ShieldCheck } from "lucide-react";
 
-import { checkoutUrl, product, site } from "@/config/product";
+import { checkoutUrl, paypalCheckoutUrl, product, site } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
 const included = [
@@ -34,6 +34,7 @@ const comparisons = [
 
 const PricingSection = () => {
   const cardCheckout = checkoutUrl("homepage", "pricing-card");
+  const paypalCheckout = paypalCheckoutUrl("homepage", "pricing-paypal");
 
   return (
     <section id="pricing" className="section-padding border-t border-border">
@@ -86,7 +87,7 @@ const PricingSection = () => {
               </a>
 
               <a
-                href={product.checkout.paypalUrl}
+                href={paypalCheckout}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
