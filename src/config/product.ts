@@ -1,3 +1,5 @@
+import { campaignAttribution } from "@/lib/attribution";
+
 export const site = {
   name: "Foldora AI",
   productName: "Foldora",
@@ -56,6 +58,7 @@ export function checkoutUrl(source: string, content: string, medium = "organic")
   url.searchParams.set("utm_medium", medium);
   url.searchParams.set("utm_campaign", source);
   url.searchParams.set("utm_content", content);
+  for (const [key, value] of Object.entries(campaignAttribution())) url.searchParams.set(key, value);
   return url.toString();
 }
 
@@ -65,6 +68,7 @@ export function paypalCheckoutUrl(source: string, content: string, medium = "org
   url.searchParams.set("utm_medium", medium);
   url.searchParams.set("utm_campaign", source);
   url.searchParams.set("utm_content", content);
+  for (const [key, value] of Object.entries(campaignAttribution())) url.searchParams.set(key, value);
   return url.toString();
 }
 
