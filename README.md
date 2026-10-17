@@ -98,6 +98,11 @@ Foldora is useful for:
 
 https://foldoraai.com
 
+## Find Foldora
+
+- Product Hunt: https://www.producthunt.com/products/foldora
+- AlternativeTo: https://alternativeto.net/software/foldora/
+
 ---
 
 # 📚 Learn More
