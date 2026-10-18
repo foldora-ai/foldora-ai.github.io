@@ -47,6 +47,14 @@ const SeoContentPage = () => {
         description={page.description}
         canonical={page.canonicalUrl ?? `https://foldoraai.com/${page.route}/`}
         robots={page.indexable === false ? "noindex,follow" : undefined}
+        type={
+          page.kind === "guide" ||
+          page.kind === "comparison" ||
+          page.kind === "use-case"
+            ? "article"
+            : "website"
+        }
+        modifiedTime={page.updatedAt}
         schema={{
           "@context": "https://schema.org",
           "@graph": [

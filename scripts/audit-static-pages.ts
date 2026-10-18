@@ -82,12 +82,31 @@ for (const url of urls) {
     html,
     /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i,
   );
+  const socialType = getAttribute(
+    html,
+    /<meta[^>]+property=["']og:type["'][^>]+content=["']([^"']+)["']/i,
+  );
 
   if (canonical !== url) {
     errors.push(`${route}: canonical ${canonical ?? "missing"} does not match sitemap`);
   }
   if (!description || description.length < 80) {
     errors.push(`${route}: missing or short meta description`);
+  }
+  if (!html.includes('<meta name="author" content="Foldora AI">') && !html.includes('<meta name="author" content="Foldora AI" />')) {
+    errors.push(`${route}: missing author metadata`);
+  }
+  if (!html.includes(`<link rel="alternate" hrefLang="en" href="${url}">`) && !html.includes(`<link rel="alternate" hrefLang="en" href="${url}" />`)) {
+    errors.push(`${route}: missing English alternate link`);
+  }
+  if (!html.includes('property="og:image:type" content="image/png"')) {
+    errors.push(`${route}: missing Open Graph image type`);
+  }
+  if (!html.includes(`name="twitter:url" content="${url}"`)) {
+    errors.push(`${route}: missing Twitter URL`);
+  }
+  if (/^\/(?:blog\/|alternatives\/[^/]+\/|use-cases\/)/.test(route) && socialType !== "article") {
+    errors.push(`${route}: article page must use og:type=article`);
   }
   if (robots?.includes("noindex")) {
     errors.push(`${route}: sitemap URL is noindex`);

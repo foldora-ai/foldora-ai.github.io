@@ -332,6 +332,7 @@ function schemaForPage(page: SeoPage): object {
         description: page.description,
         dateModified: page.updatedAt,
         inLanguage: "en",
+        image: SOCIAL_IMAGE_URL,
         author: { "@id": `${SITE_URL}/#organization` },
         publisher: { "@id": `${SITE_URL}/#organization` },
         isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -365,6 +366,7 @@ function schemaForPage(page: SeoPage): object {
               url: `${SITE_URL}/`,
               applicationCategory: "FileManagementApplication",
               operatingSystem: product.platforms.supported.join(", "),
+              image: SOCIAL_IMAGE_URL,
               description:
                 "Foldora organizes and renames messy folders with local AI and a preview step before changes are applied.",
               featureList: product.claims,
@@ -420,6 +422,7 @@ function basicSchema(
         description,
         dateModified,
         inLanguage: "en",
+        image: SOCIAL_IMAGE_URL,
         isPartOf: { "@id": `${SITE_URL}/#website` },
       },
       {
@@ -555,6 +558,7 @@ function renderMainPage(page: SeoPage): string {
   const robots = page.indexable === false
     ? "noindex,follow"
     : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+  const articlePage = ["guide", "comparison", "use-case"].includes(page.kind);
   const breadcrumbs = breadcrumbItems(page.route, page.h1);
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
@@ -567,7 +571,9 @@ function renderMainPage(page: SeoPage): string {
   <title>${escapeHtml(page.title)} | Foldora</title>
   <meta name="description" content="${escapeHtml(page.description)}">
   <meta name="robots" content="${robots}">
+  <meta name="author" content="Foldora AI">
   <link rel="canonical" href="${canonical}">
+  <link rel="alternate" hrefLang="en" href="${canonical}">
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="${page.kind === "landing" ? "website" : "article"}">
@@ -579,11 +585,14 @@ function renderMainPage(page: SeoPage): string {
   <meta property="og:image:alt" content="${escapeHtml(page.title)} — Foldora AI">
   <meta property="og:image:width" content="1902">
   <meta property="og:image:height" content="918">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:locale" content="en_US">
+${articlePage ? `  <meta property="article:modified_time" content="${page.updatedAt}">` : ""}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(page.title)}">
   <meta name="twitter:description" content="${escapeHtml(page.description)}">
   <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
+  <meta name="twitter:url" content="${canonical}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>
@@ -773,7 +782,9 @@ function renderSupportPage(page: SupportPage): string {
   <title>${escapeHtml(page.title)} | Foldora</title>
   <meta name="description" content="${escapeHtml(metaDescription)}">
   <meta name="robots" content="${robots}">
+  <meta name="author" content="Foldora AI">
   <link rel="canonical" href="${canonical}">
+  <link rel="alternate" hrefLang="en" href="${canonical}">
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
@@ -785,10 +796,12 @@ function renderSupportPage(page: SupportPage): string {
   <meta property="og:image:alt" content="Foldora AI previewing a file organization plan">
   <meta property="og:image:width" content="1902">
   <meta property="og:image:height" content="918">
+  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(page.title)}">
   <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
   <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
+  <meta name="twitter:url" content="${canonical}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>
@@ -851,7 +864,9 @@ function renderCategoryPage(slug: string): string {
   <title>${escapeHtml(category.title)} | Foldora</title>
   <meta name="description" content="${escapeHtml(metaDescription)}">
   <meta name="robots" content="${categoryRobots}">
+  <meta name="author" content="Foldora AI">
   <link rel="canonical" href="${categoryCanonical}">
+  <link rel="alternate" hrefLang="en" href="${categoryCanonical}">
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
@@ -863,10 +878,12 @@ function renderCategoryPage(slug: string): string {
   <meta property="og:image:alt" content="Foldora AI previewing a file organization plan">
   <meta property="og:image:width" content="1902">
   <meta property="og:image:height" content="918">
+  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(category.title)}">
   <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
   <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
+  <meta name="twitter:url" content="${categoryCanonical}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
   <style>${pageStyles()}</style>

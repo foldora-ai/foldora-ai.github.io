@@ -33,6 +33,7 @@ export function websiteSchema() {
     name: site.name,
     url: `${site.url}/`,
     publisher: { "@id": `${site.url}/#organization` },
+    inLanguage: "en",
   };
 }
 
@@ -44,6 +45,7 @@ export function softwareApplicationSchema() {
     url: `${site.url}/`,
     applicationCategory: "FileManagementApplication",
     operatingSystem: product.platforms.supported.join(", "),
+    image: `${site.url}/foldora-social-preview.png`,
     description:
       "Foldora organizes and renames messy folders with local AI and a preview step before changes are applied.",
     featureList: product.claims,
@@ -55,6 +57,21 @@ export function softwareApplicationSchema() {
       availability: "https://schema.org/InStock",
     },
     publisher: { "@id": `${site.url}/#organization` },
+  };
+}
+
+export function homepagePageSchema() {
+  return {
+    "@type": "WebPage",
+    "@id": `${site.url}/#webpage`,
+    url: `${site.url}/`,
+    name: "Foldora AI File Organizer for Windows and macOS | Offline & Private",
+    description:
+      "Foldora organizes, categorizes, and renames files with local AI. Clean Downloads, Desktop, PDFs, and work folders offline on Windows and macOS.",
+    isPartOf: { "@id": `${site.url}/#website` },
+    about: { "@id": `${site.url}/#software` },
+    primaryImageOfPage: `${site.url}/foldora-social-preview.png`,
+    inLanguage: "en",
   };
 }
 
@@ -90,6 +107,7 @@ export function homepageSchema(faqs: FaqItem[]) {
     "@graph": [
       organizationSchema(),
       websiteSchema(),
+      homepagePageSchema(),
       softwareApplicationSchema(),
       faqSchema(faqs),
     ],
