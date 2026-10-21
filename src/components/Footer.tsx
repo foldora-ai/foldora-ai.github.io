@@ -1,4 +1,4 @@
-import { checkoutUrl, site } from "@/config/product";
+import { checkoutTrackingAttributes, checkoutUrl, site } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
 const Footer = () => {
@@ -28,13 +28,10 @@ const Footer = () => {
               href={checkout}
               target="_blank"
               rel="noopener noreferrer"
+              {...checkoutTrackingAttributes("gumroad", "footer")}
               onClick={() => {
                 trackEvent("platform_download_cta_clicked", {
                   platform: "windows_macos",
-                  location: "footer",
-                });
-                trackEvent("checkout_link_clicked", {
-                  provider: "gumroad",
                   location: "footer",
                 });
               }}

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
-import { checkoutUrl, product } from "@/config/product";
+import { checkoutTrackingAttributes, checkoutUrl, product } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
 const Navbar = () => {
@@ -40,13 +40,10 @@ const Navbar = () => {
           href={checkout}
           target="_blank"
           rel="noopener noreferrer"
+          {...checkoutTrackingAttributes("gumroad", "header")}
           onClick={() => {
             trackEvent("platform_download_cta_clicked", {
               platform: "windows_macos",
-              location: "header",
-            });
-            trackEvent("checkout_link_clicked", {
-              provider: "gumroad",
               location: "header",
             });
           }}

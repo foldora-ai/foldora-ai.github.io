@@ -5,6 +5,15 @@
     "https://embed.tawk.to/69e506179491581c33789ff2/1jmj9virs";
   var LOAD_DELAY_MS = 4000;
   var hasLoaded = false;
+  var hasScheduled = false;
+
+  function optionalServicesAllowed() {
+    return Boolean(
+      window.FoldoraPrivacy &&
+        typeof window.FoldoraPrivacy.optionalServicesAllowed === "function" &&
+        window.FoldoraPrivacy.optionalServicesAllowed(),
+    );
+  }
 
   function track(eventName) {
     try {
@@ -31,7 +40,11 @@
   };
 
   function loadWidget() {
-    if (hasLoaded || document.querySelector('script[data-foldora-tawk="true"]')) {
+    if (
+      !optionalServicesAllowed() ||
+      hasLoaded ||
+      document.querySelector('script[data-foldora-tawk="true"]')
+    ) {
       return;
     }
 
@@ -48,6 +61,8 @@
   }
 
   function scheduleWidget() {
+    if (!optionalServicesAllowed() || hasScheduled) return;
+    hasScheduled = true;
     window.setTimeout(loadWidget, LOAD_DELAY_MS);
     window.addEventListener("pointerdown", loadWidget, {
       once: true,
@@ -55,6 +70,8 @@
     });
     window.addEventListener("keydown", loadWidget, { once: true });
   }
+
+  document.addEventListener("foldora:consent-change", scheduleWidget);
 
   if (document.readyState === "complete") {
     scheduleWidget();

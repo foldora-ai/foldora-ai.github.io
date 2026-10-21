@@ -7,8 +7,7 @@ import { seoPagesByRoute } from "@/content/seoPages";
 import { docs } from "@/content/docs";
 import { features } from "@/content/features";
 import { categories } from "@/content/categories";
-import { checkoutUrl } from "@/config/product";
-import { trackEvent } from "@/lib/analytics";
+import { checkoutTrackingAttributes, checkoutUrl } from "@/config/product";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 const bundleUrl = "https://computora.gumroad.com/l/computoraai";
@@ -18,7 +17,7 @@ const relatedTitle = (route: string) => {
   if (route.startsWith("docs/")) return docs[route.slice(5) as keyof typeof docs]?.title ?? route;
   if (route.startsWith("features/")) return features[route.slice(9) as keyof typeof features]?.title ?? route;
   if (route.startsWith("category/")) return categories[route.slice(9) as keyof typeof categories]?.title ?? route;
-  return route.split("/").pop()?.replaceAll("-", " ") ?? route;
+  return route.split("/").pop()?.replace(/-/g, " ") ?? route;
 };
 
 const SeoContentPage = () => {
@@ -238,15 +237,10 @@ const SeoContentPage = () => {
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
-                href={checkoutUrl("seo-page", page.route.replaceAll("/", "-"))}
+                href={checkoutUrl("seo-page", page.route.replace(/\//g, "-"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() =>
-                  trackEvent("checkout_link_clicked", {
-                    provider: "gumroad",
-                    location: page.route,
-                  })
-                }
+                {...checkoutTrackingAttributes("gumroad", page.route)}
                 className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground"
               >
                 Get Foldora

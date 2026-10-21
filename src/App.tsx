@@ -19,11 +19,16 @@ const RouteAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    loadAnalytics();
-  }, []);
+    const trackCurrentPage = () => {
+      if (!loadAnalytics()) return;
+      trackPageView(`${location.pathname}${location.search}`);
+    };
 
-  useEffect(() => {
-    trackPageView(`${location.pathname}${location.search}`);
+    trackCurrentPage();
+    document.addEventListener("foldora:consent-change", trackCurrentPage);
+    return () => {
+      document.removeEventListener("foldora:consent-change", trackCurrentPage);
+    };
   }, [location.pathname, location.search]);
 
   return null;

@@ -30,13 +30,37 @@
   <meta name="twitter:url" content="https://foldoraai.com/blog/offline-ai-file-organizer/">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/","sameAs":["https://github.com/foldora-ai"],"parentOrganization":{"@type":"Organization","@id":"https://computoraai.com/#organization","name":"Computora AI","url":"https://computoraai.com/"}},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/blog/offline-ai-file-organizer/#page","url":"https://foldoraai.com/blog/offline-ai-file-organizer/","headline":"Offline AI File Organizer for Windows and Mac","name":"Offline AI File Organizer for Windows and Mac","description":"Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.","dateModified":"2026-09-17","inLanguage":"en","image":"https://foldoraai.com/foldora-social-preview.png","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://foldoraai.com/category/productivity/"},{"@type":"ListItem","position":3,"name":"Offline AI File Organizer for Windows and Mac","item":"https://foldoraai.com/blog/offline-ai-file-organizer/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does offline AI mean no network activity at all?","acceptedAnswer":{"@type":"Answer","text":"Not always. A product may still check for updates or process payments separately. Verify the specific privacy and network behavior."}},{"@type":"Question","name":"Is local AI slower than cloud AI?","acceptedAnswer":{"@type":"Answer","text":"Performance depends on the model, device, and workload. Local processing avoids upload time but uses the computer's own resources."}},{"@type":"Question","name":"Why is preview important for local organization?","acceptedAnswer":{"@type":"Answer","text":"Privacy does not prevent filing errors. A preview lets users verify proposed moves and names before changing the filesystem."}}]}]}</script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
+    <script src="/privacy-consent.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+      (function () {
+        function analyticsAllowed() {
+          return Boolean(
+            window.FoldoraPrivacy &&
+            typeof window.FoldoraPrivacy.optionalServicesAllowed === 'function' &&
+            window.FoldoraPrivacy.optionalServicesAllowed()
+          );
+        }
+
+        function loadAnalytics() {
+          if (!analyticsAllowed() || window.__foldoraGa4Loaded) return;
+          window.__foldoraGa4Loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF';
+          script.setAttribute('data-foldora-ga4', 'true');
+          document.head.appendChild(script);
+        }
+
+        document.addEventListener('foldora:consent-change', loadAnalytics);
+        loadAnalytics();
+      })();
     </script>
+    <script src="/checkout-tracking.js" defer></script>
   <style>
     :root{color-scheme:dark;--bg:#020817;--card:#0f172a;--line:#243244;--text:#e2e8f0;--muted:#a8b3c5;--green:#22c55e}
     *{box-sizing:border-box}
@@ -102,7 +126,7 @@
         <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-header&amp;utm_content=blog-offline-ai-file-organizer">Get Foldora</a>
+      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-header&amp;utm_content=blog-offline-ai-file-organizer" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="seo-header/blog/offline-ai-file-organizer" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -173,7 +197,7 @@
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-page&amp;utm_content=blog-offline-ai-file-organizer">Get Foldora</a>
+      <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-page&amp;utm_content=blog-offline-ai-file-organizer" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="blog/offline-ai-file-organizer" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
       <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>

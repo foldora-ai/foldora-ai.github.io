@@ -48,7 +48,7 @@ export const docs = {
       },
       {
         title: "Website support chat",
-        content: `The Foldora website uses Tawk.to for support chat. The widget loads after the page, and messages or contact details you choose to submit are handled by Tawk.to so support can respond. Do not send file contents, license keys, or other sensitive information through chat. This website support feature is separate from Foldora's local file-organization workflow.`,
+        content: `The Foldora website offers optional Google Analytics usage measurement and Tawk.to support chat. Neither service loads until you accept optional services. After acceptance, Google Analytics may receive page URLs, website events, browser and device details, cookie or client identifiers, and approximate location; Tawk.to may receive connection and device details plus anything you choose to send in chat. The site stores your consent choice locally, and you can change it with the Privacy settings button. If you reject, checkout links still work and campaign labels can be passed to checkout without being retained in browser storage. Do not send file contents, license keys, or other sensitive information through chat.`,
       },
       {
         title: "Preview is still important",

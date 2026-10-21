@@ -30,13 +30,37 @@
   <meta name="twitter:url" content="https://foldoraai.com/blog/foldora-file-organizer-benchmark/">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/","sameAs":["https://github.com/foldora-ai"],"parentOrganization":{"@type":"Organization","@id":"https://computoraai.com/#organization","name":"Computora AI","url":"https://computoraai.com/"}},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/blog/foldora-file-organizer-benchmark/#page","url":"https://foldoraai.com/blog/foldora-file-organizer-benchmark/","headline":"Foldora File Organizer Benchmark","name":"File Organizer Benchmark | Test Method and Results","description":"See Foldora's reproducible Windows runtime benchmark, test environment, measured results, product demonstration, and the limits of what the test proves.","dateModified":"2026-09-06","inLanguage":"en","image":"https://foldoraai.com/foldora-social-preview.png","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://foldoraai.com/category/productivity/"},{"@type":"ListItem","position":3,"name":"Foldora File Organizer Benchmark","item":"https://foldoraai.com/blog/foldora-file-organizer-benchmark/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is 1.2745 seconds the time required to organize a folder?","acceptedAnswer":{"@type":"Answer","text":"No. It is the time for 40,000 runtime schema-classification calls. End-to-end time also depends on model startup, file reading, hardware, and the selected folder."}},{"@type":"Question","name":"Does the benchmark prove 100% classification accuracy?","acceptedAnswer":{"@type":"Answer","text":"No. It measures repeatable runtime work. Foldora exposes a preview because ambiguous files still need a person to approve the proposed result."}},{"@type":"Question","name":"Why publish the hardware?","acceptedAnswer":{"@type":"Answer","text":"Timings without an environment are difficult to interpret. The test used Windows 11 Pro, a Core i5-8350U, and 8 GB of RAM."}}]}]}</script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
+    <script src="/privacy-consent.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+      (function () {
+        function analyticsAllowed() {
+          return Boolean(
+            window.FoldoraPrivacy &&
+            typeof window.FoldoraPrivacy.optionalServicesAllowed === 'function' &&
+            window.FoldoraPrivacy.optionalServicesAllowed()
+          );
+        }
+
+        function loadAnalytics() {
+          if (!analyticsAllowed() || window.__foldoraGa4Loaded) return;
+          window.__foldoraGa4Loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF';
+          script.setAttribute('data-foldora-ga4', 'true');
+          document.head.appendChild(script);
+        }
+
+        document.addEventListener('foldora:consent-change', loadAnalytics);
+        loadAnalytics();
+      })();
     </script>
+    <script src="/checkout-tracking.js" defer></script>
   <style>
     :root{color-scheme:dark;--bg:#020817;--card:#0f172a;--line:#243244;--text:#e2e8f0;--muted:#a8b3c5;--green:#22c55e}
     *{box-sizing:border-box}
@@ -102,7 +126,7 @@
         <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-header&amp;utm_content=blog-foldora-file-organizer-benchmark">Get Foldora</a>
+      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-header&amp;utm_content=blog-foldora-file-organizer-benchmark" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="seo-header/blog/foldora-file-organizer-benchmark" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -183,7 +207,7 @@
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-page&amp;utm_content=blog-foldora-file-organizer-benchmark">Get Foldora</a>
+      <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-page&amp;utm_content=blog-foldora-file-organizer-benchmark" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="blog/foldora-file-organizer-benchmark" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
       <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>

@@ -5,8 +5,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 
 import { features } from "@/content/features";
-import { absoluteUrl, checkoutUrl } from "@/config/product";
-import { trackEvent } from "@/lib/analytics";
+import { absoluteUrl, checkoutTrackingAttributes, checkoutUrl } from "@/config/product";
 
 const FeaturePage = () => {
   const { slug } = useParams();
@@ -97,12 +96,7 @@ const FeaturePage = () => {
                 href={checkoutUrl("feature-page", `features-${slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() =>
-                  trackEvent("checkout_link_clicked", {
-                    provider: "gumroad",
-                    location: `features/${slug}`,
-                  })
-                }
+                {...checkoutTrackingAttributes("gumroad", `features/${slug}`)}
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
               >
                 Get Foldora for Windows or macOS

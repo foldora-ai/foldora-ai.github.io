@@ -26,6 +26,8 @@ const CATEGORY_UPDATED_AT: Record<string, string> = {
   privacy: "2026-09-17",
 };
 const TAWK_LOADER_TAG = '<script src="/tawk-loader.js" defer></script>';
+const PRIVACY_CONSENT_TAG = '<script src="/privacy-consent.js"></script>';
+const CHECKOUT_TRACKING_TAG = '<script src="/checkout-tracking.js" defer></script>';
 
 interface SupportPage {
   route: string;
@@ -107,10 +109,26 @@ function relatedHref(route: string): string {
 function trackedCheckout(campaign: string, content: string): string {
   const url = new URL(product.checkout.cardUrl);
   url.searchParams.set("utm_source", "foldoraai.com");
-  url.searchParams.set("utm_medium", "organic");
+  url.searchParams.set("utm_medium", "referral");
   url.searchParams.set("utm_campaign", campaign);
   url.searchParams.set("utm_content", content);
   return url.toString().replaceAll("&", "&amp;");
+}
+
+function checkoutTrackingAttributes(location: string, variant = "windows_macos"): string {
+  const attributes = {
+    "data-foldora-checkout": "true",
+    "data-checkout-provider": "gumroad",
+    "data-checkout-location": location,
+    "data-product-id": "foldora",
+    "data-product-name": product.productName,
+    "data-product-price": String(product.price.amount),
+    "data-product-currency": product.price.currency,
+    "data-product-variant": variant,
+  };
+  return Object.entries(attributes)
+    .map(([name, value]) => `${name}="${escapeHtml(value)}"`)
+    .join(" ");
 }
 
 function writeRoute(route: string, html: string): void {
@@ -440,13 +458,37 @@ function basicSchema(
 
 function analyticsHead(): string {
   return `
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${site.analyticsMeasurementId}"></script>
+    ${PRIVACY_CONSENT_TAG}
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${site.analyticsMeasurementId}', {'anonymize_ip': true});
-    </script>`;
+      (function () {
+        function analyticsAllowed() {
+          return Boolean(
+            window.FoldoraPrivacy &&
+            typeof window.FoldoraPrivacy.optionalServicesAllowed === 'function' &&
+            window.FoldoraPrivacy.optionalServicesAllowed()
+          );
+        }
+
+        function loadAnalytics() {
+          if (!analyticsAllowed() || window.__foldoraGa4Loaded) return;
+          window.__foldoraGa4Loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+          window.gtag('js', new Date());
+          window.gtag('config', '${site.analyticsMeasurementId}', {'anonymize_ip': true});
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=${site.analyticsMeasurementId}';
+          script.setAttribute('data-foldora-ga4', 'true');
+          document.head.appendChild(script);
+        }
+
+        document.addEventListener('foldora:consent-change', loadAnalytics);
+        loadAnalytics();
+      })();
+    </script>
+    ${CHECKOUT_TRACKING_TAG}`;
 }
 
 function pageStyles(): string {
@@ -607,7 +649,7 @@ ${analyticsHead()}
         <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="${trackedCheckout("seo-header", campaign)}">Get Foldora</a>
+      <a href="${trackedCheckout("seo-header", campaign)}" ${checkoutTrackingAttributes(`seo-header/${page.route}`)}>Get Foldora</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -694,7 +736,7 @@ ${renderEvidence(page)}
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="${trackedCheckout("seo-page", campaign)}">Get Foldora</a>
+      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>Get Foldora</a>
       <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>

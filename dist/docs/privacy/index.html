@@ -28,13 +28,37 @@
   <meta name="twitter:url" content="https://foldoraai.com/docs/privacy/">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/","sameAs":["https://github.com/foldora-ai"],"parentOrganization":{"@type":"Organization","@id":"https://computoraai.com/#organization","name":"Computora AI","url":"https://computoraai.com/"}},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"WebPage","@id":"https://foldoraai.com/docs/privacy/#page","url":"https://foldoraai.com/docs/privacy/","name":"Foldora Privacy","description":"Learn how Foldora processes supported files locally, how checkout and support remain separate, and how to protect sensitive folders.","dateModified":"2026-09-08","inLanguage":"en","image":"https://foldoraai.com/foldora-social-preview.png","isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Documentation","item":"https://foldoraai.com/docs/how-it-works/"},{"@type":"ListItem","position":3,"name":"Foldora Privacy","item":"https://foldoraai.com/docs/privacy/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where can I learn more about foldora privacy?","acceptedAnswer":{"@type":"Answer","text":"Use this documentation page as the starting point and contact Foldora support if the described steps do not resolve the issue."}},{"@type":"Question","name":"Does Foldora work locally?","acceptedAnswer":{"@type":"Answer","text":"Yes. File analysis and organization are designed to run on the local device."}},{"@type":"Question","name":"Should I back up files before a large change?","acceptedAnswer":{"@type":"Answer","text":"Yes. Keep a current backup before any bulk file move or rename operation."}}]}]}</script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
+    <script src="/privacy-consent.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+      (function () {
+        function analyticsAllowed() {
+          return Boolean(
+            window.FoldoraPrivacy &&
+            typeof window.FoldoraPrivacy.optionalServicesAllowed === 'function' &&
+            window.FoldoraPrivacy.optionalServicesAllowed()
+          );
+        }
+
+        function loadAnalytics() {
+          if (!analyticsAllowed() || window.__foldoraGa4Loaded) return;
+          window.__foldoraGa4Loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF';
+          script.setAttribute('data-foldora-ga4', 'true');
+          document.head.appendChild(script);
+        }
+
+        document.addEventListener('foldora:consent-change', loadAnalytics);
+        loadAnalytics();
+      })();
     </script>
+    <script src="/checkout-tracking.js" defer></script>
   <style>
     :root{color-scheme:dark;--bg:#020817;--card:#0f172a;--line:#243244;--text:#e2e8f0;--muted:#a8b3c5;--green:#22c55e}
     *{box-sizing:border-box}
@@ -96,8 +120,8 @@
   <section class="hero"><div class="container"><div class="eyebrow">docs</div><h1>Foldora Privacy</h1><p class="lede">Learn how Foldora processes supported files locally, how checkout and support remain separate, and how to protect sensitive folders.</p></div></section>
   <main class="container">
     <section class="answer"><h2>Direct answer</h2><p>Learn how Foldora processes supported files locally, how checkout and support remain separate, and how to protect sensitive folders. Foldora keeps the organization workflow local and lets you review changes before applying them.</p></section>
-    <section><h2>What to know</h2><h3>Organization runs locally</h3><p>Foldora is positioned around local analysis. Files do not need to be uploaded to a cloud organizer for the organization workflow.</p><h3>Checkout is separate from file organization</h3><p>Internet access is needed for purchase, download, and updates. The checkout provider does not need your file names or file contents.</p><h3>Website support chat</h3><p>The Foldora website uses Tawk.to for support chat. The widget loads after the page, and messages or contact details you choose to submit are handled by Tawk.to so support can respond. Do not send file contents, license keys, or other sensitive information through chat. This website support feature is separate from Foldora&#39;s local file-organization workflow.</p><h3>Preview is still important</h3><p>Privacy does not prevent filing mistakes. Review proposed folders and filenames before moving or renaming important documents.</p></section>
-    <section><h2>Step-by-step</h2><ol><li>Foldora is positioned around local analysis. Files do not need to be uploaded to a cloud organizer for the organization workflow.</li><li>Internet access is needed for purchase, download, and updates. The checkout provider does not need your file names or file contents.</li><li>The Foldora website uses Tawk.to for support chat. The widget loads after the page, and messages or contact details you choose to submit are handled by Tawk.to so support can respond. Do not send file contents, license keys, or other sensitive information through chat. This website support feature is separate from Foldora&#39;s local file-organization workflow.</li><li>Privacy does not prevent filing mistakes. Review proposed folders and filenames before moving or renaming important documents.</li><li>Review the proposed result before applying changes to important files.</li></ol></section>
+    <section><h2>What to know</h2><h3>Organization runs locally</h3><p>Foldora is positioned around local analysis. Files do not need to be uploaded to a cloud organizer for the organization workflow.</p><h3>Checkout is separate from file organization</h3><p>Internet access is needed for purchase, download, and updates. The checkout provider does not need your file names or file contents.</p><h3>Website support chat</h3><p>The Foldora website offers optional Google Analytics usage measurement and Tawk.to support chat. Neither service loads until you accept optional services. After acceptance, Google Analytics may receive page URLs, website events, browser and device details, cookie or client identifiers, and approximate location; Tawk.to may receive connection and device details plus anything you choose to send in chat. The site stores your consent choice locally, and you can change it with the Privacy settings button. If you reject, checkout links still work and campaign labels can be passed to checkout without being retained in browser storage. Do not send file contents, license keys, or other sensitive information through chat.</p><h3>Preview is still important</h3><p>Privacy does not prevent filing mistakes. Review proposed folders and filenames before moving or renaming important documents.</p></section>
+    <section><h2>Step-by-step</h2><ol><li>Foldora is positioned around local analysis. Files do not need to be uploaded to a cloud organizer for the organization workflow.</li><li>Internet access is needed for purchase, download, and updates. The checkout provider does not need your file names or file contents.</li><li>The Foldora website offers optional Google Analytics usage measurement and Tawk.to support chat. Neither service loads until you accept optional services. After acceptance, Google Analytics may receive page URLs, website events, browser and device details, cookie or client identifiers, and approximate location; Tawk.to may receive connection and device details plus anything you choose to send in chat. The site stores your consent choice locally, and you can change it with the Privacy settings button. If you reject, checkout links still work and campaign labels can be passed to checkout without being retained in browser storage. Do not send file contents, license keys, or other sensitive information through chat.</li><li>Privacy does not prevent filing mistakes. Review proposed folders and filenames before moving or renaming important documents.</li><li>Review the proposed result before applying changes to important files.</li></ol></section>
     <section><h2>Example</h2><div class="card"><p>Start with a small representative folder, confirm that the resulting names and locations match your workflow, and only then process a larger collection.</p></div></section>
     <section><h2>Frequently asked questions</h2><article class="faq"><h3>Where can I learn more about foldora privacy?</h3><p>Use this documentation page as the starting point and contact Foldora support if the described steps do not resolve the issue.</p></article><article class="faq"><h3>Does Foldora work locally?</h3><p>Yes. File analysis and organization are designed to run on the local device.</p></article><article class="faq"><h3>Should I back up files before a large change?</h3><p>Yes. Keep a current backup before any bulk file move or rename operation.</p></article></section>
     <section><h2>Related resources</h2><div class="related"><a href="/ai-file-organizer/">AI File Organizer</a><a href="/organize-files-windows/">Organize Files on Windows</a><a href="/features/offline-processing/">Offline Processing</a><a href="/docs/privacy/">Foldora Privacy</a></div></section>

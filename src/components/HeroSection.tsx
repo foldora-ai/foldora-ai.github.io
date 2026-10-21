@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Eye, ShieldCheck, WifiOff } from "lucide-react";
 
 import InteractiveDemo from "./InteractiveDemo";
-import { checkoutUrl, product } from "@/config/product";
+import { checkoutTrackingAttributes, checkoutUrl, product } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
 const trustItems = [
@@ -55,14 +55,11 @@ const HeroSection = () => {
                 href={checkout}
                 target="_blank"
                 rel="noopener noreferrer"
+                {...checkoutTrackingAttributes("gumroad", "hero-windows", "windows")}
                 onClick={() => {
                   trackEvent("platform_download_cta_clicked", {
                     platform: "windows",
                     location: "hero",
-                  });
-                  trackEvent("checkout_link_clicked", {
-                    provider: "gumroad",
-                    location: "hero-windows",
                   });
                 }}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:opacity-90 glow-shadow"
@@ -77,14 +74,11 @@ const HeroSection = () => {
                 href={checkout}
                 target="_blank"
                 rel="noopener noreferrer"
+                {...checkoutTrackingAttributes("gumroad", "hero-macos", "macos")}
                 onClick={() => {
                   trackEvent("platform_download_cta_clicked", {
                     platform: "macos",
                     location: "hero",
-                  });
-                  trackEvent("checkout_link_clicked", {
-                    provider: "gumroad",
-                    location: "hero-macos",
                   });
                 }}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-[#111] to-[#222] px-8 py-4 text-lg font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1a1a1a]"

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 
 import { docs } from "@/content/docs";
-import { absoluteUrl, checkoutUrl } from "@/config/product";
+import { absoluteUrl, checkoutTrackingAttributes, checkoutUrl } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 import { breadcrumbSchema } from "@/lib/seo";
 import { useEffect } from "react";
@@ -115,12 +115,7 @@ const DocsPage = () => {
                 href={checkoutUrl("docs", `docs-${slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => {
-                  trackEvent("checkout_link_clicked", {
-                    provider: "gumroad",
-                    location: `docs/${slug}`,
-                  });
-                }}
+                {...checkoutTrackingAttributes("gumroad", `docs/${slug}`)}
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
               >
                 Get Foldora for Windows or macOS

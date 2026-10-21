@@ -59,7 +59,7 @@ const SeoHead = ({
       {canonical && <link rel="alternate" hrefLang="en" href={canonical} />}
       {schema && (
         <script type="application/ld+json">
-          {JSON.stringify(schema).replaceAll("<", "\\u003c")}
+          {JSON.stringify(schema).replace(/</g, "\\u003c")}
         </script>
       )}
     </Helmet>

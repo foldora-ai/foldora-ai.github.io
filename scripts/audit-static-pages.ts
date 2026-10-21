@@ -66,6 +66,11 @@ for (const url of urls) {
   }
 
   const html = read(filePath);
+  const privacyConsentCount = (html.match(/src=["']\/privacy-consent\.js["']/g) ?? []).length;
+  const checkoutTrackerCount = (html.match(/src=["']\/checkout-tracking\.js["']/g) ?? []).length;
+  const eagerGoogleTagCount = (
+    html.match(/<script[^>]+src=["']https:\/\/www\.googletagmanager\.com\/gtag/gi) ?? []
+  ).length;
   const canonical = getAttribute(
     html,
     /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i,
@@ -116,6 +121,22 @@ for (const url of urls) {
   }
   if (!/<script[^>]+application\/ld\+json/i.test(html)) {
     errors.push(`${route}: missing JSON-LD`);
+  }
+  if (checkoutTrackerCount !== 1) {
+    errors.push(`${route}: expected one checkout tracker, found ${checkoutTrackerCount}`);
+  }
+  if (privacyConsentCount !== 1) {
+    errors.push(`${route}: expected one privacy consent loader, found ${privacyConsentCount}`);
+  }
+  if (eagerGoogleTagCount !== 0) {
+    errors.push(`${route}: Google tag must not load before optional consent`);
+  }
+  for (const checkoutAnchor of html.matchAll(
+    /<a\b[^>]*href=["'][^"']*computora\.gumroad\.com\/l\/foldora[^"']*["'][^>]*>/gi,
+  )) {
+    if (!checkoutAnchor[0].includes("data-foldora-checkout")) {
+      errors.push(`${route}: Foldora checkout link is missing its tracking marker`);
+    }
   }
   if (!socialImage) {
     errors.push(`${route}: missing Open Graph image`);

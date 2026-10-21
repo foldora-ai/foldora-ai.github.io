@@ -30,13 +30,37 @@
   <meta name="twitter:url" content="https://foldoraai.com/alternatives/file-juggler/">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://foldoraai.com/#organization","name":"Foldora AI","url":"https://foldoraai.com/","sameAs":["https://github.com/foldora-ai"],"parentOrganization":{"@type":"Organization","@id":"https://computoraai.com/#organization","name":"Computora AI","url":"https://computoraai.com/"}},{"@type":"WebSite","@id":"https://foldoraai.com/#website","name":"Foldora AI","url":"https://foldoraai.com/","publisher":{"@id":"https://foldoraai.com/#organization"}},{"@type":"Article","@id":"https://foldoraai.com/alternatives/file-juggler/#page","url":"https://foldoraai.com/alternatives/file-juggler/","headline":"Foldora vs File Juggler","name":"Foldora vs File Juggler for Windows File Organization","description":"Compare Foldora's local AI suggestions with File Juggler's Windows file automation rules for moving, renaming, deleting, and document-based workflows.","dateModified":"2026-09-08","inLanguage":"en","image":"https://foldoraai.com/foldora-social-preview.png","author":{"@id":"https://foldoraai.com/#organization"},"publisher":{"@id":"https://foldoraai.com/#organization"},"isPartOf":{"@id":"https://foldoraai.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://foldoraai.com/"},{"@type":"ListItem","position":2,"name":"Comparisons","item":"https://foldoraai.com/alternatives/"},{"@type":"ListItem","position":3,"name":"Foldora vs File Juggler","item":"https://foldoraai.com/alternatives/file-juggler/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can File Juggler read document content?","acceptedAnswer":{"@type":"Answer","text":"Its official site describes workflows that organize and rename documents based on words, dates, and PDF properties."}},{"@type":"Question","name":"Which product is better for exact rules?","acceptedAnswer":{"@type":"Answer","text":"File Juggler is the stronger fit when conditions and actions can be defined precisely."}},{"@type":"Question","name":"Which product is better for an unstructured backlog?","acceptedAnswer":{"@type":"Answer","text":"Foldora is designed for contextual organization suggestions when the backlog does not follow one stable naming rule."}}]}]}</script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF"></script>
+    <script src="/privacy-consent.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+      (function () {
+        function analyticsAllowed() {
+          return Boolean(
+            window.FoldoraPrivacy &&
+            typeof window.FoldoraPrivacy.optionalServicesAllowed === 'function' &&
+            window.FoldoraPrivacy.optionalServicesAllowed()
+          );
+        }
+
+        function loadAnalytics() {
+          if (!analyticsAllowed() || window.__foldoraGa4Loaded) return;
+          window.__foldoraGa4Loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-HZ5J8QN6FF', {'anonymize_ip': true});
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HZ5J8QN6FF';
+          script.setAttribute('data-foldora-ga4', 'true');
+          document.head.appendChild(script);
+        }
+
+        document.addEventListener('foldora:consent-change', loadAnalytics);
+        loadAnalytics();
+      })();
     </script>
+    <script src="/checkout-tracking.js" defer></script>
   <style>
     :root{color-scheme:dark;--bg:#020817;--card:#0f172a;--line:#243244;--text:#e2e8f0;--muted:#a8b3c5;--green:#22c55e}
     *{box-sizing:border-box}
@@ -102,7 +126,7 @@
         <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-header&amp;utm_content=alternatives-file-juggler">Get Foldora</a>
+      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-header&amp;utm_content=alternatives-file-juggler" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="seo-header/alternatives/file-juggler" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -173,7 +197,7 @@
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=organic&amp;utm_campaign=seo-page&amp;utm_content=alternatives-file-juggler">Get Foldora</a>
+      <a class="button" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-page&amp;utm_content=alternatives-file-juggler" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="alternatives/file-juggler" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
       <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>

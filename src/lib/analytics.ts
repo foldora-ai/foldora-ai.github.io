@@ -6,8 +6,6 @@ export type AnalyticsEventName =
   | "demo_section_reached"
   | "demo_started"
   | "pricing_section_viewed"
-  | "buy_button_clicked"
-  | "checkout_link_clicked"
   | "documentation_page_viewed"
   | "contact_support_clicked"
   | "not_found_viewed";
@@ -18,16 +16,35 @@ declare global {
   interface Window {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
+    __foldoraGa4Loaded?: boolean;
+    FoldoraPrivacy?: {
+      getState: () => "unknown" | "granted" | "denied";
+      optionalServicesAllowed: () => boolean;
+      setOptionalConsent: (granted: boolean) => void;
+      showSettings: () => void;
+    };
   }
 }
 
-export function loadAnalytics(): void {
-  if (typeof window === "undefined" || window.gtag) return;
+export function analyticsConsentGranted(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    window.FoldoraPrivacy?.optionalServicesAllowed() === true
+  );
+}
+
+export function loadAnalytics(): boolean {
+  if (!analyticsConsentGranted()) return false;
+  if (window.__foldoraGa4Loaded) return true;
+
+  window.__foldoraGa4Loaded = true;
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = (...args: unknown[]) => {
-    window.dataLayer?.push(args);
-  };
+  window.gtag =
+    window.gtag ||
+    ((...args: unknown[]) => {
+      window.dataLayer?.push(args);
+    });
 
   window.gtag("js", new Date());
   window.gtag("config", site.analyticsMeasurementId, {
@@ -38,13 +55,16 @@ export function loadAnalytics(): void {
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${site.analyticsMeasurementId}`;
+  script.dataset.foldoraGa4 = "true";
   document.head.appendChild(script);
+  return true;
 }
 
 export function trackEvent(
   eventName: AnalyticsEventName,
   payload: AnalyticsPayload = {},
 ): void {
+  if (!analyticsConsentGranted()) return;
   try {
     window.gtag?.("event", eventName, {
       event_category: "website_funnel",
@@ -56,6 +76,7 @@ export function trackEvent(
 }
 
 export function trackPageView(path: string, title = document.title): void {
+  if (!analyticsConsentGranted()) return;
   try {
     window.gtag?.("event", "page_view", {
       page_title: title,

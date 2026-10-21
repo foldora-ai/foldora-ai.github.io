@@ -1,5 +1,3 @@
-import { campaignAttribution } from "@/lib/attribution";
-
 export const site = {
   name: "Foldora AI",
   productName: "Foldora",
@@ -52,24 +50,39 @@ export const product = {
   },
 };
 
-export function checkoutUrl(source: string, content: string, medium = "organic"): string {
+export function checkoutUrl(source: string, content: string, medium = "referral"): string {
   const url = new URL(product.checkout.cardUrl);
   url.searchParams.set("utm_source", "foldoraai.com");
   url.searchParams.set("utm_medium", medium);
   url.searchParams.set("utm_campaign", source);
   url.searchParams.set("utm_content", content);
-  for (const [key, value] of Object.entries(campaignAttribution())) url.searchParams.set(key, value);
   return url.toString();
 }
 
-export function paypalCheckoutUrl(source: string, content: string, medium = "organic"): string {
+export function paypalCheckoutUrl(source: string, content: string, medium = "referral"): string {
   const url = new URL(product.checkout.paypalUrl);
   url.searchParams.set("utm_source", "foldoraai.com");
   url.searchParams.set("utm_medium", medium);
   url.searchParams.set("utm_campaign", source);
   url.searchParams.set("utm_content", content);
-  for (const [key, value] of Object.entries(campaignAttribution())) url.searchParams.set(key, value);
   return url.toString();
+}
+
+export function checkoutTrackingAttributes(
+  provider: "gumroad" | "paypal",
+  location: string,
+  variant = "windows_macos",
+) {
+  return {
+    "data-foldora-checkout": "true",
+    "data-checkout-provider": provider,
+    "data-checkout-location": location,
+    "data-product-id": "foldora",
+    "data-product-name": product.productName,
+    "data-product-price": String(product.price.amount),
+    "data-product-currency": product.price.currency,
+    "data-product-variant": variant,
+  } as const;
 }
 
 export function absoluteUrl(route = ""): string {
