@@ -134,6 +134,18 @@
         flex-wrap: wrap;
         gap: 16px;
       }
+      .static-fallback footer {
+        margin-top: 32px;
+      }
+      .static-fallback footer button {
+        border: 0;
+        background: transparent;
+        color: inherit;
+        padding: 0;
+        font: inherit;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -197,6 +209,9 @@
           <a href="/docs/install/">Install Foldora</a>
           <a href="/docs/privacy/">Privacy</a>
         </nav>
+        <footer>
+          <button type="button" data-foldora-privacy-open>Privacy Settings</button>
+        </footer>
       </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>

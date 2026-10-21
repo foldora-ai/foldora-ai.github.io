@@ -28,6 +28,7 @@ const CATEGORY_UPDATED_AT: Record<string, string> = {
 const TAWK_LOADER_TAG = '<script src="/tawk-loader.js" defer></script>';
 const PRIVACY_CONSENT_TAG = '<script src="/privacy-consent.js"></script>';
 const CHECKOUT_TRACKING_TAG = '<script src="/checkout-tracking.js" defer></script>';
+const PRIVACY_SETTINGS_CONTROL = '<button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Privacy Settings</button>';
 
 interface SupportPage {
   route: string;
@@ -543,7 +544,8 @@ function pageStyles(): string {
     .cta{text-align:center}
     .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    footer a{color:var(--muted)}
+    footer a,footer button{color:var(--muted)}
+    .footer-privacy-settings{border:0;background:transparent;padding:0;font:inherit;text-decoration:underline;cursor:pointer}
     .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
     @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}`;
 }
@@ -740,7 +742,7 @@ ${renderEvidence(page)}
       <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
+  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links">${PRIVACY_SETTINGS_CONTROL}<a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
   ${TAWK_LOADER_TAG}
 </body>
 </html>`;
@@ -860,7 +862,7 @@ ${analyticsHead()}
     <section><h2>Frequently asked questions</h2>${faqs.map((faq) => `<article class="faq"><h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</section>
     <section><h2>Related resources</h2><div class="related"><a href="/ai-file-organizer/">AI File Organizer</a><a href="/organize-files-windows/">Organize Files on Windows</a><a href="/features/offline-processing/">Offline Processing</a><a href="/docs/privacy/">Foldora Privacy</a></div></section>
   </main>
-  <footer><div class="container">Foldora AI</div></footer>
+  <footer><div class="container">Foldora AI<div class="footer-links">${PRIVACY_SETTINGS_CONTROL}</div></div></footer>
   ${TAWK_LOADER_TAG}
 </body>
 </html>`;
@@ -943,7 +945,7 @@ ${analyticsHead()}
       .join("")}</div></section>
     <section><h2>How to choose a guide</h2><ol><li>Start with the folder or file type causing the most repeated work.</li><li>Use a persona guide when retention, privacy, or project structure matters.</li><li>Read a comparison page before adopting a new automation tool.</li><li>Test every workflow on a small backed-up folder.</li></ol></section>
   </main>
-  <footer><div class="container">Foldora AI</div></footer>
+  <footer><div class="container">Foldora AI<div class="footer-links">${PRIVACY_SETTINGS_CONTROL}</div></div></footer>
   ${TAWK_LOADER_TAG}
 </body>
 </html>`;

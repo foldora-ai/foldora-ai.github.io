@@ -128,6 +128,9 @@ for (const url of urls) {
   if (privacyConsentCount !== 1) {
     errors.push(`${route}: expected one privacy consent loader, found ${privacyConsentCount}`);
   }
+  if (!html.includes("data-foldora-privacy-open")) {
+    errors.push(`${route}: missing footer privacy settings control`);
+  }
   if (eagerGoogleTagCount !== 0) {
     errors.push(`${route}: Google tag must not load before optional consent`);
   }

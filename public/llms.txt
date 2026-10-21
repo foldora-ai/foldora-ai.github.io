@@ -17,7 +17,7 @@
 
 ## Core pages
 
-- [AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.
+- [AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.
 - [Best File Organizer for Windows](https://foldoraai.com/best-file-organizer-windows/): Compare AI, rule-based, and manual file organization for Windows. See which approach fits Downloads cleanup, renaming, privacy, and large folders.
 - [How to Organize Files Automatically on Windows](https://foldoraai.com/organize-files-windows/): Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.
 - [AI File Organizer for Mac](https://foldoraai.com/organize-files-mac/): Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.

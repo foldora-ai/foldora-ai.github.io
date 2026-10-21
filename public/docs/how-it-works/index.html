@@ -110,7 +110,8 @@
     .cta{text-align:center}
     .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    footer a{color:var(--muted)}
+    footer a,footer button{color:var(--muted)}
+    .footer-privacy-settings{border:0;background:transparent;padding:0;font:inherit;text-decoration:underline;cursor:pointer}
     .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
     @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
 </head>
@@ -126,7 +127,7 @@
     <section><h2>Frequently asked questions</h2><article class="faq"><h3>Where can I learn more about how foldora works?</h3><p>Use this documentation page as the starting point and contact Foldora support if the described steps do not resolve the issue.</p></article><article class="faq"><h3>Does Foldora work locally?</h3><p>Yes. File analysis and organization are designed to run on the local device.</p></article><article class="faq"><h3>Should I back up files before a large change?</h3><p>Yes. Keep a current backup before any bulk file move or rename operation.</p></article></section>
     <section><h2>Related resources</h2><div class="related"><a href="/ai-file-organizer/">AI File Organizer</a><a href="/organize-files-windows/">Organize Files on Windows</a><a href="/features/offline-processing/">Offline Processing</a><a href="/docs/privacy/">Foldora Privacy</a></div></section>
   </main>
-  <footer><div class="container">Foldora AI</div></footer>
+  <footer><div class="container">Foldora AI<div class="footer-links"><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Privacy Settings</button></div></div></footer>
   <script src="/tawk-loader.js" defer></script>
 </body>
 </html>

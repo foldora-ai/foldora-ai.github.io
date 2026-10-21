@@ -110,7 +110,8 @@
     .cta{text-align:center}
     .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    footer a{color:var(--muted)}
+    footer a,footer button{color:var(--muted)}
+    .footer-privacy-settings{border:0;background:transparent;padding:0;font:inherit;text-decoration:underline;cursor:pointer}
     .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
     @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
 </head>
@@ -123,7 +124,7 @@
     <section><h2>Guides in this topic</h2><div class="grid"><article class="card"><h3><a href="/blog/offline-ai-file-organizer/">Offline AI File Organizer for Windows and Mac</a></h3><p>Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.</p></article><article class="card"><h3><a href="/use-cases/accountants/">File Organization for Accountants</a></h3><p>Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.</p></article><article class="card"><h3><a href="/alternatives/tagspaces/">Foldora vs TagSpaces</a></h3><p>Compare Foldora and TagSpaces for private file organization, including AI folder suggestions, offline tags, search, previews, notes, and platform support.</p></article></div></section>
     <section><h2>How to choose a guide</h2><ol><li>Start with the folder or file type causing the most repeated work.</li><li>Use a persona guide when retention, privacy, or project structure matters.</li><li>Read a comparison page before adopting a new automation tool.</li><li>Test every workflow on a small backed-up folder.</li></ol></section>
   </main>
-  <footer><div class="container">Foldora AI</div></footer>
+  <footer><div class="container">Foldora AI<div class="footer-links"><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Privacy Settings</button></div></div></footer>
   <script src="/tawk-loader.js" defer></script>
 </body>
 </html>

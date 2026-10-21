@@ -112,7 +112,8 @@
     .cta{text-align:center}
     .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
     footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
-    footer a{color:var(--muted)}
+    footer a,footer button{color:var(--muted)}
+    .footer-privacy-settings{border:0;background:transparent;padding:0;font:inherit;text-decoration:underline;cursor:pointer}
     .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
     @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
 </head>
@@ -201,7 +202,7 @@
       <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
+  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Privacy Settings</button><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
   <script src="/tawk-loader.js" defer></script>
 </body>
 </html>

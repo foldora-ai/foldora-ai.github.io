@@ -13,7 +13,10 @@ const tawkScript = fs.readFileSync(
   "utf8",
 );
 
-function loadConsent(globalPrivacyControl = false) {
+function loadConsent(
+  globalPrivacyControl = false,
+  storedChoice?: "granted" | "denied",
+) {
   const dom = new JSDOM("<!doctype html><html><head></head><body></body></html>", {
     url: "https://foldoraai.com/",
     runScripts: "outside-only",
@@ -22,6 +25,9 @@ function loadConsent(globalPrivacyControl = false) {
     value: globalPrivacyControl,
     configurable: true,
   });
+  if (storedChoice) {
+    dom.window.localStorage.setItem("foldora.optional-consent.v1", storedChoice);
+  }
   dom.window.eval(consentScript);
   dom.window.document.dispatchEvent(new dom.window.Event("DOMContentLoaded"));
   return dom;
@@ -42,7 +48,11 @@ describe("optional-service consent", () => {
       ad_user_data: "denied",
       ad_personalization: "denied",
     });
-    expect(dom.window.document.querySelector("#foldora-privacy-banner")).not.toBeNull();
+    const banner = dom.window.document.querySelector<HTMLElement>(
+      "#foldora-privacy-banner",
+    )!;
+    expect(banner.hidden).toBe(false);
+    expect(dom.window.document.querySelector(".foldora-privacy-settings")).toBeNull();
     dom.window.close();
   });
 
@@ -60,6 +70,10 @@ describe("optional-service consent", () => {
       "granted",
     );
     expect(consentChange).toHaveBeenCalledTimes(1);
+    expect(
+      dom.window.document.querySelector<HTMLElement>("#foldora-privacy-banner")!
+        .hidden,
+    ).toBe(true);
     const dataLayer = dom.window.dataLayer!;
     const update = dataLayer[dataLayer.length - 1] as IArguments;
     expect(update[1]).toBe("update");
@@ -80,6 +94,87 @@ describe("optional-service consent", () => {
       "denied",
     );
     expect(dom.window.sessionStorage.getItem("foldora.campaign")).toBeNull();
+    expect(
+      dom.window.document.querySelector<HTMLElement>("#foldora-privacy-banner")!
+        .hidden,
+    ).toBe(true);
+    dom.window.close();
+  });
+
+  it("saves the selected preference and dismisses the banner", () => {
+    const dom = loadConsent();
+    const checkbox = dom.window.document.querySelector<HTMLInputElement>(
+      "[data-optional-choice]",
+    )!;
+    checkbox.checked = true;
+
+    dom.window.document.querySelector<HTMLButtonElement>("[data-save]")!.click();
+
+    expect(dom.window.FoldoraPrivacy?.getState()).toBe("granted");
+    expect(dom.window.localStorage.getItem("foldora.optional-consent.v1")).toBe(
+      "granted",
+    );
+    expect(
+      dom.window.document.querySelector<HTMLElement>("#foldora-privacy-banner")!
+        .hidden,
+    ).toBe(true);
+    dom.window.close();
+  });
+
+  it("keeps a saved choice hidden and restores it when footer settings reopen", () => {
+    const dom = loadConsent(false, "granted");
+    const banner = dom.window.document.querySelector<HTMLElement>(
+      "#foldora-privacy-banner",
+    )!;
+    const checkbox = dom.window.document.querySelector<HTMLInputElement>(
+      "[data-optional-choice]",
+    )!;
+    const trigger = dom.window.document.createElement("button");
+    trigger.setAttribute("data-foldora-privacy-open", "");
+    dom.window.document.body.appendChild(trigger);
+
+    expect(banner.hidden).toBe(true);
+    expect(dom.window.FoldoraPrivacy?.optionalServicesAllowed()).toBe(true);
+
+    trigger.click();
+
+    expect(banner.hidden).toBe(false);
+    expect(checkbox.checked).toBe(true);
+    expect(
+      dom.window.document.querySelector("[data-current-choice]")?.textContent,
+    ).toContain("allowed");
+
+    dom.window.document.querySelector<HTMLButtonElement>("[data-save]")!.click();
+    expect(banner.hidden).toBe(true);
+    expect(dom.window.localStorage.getItem("foldora.optional-consent.v1")).toBe(
+      "granted",
+    );
+    dom.window.close();
+  });
+
+  it("withdraws consent, clears optional storage, and schedules script removal", () => {
+    const dom = loadConsent(false, "granted");
+    const reloadTimer = vi
+      .spyOn(dom.window, "setTimeout")
+      .mockImplementation((() => 1) as typeof dom.window.setTimeout);
+    dom.window.sessionStorage.setItem("foldora.campaign", '{"utm_source":"qa"}');
+    dom.window.FoldoraPrivacy?.showSettings();
+
+    const checkbox = dom.window.document.querySelector<HTMLInputElement>(
+      "[data-optional-choice]",
+    )!;
+    checkbox.checked = false;
+    dom.window.document.querySelector<HTMLButtonElement>("[data-save]")!.click();
+
+    expect(dom.window.FoldoraPrivacy?.optionalServicesAllowed()).toBe(false);
+    expect(dom.window.localStorage.getItem("foldora.optional-consent.v1")).toBe(
+      "denied",
+    );
+    expect(dom.window.sessionStorage.getItem("foldora.campaign")).toBeNull();
+    const update = dom.window.dataLayer?.at(-1) as IArguments;
+    expect(update[1]).toBe("update");
+    expect(update[2]).toMatchObject({ analytics_storage: "denied" });
+    expect(reloadTimer).toHaveBeenCalledTimes(1);
     dom.window.close();
   });
 

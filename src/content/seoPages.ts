@@ -80,18 +80,18 @@ export const seoPages: SeoPage[] = [
     route: "ai-file-organizer",
     kind: "landing",
     topic: "workflows",
-    title: "AI File Organizer for Windows | Private and Offline",
+    title: "AI File Organizer for Windows | Sort & Rename",
     h1: "AI File Organizer for Windows",
     description:
-      "Organize, categorize, and rename files on Windows with private local AI. Preview every proposed folder and filename before applying changes.",
+      "Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.",
     eyebrow: "Local AI file organization",
-    updatedAt: "2026-09-17",
+    updatedAt: "2026-10-21",
     directAnswer:
-      "Foldora is an AI file organizer for Windows that analyzes filenames and supported document context locally, then proposes useful folders and clearer names. It also runs on macOS. Choose a folder, inspect the proposed structure, and apply only the changes you approve; the organization workflow does not require cloud file uploads.",
-    problemTitle: "Why ordinary file sorting stops working",
+      "Foldora is a desktop AI file organizer for Windows 10 and 11. It analyzes filenames and supported file content locally, then proposes folders and clearer filenames for Downloads, Desktop, Documents, or project folders. You preview the plan before applying changes. Foldora costs $14.99 as a one-time purchase and also supports macOS.",
+    problemTitle: "What to expect from an AI file organizer on Windows",
     problem: [
-      "Downloads, Desktop, and Documents folders mix unrelated material: invoices, screenshots, installers, research PDFs, archives, and work files. File-type folders help at first, but they do not explain which client, project, course, or year a file belongs to.",
-      "Rules and scripts can automate predictable cases, but they require setup and maintenance. Context-aware organization is more useful when filenames are inconsistent or when several document types belong to the same project.",
+      "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
+      "Foldora is best suited to a focused folder that contains mixed or inconsistently named files. If every action can be expressed as a fixed condition and must run continuously, a rule-based organizer may be a better fit; Foldora emphasizes a bounded choose, preview, and approve workflow.",
     ],
     steps: [
       "Choose a folder such as Downloads, Desktop, or a project archive on Windows or macOS.",
@@ -152,9 +152,14 @@ export const seoPages: SeoPage[] = [
           "Common starting points are Downloads, Desktop, Documents, and project folders. Use a focused folder first so the proposed structure is easy to review.",
       },
       {
+        question: "Does Foldora work on Windows 10 and Windows 11?",
+        answer:
+          "Yes. Foldora supports Windows 10 and Windows 11. Start with a small representative folder so you can review the suggested folders and filenames before applying them.",
+      },
+      {
         question: "Does Foldora also work on a Mac?",
         answer:
-          "Yes. Foldora supports macOS on Intel and Apple Silicon as well as Windows 10 and 11. Start with a small folder and review the proposed changes before applying them.",
+          "Yes. Foldora supports macOS on Intel and Apple Silicon. Start with a small folder and review the proposed changes before applying them.",
       },
       {
         question: "Which files can Foldora organize?",
@@ -185,6 +190,7 @@ export const seoPages: SeoPage[] = [
     },
     related: [
       "best-file-organizer-windows",
+      "organize-files-windows",
       "blog/foldora-file-organizer-benchmark",
       "rename-files-automatically",
       "organize-files-mac",

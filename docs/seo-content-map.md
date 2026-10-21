@@ -6,11 +6,11 @@ Canonical host: `https://foldoraai.com`
 
 | Page | Target Intent | Canonical URL | Key Inbound Links | Key Outbound Links | Decision |
 | --- | --- | --- | --- | --- | --- |
-| Home | AI file organizer purchase intent | `https://foldoraai.com/` | Navigation, footer, static breadcrumbs | Product, guides, install, privacy, checkout | Index |
-| AI File Organizer | AI file organizer | `/ai-file-organizer/` | Home, topic hubs, related guides | Windows, Downloads, Renaming, Offline | Index |
+| Home | Foldora product and purchase intent | `https://foldoraai.com/` | Navigation, footer, static breadcrumbs | Product, guides, install, privacy, checkout | Index |
+| AI File Organizer | AI file organizer for Windows (commercial software evaluation) | `/ai-file-organizer/` | Home, topic hubs, related guides | Windows, Downloads, Renaming, Offline | Index |
 | Best File Organizer for Windows | best file organizer Windows | `/best-file-organizer-windows/` | Home guides, Windows hub, comparisons | File Juggler, Power Automate, Windows guide | Index |
 | Clean Downloads Folder | automatically organize Downloads folder | `/clean-downloads-folder/` | Home guides, Downloads hub | Downloads guide, PDFs, renaming | Index |
-| Organize Files Windows | file organizer for Windows | `/organize-files-windows/` | Home, Windows hub, related pages | AI organizer, Windows comparison, desktop guide | Index |
+| Organize Files Windows | how to organize files on Windows (informational workflow) | `/organize-files-windows/` | Home, Windows hub, related pages | AI organizer, Windows comparison, desktop guide | Index |
 | Organize Files Mac | AI file organizer for Mac with preview | `/organize-files-mac/` | Home, AI organizer, automatic organization pages | AI organizer, offline AI, renaming, Hazel comparison | Index |
 | Organize Files Automatically | organize many files automatically | `/organize-files-automatically/` | Related guides and broad automation pages | Renaming, Windows, manual comparison | Index |
 | Rename Files Automatically | rename files automatically | `/rename-files-automatically/` | Home guides, AI organizer | PDF, screenshots, smart renaming feature | Index |
@@ -60,3 +60,13 @@ Canonical host: `https://foldoraai.com`
 - GitHub Pages cannot emit server-side 301 redirects, so redirect pages use canonical tags, `noindex,follow`, meta refresh, and client-side `Navigate` fallbacks.
 - Search engines and users now see the same platform positioning: support is Windows 10, Windows 11, and macOS.
 - Use `marketing/ai-visibility-monitoring.md` and its observation TSV for a repeatable mention-and-citation check; do not treat a single assistant answer as a ranking.
+
+## GSC Optimization Log
+
+| Date | Primary Query | Page | Baseline | Change |
+| --- | --- | --- | --- | --- |
+| 2026-10-21 | `ai file organizer for windows` | `/ai-file-organizer/` | 2 clicks, 203 impressions, 0.99% CTR, position 21.49 (three-month query export) | Strengthened the title and description for software-selection intent, clarified product fit and limitations, added Windows compatibility guidance, and linked the informational Windows workflow. |
+
+A query-filtered Search Console Pages report subsequently verified that `/ai-file-organizer/` received 2 clicks and 55 impressions for `ai file organizer for windows` over the same three-month period. The homepage received 100 impressions, `/best-file-organizer-windows/` received 55, and `/organize-files-windows/` received 1. This verifies `/ai-file-organizer/` as a ranking URL and the intended commercial landing page, though it is not the only URL Google surfaced for the query.
+
+The intents remain deliberately distinct: the homepage handles Foldora product navigation and conversion, `/ai-file-organizer/` evaluates the specific Windows AI organizer, `/best-file-organizer-windows/` compares organizer approaches and alternatives, and `/organize-files-windows/` serves an informational how-to workflow. The local source CSV files remain ignored and untracked.
