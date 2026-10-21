@@ -70,3 +70,38 @@ Canonical host: `https://foldoraai.com`
 A query-filtered Search Console Pages report subsequently verified that `/ai-file-organizer/` received 2 clicks and 55 impressions for `ai file organizer for windows` over the same three-month period. The homepage received 100 impressions, `/best-file-organizer-windows/` received 55, and `/organize-files-windows/` received 1. This verifies `/ai-file-organizer/` as a ranking URL and the intended commercial landing page, though it is not the only URL Google surfaced for the query.
 
 The intents remain deliberately distinct: the homepage handles Foldora product navigation and conversion, `/ai-file-organizer/` evaluates the specific Windows AI organizer, `/best-file-organizer-windows/` compares organizer approaches and alternatives, and `/organize-files-windows/` serves an informational how-to workflow. The local source CSV files remain ignored and untracked.
+
+## Organic Opportunity Audit — 2026-10-21
+
+The following clusters use the three-month `Queries.csv` export. Closely related queries were grouped without overlap; average position is impression-weighted. Branded Foldora queries and obvious brand misspellings were excluded.
+
+| Rank | Non-branded cluster | Clicks | Impressions | CTR | Avg. position | Best existing page | Commercial assessment |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| 1 | Windows / best file organizer software | 2 | 588 | 0.34% | 23.93 | `/best-file-organizer-windows/` | Strong software-selection intent and the best combination of qualified demand and an established landing page. |
+| 2 | Core AI file organizer | 6 | 834 | 0.72% | 32.62 | `/ai-file-organizer/` | Largest qualified cluster, but its landing page was optimized on 2026-10-21 and should be observed before another edit. |
+| 3 | Automatic file organizer | 0 | 148 | 0% | 36.08 | `/organize-files-automatically/` | Product interest, but some searchers expect unattended folder monitoring rather than Foldora's review-first workflow. |
+| 4 | AI desktop sorter | 0 | 108 | 0% | 21.73 | `/blog/desktop-file-management/` | Clear cleanup pain and relatively attainable positions; current page is more informational than commercial. |
+| 5 | AI document organizer | 0 | 162 | 0% | 40.07 | `/ai-file-organizer/` | Relevant for supported documents, but broad “document organizer” results can also mean search, records, or enterprise DMS software. |
+| 6 | File Juggler comparison | 0 | 68 | 0% | 18.29 | `/alternatives/file-juggler/` | High buying intent from users comparing or replacing a known Windows product. |
+| 7 | Offline / local / private file organizer | 0 | 39 | 0% | 15.62 | `/blog/offline-ai-file-organizer/` | Strong product fit and close-to-page-one positions, but less observed query demand. |
+| 8 | AI file and folder naming | 0 | 77 | 0% | 29.24 | `/rename-files-automatically/` | Qualified renaming need; the current ranking connection is unverified because the export has no query-page join. |
+| 9 | Mac file organizer | 0 | 27 | 0% | 25.67 | `/organize-files-mac/` | Relevant paid-software intent, with a crowded set of native Mac alternatives. |
+| 10 | Real-estate file organization | 0 | 6 | 0% | 21.17 | `/use-cases/real-estate-agents/` | Very small verified demand, but unusually specific professional intent. |
+
+### SERP and competitor evidence for the top five
+
+- **Windows / best file organizer software:** current results include vendor comparison guides that expose pricing, platforms, free-plan or trial limits, folder-watching behavior, and setup steps. File Juggler also demonstrates rules with product screenshots. Foldora's comparison page had a useful shortlist but no on-page product demonstration or prominent price-and-limit summary.
+- **Core AI file organizer:** competing product pages show real interfaces, a step-by-step workflow, supported file examples, hardware or model requirements, pricing, trial/refund terms, and undo behavior. Foldora's dedicated AI page now covers its verified workflow and demo, so another immediate rewrite would make the latest change harder to evaluate.
+- **Automatic file organizer:** competing products emphasize “set and forget” monitoring, activity history, undo, free trials, and explicit lifetime pricing. This is verified product demand, but Foldora should state its selected-folder, review-first limitation rather than imply continuous monitoring.
+- **AI desktop sorter:** search results mix focused desktop/download cleanup products with broader file managers. Competitors demonstrate an inbox-to-AI-to-folder flow and show the interface. Foldora has a relevant informational desktop guide, but the export does not verify which URL ranks for this query.
+- **AI document organizer:** competitors explain exactly which document formats they read, show before/after examples, publish system requirements, and distinguish content-aware organization from extension sorting. Intent is ambiguous because some searchers want document search or enterprise records management, which Foldora does not provide.
+
+SERP observations are qualitative and location-dependent; they are not search-volume estimates or proof of stable result order. Verified demand comes only from the Search Console export. Except for the previously filtered Windows-AI query, the available exports do not join queries to landing pages, so “best existing page” is an intent map rather than a verified ranking URL.
+
+### Selected experiment
+
+| Date | Target cluster | Page | Baseline | Local change | Measurement plan |
+| --- | --- | --- | --- | --- | --- |
+| 2026-10-21 | Windows / best file organizer software | `/best-file-organizer-windows/` | Page: 3 clicks, 1,078 impressions, 0.28% CTR, position 24.26. Cluster: 2 clicks, 588 impressions, 0.34% CTR, position 23.93. | Sharpened the title and description for software-comparison intent; added a real video and screenshot, the verified $14.99 one-time price, supported Windows versions, workflow, best fit, and an explicit watched-folder limitation. | After deployment, annotate the date and compare 28-day query and page results only after Google recrawls the page. Watch CTR and position separately; do not attribute changes before indexing. |
+
+Next experiment: if this page gains impressions but CTR remains weak after recrawl, test a title focused on “AI vs rules” while keeping the body stable. If the page does not gain position, improve the comparison depth with verified first-party facts and dated outbound citations rather than adding another overlapping Windows page.
