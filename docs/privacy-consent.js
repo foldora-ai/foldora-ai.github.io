@@ -139,14 +139,14 @@
 
     var style = document.createElement("style");
     style.textContent =
-      ".foldora-privacy{position:fixed;z-index:10000;right:1rem;bottom:1rem;max-width:32rem;border:1px solid #334155;border-radius:.75rem;background:#0f172a;color:#f8fafc;padding:1rem;box-shadow:0 12px 36px rgba(0,0,0,.35);font:14px/1.5 system-ui,sans-serif}" +
+      ".foldora-privacy{box-sizing:border-box;position:fixed;z-index:10000;right:1rem;bottom:1rem;width:32rem;max-width:calc(100vw - 2rem);border:1px solid #334155;border-radius:.75rem;background:#0f172a;color:#f8fafc;padding:1rem;box-shadow:0 12px 36px rgba(0,0,0,.35);font:14px/1.5 system-ui,sans-serif}" +
       ".foldora-privacy[hidden]{display:none}" +
       ".foldora-privacy p{margin:0 0 .75rem}" +
       ".foldora-privacy-option{display:flex;gap:.55rem;align-items:flex-start;margin:0 0 .35rem;padding:.65rem;border:1px solid #334155;border-radius:.5rem;background:#020817}" +
       ".foldora-privacy-option input{margin-top:.2rem}" +
       ".foldora-privacy-current{margin:0 0 .75rem;color:#94a3b8;font-size:.82rem}" +
       ".foldora-privacy-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}" +
-      ".foldora-privacy button,.foldora-privacy a{border-radius:.5rem;padding:.55rem .8rem;font:inherit}" +
+      ".foldora-privacy button,.foldora-privacy a{max-width:100%;border-radius:.5rem;padding:.55rem .8rem;font:inherit;white-space:normal}" +
       ".foldora-privacy button{cursor:pointer;border:1px solid #64748b;background:#1e293b;color:#f8fafc}" +
       ".foldora-privacy button[data-accept]{border-color:#10b981;background:#059669}" +
       ".foldora-privacy a{color:#a7f3d0}";
