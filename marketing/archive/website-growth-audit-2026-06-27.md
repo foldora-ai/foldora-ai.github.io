@@ -97,3 +97,11 @@ Audit date: 2026-06-27
 8. Compress or replace the MP4 with a shorter WebM/MP4 pair.
 9. Validate Core Web Vitals in production after GitHub Pages/CDN caching.
 10. Consider a small Windows-focused comparison table near pricing after product facts are fully verified.
+
+## Conversion experiment follow-up - 2026-10-22
+
+| Experiment | Hypothesis | Local change | Status | Measurement after deployment |
+| --- | --- | --- | --- | --- |
+| Add an early, price-labelled purchase action to `/ai-file-organizer/` | High-intent visitors who see the $14.99 one-time price and a direct checkout action beside the product explanation will be more likely to begin checkout without scrolling to the bottom. | Added a Gumroad CTA under the intro, carrying the existing checkout marker and a distinct `ai-file-organizer-hero` location/content value. | Implemented locally; not deployed. | Compare GA4 `begin_checkout` events for `checkout_location=ai-file-organizer-hero` and existing `ai-file-organizer` page CTA clicks; compare Gumroad-attributed purchases/revenue using its referral UTMs. Compare matched periods and annotate other changes. This is directional, not a randomized A/B test. |
+
+Audit note: this page-path improvement is a hypothesis, not proof of conversion lift. No baseline or lift is claimed until live data is collected. The site still has no published product-specific refund policy; do not imply one unless the owner verifies it.

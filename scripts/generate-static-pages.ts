@@ -510,6 +510,7 @@ function pageStyles(): string {
     h2{margin:0 0 18px;color:white;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2}
     h3{color:white;line-height:1.3}
     .lede{max-width:760px;color:var(--muted);font-size:1.2rem}
+    .hero-cta{margin-top:24px}.hero-cta .button{margin-top:0}.hero-cta p{margin:10px 0 0;color:var(--muted);font-size:.95rem}
     .breadcrumbs{padding-top:28px;color:var(--muted);font-size:.9rem}
     .breadcrumbs a{color:var(--muted)}
     main{padding:60px 0 90px}
@@ -668,6 +669,7 @@ ${analyticsHead()}
       <div class="eyebrow">${escapeHtml(page.eyebrow)}</div>
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="lede">${escapeHtml(page.description)}</p>
+      ${page.route === "ai-file-organizer" ? `<div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p></div>` : ""}
     </div>
   </section>
   <main class="container">

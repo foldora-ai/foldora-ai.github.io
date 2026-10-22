@@ -7,7 +7,7 @@ import { seoPagesByRoute } from "@/content/seoPages";
 import { docs } from "@/content/docs";
 import { features } from "@/content/features";
 import { categories } from "@/content/categories";
-import { checkoutTrackingAttributes, checkoutUrl } from "@/config/product";
+import { checkoutTrackingAttributes, checkoutUrl, product } from "@/config/product";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 const bundleUrl = "https://computora.gumroad.com/l/computoraai";
@@ -78,6 +78,22 @@ const SeoContentPage = () => {
             <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
               {page.description}
             </p>
+            {page.route === "ai-file-organizer" && (
+              <div className="mt-8 flex flex-col items-start gap-3">
+                <a
+                  href={checkoutUrl("seo-page", "ai-file-organizer-hero")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...checkoutTrackingAttributes("gumroad", "ai-file-organizer-hero")}
+                  className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                >
+                  Get Foldora - {product.price.display}
+                </a>
+                <p className="text-sm text-muted-foreground">
+                  One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.
+                </p>
+              </div>
+            )}
           </div>
         </section>
 
