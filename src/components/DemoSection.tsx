@@ -8,16 +8,19 @@ import { checkoutTrackingAttributes, checkoutUrl } from "@/config/product";
 const DemoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const [playRequested, setPlayRequested] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const checkout = checkoutUrl("homepage", "demo-section");
 
   const playVideo = async () => {
     if (!videoRef.current) return;
 
+    setPlayRequested(true);
     try {
       await videoRef.current.play();
     } catch {
-      setVideoFailed(true);
+      // Safari can reject a scripted play request while native controls remain usable.
+      videoRef.current.controls = true;
     }
   };
 
@@ -64,7 +67,9 @@ const DemoSection = () => {
                   aria-describedby="foldora-demo-description"
                   onPlay={() => setHasStarted(true)}
                   onEnded={() => setHasStarted(false)}
-                  onError={() => setVideoFailed(true)}
+                  onError={(event) => {
+                    if (event.currentTarget.error) setVideoFailed(true);
+                  }}
                   className="h-full w-full object-contain"
                 >
                   <source src={demoVideo} type="video/mp4" />
@@ -77,7 +82,7 @@ const DemoSection = () => {
                   Your browser cannot play this video. The Foldora product screenshot remains available as a preview.
                 </video>
 
-                {!hasStarted && (
+                {!hasStarted && !playRequested && (
                   <button
                     type="button"
                     onClick={playVideo}
