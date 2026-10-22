@@ -1,28 +1,13 @@
-import { useRef, useState } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 import demoVideo from "../assets/foldora-demo.mp4";
 import demoImg from "../assets/foldora-demo.png";
 import { checkoutTrackingAttributes, checkoutUrl } from "@/config/product";
 
 const DemoSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasStarted, setHasStarted] = useState(false);
-  const [playRequested, setPlayRequested] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const checkout = checkoutUrl("homepage", "demo-section");
-
-  const playVideo = async () => {
-    if (!videoRef.current) return;
-
-    setPlayRequested(true);
-    try {
-      await videoRef.current.play();
-    } catch {
-      // Safari can reject a scripted play request while native controls remain usable.
-      videoRef.current.controls = true;
-    }
-  };
 
   return (
     <section id="demo" className="border-y border-border/60 py-14 md:py-20">
@@ -55,9 +40,7 @@ const DemoSection = () => {
             ) : (
               <>
                 <video
-                  ref={videoRef}
                   controls
-                  muted
                   playsInline
                   preload="metadata"
                   poster={demoImg}
@@ -65,35 +48,14 @@ const DemoSection = () => {
                   height="720"
                   aria-label="Foldora AI organizing messy files and previewing the proposed structure"
                   aria-describedby="foldora-demo-description"
-                  onPlay={() => setHasStarted(true)}
-                  onEnded={() => setHasStarted(false)}
                   onError={(event) => {
                     if (event.currentTarget.error) setVideoFailed(true);
                   }}
                   className="h-full w-full object-contain"
                 >
                   <source src={demoVideo} type="video/mp4" />
-                  <track
-                    kind="captions"
-                    src="/foldora-demo-captions.vtt"
-                    srcLang="en"
-                    label="English visual description"
-                  />
                   Your browser cannot play this video. The Foldora product screenshot remains available as a preview.
                 </video>
-
-                {!hasStarted && !playRequested && (
-                  <button
-                    type="button"
-                    onClick={playVideo}
-                    className="absolute inset-0 flex items-center justify-center bg-black/15 transition-colors hover:bg-black/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
-                    aria-label="Play Foldora demonstration"
-                  >
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-black/80 text-white shadow-xl md:h-20 md:w-20">
-                      <Play className="ml-1 h-7 w-7 fill-current md:h-9 md:w-9" aria-hidden="true" />
-                    </span>
-                  </button>
-                )}
               </>
             )}
           </div>
