@@ -76,7 +76,7 @@ const DemoSection = () => {
             {...checkoutTrackingAttributes("gumroad", "demo-section")}
             className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 sm:w-auto"
           >
-            Get Foldora — $14.99
+            Get Foldora
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
