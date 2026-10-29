@@ -65,9 +65,9 @@ export function homepagePageSchema() {
     "@type": "WebPage",
     "@id": `${site.url}/#webpage`,
     url: `${site.url}/`,
-    name: "Foldora AI File Organizer for Windows and macOS | Offline & Private",
+    name: "Foldora AI File Organizer for Windows and macOS | Local & Private",
     description:
-      "Foldora organizes, categorizes, and renames files with local AI. Clean Downloads, Desktop, PDFs, and work folders offline on Windows and macOS.",
+      "Foldora organizes, categorizes, and renames files with local AI. Clean Downloads, Desktop, PDFs, and work folders on Windows and macOS.",
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#software` },
     primaryImageOfPage: `${site.url}/foldora-social-preview.png`,

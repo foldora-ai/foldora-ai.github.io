@@ -85,9 +85,9 @@ export const seoPages: SeoPage[] = [
     description:
       "Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.",
     eyebrow: "Local AI file organization",
-    updatedAt: "2026-10-21",
+    updatedAt: "2026-10-28",
     directAnswer:
-      "Foldora is a desktop AI file organizer for Windows 10 and 11. It analyzes filenames and supported file content locally, then proposes folders and clearer filenames for Downloads, Desktop, Documents, or project folders. You preview the plan before applying changes. Foldora costs $14.99 as a one-time purchase and also supports macOS.",
+      "Foldora is a desktop AI file organizer for Windows 10 and 11. It analyzes filenames and supported file content locally, then proposes folders and clearer filenames for Downloads, Desktop, Documents, or project folders. You preview the plan before applying changes. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
     problemTitle: "What to expect from an AI file organizer on Windows",
     problem: [
       "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
@@ -139,7 +139,7 @@ export const seoPages: SeoPage[] = [
       {
         question: "Does an AI file organizer upload my files?",
         answer:
-          "Foldora's organization workflow runs locally and does not require uploading your files to a cloud organizer. Internet access is still needed for purchase, download, and updates.",
+          "Foldora analyzes supported files locally without uploading them to a cloud organizer. Internet access is needed for purchase, download, license activation, periodic license validation, and updates.",
       },
       {
         question: "Can I review changes before files move?",
@@ -165,6 +165,11 @@ export const seoPages: SeoPage[] = [
         question: "Which files can Foldora organize?",
         answer:
           "Foldora supports common documents such as PDF, DOCX, and TXT; spreadsheets such as XLSX and CSV; PPT and PPTX presentations; PNG, JPG, GIF, and WEBP images; and ZIP archives. The information available for analysis varies by format.",
+      },
+      {
+        question: "What are Foldora's limits compared with a rules-based organizer?",
+        answer:
+          "Foldora runs on a folder you select and asks you to review its suggestions. It does not continuously watch folders or guarantee that every ambiguous file is categorized correctly. Content analysis varies by format; archives and installers may be organized from file type or name rather than readable contents. Use explicit rules when the same exact condition must run repeatedly, and keep a backup before large moves or renames.",
       },
     ],
     evidence: {
@@ -484,9 +489,9 @@ export const seoPages: SeoPage[] = [
     description:
       "Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.",
     eyebrow: "macOS file organization",
-    updatedAt: "2026-09-17",
+    updatedAt: "2026-10-28",
     directAnswer:
-      "Foldora is an AI file organizer for Mac that proposes folders and clearer filenames for mixed Downloads, Desktop, Documents, and project folders. Analysis runs locally on macOS, including Intel and Apple Silicon Macs. Preview the suggested moves and renames before applying only the changes you approve.",
+      "Foldora is a $14.99 one-time AI file organizer for Intel and Apple Silicon Macs. It analyzes supported files locally in selected Downloads, Desktop, Documents, or project folders, then proposes folders and clearer filenames. Preview suggested moves and renames before applying them. Purchase, download, license activation, and periodic license validation require internet access.",
     problemTitle: "macOS folders become inboxes for every app",
     problem: [
       "Browsers, Messages, Mail, design tools, scanners, and collaboration apps can all leave files in Downloads or Desktop. The result is a mixed folder where screenshots, invoices, exported PDFs, ZIP files, and active work sit together.",
@@ -543,12 +548,17 @@ export const seoPages: SeoPage[] = [
       {
         question: "Does Foldora upload my Mac files?",
         answer:
-          "Foldora's organization workflow is designed around local analysis, so files do not need to be uploaded to a cloud organizer.",
+          "Foldora analyzes supported Mac files locally without uploading them to a cloud organizer. Internet access is still needed for purchase, download, license activation, periodic license validation, and updates.",
       },
       {
         question: "Can I preview macOS file changes?",
         answer:
           "Yes. Review proposed folders and filenames before applying moves or renames to important Mac folders.",
+      },
+      {
+        question: "Which Mac files and workflows are a good fit?",
+        answer:
+          "Foldora can organize supported PDFs, DOCX and TXT documents, XLSX and CSV spreadsheets, PPT and PPTX presentations, PNG, JPG, GIF and WEBP images, and ZIP archives. Content analysis varies by format, and ambiguous suggestions need review. It is for selected cleanup runs; use a rules-based organizer if you need continuous monitoring of exact conditions. Keep a backup before large moves or renames.",
       },
     ],
     related: [
@@ -1299,7 +1309,7 @@ export const seoPages: SeoPage[] = [
     eyebrow: "Privacy and local AI",
     updatedAt: "2026-09-17",
     directAnswer:
-      "Foldora is an offline AI file organizer for Windows 10, Windows 11, and macOS. It analyzes supported files locally, proposes folders and clearer names, and lets you preview changes before applying them; the organization workflow does not require uploading files or an internet connection. Purchase, download, and updates are separate online activities.",
+      "Foldora analyzes supported files locally on Windows 10, Windows 11, and macOS, proposes folders and clearer names, and lets you preview changes before applying them. File analysis does not upload your files to a cloud organizer. Purchase, download, license activation, periodic license validation, and updates require internet access.",
     problemTitle: "Local processing reduces one risk, not every risk",
     problem: [
       "Cloud organization can be convenient, but sensitive invoices, contracts, research, and client files may be subject to privacy or organizational policies. Local processing limits the need to transmit those files for analysis.",
@@ -1320,7 +1330,7 @@ export const seoPages: SeoPage[] = [
       {
         title: "Travel or restricted network",
         before: "Organization stops when a cloud service is unavailable",
-        after: "Continue the local workflow without an internet connection",
+        after: "Continue local analysis while the activated license remains valid offline",
       },
     ],
     comparison: {
@@ -1349,7 +1359,7 @@ export const seoPages: SeoPage[] = [
       {
         question: "Does offline AI mean no network activity at all?",
         answer:
-          "Not always. A product may still check for updates or process payments separately. Verify the specific privacy and network behavior.",
+          "No. Foldora analyzes files locally, but purchase, download, license activation, periodic license validation, and updates need internet access. An activated license has a limited offline grace period.",
       },
       {
         question: "Is local AI slower than cloud AI?",

@@ -102,7 +102,7 @@ const PricingSection = () => {
             </div>
 
             <p className="mt-4 text-center text-xs text-muted-foreground">
-              Checkout takes about a minute. Your download appears immediately after payment.
+              After payment, use the download and license instructions supplied by the checkout provider.
             </p>
           </div>
 

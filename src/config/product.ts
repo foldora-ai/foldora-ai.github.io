@@ -28,7 +28,7 @@ export const product = {
       "macOS on Intel or Apple Silicon",
       "Local folder access for the folders you choose",
       "Enough free disk space for moved or renamed files",
-      "Internet access for purchase, download, and updates; organization workflows run locally",
+      "Internet access for purchase, download, license activation, periodic validation, and updates; file analysis runs locally",
     ],
   },
   claims: [

@@ -18,7 +18,6 @@ import { trackEvent } from "@/lib/analytics";
 import { useEffect } from "react";
 import { homepageFaqs } from "@/content/homepageFaqs";
 import RoiCalculator from "@/components/RoiCalculator";
-import TestimonialsSection from "@/components/TestimonialsSection";
 
 const Index = () => {
   useEffect(() => {
@@ -30,8 +29,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Foldora AI File Organizer for Windows and macOS | Offline & Private"
-        description="Foldora organizes, categorizes, and renames files with local AI. Clean Downloads, Desktop, PDFs, and work folders offline on Windows and macOS."
+        title="Foldora AI File Organizer for Windows and macOS | Local & Private"
+        description="Foldora organizes, categorizes, and renames files with local AI. Clean Downloads, Desktop, PDFs, and work folders on Windows and macOS."
         canonical={absoluteUrl()}
         schema={homepageSchema(homepageFaqs)}
       />
@@ -46,7 +45,6 @@ const Index = () => {
       <AnalyticsSection event="demo_section_reached">
         <DemoSection />
       </AnalyticsSection>
-      <TestimonialsSection />
       <RoiCalculator />
       <FAQSection />
       <AnalyticsSection

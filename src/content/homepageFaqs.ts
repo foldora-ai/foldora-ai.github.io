@@ -31,11 +31,11 @@ export const homepageFaqs = [
   },
   {
     q: "Does it work without internet?",
-    a: "Organization workflows are described as local and offline. Internet access is still needed for purchase, download, and any update flow.",
+    a: "File analysis runs locally and does not upload your files to a cloud organizer. Internet access is needed for purchase, download, license activation, periodic license validation, and updates.",
   },
   {
     q: "How do I install it?",
-    a: "Buy or download Foldora from the official checkout link, run the Windows installer, choose a focused folder such as Downloads, then review the proposed result before applying changes.",
+    a: "Complete the official checkout, use the supplied Windows or macOS download, activate your license, then start with a focused folder such as Downloads and review the proposed result before applying changes.",
   },
   {
     q: "What happens if it does not work on my device?",

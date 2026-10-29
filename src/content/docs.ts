@@ -44,7 +44,7 @@ export const docs = {
       },
       {
         title: "Checkout is separate from file organization",
-        content: `Internet access is needed for purchase, download, and updates. The checkout provider does not need your file names or file contents.`,
+        content: `Internet access is needed for purchase, download, license activation, periodic license validation, and updates. File analysis runs locally; the checkout provider does not need your file names or file contents.`,
       },
       {
         title: "Website support chat",
