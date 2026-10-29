@@ -4,7 +4,11 @@ import { Menu } from "lucide-react";
 import { checkoutTrackingAttributes, checkoutUrl, product } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
-const Navbar = () => {
+interface NavbarProps {
+  showCheckout?: boolean;
+}
+
+const Navbar = ({ showCheckout = true }: NavbarProps) => {
   const checkout = checkoutUrl("site-nav", "header-download");
 
   return (
@@ -36,21 +40,23 @@ const Navbar = () => {
         <a href="/#pricing" className="rounded-lg border border-border p-2 text-muted-foreground md:hidden" aria-label="Open pricing and FAQ">
           <Menu className="h-5 w-5" />
         </a>
-        <a
-          href={checkout}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...checkoutTrackingAttributes("gumroad", "header")}
-          onClick={() => {
-            trackEvent("platform_download_cta_clicked", {
-              platform: "windows_macos",
-              location: "header",
-            });
-          }}
-          className="hidden rounded-lg bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background sm:inline-flex"
-        >
-          Get Foldora · {product.price.display}
-        </a>
+        {showCheckout && (
+          <a
+            href={checkout}
+            target="_blank"
+            rel="noopener noreferrer"
+            {...checkoutTrackingAttributes("gumroad", "header")}
+            onClick={() => {
+              trackEvent("platform_download_cta_clicked", {
+                platform: "windows_macos",
+                location: "header",
+              });
+            }}
+            className="hidden rounded-lg bg-gradient-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background sm:inline-flex"
+          >
+            Get Foldora · {product.price.display}
+          </a>
+        )}
       </div>
     </motion.nav>
   );

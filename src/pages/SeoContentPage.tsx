@@ -65,7 +65,7 @@ const SeoContentPage = () => {
           ],
         }}
       />
-      <Navbar />
+      <Navbar showCheckout={page.route !== "alternatives/hazel"} />
       <main className="min-h-screen bg-background">
         <section className="border-b border-border">
           <div className="container max-w-4xl py-32">
@@ -211,9 +211,15 @@ const SeoContentPage = () => {
               <table className="w-full min-w-[640px] border-collapse bg-card text-left">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="p-4 text-sm font-semibold text-foreground">Option</th>
-                    <th className="p-4 text-sm font-semibold text-foreground">Best for</th>
-                    <th className="p-4 text-sm font-semibold text-foreground">Tradeoff</th>
+                    <th className="p-4 text-sm font-semibold text-foreground">
+                      {page.comparison.headers?.option ?? "Option"}
+                    </th>
+                    <th className="p-4 text-sm font-semibold text-foreground">
+                      {page.comparison.headers?.bestFor ?? "Best for"}
+                    </th>
+                    <th className="p-4 text-sm font-semibold text-foreground">
+                      {page.comparison.headers?.tradeoff ?? "Tradeoff"}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -230,6 +236,29 @@ const SeoContentPage = () => {
               </table>
             </div>
           </section>
+
+          {page.sources && (
+            <section>
+              <h2 className="text-3xl font-bold">Official sources</h2>
+              <p className="mt-4 text-muted-foreground">
+                Competitor facts are linked to the publisher's own product, store, and documentation pages.
+              </p>
+              <div className="mt-6 grid gap-4">
+                {page.sources.map((source) => (
+                  <a
+                    key={source.url}
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
+                  >
+                    <span className="font-semibold text-foreground">{source.label}</span>
+                    <span className="mt-2 block text-sm text-muted-foreground">{source.note}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section>
             <h2 className="text-3xl font-bold">Related guides</h2>
@@ -259,21 +288,25 @@ const SeoContentPage = () => {
                 {...checkoutTrackingAttributes("gumroad", page.route)}
                 className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground"
               >
-                Get Foldora
+                {page.route === "alternatives/hazel"
+                  ? `Get Foldora - ${product.price.display}`
+                  : "Get Foldora"}
               </a>
-              <a
-                href={bundleUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-primary/40 px-6 py-3 font-semibold text-foreground transition-colors hover:border-primary"
-              >
-                Get the complete bundle
-              </a>
+              {page.route !== "alternatives/hazel" && (
+                <a
+                  href={bundleUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center rounded-lg border border-primary/40 px-6 py-3 font-semibold text-foreground transition-colors hover:border-primary"
+                >
+                  Get the complete bundle
+                </a>
+              )}
             </div>
           </section>
         </div>
       </main>
-      <Footer />
+      <Footer showCheckout={page.route !== "alternatives/hazel"} />
     </>
   );
 };

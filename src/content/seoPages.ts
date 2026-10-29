@@ -28,6 +28,11 @@ export interface SeoFaq {
 export interface SeoComparison {
   title: string;
   summary: string;
+  headers?: {
+    option: string;
+    bestFor: string;
+    tradeoff: string;
+  };
   rows: Array<{
     option: string;
     bestFor: string;
@@ -68,6 +73,11 @@ export interface SeoPage {
   comparison: SeoComparison;
   faqs: SeoFaq[];
   related: string[];
+  sources?: Array<{
+    label: string;
+    url: string;
+    note: string;
+  }>;
   evidence?: SeoEvidence;
   indexable?: boolean;
   canonicalUrl?: string;
@@ -1793,24 +1803,25 @@ export const seoPages: SeoPage[] = [
     route: "alternatives/hazel",
     kind: "comparison",
     topic: "workflows",
-    title: "Foldora vs Hazel: AI Suggestions or macOS Rules",
+      title: "Foldora vs Hazel: AI Suggestions or Mac Rules",
     h1: "Foldora vs Hazel",
     description:
-      "Compare Foldora and Hazel on Mac: local AI suggestions with a preview versus persistent folder rules and deeper macOS automation.",
+        "Compare Foldora and Hazel by platform, setup, preview, automation, recovery, local processing, and current one-time pricing.",
     eyebrow: "File organizer comparison",
-    updatedAt: "2026-09-17",
+      updatedAt: "2026-10-29",
     directAnswer:
-      "Both Foldora and Hazel run on macOS. Choose Foldora when you want local AI to propose categories and filenames for review with little rule setup. Choose Hazel when you want watched-folder rules, tagging, archiving, and deeper macOS automation. Foldora also supports Windows 10 and 11; Hazel is a Mac app.",
-    problemTitle: "On Mac, the choice is about control model, not availability",
+        "Choose Foldora for a mixed folder you want to organize now: it uses local AI to propose folders and filenames, shows the complete plan, and waits for approval before applying it. Choose Hazel for recurring Mac automation: it continuously watches selected folders and runs explicit rules you configure. Foldora supports Windows and macOS and costs $14.99 once. Hazel 6 is macOS-only and currently costs $42 for a single-user license.",
+      problemTitle: "Which workflow fits: reviewed cleanup or continuous rules?",
     problem: [
-      "Hazel watches chosen macOS folders and performs user-defined actions based on attributes and patterns. It is well suited to users who want precise, persistent automation rules.",
-      "Foldora supports both macOS and Windows. Its local, context-aware organization and renaming suggestions are meant to reduce rule authoring for mixed folders, with a preview before changes are applied.",
+        "This comparison is published by Foldora AI, not by an independent review site. Hazel facts were checked against Noodlesoft's official product page, store, user guide, and release notes on October 29, 2026.",
+        "Foldora is best for a selected folder with mixed or inconsistent files when you want suggestions without building rules. Its limitations are deliberate: it does not continuously watch folders, suggestions need human review, supported content analysis varies by file type, and its in-app undo targets the latest completed organization when the operation log is available.",
+        "Hazel is best when you can define repeatable conditions and want them to run automatically on a Mac. It requires rule setup and maintenance. Its preview checks whether rule conditions match a selected item rather than showing a complete action result, and its Revert command covers certain file changes but not actions such as copy, sync, upload, imports, or automations.",
     ],
     steps: [
-      "Confirm the devices you need to support: both apps work on Mac, but only Foldora also supports Windows.",
-      "Decide whether you prefer explicit rules or AI-generated suggestions.",
-      "List advanced actions such as tags, scripts, archive extraction, or app cleanup.",
-      "Test the selected tool on a representative folder before wider automation.",
+        "Choose by platform first: use Foldora on Windows or macOS; use current Hazel 6 on macOS 13 or later.",
+        "Choose by workflow: Foldora for a reviewed cleanup run, or Hazel for recurring rules on watched folders.",
+        "Compare safeguards: Foldora previews the proposed plan; Hazel previews rule matching and can revert only supported actions.",
+        "Test a backed-up representative folder before processing an important archive or enabling unattended rules.",
     ],
     examples: [
       {
@@ -1825,49 +1836,106 @@ export const seoPages: SeoPage[] = [
       },
     ],
     comparison: {
-      title: "Foldora and Hazel at a glance",
+        title: "Foldora vs Hazel: factual comparison",
       summary:
-        "Both are available on Mac, but they serve different organization workflows.",
+          "Pricing and system requirements were checked on October 29, 2026. Hazel facts link to Noodlesoft's official sources below.",
+        headers: {
+          option: "Criterion",
+          bestFor: "Foldora",
+          tradeoff: "Hazel",
+        },
       rows: [
         {
-          option: "Foldora",
-          bestFor: "Mac and Windows users wanting local AI suggestions and a review step",
-          tradeoff: "Suggestions need review; not a substitute for detailed watched-folder rules",
+            option: "Platforms",
+            bestFor: "Windows 10, Windows 11, and macOS on Intel or Apple Silicon",
+            tradeoff: "macOS only; current Hazel 6.1.2 requires macOS 13 Ventura or later",
         },
         {
-          option: "Hazel",
-          bestFor: "macOS users wanting powerful explicit automation rules",
-          tradeoff: "Requires rule design and is not a Windows product",
+            option: "Rules vs AI suggestions",
+            bestFor: "Local AI proposes folders and filenames from supported filename and file context",
+            tradeoff: "User-authored conditions and actions based on names, dates, types, contents, metadata, and patterns",
         },
         {
-          option: "Manual organization",
-          bestFor: "Occasional small folders on either platform",
-          tradeoff: "Repeated work and inconsistent results",
+            option: "Setup",
+            bestFor: "Choose a folder and mode, generate a plan, then review it; no rule authoring",
+            tradeoff: "Add monitored folders, create and enable rules, then maintain conditions and actions",
+          },
+          {
+            option: "Local processing",
+            bestFor: "File analysis runs locally; internet is still required for purchase, activation, validation, and updates",
+            tradeoff: "Rules run in the Mac app on selected folders; configured actions can upload files or invoke scripts and other apps",
+          },
+          {
+            option: "Review before changes",
+            bestFor: "Shows the proposed folder structure and filenames before execution",
+            tradeoff: "Rule Preview tests whether conditions match one selected item; Rule Status shows matches, but Preview does not run actions",
+          },
+          {
+            option: "Automation",
+            bestFor: "User-started organization runs on a selected folder; no continuous watched-folder engine",
+            tradeoff: "Continuously watches chosen folders and automatically runs enabled rules; rules can also be paused or run manually",
+          },
+          {
+            option: "Recovery",
+            bestFor: "Can undo the latest completed organization when its operation log is available; backups remain recommended",
+            tradeoff: "Revert supports actions such as move, rename, tags, and archive, but not copy, sync, upload, imports, or automations",
+          },
+          {
+            option: "Pricing",
+            bestFor: "$14.99 one-time lifetime purchase",
+            tradeoff: "$42 single user, $65 family pack, or $20 upgrade; 14-day trial and no subscription, with updates for the purchased major version",
         },
       ],
     },
     faqs: [
       {
-        question: "Does Foldora work on Mac?",
+          question: "Which is better for recurring unattended organization?",
         answer:
-          "Yes. Foldora supports macOS on Intel and Apple Silicon, as well as Windows 10 and Windows 11.",
+            "Hazel is the better fit when you want a Mac folder watched continuously and can define exact conditions and actions. Foldora is designed for user-started cleanup runs where you inspect one generated plan before applying it.",
       },
       {
-        question: "Is Hazel available for Windows?",
+          question: "Do both tools preview changes in the same way?",
         answer:
-          "Hazel is a macOS product. Windows users need a Windows alternative such as Foldora or File Juggler.",
+            "No. Foldora shows the proposed folders and filenames for the selected organization run before execution. Hazel's Rule Preview checks whether a rule's conditions match a selected item, and its Rule Status shows which rules match files; Noodlesoft states that Rule Preview does not run the actions.",
       },
       {
-        question: "Does Hazel use rules?",
+          question: "Can either tool undo every action?",
         answer:
-          "Yes. Hazel watches folders and applies actions based on rules and patterns configured by the user.",
-      },
-      {
-        question: "Which tool needs less setup?",
-        answer:
-          "Foldora is designed to reduce rule setup through AI suggestions. Hazel offers more explicit control for users willing to configure rules.",
+            "No. Foldora's app can undo the latest completed organization when its operation log is available. Hazel can revert supported changes such as moves, renames, tags, and archives, but its official guide excludes copy, sync, upload, imports, and automations. Keep a separate backup before important bulk changes.",
       },
     ],
+      sources: [
+        {
+          label: "Noodlesoft Hazel product overview",
+          url: "https://www.noodlesoft.com/",
+          note: "Official overview of watched folders, rules, actions, Trash management, and macOS integrations.",
+        },
+        {
+          label: "Noodlesoft store",
+          url: "https://store.noodlesoft.com/store",
+          note: "Official Hazel 6 single-user, family, and upgrade pricing.",
+        },
+        {
+          label: "Hazel 6 licensing FAQ",
+          url: "https://www.noodlesoft.com/kb/hazel-6-faq/",
+          note: "Official licensing, no-subscription, pricing, upgrade, and major-version update details.",
+        },
+        {
+          label: "Hazel Rule Preview guide",
+          url: "https://www.noodlesoft.com/manual/hazel/work-with-folders-rules/create-edit-rules/preview-a-rule/",
+          note: "Official explanation of condition preview and Rule Status behavior.",
+        },
+        {
+          label: "Hazel Revert guide",
+          url: "https://www.noodlesoft.com/manual/hazel/work-with-folders-rules/manage-rules/revert-a-file/",
+          note: "Official list of actions Hazel can and cannot revert.",
+        },
+        {
+          label: "Hazel release notes",
+          url: "https://www.noodlesoft.com/release_notes",
+          note: "Official current release and macOS requirement for Hazel 6.1.2.",
+        },
+      ],
     related: [
       "organize-files-mac",
       "alternatives/file-juggler",

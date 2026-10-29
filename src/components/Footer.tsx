@@ -1,7 +1,11 @@
 import { checkoutTrackingAttributes, checkoutUrl, site } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
 
-const Footer = () => {
+interface FooterProps {
+  showCheckout?: boolean;
+}
+
+const Footer = ({ showCheckout = true }: FooterProps) => {
   const checkout = checkoutUrl("site-footer", "footer-download");
 
   return (
@@ -24,21 +28,23 @@ const Footer = () => {
           </a>
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground" aria-label="Footer navigation">
-            <a
-              href={checkout}
-              target="_blank"
-              rel="noopener noreferrer"
-              {...checkoutTrackingAttributes("gumroad", "footer")}
-              onClick={() => {
-                trackEvent("platform_download_cta_clicked", {
-                  platform: "windows_macos",
-                  location: "footer",
-                });
-              }}
-              className="transition-colors hover:text-foreground"
-            >
-              Get Foldora for Windows or macOS
-            </a>
+            {showCheckout && (
+              <a
+                href={checkout}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...checkoutTrackingAttributes("gumroad", "footer")}
+                onClick={() => {
+                  trackEvent("platform_download_cta_clicked", {
+                    platform: "windows_macos",
+                    location: "footer",
+                  });
+                }}
+                className="transition-colors hover:text-foreground"
+              >
+                Get Foldora for Windows or macOS
+              </a>
+            )}
             <a href="/#features" className="transition-colors hover:text-foreground">
               Features
             </a>

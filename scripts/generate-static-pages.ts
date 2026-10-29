@@ -168,6 +168,10 @@ function uniqueContent(page: SeoPage): string {
       row.tradeoff,
     ]),
     ...page.faqs.flatMap((faq) => [faq.question, faq.answer]),
+    ...(page.sources ?? []).flatMap((source) => [
+      source.label,
+      source.note,
+    ]),
   ].join(" ");
 }
 
@@ -652,7 +656,7 @@ ${analyticsHead()}
         <a href="/alternatives/">Comparisons</a>
         <a href="/docs/privacy/">Privacy</a>
       </div>
-      <a href="${trackedCheckout("seo-header", campaign)}" ${checkoutTrackingAttributes(`seo-header/${page.route}`)}>Get Foldora</a>
+${page.route === "alternatives/hazel" ? "" : `      <a href="${trackedCheckout("seo-header", campaign)}" ${checkoutTrackingAttributes(`seo-header/${page.route}`)}>Get Foldora</a>`}
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -708,7 +712,7 @@ ${renderEvidence(page)}
       <p>${escapeHtml(page.comparison.summary)}</p>
       <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>Option</th><th>Best for</th><th>Tradeoff</th></tr></thead>
+          <thead><tr><th>${escapeHtml(page.comparison.headers?.option ?? "Option")}</th><th>${escapeHtml(page.comparison.headers?.bestFor ?? "Best for")}</th><th>${escapeHtml(page.comparison.headers?.tradeoff ?? "Tradeoff")}</th></tr></thead>
           <tbody>
             ${page.comparison.rows
               .map(
@@ -719,6 +723,15 @@ ${renderEvidence(page)}
         </table>
       </div>
     </section>
+    ${page.sources ? `<section>
+        <h2>Official sources</h2>
+        <p>Competitor facts are linked to the publisher's own product, store, and documentation pages.</p>
+        <div class="related">${page.sources
+          .map(
+            (source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(source.label)}</strong><span style="display:block;margin-top:.45rem;color:var(--muted);font-weight:400">${escapeHtml(source.note)}</span></a>`,
+          )
+          .join("")}</div>
+      </section>` : ""}
     <section>
       <h2>Frequently asked questions</h2>
       ${page.faqs
@@ -740,8 +753,8 @@ ${renderEvidence(page)}
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>Get Foldora</a>
-      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
+      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${page.route === "alternatives/hazel" ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
+${page.route === "alternatives/hazel" ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
     </section>
   </main>
   <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links">${PRIVACY_SETTINGS_CONTROL}<a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
