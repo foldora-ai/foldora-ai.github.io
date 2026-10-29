@@ -46,20 +46,20 @@ const CategoryPage = () => {
 
       <Navbar />
 
-      <main className="min-h-screen bg-background">
+      <main className="content-page-main">
 
-        <section className="border-b border-border">
-          <div className="container max-w-5xl py-32">
+        <section className="content-hero">
+          <div className="content-hero-inner">
 
-            <div className="inline-flex items-center rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-muted-foreground">
+            <div className="content-eyebrow">
               Category
             </div>
 
-            <h1 className="mt-6 text-6xl font-bold">
+            <h1 className="content-title">
               {category.title}
             </h1>
 
-            <p className="mt-6 text-xl text-muted-foreground">
+            <p className="content-intro">
               {category.description}
             </p>
 
@@ -67,7 +67,7 @@ const CategoryPage = () => {
         </section>
 
         <section>
-          <div className="container max-w-5xl py-20">
+          <div className="content-body max-w-5xl">
 
             <div className="grid gap-6 md:grid-cols-2">
 
@@ -82,9 +82,9 @@ const CategoryPage = () => {
                   <a
                     key={post.route}
                     href={post.canonicalUrl ?? `/${post.route}/`}
-                    className="rounded-2xl border border-border bg-card p-8 transition-colors hover:border-primary/40"
+                    className="content-card transition-colors hover:border-primary/40"
                   >
-                    <h2 className="text-2xl font-bold">
+                    <h2 className="text-xl font-bold md:text-2xl">
                       {post.h1}
                     </h2>
 

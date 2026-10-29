@@ -62,73 +62,88 @@
     </script>
     <script src="/checkout-tracking.js" defer></script>
   <style>
-    :root{color-scheme:dark;--bg:#020817;--card:#0f172a;--line:#243244;--text:#e2e8f0;--muted:#a8b3c5;--green:#22c55e}
+    :root{color-scheme:dark;--bg:#0d0d0f;--card:#16161a;--secondary:#252529;--line:#2d2d33;--text:#f2f2f2;--muted:#98989f;--primary:#5b7fe5;--accent:#a14fda;--gradient:linear-gradient(135deg,var(--primary),var(--accent))}
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}
-    a{color:#86efac}
-    .container{width:min(100% - 40px,980px);margin-inline:auto}
-    header{border-bottom:1px solid var(--line);background:rgba(2,8,23,.96)}
-    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:24px}
-    nav .links{display:flex;gap:20px;flex-wrap:wrap}
-    nav a{text-decoration:none;color:var(--text)}
-    .brand{font-weight:800}
-    .hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-    .eyebrow{color:#86efac;font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    h1{max-width:850px;margin:12px 0 20px;color:white;font-size:clamp(2.5rem,7vw,4.5rem);line-height:1.05;letter-spacing:-.04em}
-    h2{margin:0 0 18px;color:white;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2}
-    h3{color:white;line-height:1.3}
-    .lede{max-width:760px;color:var(--muted);font-size:1.2rem}
-    .hero-cta{margin-top:24px}.hero-cta .button{margin-top:0}.hero-cta p{margin:10px 0 0;color:var(--muted);font-size:.95rem}
-    .breadcrumbs{padding-top:28px;color:var(--muted);font-size:.9rem}
+    html{scroll-behavior:smooth}
+    body{margin:0;padding-top:64px;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:#8ba7ff}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+    .container{width:min(calc(100% - 40px),1024px);margin-inline:auto}
+    .site-header{position:fixed;z-index:50;inset:0 0 auto;border-bottom:1px solid rgba(45,45,51,.75);background:rgba(13,13,15,.86);backdrop-filter:blur(18px)}
+    .site-nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:24px}
+    .site-nav a{text-decoration:none}
+    .brand{display:flex;align-items:center;gap:9px;color:var(--text);font-size:1.05rem;font-weight:800;white-space:nowrap}
+    .brand img{width:32px;height:32px;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:var(--muted);font-size:.875rem}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{padding:9px 18px;border-radius:8px;background:var(--gradient);color:white!important;font-size:.875rem;font-weight:700;white-space:nowrap}
+    .mobile-menu{display:none;padding:7px 11px;border:1px solid var(--line);border-radius:8px;color:var(--muted)!important;font-size:1.1rem;line-height:1}
+    .breadcrumbs{padding-top:24px;color:var(--muted);font-size:.875rem}
     .breadcrumbs a{color:var(--muted)}
-    main{padding:60px 0 90px}
-    section{margin-bottom:64px}
-    .answer,.card,.cta{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:28px}
-    .answer{border-left:4px solid var(--green)}
+    .hero{padding:56px 0 64px;border-bottom:1px solid var(--line)}
+    .eyebrow{color:#8ba7ff;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    h1{max-width:850px;margin:16px 0 20px;color:white;font-size:4rem;line-height:1.08;letter-spacing:0}
+    h2{margin:0 0 18px;color:white;font-size:2rem;line-height:1.25;letter-spacing:0}
+    h3{margin:0 0 10px;color:white;font-size:1.2rem;line-height:1.35;letter-spacing:0}
+    p{margin:0 0 18px}
+    .lede{max-width:760px;margin:0;color:var(--muted);font-size:1.2rem;line-height:1.75}
+    .hero-cta{margin-top:24px}.hero-cta .button{margin-top:0}.hero-cta p{margin:10px 0 0;color:var(--muted);font-size:.95rem}
+    main{width:min(calc(100% - 40px),900px)!important;padding:64px 0 96px}
+    section{margin-bottom:72px}
+    section>p,section>ol{max-width:760px;color:var(--muted)}
+    .answer,.card,.cta{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:28px}
+    .answer{border-color:rgba(91,127,229,.45)}
     .answer p{font-size:1.1rem;margin:0}
     .updated{margin-top:16px;color:#7f8ba0;font-size:.85rem}
-    ol{padding-left:24px}
+    ol{padding-left:26px}
     li{margin-bottom:12px}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .card p{color:var(--muted)}
+    .card p{margin-bottom:16px;color:var(--muted)}
     .label{margin-bottom:4px;color:#7f8ba0;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-    table{width:100%;border-collapse:collapse;border:1px solid var(--line);background:var(--card)}
+    .table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+    table{width:100%;min-width:680px;border-collapse:collapse;background:var(--card)}
     th,td{padding:16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
-    th{color:white}
+    tr:last-child th,tr:last-child td{border-bottom:0}
+    th{color:white;font-size:.9rem}
     td{color:var(--muted)}
     .faq{padding:22px 0;border-bottom:1px solid var(--line)}
     .faq h3{margin:0 0 8px}
     .faq p{margin:0;color:var(--muted)}
     .evidence-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
-    .evidence-fact{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
-    .evidence-fact dt{color:var(--green);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .evidence-fact{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+    .evidence-fact dt{color:#8ba7ff;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
     .evidence-fact dd{margin:8px 0 0;color:white;font-size:1.05rem;font-weight:700}
     .evidence-media{display:grid;gap:18px;margin-top:24px}
-    .evidence-media figure{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+    .evidence-media figure{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--card)}
     .evidence-media img,.evidence-media video{display:block;width:100%;height:auto;background:#000}
     .evidence-media figcaption{padding:14px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-    .evidence-note{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--muted);font-size:.9rem}
+    .evidence-note{max-width:none;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--secondary);color:var(--muted);font-size:.9rem}
     .related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .related a{display:block;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:white}
+    .related a{display:block;padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;color:white;transition:border-color .2s}
+    .related a:hover{border-color:rgba(91,127,229,.65)}
     .cta{text-align:center}
-    .button{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:999px;background:var(--green);color:#052e16;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--ink);border:1px solid var(--line)}
-    footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}
+    .cta p{margin-inline:auto}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:16px;padding:12px 22px;border-radius:8px;background:var(--gradient);color:white;text-decoration:none;font-weight:800}.button.secondary{margin-left:8px;background:transparent;color:var(--text);border:1px solid rgba(91,127,229,.6)}
+    footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+    .publisher{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.7rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.12em}
     footer a,footer button{color:var(--muted)}
     .footer-privacy-settings{border:0;background:transparent;padding:0;font:inherit;text-decoration:underline;cursor:pointer}
-    .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
-    @media(max-width:700px){.grid,.related,.evidence-facts{grid-template-columns:1fr}.links{display:none!important}th,td{padding:12px;font-size:.9rem}}</style>
+    .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:.875rem}
+    .copyright{margin:28px 0 0;text-align:center;font-size:.75rem}
+    @media(max-width:800px){.nav-links,.nav-cta{display:none}.mobile-menu{display:inline-flex}.footer-inner{flex-direction:column;text-align:center}}
+    @media(max-width:700px){.container,main{width:min(calc(100% - 32px),900px)!important}.hero{padding:42px 0 48px}h1{font-size:2.5rem}h2{font-size:1.65rem}.lede{font-size:1.08rem}main{padding-top:48px}section{margin-bottom:56px}.answer,.card,.cta{padding:22px}.grid,.related,.evidence-facts{grid-template-columns:1fr}th,td{padding:13px;font-size:.88rem}.button.secondary{margin-left:0}.cta .button{width:100%}}</style>
 </head>
 <body>
-  <header>
-    <nav class="container" aria-label="Primary navigation">
-      <a class="brand" href="/">Foldora AI</a>
-      <div class="links">
-        <a href="/ai-file-organizer/">Product</a>
-        <a href="/category/productivity/">Guides</a>
-        <a href="/alternatives/">Comparisons</a>
-        <a href="/docs/privacy/">Privacy</a>
+  <header class="site-header">
+    <nav class="container site-nav" aria-label="Primary navigation">
+      <a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a>
+      <div class="nav-links">
+        <a href="https://computoraai.com/">Computora AI</a><a href="/#features">Features</a><a href="/#how-it-works">How It Works</a><a href="/alternatives/">Comparisons</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a>
       </div>
-      <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-header&amp;utm_content=rename-files-automatically" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="seo-header/rename-files-automatically" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
+      <a class="mobile-menu" href="/#pricing" aria-label="Open pricing and FAQ">&#9776;</a>
+      <a class="nav-cta" href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=seo-header&amp;utm_content=rename-files-automatically" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="seo-header/rename-files-automatically" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora</a>
     </nav>
   </header>
   <div class="container breadcrumbs" aria-label="Breadcrumb">
@@ -178,7 +193,7 @@
     <section>
       <h2>Renaming approaches</h2>
       <p>Sequence-based tools are fast; context-aware tools create more meaningful names.</p>
-      <div style="overflow-x:auto">
+      <div class="table-wrap">
         <table>
           <thead><tr><th>Option</th><th>Best for</th><th>Tradeoff</th></tr></thead>
           <tbody>
@@ -187,6 +202,7 @@
         </table>
       </div>
     </section>
+
     <section>
       <h2>Frequently asked questions</h2>
       <article class="faq"><h3>What is a good automatic filename format?</h3><p>Use stable fields such as YYYY-MM-DD, organization or project, document type, and a short subject. Omit fields that do not improve search.</p></article><article class="faq"><h3>Can automatic renaming overwrite files?</h3><p>A safe renaming workflow should detect name collisions and show a preview. Always review collisions before applying a batch.</p></article><article class="faq"><h3>Does Foldora rename files offline?</h3><p>Yes. Foldora&#39;s analysis and proposed rename workflow runs locally.</p></article>
@@ -204,7 +220,18 @@
       <a class="button secondary" href="https://computora.gumroad.com/l/computoraai" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>
     </section>
   </main>
-  <footer><div class="container">Foldora AI - Local, privacy-focused file organization<div class="footer-links"><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Privacy Settings</button><a href="https://computoraai.com/">Computora AI desktop software</a><a href="https://cleanoraai.com/">Cleanora Downloads folder organizer</a><a href="https://galoriaai.com/">Galoria AI photo organizer</a></div></div></footer>
+  <footer><div class="container">
+    <div class="footer-inner">
+      <a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a>
+      <a class="publisher" href="https://computoraai.com/">By Computora AI</a>
+      <div class="footer-links">
+        <a href="https://computora.gumroad.com/l/foldora?utm_source=foldoraai.com&amp;utm_medium=referral&amp;utm_campaign=site-footer&amp;utm_content=footer-download" data-foldora-checkout="true" data-checkout-provider="gumroad" data-checkout-location="footer" data-product-id="foldora" data-product-name="Foldora" data-product-price="14.99" data-product-currency="USD" data-product-variant="windows_macos">Get Foldora for Windows or macOS</a>
+        <a href="/#features">Features</a><a href="/docs/install/">Install</a><a href="/docs/privacy/">Privacy</a><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Privacy Settings</button><a href="/docs/troubleshooting/">Support</a>
+      </div>
+      <a href="mailto:team.foldora@outlook.com">team.foldora@outlook.com</a>
+    </div>
+    <p class="copyright">Copyright 2026 Foldora AI. All rights reserved.</p>
+  </div></footer>
   <script src="/tawk-loader.js" defer></script>
 </body>
 </html>

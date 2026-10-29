@@ -66,16 +66,16 @@ const SeoContentPage = () => {
         }}
       />
       <Navbar showCheckout={page.route !== "alternatives/hazel"} />
-      <main className="min-h-screen bg-background">
-        <section className="border-b border-border">
-          <div className="container max-w-4xl py-32">
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+      <main className="content-page-main">
+        <section className="content-hero">
+          <div className="content-hero-inner">
+            <p className="content-eyebrow">
               {page.eyebrow}
             </p>
-            <h1 className="mt-6 text-5xl font-extrabold leading-tight md:text-6xl">
+            <h1 className="content-title">
               {page.h1}
             </h1>
-            <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
+            <p className="content-intro">
               {page.description}
             </p>
             {page.route === "ai-file-organizer" && (
@@ -85,7 +85,7 @@ const SeoContentPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   {...checkoutTrackingAttributes("gumroad", "ai-file-organizer-hero")}
-                  className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                  className="content-primary-button"
                 >
                   Get Foldora - {product.price.display}
                 </a>
@@ -97,9 +97,9 @@ const SeoContentPage = () => {
           </div>
         </section>
 
-        <div className="container max-w-4xl space-y-20 py-20">
-          <section className="rounded-3xl border border-primary/30 bg-card p-8">
-            <h2 className="text-3xl font-bold">Direct answer</h2>
+        <div className="content-body">
+          <section className="content-callout">
+            <h2 className="content-section-title">Direct answer</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               {page.directAnswer}
             </p>
@@ -107,7 +107,7 @@ const SeoContentPage = () => {
 
           {page.evidence && (
             <section aria-labelledby="evidence-title">
-              <h2 id="evidence-title" className="text-3xl font-bold">
+              <h2 id="evidence-title" className="content-section-title">
                 {page.evidence.title}
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -115,7 +115,7 @@ const SeoContentPage = () => {
               </p>
               <dl className="mt-8 grid gap-4 sm:grid-cols-2">
                 {page.evidence.facts.map((fact) => (
-                  <div key={fact.label} className="rounded-2xl border border-border bg-card p-5">
+                  <div key={fact.label} className="content-card p-5">
                     <dt className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {fact.label}
                     </dt>
@@ -125,7 +125,7 @@ const SeoContentPage = () => {
               </dl>
               <div className="mt-8 grid gap-6">
                 {page.evidence.media.map((item) => (
-                  <figure key={item.src} className="overflow-hidden rounded-2xl border border-border bg-card">
+                  <figure key={item.src} className="overflow-hidden rounded-xl border border-border bg-card">
                     {item.kind === "video" ? (
                       <video controls preload="metadata" playsInline aria-label={item.alt} className="w-full bg-black">
                         <source src={item.src} type="video/mp4" />
@@ -152,7 +152,7 @@ const SeoContentPage = () => {
           )}
 
           <section>
-            <h2 className="text-3xl font-bold">{page.problemTitle}</h2>
+            <h2 className="content-section-title">{page.problemTitle}</h2>
             {page.problem.map((paragraph) => (
               <p
                 key={paragraph}
@@ -164,7 +164,7 @@ const SeoContentPage = () => {
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold">Step-by-step workflow</h2>
+            <h2 className="content-section-title">Step-by-step workflow</h2>
             <ol className="mt-6 list-decimal space-y-4 pl-6 text-lg text-muted-foreground">
               {page.steps.map((step) => (
                 <li key={step}>{step}</li>
@@ -173,12 +173,12 @@ const SeoContentPage = () => {
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold">Use-case examples</h2>
+            <h2 className="content-section-title">Use-case examples</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {page.examples.map((example) => (
                 <article
                   key={example.title}
-                  className="rounded-2xl border border-border bg-card p-6"
+                  className="content-card"
                 >
                   <h3 className="text-xl font-semibold">{example.title}</h3>
                   <p className="mt-4 text-muted-foreground">
@@ -193,7 +193,7 @@ const SeoContentPage = () => {
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold">Frequently asked questions</h2>
+            <h2 className="content-section-title">Frequently asked questions</h2>
             <div className="mt-8 space-y-6">
               {page.faqs.map((faq) => (
                 <article key={faq.question}>
@@ -205,9 +205,9 @@ const SeoContentPage = () => {
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold">{page.comparison.title}</h2>
+            <h2 className="content-section-title">{page.comparison.title}</h2>
             <p className="mt-4 text-muted-foreground">{page.comparison.summary}</p>
-            <div className="mt-6 overflow-x-auto rounded-2xl border border-border">
+            <div className="mt-6 max-w-full overflow-x-auto rounded-xl border border-border">
               <table className="w-full min-w-[640px] border-collapse bg-card text-left">
                 <thead>
                   <tr className="border-b border-border">
@@ -239,7 +239,7 @@ const SeoContentPage = () => {
 
           {page.sources && (
             <section>
-              <h2 className="text-3xl font-bold">Official sources</h2>
+              <h2 className="content-section-title">Official sources</h2>
               <p className="mt-4 text-muted-foreground">
                 Competitor facts are linked to the publisher's own product, store, and documentation pages.
               </p>
@@ -250,7 +250,7 @@ const SeoContentPage = () => {
                     href={source.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
+                    className="content-card p-5 transition-colors hover:border-primary/40"
                   >
                     <span className="font-semibold text-foreground">{source.label}</span>
                     <span className="mt-2 block text-sm text-muted-foreground">{source.note}</span>
@@ -261,13 +261,13 @@ const SeoContentPage = () => {
           )}
 
           <section>
-            <h2 className="text-3xl font-bold">Related guides</h2>
+            <h2 className="content-section-title">Related guides</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {page.related.map((route) => (
                 <a
                   key={route}
                   href={seoPagesByRoute[route]?.canonicalUrl ?? `/${route}/`}
-                  className="rounded-xl border border-border bg-card p-5 text-foreground transition-colors hover:border-primary/40"
+                  className="content-card p-5 text-foreground transition-colors hover:border-primary/40"
                 >
                   {relatedTitle(route)}
                 </a>
@@ -275,8 +275,8 @@ const SeoContentPage = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border border-primary/30 bg-card p-8 text-center">
-            <h2 className="text-3xl font-bold">Organize a folder with Foldora</h2>
+          <section className="content-callout text-center">
+            <h2 className="content-section-title">Organize a folder with Foldora</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Run local AI on Windows or macOS, review proposed folders and filenames, then apply the changes you approve.
             </p>
@@ -286,7 +286,7 @@ const SeoContentPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 {...checkoutTrackingAttributes("gumroad", page.route)}
-                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-gradient-primary px-6 py-3 font-semibold text-primary-foreground"
+                className="content-primary-button"
               >
                 {page.route === "alternatives/hazel"
                   ? `Get Foldora - ${product.price.display}`

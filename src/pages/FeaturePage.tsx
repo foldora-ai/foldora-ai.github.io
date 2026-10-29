@@ -41,20 +41,20 @@ const FeaturePage = () => {
 
       <Navbar />
 
-      <main className="min-h-screen bg-background">
+      <main className="content-page-main">
 
-        <section className="border-b border-border">
-          <div className="container max-w-4xl py-32">
+        <section className="content-hero">
+          <div className="content-hero-inner">
 
-            <div className="inline-flex items-center rounded-full border border-border bg-secondary px-4 py-1.5 text-sm text-muted-foreground">
+            <div className="content-eyebrow">
               Feature
             </div>
 
-            <h1 className="mt-6 text-5xl font-extrabold md:text-6xl">
+            <h1 className="content-title">
               {post.title}
             </h1>
 
-            <p className="mt-6 text-xl text-muted-foreground">
+            <p className="content-intro">
               {post.description}
             </p>
 
@@ -62,18 +62,18 @@ const FeaturePage = () => {
         </section>
 
         <section>
-          <div className="container max-w-4xl py-20">
+          <div className="content-body">
 
             <article className="space-y-16">
 
               {post.sections.map((section, index) => (
                 <div key={index}>
 
-                  <h2 className="text-3xl font-bold">
+                  <h2 className="content-section-title">
                     {section.title}
                   </h2>
 
-                  <p className="mt-6 whitespace-pre-line text-lg leading-relaxed text-muted-foreground">
+                  <p className="content-copy whitespace-pre-line">
                     {section.content}
                   </p>
 
@@ -82,9 +82,9 @@ const FeaturePage = () => {
 
             </article>
 
-            <div className="mt-24 rounded-3xl border border-border bg-card p-10 text-center">
+            <div className="content-callout text-center">
 
-              <h2 className="text-3xl font-bold">
+              <h2 className="content-section-title">
                 Organize your files automatically
               </h2>
 
@@ -97,7 +97,7 @@ const FeaturePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 {...checkoutTrackingAttributes("gumroad", `features/${slug}`)}
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-opacity hover:opacity-90 glow-shadow"
+                className="content-primary-button mt-8"
               >
                 Get Foldora for Windows or macOS
               </a>
