@@ -95,7 +95,7 @@ export const seoPages: SeoPage[] = [
     description:
       "Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.",
     eyebrow: "Local AI file organization",
-    updatedAt: "2026-10-28",
+    updatedAt: "2026-10-30",
     directAnswer:
       "Foldora is a desktop AI file organizer for Windows 10 and 11. It analyzes filenames and supported file content locally, then proposes folders and clearer filenames for Downloads, Desktop, Documents, or project folders. You preview the plan before applying changes. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
     problemTitle: "What to expect from an AI file organizer on Windows",
@@ -175,6 +175,11 @@ export const seoPages: SeoPage[] = [
         question: "Which files can Foldora organize?",
         answer:
           "Foldora supports common documents such as PDF, DOCX, and TXT; spreadsheets such as XLSX and CSV; PPT and PPTX presentations; PNG, JPG, GIF, and WEBP images; and ZIP archives. The information available for analysis varies by format.",
+      },
+      {
+        question: "Does Foldora read every page of a PDF, including scans?",
+        answer:
+          "No. Foldora's PDF reader samples up to the first three pages, and files over 8 MiB are not read for content. It may attempt local OCR on the first page when embedded text is sparse; it does not OCR an entire scanned document. Cover pages and later-page details can therefore leave out useful context. Review the proposed folder and filename before applying changes.",
       },
       {
         question: "What are Foldora's limits compared with a rules-based organizer?",
