@@ -3,6 +3,9 @@ import path from "node:path";
 
 import { JSDOM } from "jsdom";
 import { describe, expect, it, vi } from "vitest";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import BundleOffer from "@/components/BundleOffer";
 
 const trackingScript = fs.readFileSync(
   path.resolve("public", "checkout-tracking.js"),
@@ -30,8 +33,9 @@ function loadTracker(
   url: string,
   referrer?: string,
   privacyStorageDisabled = false,
+  markup = checkoutMarkup(),
 ) {
-  const dom = new JSDOM(checkoutMarkup(), {
+  const dom = new JSDOM(markup, {
     url,
     referrer,
     runScripts: "outside-only",
@@ -58,6 +62,42 @@ function loadTracker(
 }
 
 describe("checkout acquisition tracking", () => {
+  it("distinguishes the bundle and source product while preserving acquisition labels", () => {
+    const { dom, gtag, link } = loadTracker(
+      "https://foldoraai.com/?utm_source=chatgpt&utm_medium=referral",
+      undefined,
+      false,
+      renderToStaticMarkup(createElement(BundleOffer)),
+    );
+    link.addEventListener("click", (event) => event.preventDefault());
+    link.dispatchEvent(new dom.window.MouseEvent("click", { bubbles: true, cancelable: true }));
+    expect(gtag).toHaveBeenCalledOnce();
+    expect(gtag.mock.calls[0][1]).toBe("begin_checkout");
+    expect(gtag.mock.calls[0][2]).toMatchObject({
+      value: 34.99,
+      checkout_offer: "bundle",
+      source_product: "foldora",
+      campaign_source: "chatgpt",
+      items: [{ item_id: "computoraai", item_name: "Computora AI Complete Bundle", price: 34.99 }],
+    });
+    expect(new URL(link.href).pathname).toBe("/l/computoraai");
+    expect(new URL(link.href).searchParams.get("source_product")).toBe("foldora");
+    expect(gtag.mock.calls.some((call) => call[1] === "purchase")).toBe(false);
+    dom.window.close();
+  });
+
+  it("does not send bundle checkout analytics without optional consent", () => {
+    const { dom, gtag, link } = loadTracker(
+      "https://foldoraai.com/", undefined, true,
+      renderToStaticMarkup(createElement(BundleOffer)),
+    );
+    link.addEventListener("click", (event) => event.preventDefault());
+    link.dispatchEvent(new dom.window.MouseEvent("click", { bubbles: true, cancelable: true }));
+    expect(gtag).not.toHaveBeenCalled();
+    expect(new URL(link.href).pathname).toBe("/l/computoraai");
+    dom.window.close();
+  });
+
   it("sends one GA4 begin_checkout event with product and destination data", () => {
     const { dom, gtag, link } = loadTracker("https://foldoraai.com/");
     link.addEventListener("click", (event) => event.preventDefault());
