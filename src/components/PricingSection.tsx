@@ -8,7 +8,6 @@ import {
   site,
 } from "@/config/product";
 import { trackEvent } from "@/lib/analytics";
-import BundleOffer from "@/components/BundleOffer";
 
 const included = [
   "Foldora desktop app for supported Windows and macOS systems",
@@ -56,7 +55,6 @@ const PricingSection = () => {
         </div>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="grid content-start gap-6">
           <div className="rounded-xl border border-primary/30 bg-card p-8">
             <div className="text-sm font-semibold uppercase tracking-wide text-primary-readable">
               {product.price.label}
@@ -106,9 +104,6 @@ const PricingSection = () => {
             <p className="mt-4 text-center text-xs text-muted-foreground">
               After payment, use the download and license instructions supplied by the checkout provider.
             </p>
-          </div>
-
-            <BundleOffer />
           </div>
 
           <div className="grid gap-6">

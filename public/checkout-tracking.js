@@ -179,8 +179,6 @@
       value: Number.isFinite(price) ? price : 0,
       checkout_provider: link.dataset.checkoutProvider || destination.hostname,
       checkout_location: link.dataset.checkoutLocation || "unknown",
-      checkout_offer: link.dataset.checkoutOffer || "individual",
-      source_product: link.dataset.sourceProduct || productId,
       destination_url: destination.toString(),
       campaign_id: destination.searchParams.get("utm_id") || undefined,
       campaign_name: destination.searchParams.get("utm_campaign") || undefined,
