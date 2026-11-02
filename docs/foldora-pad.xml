@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML_DIZ_INFO>
+  <MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>4.0</MASTER_PAD_VERSION>
+    <MASTER_PAD_INFO>Portable Application Description</MASTER_PAD_INFO>
+  </MASTER_PAD_VERSION_INFO>
+  <Company_Info>
+    <Company_Name>Foldora AI</Company_Name>
+    <Company_WebSite_URL>https://foldoraai.com/</Company_WebSite_URL>
+    <Contact_Info>
+      <Contact_Email>team.foldora@outlook.com</Contact_Email>
+    </Contact_Info>
+    <Support_Info>
+      <Support_Email>team.foldora@outlook.com</Support_Email>
+    </Support_Info>
+  </Company_Info>
+  <Program_Info>
+    <Program_Name>Foldora AI</Program_Name>
+    <Program_Version>1.0.4</Program_Version>
+    <Program_Release_Month>11</Program_Release_Month>
+    <Program_Release_Day>1</Program_Release_Day>
+    <Program_Release_Year>2026</Program_Release_Year>
+    <Program_Cost_Other_Code>USD</Program_Cost_Other_Code>
+    <Program_Cost_Other>14.99</Program_Cost_Other>
+    <Program_Type>Shareware</Program_Type>
+    <Program_Release_Status>Major Update</Program_Release_Status>
+    <Program_Install_Support>Install and Uninstall</Program_Install_Support>
+    <Program_OS_Support>Windows 10, Windows 11</Program_OS_Support>
+    <Program_Language>English</Program_Language>
+    <File_Info>
+      <File_Size_Bytes>1467842104</File_Size_Bytes>
+      <File_Size_K>1433440</File_Size_K>
+      <File_Size_MB>1399.84</File_Size_MB>
+    </File_Info>
+  </Program_Info>
+  <Program_Descriptions>
+    <English>
+      <Char_Desc_45>Local AI file organizer with move previews.</Char_Desc_45>
+      <Char_Desc_80>Organize files locally by content, date, or type; preview proposed moves first.</Char_Desc_80>
+      <Char_Desc_250>Foldora AI organizes local files using filenames and supported file content, or by modified date or file type. It previews proposed folders and clearer names before you approve changes.</Char_Desc_250>
+      <Char_Desc_450>Foldora AI is a Windows 10 and 11 file organizer. It proposes folders and clearer filenames using local analysis, or organizes by modified date or file type. Preview proposed changes before approving them. Activation and periodic license validation require internet access.</Char_Desc_450>
+      <Char_Desc_2000>Foldora AI is a Windows 10 and 11 x64 desktop file organizer. It proposes folders and clearer filenames using locally analyzed filenames and supported file content. Users may instead organize by modified date or file type. The app previews its plan before applying changes. Supported formats include PDF, DOCX, TXT, XLSX, CSV, PPT, PPTX, PNG, JPG, JPEG, GIF, WEBP, and ZIP. Analysis varies by format; scanned-PDF OCR is not guaranteed, and ZIP support does not mean every archived document is read. Processing is bounded to 1,000 files per run. The app costs USD $14.99 once and requires a valid license. Internet access is required for download, activation, and periodic license validation. The Windows installer is unsigned and includes the Microsoft Visual C++ runtime prerequisite.</Char_Desc_2000>
+    </English>
+  </Program_Descriptions>
+  <Web_Info>
+    <Application_URLs>
+      <Application_Info_URL>https://foldoraai.com/?utm_source=canadiancontent&amp;utm_medium=referral&amp;utm_campaign=software-directory</Application_Info_URL>
+      <Application_Order_URL>https://computora.gumroad.com/l/foldora</Application_Order_URL>
+      <Application_XML_File_URL>https://foldoraai.com/foldora-pad.xml</Application_XML_File_URL>
+    </Application_URLs>
+    <Download_URLs>
+      <Primary_Download_URL>https://github.com/foldora-ai/foldora-releases/releases/download/1.0.4/FoldoraAI-Setup-Windows.exe</Primary_Download_URL>
+    </Download_URLs>
+  </Web_Info>
+</XML_DIZ_INFO>
