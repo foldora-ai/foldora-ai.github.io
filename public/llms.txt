@@ -18,7 +18,7 @@
 ## Core pages
 
 - [AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.
-- [Best File Organizer Software for Windows](https://foldoraai.com/best-file-organizer-windows/): Compare AI and rule-based file organizer software for Windows by workflow, privacy, preview controls, limitations, and pricing model before choosing.
+- [Best AI File Organizer for Windows](https://foldoraai.com/best-file-organizer-windows/): Compare Windows AI and rule-based file organizers by local processing, preview controls, limits, and price. Foldora is $14.99 once; see if it fits.
 - [How to Organize Files Automatically on Windows](https://foldoraai.com/organize-files-windows/): Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.
 - [AI File Organizer for Mac](https://foldoraai.com/organize-files-mac/): Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.
 - [How to Organize Thousands of Files](https://foldoraai.com/organize-files-automatically/): A safe workflow for categorizing, renaming, and archiving thousands of files with previews, small batches, and a structure built for retrieval.
@@ -27,7 +27,7 @@
 - [File Organization for Freelancers](https://foldoraai.com/use-cases/freelancers/): Organize briefs, contracts, invoices, source files, deliverables, and feedback with a repeatable client folder lifecycle.
 - [File Organization for Researchers](https://foldoraai.com/use-cases/researchers/): Organize literature, protocols, data, analysis, figures, manuscripts, and administrative records without replacing specialist research tools.
 - [File Organization for Accountants](https://foldoraai.com/use-cases/accountants/): Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.
-- [Foldora vs Hazel](https://foldoraai.com/alternatives/hazel/): Compare Foldora and Hazel on Mac: local AI suggestions with a preview versus persistent folder rules and deeper macOS automation.
+- [Foldora vs Hazel](https://foldoraai.com/alternatives/hazel/): Compare Foldora and Hazel by platform, setup, preview, automation, recovery, local processing, and current one-time pricing.
 - [Foldora vs File Juggler](https://foldoraai.com/alternatives/file-juggler/): Compare Foldora's local AI suggestions with File Juggler's Windows file automation rules for moving, renaming, deleting, and document-based workflows.
 - [Foldora vs Microsoft Power Automate](https://foldoraai.com/alternatives/power-automate/): Compare a focused local AI file organizer with Microsoft's broader workflow automation platform for desktop, cloud, and business processes.
 - [Automatic vs Manual File Organization](https://foldoraai.com/alternatives/manual-organization/): Compare automatic and manual file organization by setup time, review, control, scale, consistency, and the types of files each method handles best.

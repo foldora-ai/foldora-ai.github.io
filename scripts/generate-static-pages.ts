@@ -387,7 +387,7 @@ function schemaForPage(page: SeoPage): object {
               "@id": `${SITE_URL}/#software`,
               name: product.productName,
               url: `${SITE_URL}/`,
-              applicationCategory: "FileManagementApplication",
+              applicationCategory: "UtilitiesApplication",
               operatingSystem: product.platforms.supported.join(", "),
               image: SOCIAL_IMAGE_URL,
               description:

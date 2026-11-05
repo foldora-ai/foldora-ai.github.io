@@ -43,7 +43,7 @@ export function softwareApplicationSchema() {
     "@id": `${site.url}/#software`,
     name: product.productName ?? "Foldora",
     url: `${site.url}/`,
-    applicationCategory: "FileManagementApplication",
+    applicationCategory: "UtilitiesApplication",
     operatingSystem: product.platforms.supported.join(", "),
     image: `${site.url}/foldora-social-preview.png`,
     description:

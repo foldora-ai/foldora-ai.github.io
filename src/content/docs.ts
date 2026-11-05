@@ -117,9 +117,12 @@ export const docs = {
     title: "Supported File Types",
     description:
       "Check the documents, spreadsheets, presentations, images, and archives that Foldora can organize and rename in supported local workflows.",
-    sections: Object.entries(product.supportedFileTypes).map(([title, types]) => ({
+    sections: [...Object.entries(product.supportedFileTypes).map(([title, types]) => ({
       title,
-      content: `${types.join(", ")} files are included in the verified repository copy for supported file-type messaging.`,
-    })),
+      content: `${types.join(", ")} files can be included in an organization plan. Recognition of a file type does not mean that its full contents are read. Review the proposed folder and filename before applying changes.`,
+    })), {
+      title: "Content analysis has limits",
+      content: "Foldora uses filenames and available supported content. PDF analysis samples up to the first three pages, with a first-page local OCR attempt when embedded text is sparse. It does not OCR every page of a scanned document. Files larger than 8 MiB skip content analysis. Archives are not unpacked and inspected like readable documents. If content is unavailable or insufficient, filename and file-type signals may be used instead; ambiguous suggestions need review.",
+    }],
   },
 };
