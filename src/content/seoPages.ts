@@ -226,7 +226,7 @@ export const seoPages: SeoPage[] = [
     description:
       "Compare Windows AI and rule-based file organizers by local processing, preview controls, limits, and price. Foldora is $14.99 once; see if it fits.",
     eyebrow: "Windows software comparison",
-    updatedAt: "2026-10-21",
+    updatedAt: "2026-11-05",
     directAnswer:
       "The best Windows file organizer depends on the job. Foldora costs $14.99 once and is a strong fit when you want local AI to propose folders and clearer names for review with little rule setup. File Juggler is better for detailed, recurring Windows rules. Power Automate is better for broader business processes that connect files with other Microsoft services.",
     problemTitle: "Compare the workflow, safeguards, limits, and total price",
@@ -234,6 +234,7 @@ export const seoPages: SeoPage[] = [
       "A useful comparison should go beyond a generic feature list. Check whether the tool handles selected cleanup runs or watches folders continuously, whether it understands supported file context or only matches rules, and whether it shows a preview before making changes.",
       "For confidential PDFs, invoices, or client documents, also verify where analysis happens. A local workflow reduces the need to send file content to an external service.",
       "Compare the complete buying terms as well: one-time purchase or subscription, trial limits, supported Windows versions, update terms, and the recovery controls available if a result is wrong.",
+      "Within Foldora, choose AI Content for context-based suggestions, Type for Category / Extension folders, or Date for Year / Month folders based on each file's modified date. Date mode does not extract an invoice date from a PDF or use a photo's capture date. If grouping by extension or modified date already solves the problem, you do not need content analysis for that run.",
     ],
     steps: [
       "Choose one real folder and list the result you need: batch cleanup, recurring routing, renaming, or a broader business workflow.",
@@ -296,6 +297,21 @@ export const seoPages: SeoPage[] = [
         answer:
           "Foldora is currently $14.99 as a one-time purchase, not a subscription. The purchase includes the supported Windows and macOS desktop app delivered through the checkout provider.",
       },
+      {
+        question: "Which files can Foldora analyze, and what can it miss?",
+        answer:
+          "Foldora can organize PDF, DOCX and TXT documents, XLSX and CSV spreadsheets, PPT and PPTX presentations, PNG, JPG, JPEG, GIF and WEBP images, and ZIP archives. Content analysis varies by format. PDF reading samples up to the first three pages, with a local first-page OCR attempt when embedded text is sparse. Files over 8 MiB skip content reading, and ZIP archives are not unpacked for analysis. Later-page details, unreadable scans and ambiguous images may therefore produce incomplete suggestions. Inspect the plan before applying it.",
+      },
+      {
+        question: "Can I use Foldora offline without uploading my files?",
+        answer:
+          "File analysis runs locally without uploading files to a cloud organizer. Local processing does not mean the product never needs internet: purchase, download, license activation, periodic license validation and updates require a connection. Consider that licensing requirement if you need an entirely disconnected computer.",
+      },
+      {
+        question: "What should I check before approving a Foldora plan?",
+        answer:
+          "Check the proposed destination folders and filenames against the original files, especially for scans and ambiguous names. Begin with a copied representative folder and keep a separate backup. Preview is a chance to reject an unsuitable plan; do not treat undo as a guaranteed recovery system or a replacement for backups. Foldora runs on selected folders and does not continuously monitor new arrivals.",
+      },
     ],
     evidence: {
       title: "See the Foldora workflow, price, and limits before choosing",
@@ -331,6 +347,8 @@ export const seoPages: SeoPage[] = [
       "alternatives/file-juggler",
       "alternatives/power-automate",
       "organize-files-windows",
+      "docs/supported-file-types",
+      "docs/privacy",
     ],
   },
   {
