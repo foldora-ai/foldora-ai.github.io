@@ -1014,78 +1014,85 @@ export const seoPages: SeoPage[] = [
     title: "How to Organize Invoices Automatically",
     h1: "How to Organize Invoices Automatically",
     description:
-      "Organize incoming and outgoing invoices by year, status, vendor or client, and invoice number with consistent names and privacy-aware processing.",
+      "Can Foldora organize invoices by content? Learn its local classification workflow, PDF and OCR limits, and when exact vendor/date rules need another tool.",
     eyebrow: "Invoice organization guide",
-    updatedAt,
+    updatedAt: "2026-11-05",
     directAnswer:
-      "Organize invoices with a consistent filename containing date, vendor or client, invoice number, and status where needed. Separate incoming expenses from outgoing sales, group them by accounting year, and reconcile them with your accounting system. Foldora can help categorize and rename local invoice files, but it does not replace bookkeeping controls.",
-    problemTitle: "Invoices are records, not just PDFs",
+      "Foldora can suggest invoice categories and descriptive filenames from filenames and supported local document text. It is not a structured invoice-field extractor: it does not provide validated vendor, invoice-date or invoice-number fields, or configurable rules that enforce an exact Vendor/Year/Month folder structure. Choose it for reviewed cleanup of an invoice archive; use dedicated invoice extraction or a suitable rules workflow when exact fields determine where every record must go.",
+    problemTitle: "Content classification is different from invoice-field extraction",
     problem: [
-      "Invoice files arrive through email, portals, scanners, and messaging tools. Their original names often omit the vendor, invoice date, or number needed for reconciliation.",
-      "Mixing paid, unpaid, incoming, and outgoing invoices creates avoidable accounting work. The folder structure should support the same questions used during bookkeeping and tax preparation.",
+      "A document can be recognized as an invoice without reliably identifying its supplier, issue date, invoice number or payment status. Foldora classifies against its folder categories and may suggest a short descriptive name. Names are summaries, not accounting records: dates and identifiers are not guaranteed to be retained. A strong filename match can finish classification before content is read.",
+      "Invoice-relevant text readers include PDF, DOCX, TXT, CSV and XLSX. PDF text is sampled from at most the first three pages; TXT reads up to 3,000 characters, DOCX up to 200 nonempty paragraph parts, and spreadsheets use a small row summary rather than the entire workbook. The text-classification path caps content at 5,000 characters; name generation can use a much shorter selected line. Do not assume every field or page is inspected.",
+      "Content analysis has an 8 MiB per-file size guard. For a PDF whose first page has fewer than 50 extracted characters, the reader attempts local OCR on that page at 150 dpi. This requires a working OCR runtime and can fail; it is not full-document OCR. A photograph of an invoice is not a supported structured invoice-extraction workflow. Unreadable text, scans and larger files need manual checking, and filename fallbacks may still suggest a category.",
+      "Foldora runs on Windows 10/11 and macOS. Document analysis is local; purchase, download, license activation, periodic license validation and updates require internet access. This guide is published by Computora AI, Foldora's publisher.",
     ],
     steps: [
-      "Separate supplier invoices from invoices issued to clients.",
-      "Use accounting year and status folders only when they match your process.",
-      "Rename each file with date, party, invoice number, and document type.",
-      "Reconcile the organized files with the accounting system and retention policy.",
+      "Back up a small invoice batch and select it in Foldora. Choose AI Content for category and naming suggestions; do not expect exact vendor/date routing controls.",
+      "Generate Preview. Compare each proposed folder and filename with the actual invoice, especially scans, ambiguous names, large files and fields on later pages.",
+      "Check that required supplier names, dates and invoice numbers remain usable before approving moves or renames. Do not approve an unsuitable plan; retain the originals for your accounting workflow.",
+      "After applying an approved plan, verify the resulting files and reconcile them with the accounting system. Keep payment status and retention decisions in your authoritative records.",
     ],
     examples: [
       {
-        title: "Supplier invoice",
-        before: "document_9382.pdf",
-        after: "2026-05-18_Acme_INV-9382_Supplier-Invoice.pdf",
+        title: "Illustrative classification plan — not an executed benchmark",
+        before: "A small text-readable PDF describing an office-paper invoice: document_9382.pdf",
+        after: "A possible reviewed plan: Finance/Invoices/office_paper_invoice.pdf. The category and short name are illustrative, not guaranteed output; no vendor, invoice date or invoice number is extracted as a validated field.",
       },
       {
-        title: "Freelancer billing",
-        before: "invoice-final-final.pdf",
-        after: "2026-06-01_Client-Atlas_INV-2026-014_Issued.pdf",
+        title: "Decision example — exact accounting rules",
+        before: "You require Vendor/2026/05/INV-9382.pdf using the invoice issue date, even when a PDF was downloaded in November.",
+        after: "Use a workflow that extracts and validates those fields, then applies your exact rules. Foldora's date mode uses the file's last-modified timestamp, not the date printed on the invoice.",
       },
     ],
     comparison: {
       title: "Invoice file management options",
       summary:
-        "Folder organization supports bookkeeping but should not become the accounting ledger.",
+        "Choose by the output you need. Folder classification, field extraction and bookkeeping are separate jobs.",
       rows: [
         {
           option: "Foldora",
-          bestFor: "Local categorization and descriptive invoice filenames",
-          tradeoff: "Does not perform reconciliation or tax accounting",
+          bestFor: "A selected local batch with reviewed category and name suggestions",
+          tradeoff: "No validated invoice-field extraction or exact vendor/date rule editor",
         },
         {
-          option: "Accounting software",
-          bestFor: "Transactions, reconciliation, tax records, and reports",
-          tradeoff: "May not clean the original local file archive",
+          option: "Dedicated invoice extraction and accounting workflow",
+          bestFor: "Required vendor, date and invoice-number fields, reconciliation and status records",
+          tradeoff: "Check the chosen tool's formats, validation, privacy and routing support; these capabilities vary",
         },
         {
-          option: "Manual folders",
-          bestFor: "Very low invoice volume",
-          tradeoff: "Naming and status handling become inconsistent",
+          option: "Exact rules or manual filing",
+          bestFor: "A prescribed folder and naming convention using fields you have verified",
+          tradeoff: "Rules need reliable inputs; unclear invoices still require review",
         },
       ],
     },
     faqs: [
       {
-        question: "What is a good invoice filename?",
+        question: "Does Foldora extract the vendor, invoice date and invoice number?",
         answer:
-          "Use ISO date, vendor or client, invoice number, and a short type label. Example: 2026-05-18_Acme_INV-9382.pdf.",
+          "Not as validated structured fields. Content classification and short filename suggestions may reflect document words, but there is no invoice-field schema or guarantee that vendor names, dates and invoice numbers are identified or preserved. Verify them against the original document.",
       },
       {
-        question: "Should paid and unpaid invoices be separate?",
+        question: "Can I enforce exact vendor/date folders in Foldora?",
         answer:
-          "Only if folders are part of your active workflow. Your accounting system should remain the authoritative status record.",
+          "Foldora has no configurable exact vendor/date routing rules. AI Content suggests categories; Date mode groups by filesystem last-modified year and month, not invoice issue date; Type mode groups file types. Choose another workflow if a prescribed accounting folder schema is mandatory.",
       },
       {
-        question: "Are invoice files sensitive?",
+        question: "Can Foldora analyze every page of a scanned invoice?",
         answer:
-          "Often yes. They can contain names, addresses, account details, and pricing, so confirm where any automated analysis occurs.",
+          "No. PDF text reading is limited to the first three pages, with a local OCR attempt on the first page only when its extracted text is short. OCR availability and readability are not guaranteed, and content analysis skips files over 8 MiB. Review scans and later-page details manually.",
+      },
+      {
+        question: "What must I review before moving invoice files?",
+        answer:
+          "Review Preview destinations and proposed names against each original invoice. Check required identifiers, ambiguous classifications and unreadable files; retain a backup. Foldora does not validate amounts, line items, payment status, tax treatment or reconciliation.",
       },
     ],
     related: [
-      "use-cases/freelancers",
       "use-cases/accountants",
-      "rename-files-automatically",
-      "features/offline-processing",
+      "docs/supported-file-types",
+      "docs/privacy",
+      "docs/how-it-works",
     ],
   },
   {

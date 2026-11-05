@@ -39,6 +39,8 @@ const SeoContentPage = () => {
     );
   }
 
+  const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
+
   return (
     <>
       <SeoHead
@@ -65,7 +67,7 @@ const SeoContentPage = () => {
           ],
         }}
       />
-      <Navbar showCheckout={page.route !== "alternatives/hazel"} />
+      <Navbar showCheckout={!singleOffer} />
       <main className="content-page-main">
         <section className="content-hero">
           <div className="content-hero-inner">
@@ -288,11 +290,11 @@ const SeoContentPage = () => {
                 {...checkoutTrackingAttributes("gumroad", page.route)}
                 className="content-primary-button"
               >
-                {page.route === "alternatives/hazel"
+                {singleOffer
                   ? `Get Foldora - ${product.price.display}`
                   : "Get Foldora"}
               </a>
-              {page.route !== "alternatives/hazel" && (
+              {!singleOffer && (
                 <a
                   href={bundleUrl}
                   target="_blank"
@@ -306,7 +308,7 @@ const SeoContentPage = () => {
           </section>
         </div>
       </main>
-      <Footer showCheckout={page.route !== "alternatives/hazel"} />
+      <Footer showCheckout={!singleOffer} />
     </>
   );
 };

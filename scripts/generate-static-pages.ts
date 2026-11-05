@@ -661,6 +661,7 @@ function renderMainPage(page: SeoPage): string {
   const breadcrumbs = breadcrumbItems(page.route, page.h1);
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
+  const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
 
   return `<!doctype html>
 <html lang="en">
@@ -697,7 +698,7 @@ ${analyticsHead()}
   <style>${pageStyles()}</style>
 </head>
 <body>
-  ${renderPageHeader(campaign, page.route !== "alternatives/hazel", "seo-header", `seo-header/${page.route}`)}
+  ${renderPageHeader(campaign, !singleOffer, "seo-header", `seo-header/${page.route}`)}
   <div class="container breadcrumbs" aria-label="Breadcrumb">
     ${breadcrumbs
       .map((item, index) =>
@@ -792,11 +793,11 @@ ${page.sources ? `    <section>
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${page.route === "alternatives/hazel" ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
-${page.route === "alternatives/hazel" ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
+      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${singleOffer ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
+${singleOffer ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
     </section>
   </main>
-  ${renderPageFooter(page.route !== "alternatives/hazel")}
+  ${renderPageFooter(!singleOffer)}
   ${TAWK_LOADER_TAG}
 </body>
 </html>`;
