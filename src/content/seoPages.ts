@@ -98,20 +98,24 @@ export const seoPages: SeoPage[] = [
     route: "ai-file-organizer",
     kind: "landing",
     topic: "workflows",
-    title: "AI File Organizer for Windows | Sort & Rename",
-    h1: "AI File Organizer for Windows",
+    title: "AI File Organizer for Windows: Preview Before Moving",
+    h1: "AI File Organizer for Windows: Preview Before Moving",
     description:
-      "Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.",
+      "Sort selected Windows folders with local AI. Include subfolders, preview suggested moves and names, and check scan limits before buying. $14.99 once.",
     eyebrow: "Local AI file organization",
-    updatedAt: "2026-10-30",
+    updatedAt: "2026-11-06",
     directAnswer:
-      "Foldora is a desktop AI file organizer for Windows 10 and 11. It analyzes filenames and supported file content locally, then proposes folders and clearer filenames for Downloads, Desktop, Documents, or project folders. You preview the plan before applying changes. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
-    problemTitle: "What to expect from an AI file organizer on Windows",
+      "Foldora is a desktop AI file organizer for Windows 10 and 11. Choose a Downloads, Desktop, Documents, or project folder, with subfolder search on or off. Foldora analyzes filenames and supported file content locally, then previews suggested folders and clearer filenames before you approve moves or renames. It processes up to 1,000 eligible files per run; it is not an unattended whole-drive cleanup service. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
+    problemTitle: "Which Windows files and subfolders will it organize?",
     problem: [
       "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
       "Foldora is best suited to a focused folder that contains mixed or inconsistently named files. If every action can be expressed as a fixed condition and must run continuously, a rule-based organizer may be a better fit; Foldora emphasizes a bounded choose, preview, and approve workflow.",
+      "Recursive search is on by default. Leave it on to include files in eligible subfolders, or switch it off to scan only files directly in your selected folder. For example, choosing Downloads with recursive search off leaves Downloads/ClientFiles/invoice.pdf outside the plan. Turn recursive search on if you want that nested file considered too.",
+      "The scanner excludes dot-prefixed file and folder names, dependency/version-control folders such as node_modules and .git, and the organization output folder. It does not inspect ZIP contents as subfolders. A run includes at most the first 1,000 eligible files and warns when the selection is limited. A completed run therefore does not mean every file in a larger tree was processed. Split large collections into smaller folders and review each plan; keep a separate backup before approving moves.",
     ],
     contextualLinks: [
+      { before: "Check ", anchor: "Foldora's individual license and pricing", href: "/#download", after: " once the selected-folder workflow fits your needs. The current price is $14.99 as a one-time purchase." },
+      { before: "Scan scope is different from content understanding: review the ", anchor: "supported formats and analysis limits", href: "/docs/supported-file-types/", after: " before choosing a batch." },
       {
         before: "If you are comparing another local AI organizer, see ",
         anchor: "Foldora vs AI File Sorter",
@@ -120,7 +124,7 @@ export const seoPages: SeoPage[] = [
       },
     ],
     steps: [
-      "Choose a folder such as Downloads, Desktop, or a project archive on Windows or macOS.",
+      "Choose a focused folder such as Downloads, Desktop, or a project archive on Windows or macOS. Set Recursive search to include subfolders or just the selected folder's own files.",
       "Let Foldora analyze filenames and supported file content locally.",
       "Review the proposed categories, subfolders, and descriptive filenames.",
       "Apply the approved changes and keep the resulting structure for future files.",

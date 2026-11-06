@@ -17,7 +17,7 @@
 
 ## Core pages
 
-- [AI File Organizer for Windows](https://foldoraai.com/ai-file-organizer/): Use local AI to organize and rename files on Windows 10 or 11. Preview suggested folders and filenames before applying changes. $14.99 one-time purchase.
+- [AI File Organizer for Windows: Preview Before Moving](https://foldoraai.com/ai-file-organizer/): Sort selected Windows folders with local AI. Include subfolders, preview suggested moves and names, and check scan limits before buying. $14.99 once.
 - [Best AI File Organizer for Windows](https://foldoraai.com/best-file-organizer-windows/): Compare Windows AI and rule-based file organizers by local processing, preview controls, limits, and price. Foldora is $14.99 once; see if it fits.
 - [How to Organize Files Automatically on Windows](https://foldoraai.com/organize-files-windows/): Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.
 - [AI File Organizer for Mac](https://foldoraai.com/organize-files-mac/): Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.
