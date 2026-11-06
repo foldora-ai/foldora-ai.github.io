@@ -1372,59 +1372,55 @@ export const seoPages: SeoPage[] = [
     description:
       "Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.",
     eyebrow: "Privacy and local AI",
-    updatedAt: "2026-09-17",
+    updatedAt: "2026-11-06",
     directAnswer:
-      "Foldora analyzes supported files locally on Windows 10, Windows 11, and macOS, proposes folders and clearer names, and lets you preview changes before applying them. File analysis does not upload your files to a cloud organizer. Purchase, download, license activation, periodic license validation, and updates require internet access.",
-    problemTitle: "Local processing reduces one risk, not every risk",
+      "Foldora can analyze supported files, preview proposed folders and names, and organize local files on Windows 10/11 and macOS without uploading them for analysis. Install the complete package and activate online first. The current license code allows offline use for less than seven days after the last saved validation; reconnect before that window expires. It is not a permanently disconnected workflow.",
+    problemTitle: "What local processing covers, and what it can miss",
     problem: [
-      "Cloud organization can be convenient, but sensitive invoices, contracts, research, and client files may be subject to privacy or organizational policies. Local processing limits the need to transmit those files for analysis.",
-      "Offline does not automatically mean secure. The application still needs appropriate folder permissions, the device needs protection, and users need backups before bulk changes.",
+      "The packaged runtime includes local text, image-captioning, and embedding models. Their loaders use local files only, rather than downloading models on first use. Downloading or repairing the complete installer needs internet; a missing model is not automatically fetched. Reduced fallback behavior or an initialization error is not proof that the intended AI analysis ran.",
+      "Readable content includes TXT and other supported plain text, DOCX, PDF, XLSX/CSV spreadsheets, and PPT/PPTX presentations. Image analysis can caption supported PNG, JPG/JPEG, GIF, and WEBP images. ZIP files can be organized by filename or type, but their contents are not unpacked for analysis. Recognition of an extension does not mean full content understanding.",
+      "Content reading skips files larger than 8 MiB. PDF reading samples at most the first three pages and attempts local OCR only on the first page when embedded text is sparse; OCR also depends on available local OCR software. Image captioning uses resized images and has a default 300-image cap. Runs are limited to the first 1,000 files, so choose a smaller folder for complete review. These limits can leave filename or file-type signals carrying the suggestion.",
+      "Local analysis does not make every surrounding service offline. Licensing communicates with Keygen; checkout, installer downloads, updates, and anything you send to website support are separate online activities. A folder synchronized by OneDrive, Dropbox, or another service can still be uploaded by that service: use a local, non-synced test folder if that matters to your policy.",
+    ],
+    contextualLinks: [
+      { before: "For the boundary between file processing, checkout, and optional website services, read ", anchor: "Foldora's privacy explanation", href: "/docs/privacy/", after: "." },
+      { before: "Before testing a mixed folder, check the ", anchor: "supported formats and content-analysis limits", href: "/docs/supported-file-types/", after: "; unsupported or unreadable content needs manual review." },
+      { before: "If periodic online licensing fits your workflow, see ", anchor: "Foldora's $14.99 one-time license and purchase options", href: "/#download", after: ". A lifetime purchase does not remove periodic validation." },
     ],
     steps: [
-      "Confirm whether file content or metadata leaves the device.",
-      "Review the folders and permissions the application can access.",
-      "Test organization on a small backed-up folder.",
-      "Monitor updates, privacy documentation, and any optional telemetry settings.",
+      "While connected, download and install the complete package, activate normally, and generate a preview from a small folder to check model initialization before traveling. Keep an independent backup of the original files.",
+      "Choose a small local, non-synced folder and AI Content mode. The interface proposes an organized_folder destination inside the selected folder. Disconnect only after successful activation and setup, within the current offline grace period.",
+      "Review Current Structure and Proposed Structure. Check every proposed category, filename, and destination; Preview itself does not execute the moves. Cancel if the plan is unsuitable or model initialization fails.",
+      "Approve Organize only when the plan is right, then inspect the destination. Keep the independent backup and local operation log. Undo uses logged paths and refuses to restore over an existing original path; missing or externally changed files can prevent complete recovery.",
     ],
     examples: [
       {
-        title: "Client contracts",
-        before: "Uploading confidential agreements to a general cloud organizer",
-        after: "Analyze and categorize the local copies on the Windows device",
+        title: "Illustrative offline invoice workflow, not a measured result",
+        before: "TripFiles/invoice.txt contains readable text about an office-paper invoice. Install, activate, and check a preview while online; retain a separate backup before disconnecting.",
+        after: "Within the license grace period, AI Content may propose TripFiles/organized_folder/Finance/Invoices/a-suggested-name.txt. Inspect that proposed name and category before approving the move. This example follows the local text-reading, category-plan, preview, and move workflow; exact AI suggestions vary and it does not extract guaranteed invoice fields.",
       },
       {
-        title: "Travel or restricted network",
-        before: "Organization stops when a cloud service is unavailable",
-        after: "Continue local analysis while the activated license remains valid offline",
+        title: "Scanned multi-page paperwork",
+        before: "A PDF below 8 MiB contains a scanned contract with useful details on later pages.",
+        after: "Foldora samples up to three pages and attempts OCR only on the first page when its text is sparse. It may miss the later-page details. Review the suggestion manually, or prepare searchable text with a dedicated OCR tool before relying on content classification.",
       },
     ],
     comparison: {
-      title: "Local versus cloud file analysis",
-      summary:
-        "The best choice depends on privacy requirements, device capacity, and collaboration needs.",
+      title: "When you need a connection",
+      summary: "Local file processing and online service requirements are separate. Prepare the complete installation before relying on offline use.",
+      headers: { option: "Task", bestFor: "Connection requirement", tradeoff: "Boundary to check" },
       rows: [
-        {
-          option: "Local AI",
-          bestFor: "Private files, offline use, and device-controlled processing",
-          tradeoff: "Uses local CPU, memory, and storage",
-        },
-        {
-          option: "Cloud AI",
-          bestFor: "Centralized services and cross-device workflows",
-          tradeoff: "Requires data-transfer and provider-policy review",
-        },
-        {
-          option: "No content analysis",
-          bestFor: "Strict deterministic rules",
-          tradeoff: "Less context-aware categorization",
-        },
+        { option: "Purchase, download, and repair", bestFor: "Internet required", tradeoff: "Models are supplied with the packaged runtime; incomplete local model files are not automatically downloaded by the loaders." },
+        { option: "Initial activation and later validation", bestFor: "Internet required", tradeoff: "The current code permits cached use for less than seven days after saved validation. After that, the license must validate online." },
+        { option: "Analyze, preview, organize, and undo local files", bestFor: "No cloud analysis connection required", tradeoff: "Requires working local dependencies, available models for the intended AI path, folder permissions, and a license still accepted within its offline window." },
+        { option: "Updates and online support", bestFor: "Internet required for those services", tradeoff: "They are separate from local organization. Do not send private file contents or license keys to support chat." },
       ],
     },
     faqs: [
       {
         question: "Does offline AI mean no network activity at all?",
         answer:
-          "No. Foldora analyzes files locally, but purchase, download, license activation, periodic license validation, and updates need internet access. An activated license has a limited offline grace period.",
+          "No. Foldora analyzes files locally, but purchase, download, license activation, periodic license validation, and updates need internet access. The current implementation accepts cached licensing for less than seven days after saved validation, then requires online validation. It is unsuitable for a permanently air-gapped device.",
       },
       {
         question: "Is local AI slower than cloud AI?",
@@ -1434,7 +1430,7 @@ export const seoPages: SeoPage[] = [
       {
         question: "Why is preview important for local organization?",
         answer:
-          "Privacy does not prevent filing errors. A preview lets users verify proposed moves and names before changing the filesystem.",
+          "Privacy does not prevent filing errors. A preview lets users verify proposed moves and names before changing the filesystem. Applying the plan moves or renames files; it does not create an independent backup. Keep your own backup and inspect the results before relying on log-based Undo.",
       },
     ],
     related: [
