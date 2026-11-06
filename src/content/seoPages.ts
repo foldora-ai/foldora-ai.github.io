@@ -1336,86 +1336,88 @@ export const seoPages: SeoPage[] = [
     ],
   },
   {
-    route: "blog/desktop-file-management",
-    kind: "guide",
-    topic: "workflows",
-    title: "Desktop File Management: Inbox, Projects, and Archive",
-    h1: "A Practical Desktop File Management System",
-    description:
-      "Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.",
-    eyebrow: "File management system",
-    updatedAt,
-    directAnswer:
-      "A maintainable desktop file system has three stages: inboxes for new files, project folders for active work, and archives for completed material. Each file should move forward through that lifecycle. Automation is most useful at the inbox stage, where categorization and renaming are repetitive.",
-    problemTitle: "Folders need a lifecycle, not just labels",
-    problem: [
-      "Most organization systems describe where files go but not when they move. Without a lifecycle, finished projects remain beside active work and inbox folders become permanent storage.",
-      "The archive should preserve context while reducing daily noise. It should not require reorganizing every completed project from scratch.",
-    ],
-    steps: [
-      "Define inbox folders such as Downloads, Desktop, and Scans.",
-      "Create one folder for each active project with a consistent internal pattern.",
-      "Process inboxes on a schedule and rename files before they enter projects.",
-      "Move completed projects into a dated archive without changing their internal structure.",
-    ],
-    examples: [
-      {
-        title: "Small business",
-        before: "Current and completed client work mixed in Documents",
-        after: "Inbox, Active Clients, Operations, and Archive by year",
-      },
-      {
-        title: "Personal administration",
-        before: "Bills, forms, manuals, and scans in several locations",
-        after: "Inbox, Finance, Records, Home, and Archive",
-      },
-    ],
-    comparison: {
-      title: "Lifecycle versus static filing",
-      summary:
-        "Lifecycle systems make the status of work visible without adding many folders.",
-      rows: [
-        {
-          option: "Inbox-project-archive",
-          bestFor: "Changing work with clear completion states",
-          tradeoff: "Requires regular inbox processing",
-        },
-        {
-          option: "Static subject folders",
-          bestFor: "Reference collections",
-          tradeoff: "Does not show active versus completed work",
-        },
-        {
-          option: "Search only",
-          bestFor: "Well-named small collections",
-          tradeoff: "Weak when names and metadata are inconsistent",
-        },
-      ],
+  "route": "blog/desktop-file-management",
+  "kind": "guide",
+  "topic": "workflows",
+  "title": "Desktop File Management: Inbox, Projects, and Archive",
+  "h1": "A Practical Desktop File Management System",
+  "description": "Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.",
+  "eyebrow": "File management system",
+  "updatedAt": "2026-09-08",
+  "directAnswer": "A maintainable desktop file system has three stages: inboxes for new files, project folders for active work, and archives for completed material. Each file should move forward through that lifecycle. Automation is most useful at the inbox stage, where categorization and renaming are repetitive.",
+  "problemTitle": "Folders need a lifecycle, not just labels",
+  "problem": [
+    "Most organization systems describe where files go but not when they move. Without a lifecycle, finished projects remain beside active work and inbox folders become permanent storage.",
+    "The archive should preserve context while reducing daily noise. It should not require reorganizing every completed project from scratch."
+  ],
+  "steps": [
+    "Define inbox folders such as Downloads, Desktop, and Scans.",
+    "Create one folder for each active project with a consistent internal pattern.",
+    "Process inboxes on a schedule and rename files before they enter projects.",
+    "Move completed projects into a dated archive without changing their internal structure."
+  ],
+  "examples": [
+    {
+      "title": "Small business",
+      "before": "Current and completed client work mixed in Documents",
+      "after": "Inbox, Active Clients, Operations, and Archive by year"
     },
-    faqs: [
+    {
+      "title": "Personal administration",
+      "before": "Bills, forms, manuals, and scans in several locations",
+      "after": "Inbox, Finance, Records, Home, and Archive"
+    }
+  ],
+  "comparison": {
+    "title": "Lifecycle versus static filing",
+    "summary": "Lifecycle systems make the status of work visible without adding many folders.",
+    "rows": [
       {
-        question: "How many inbox folders should I have?",
-        answer:
-          "Keep the natural capture points you already use, such as Downloads and Desktop, but process all of them into one consistent project and archive system.",
+        "option": "Inbox-project-archive",
+        "bestFor": "Changing work with clear completion states",
+        "tradeoff": "Requires regular inbox processing"
       },
       {
-        question: "Should completed projects be reorganized?",
-        answer:
-          "Usually no. Move the complete project folder into the archive so its internal context and relative paths remain stable.",
+        "option": "Static subject folders",
+        "bestFor": "Reference collections",
+        "tradeoff": "Does not show active versus completed work"
       },
       {
-        question: "Can search replace folder organization?",
-        answer:
-          "Search works well when filenames and content are reliable. A basic lifecycle still helps with status, sharing, backup, and retention.",
-      },
-    ],
-    related: [
-      "blog/clean-desktop-clutter",
-      "blog/digital-file-minimalism",
-      "organize-files-automatically",
-      "use-cases/freelancers",
-    ],
+        "option": "Search only",
+        "bestFor": "Well-named small collections",
+        "tradeoff": "Weak when names and metadata are inconsistent"
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "How many inbox folders should I have?",
+      "answer": "Keep the natural capture points you already use, such as Downloads and Desktop, but process all of them into one consistent project and archive system."
+    },
+    {
+      "question": "Should completed projects be reorganized?",
+      "answer": "Usually no. Move the complete project folder into the archive so its internal context and relative paths remain stable."
+    },
+    {
+      "question": "Can search replace folder organization?",
+      "answer": "Search works well when filenames and content are reliable. A basic lifecycle still helps with status, sharing, backup, and retention."
+    }
+  ],
+  "related": [
+    "blog/clean-desktop-clutter",
+    "blog/digital-file-minimalism",
+    "organize-files-automatically",
+    "use-cases/freelancers"
+  ],
+  "contextualLinks": [
+    {
+      "before": "If an inbox is cloud-backed, check ",
+      "anchor": "OneDrive and Dropbox availability and sync effects",
+      "href": "/blog/organize-onedrive-dropbox-files/",
+      "after": "."
+    }
+  ]
+},
   {
     route: "blog/offline-ai-file-organizer",
     kind: "guide",
@@ -2194,86 +2196,88 @@ export const seoPages: SeoPage[] = [
   ]
 },
   {
-    route: "alternatives/power-automate",
-    kind: "comparison",
-    topic: "windows",
-    title: "Foldora vs Power Automate for File Workflows",
-    h1: "Foldora vs Microsoft Power Automate",
-    description:
-      "Compare a focused local AI file organizer with Microsoft's broader workflow automation platform for desktop, cloud, and business processes.",
-    eyebrow: "Automation platform comparison",
-    updatedAt,
-    directAnswer:
-      "Choose Foldora for a focused, local Windows workflow that categorizes and renames files with minimal setup. Choose Power Automate for broader business automation across Microsoft services, desktop applications, approvals, and repeatable processes. Power Automate has a much wider scope; Foldora is simpler for personal folder cleanup.",
-    problemTitle: "A file organizer and an automation platform solve different layers",
-    problem: [
-      "Power Automate connects applications, services, desktop actions, and organizational workflows. File operations can be part of a larger process such as approvals, notifications, data entry, or document routing.",
-      "Foldora focuses on the contents of a folder. It is intended for people who need a clear local structure and readable filenames without building a multi-step business flow.",
-    ],
-    steps: [
-      "Define whether the desired outcome ends with organized local files.",
-      "List any applications, approvals, or cloud services the workflow must connect.",
-      "Compare setup, maintenance, licensing, and privacy requirements.",
-      "Prototype the smallest representative process before scaling it.",
-    ],
-    examples: [
-      {
-        title: "Personal Downloads cleanup",
-        before: "Mixed local files need categories and readable names",
-        after: "Use Foldora for a focused reviewed organization workflow",
-      },
-      {
-        title: "Invoice approval process",
-        before: "A received document must trigger review, data entry, and notification",
-        after: "Use Power Automate as part of a broader business process",
-      },
-    ],
-    comparison: {
-      title: "Foldora and Power Automate at a glance",
-      summary:
-        "Scope and integration needs are more important than raw feature count.",
-      rows: [
-        {
-          option: "Foldora",
-          bestFor: "Local folder categorization and renaming",
-          tradeoff: "Does not orchestrate broad business processes",
-        },
-        {
-          option: "Power Automate",
-          bestFor: "Cross-application desktop and cloud workflows",
-          tradeoff: "More setup and governance than simple folder cleanup",
-        },
-        {
-          option: "Manual organization",
-          bestFor: "Rare one-off tasks",
-          tradeoff: "No repeatable workflow",
-        },
-      ],
+  "route": "alternatives/power-automate",
+  "kind": "comparison",
+  "topic": "windows",
+  "title": "Foldora vs Power Automate for File Workflows",
+  "h1": "Foldora vs Microsoft Power Automate",
+  "description": "Compare a focused local AI file organizer with Microsoft's broader workflow automation platform for desktop, cloud, and business processes.",
+  "eyebrow": "Automation platform comparison",
+  "updatedAt": "2026-09-08",
+  "directAnswer": "Choose Foldora for a focused, local Windows workflow that categorizes and renames files with minimal setup. Choose Power Automate for broader business automation across Microsoft services, desktop applications, approvals, and repeatable processes. Power Automate has a much wider scope; Foldora is simpler for personal folder cleanup.",
+  "problemTitle": "A file organizer and an automation platform solve different layers",
+  "problem": [
+    "Power Automate connects applications, services, desktop actions, and organizational workflows. File operations can be part of a larger process such as approvals, notifications, data entry, or document routing.",
+    "Foldora focuses on the contents of a folder. It is intended for people who need a clear local structure and readable filenames without building a multi-step business flow."
+  ],
+  "steps": [
+    "Define whether the desired outcome ends with organized local files.",
+    "List any applications, approvals, or cloud services the workflow must connect.",
+    "Compare setup, maintenance, licensing, and privacy requirements.",
+    "Prototype the smallest representative process before scaling it."
+  ],
+  "examples": [
+    {
+      "title": "Personal Downloads cleanup",
+      "before": "Mixed local files need categories and readable names",
+      "after": "Use Foldora for a focused reviewed organization workflow"
     },
-    faqs: [
+    {
+      "title": "Invoice approval process",
+      "before": "A received document must trigger review, data entry, and notification",
+      "after": "Use Power Automate as part of a broader business process"
+    }
+  ],
+  "comparison": {
+    "title": "Foldora and Power Automate at a glance",
+    "summary": "Scope and integration needs are more important than raw feature count.",
+    "rows": [
       {
-        question: "Can Power Automate organize files?",
-        answer:
-          "Yes. It can perform file operations as part of desktop and cloud workflows, especially when conditions and connected services are defined.",
+        "option": "Foldora",
+        "bestFor": "Local folder categorization and renaming",
+        "tradeoff": "Does not orchestrate broad business processes"
       },
       {
-        question: "Is Foldora a replacement for Power Automate?",
-        answer:
-          "No. Foldora is a focused file organizer. Power Automate is a general automation platform with a much wider integration scope.",
+        "option": "Power Automate",
+        "bestFor": "Cross-application desktop and cloud workflows",
+        "tradeoff": "More setup and governance than simple folder cleanup"
       },
       {
-        question: "Which is simpler for a personal Downloads folder?",
-        answer:
-          "Foldora is designed for that focused use case and requires less workflow construction.",
-      },
-    ],
-    related: [
-      "alternatives/file-juggler",
-      "alternatives/manual-organization",
-      "best-file-organizer-windows",
-      "clean-downloads-folder",
-    ],
+        "option": "Manual organization",
+        "bestFor": "Rare one-off tasks",
+        "tradeoff": "No repeatable workflow"
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "Can Power Automate organize files?",
+      "answer": "Yes. It can perform file operations as part of desktop and cloud workflows, especially when conditions and connected services are defined."
+    },
+    {
+      "question": "Is Foldora a replacement for Power Automate?",
+      "answer": "No. Foldora is a focused file organizer. Power Automate is a general automation platform with a much wider integration scope."
+    },
+    {
+      "question": "Which is simpler for a personal Downloads folder?",
+      "answer": "Foldora is designed for that focused use case and requires less workflow construction."
+    }
+  ],
+  "related": [
+    "alternatives/file-juggler",
+    "alternatives/manual-organization",
+    "best-file-organizer-windows",
+    "clean-downloads-folder"
+  ],
+  "contextualLinks": [
+    {
+      "before": "For OneDrive or Dropbox files, distinguish ",
+      "anchor": "local copies from cloud-provider integration",
+      "href": "/blog/organize-onedrive-dropbox-files/",
+      "after": "."
+    }
+  ]
+},
   {
     route: "alternatives/manual-organization",
     kind: "comparison",
@@ -3464,6 +3468,150 @@ for (const page of seoPages) {
     page.canonicalUrl = canonicalUrl;
   }
 }
+
+seoPages.push({
+  "route": "blog/organize-onedrive-dropbox-files",
+  "kind": "guide",
+  "topic": "workflows",
+  "title": "Foldora with OneDrive or Dropbox: Local Files First",
+  "h1": "Can Foldora Organize OneDrive or Dropbox Files?",
+  "description": "Understand local copies versus OneDrive or Dropbox integration, online-only files, sync effects and reviewed Foldora moves before organizing cloud-backed files.",
+  "eyebrow": "Synced-folder buying guide",
+  "updatedAt": "2026-11-06",
+  "directAnswer": "Foldora has no dedicated OneDrive or Dropbox integration. It operates on filesystem paths, not cloud accounts or web links. A synced folder appearing in a picker does not establish tested provider compatibility. For a cautious evaluation, make the selected files available offline, copy a small sample outside every sync root, and review Foldora's plan there. Use provider tools when your requirement is managing cloud-only files or shared cloud content directly.",
+  "problemTitle": "A local path is not a cloud-provider connection",
+  "problem": [
+    "Foldora does not sign in to either provider, manage sync state, or resolve cloud permissions and shared-link behavior. Its scanner collects local paths and its organization operations move and may rename files. The application has no dedicated placeholder-hydration or sync-coordination workflow. No end-to-end OneDrive or Dropbox compatibility test is claimed here.",
+    "Online-only entries are not ordinary offline file contents. On Windows, Microsoft documents Always keep on this device to download and retain OneDrive files locally. Dropbox documents Make available offline; opening an online-only Dropbox file can trigger a download. Confirm the provider has finished making your chosen sample available and allow sufficient disk space before copying it.",
+    "Copy the sample rather than moving the cloud originals out of their provider folder. Microsoft documents that moving a file outside OneDrive can remove it from OneDrive while keeping it on the computer. Changes made inside a synced folder may propagate through the provider. Shared collections, references and collaboration workflows deserve provider-level review before any physical path changes.",
+    "Local AI does not mean a synced folder stays off the internet: the sync client is a separate application that can upload changes. If local-only handling is required, verify that the test folder is outside OneDrive, Dropbox and any backed-up Desktop or Documents location. Selecting a local path does not disable another service's synchronization.",
+    "Foldora supports Windows 10/11 and macOS and requires internet for activation and periodic license checks. Filename signals and selective local content analysis propose categories and names; it does not always read every file in full. PDF text extraction samples the first three pages, with a limited first-page OCR attempt when available; content above 8 MiB is skipped. A rename is not structured invoice-field extraction.",
+    "Approval moves files into organized_folder inside the selected folder and may rename them. Logged undo is limited by files and paths that still exist; it does not reverse cloud-provider history, restore shared-link semantics or guarantee recovery across devices. Keep independent backups. Organization alone does not free disk space; downloading offline copies can use more space.",
+    "Publisher disclosure: Computora AI publishes Foldora. Provider documentation and Foldora source were checked November 6, 2026. The workflow below is guidance based on source and provider documentation, not an executed sync-provider test or a compatibility guarantee."
+  ],
+  "contextualLinks": [
+    {
+      "before": "Before selecting a workflow, read ",
+      "anchor": "Foldora processing and privacy details",
+      "href": "/docs/privacy/",
+      "after": "."
+    },
+    {
+      "before": "Check ",
+      "anchor": "supported formats and analysis limits",
+      "href": "/docs/supported-file-types/",
+      "after": "."
+    },
+    {
+      "before": "See ",
+      "anchor": "how preview and approved moves work",
+      "href": "/docs/how-it-works/",
+      "after": "."
+    },
+    {
+      "before": "For the product offer, review the ",
+      "anchor": "individual Foldora license and pricing",
+      "href": "/#pricing",
+      "after": "."
+    }
+  ],
+  "steps": [
+    "Choose a small, non-shared sample. Use the provider desktop client to make those files available offline and wait for its download/sync status to finish.",
+    "Copy, rather than move, the sample into a verified non-synced local folder. Keep the originals and an independent backup; do not assume Desktop or Documents is outside cloud backup.",
+    "Select that local copy in Foldora, choose AI Content, and inspect proposed categories, names and the organized_folder destination. Do not approve empty, unreadable or unsuitable proposals.",
+    "Approve only reviewed operations, open the resulting files and verify contents and paths. Returning output to a synced collection is a separate provider-managed step: review permissions, existing paths and sync effects first."
+  ],
+  "examples": [
+    {
+      "title": "Illustrative copied-sample workflow, not a sync test",
+      "before": "A downloaded PDF and DOCX from a cloud-backed folder are copied to a non-synced LocalEvaluation folder.",
+      "after": "Foldora can plan ordinary local moves beneath LocalEvaluation/organized_folder. Review the actual proposal; no automatic write-back, cloud account connection or provider-state validation is implied."
+    },
+    {
+      "title": "When the provider is the appropriate tool",
+      "before": "A document exists only online, is shared with colleagues, and must remain in the shared cloud workflow.",
+      "after": "Use the provider's own file-management tools and permission controls. A local organizer is not a substitute for cloud sharing, placeholder management or sync administration."
+    }
+  ],
+  "comparison": {
+    "title": "Choose local organization or provider file management",
+    "summary": "Availability, ownership and sync effects matter before category suggestions.",
+    "headers": {
+      "option": "Situation",
+      "bestFor": "Appropriate workflow",
+      "tradeoff": "Boundary"
+    },
+    "rows": [
+      {
+        "option": "Online-only file or web URL",
+        "bestFor": "Use OneDrive/Dropbox tools to access and manage it.",
+        "tradeoff": "Foldora does not organize remote URLs or manage online-only state."
+      },
+      {
+        "option": "Offline files inside a sync root",
+        "bestFor": "Evaluate on copied files outside the sync root first.",
+        "tradeoff": "A selectable path does not prove provider compatibility; live changes may sync."
+      },
+      {
+        "option": "Independent local sample to classify",
+        "bestFor": "Foldora preview, review and approved local moves.",
+        "tradeoff": "Suggestions and sampled analysis require review; originals need a separate backup."
+      },
+      {
+        "option": "Shared cloud collection",
+        "bestFor": "Provider controls for permissions, sharing and location changes.",
+        "tradeoff": "Foldora does not preserve or validate provider sharing semantics."
+      },
+      {
+        "option": "Need to reduce local disk use",
+        "bestFor": "Provider online-only/storage controls, after checking their documentation.",
+        "tradeoff": "Filing is not deletion; making copies available offline can consume more space."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Does Foldora integrate with OneDrive or Dropbox?",
+      "answer": "No dedicated integration is implemented. It accepts filesystem paths, not provider accounts or web links. Native cloud management, automatic hydration and synchronization coordination are not part of its workflow."
+    },
+    {
+      "question": "Can I organize an online-only placeholder offline?",
+      "answer": "Do not assume so. First use the provider to make the file available offline. Evaluate fully available copies in a non-synced local folder; this guide does not establish compatibility with placeholders or every provider configuration."
+    },
+    {
+      "question": "Does local AI stop OneDrive or Dropbox uploading changes?",
+      "answer": "No. A separate sync client can upload changes made in a synced directory. A truly local test requires a folder outside all configured sync and backup roots."
+    }
+  ],
+  "related": [
+    "ai-file-organizer",
+    "alternatives/power-automate",
+    "docs/privacy",
+    "docs/supported-file-types"
+  ],
+  "sources": [
+    {
+      "label": "Microsoft: OneDrive Files On-Demand",
+      "url": "https://support.microsoft.com/en-us/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows",
+      "note": "Online-only files, offline availability and local storage use on Windows."
+    },
+    {
+      "label": "Microsoft: deleting or moving OneDrive files",
+      "url": "https://support.microsoft.com/en-us/onedrive/delete-files-or-folders-in-onedrive",
+      "note": "Moving outside OneDrive differs from copying and can remove the cloud copy."
+    },
+    {
+      "label": "Microsoft: OneDrive sort, rename and move",
+      "url": "https://support.microsoft.com/en-us/onedrive/sort-rename-or-move-photos-and-files-in-onedrive",
+      "note": "Provider-managed file organization is an alternative to local classification."
+    },
+    {
+      "label": "Dropbox: online-only and available-offline files",
+      "url": "https://help.dropbox.com/sync/make-files-online-only",
+      "note": "Availability controls, automatic download on opening and placeholder limitations."
+    }
+  ]
+});
 
 export const seoPagesByRoute = Object.fromEntries(
   seoPages.map((page) => [page.route, page]),
