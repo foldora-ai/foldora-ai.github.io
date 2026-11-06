@@ -7,8 +7,6 @@
   var CAMPAIGN_STORAGE_KEY = "foldora.campaign";
   var state = "unknown";
   var banner;
-  var preferenceCheckbox;
-  var currentChoice;
   var settingsOpen = false;
   var settingsTrigger;
 
@@ -81,20 +79,6 @@
   function renderChoice() {
     if (!banner) return;
 
-    if (preferenceCheckbox) {
-      preferenceCheckbox.checked = optionalServicesAllowed();
-      preferenceCheckbox.disabled = hasBrowserPrivacySignal();
-    }
-
-    if (currentChoice) {
-      currentChoice.textContent =
-        state === "unknown"
-          ? "No preference saved yet."
-          : optionalServicesAllowed()
-            ? "Current preference: optional analytics and support chat allowed."
-            : "Current preference: optional analytics and support chat disabled.";
-    }
-
     banner.hidden = state !== "unknown" && !settingsOpen;
   }
 
@@ -131,7 +115,8 @@
     settingsOpen = true;
     settingsTrigger = trigger || document.activeElement;
     renderChoice();
-    if (preferenceCheckbox) preferenceCheckbox.focus();
+    var rejectButton = banner.querySelector("[data-reject]");
+    if (rejectButton) rejectButton.focus();
   }
 
   function mountControls() {
@@ -139,12 +124,9 @@
 
     var style = document.createElement("style");
     style.textContent =
-      ".foldora-privacy{position:fixed;z-index:10000;right:1rem;bottom:1rem;max-width:32rem;border:1px solid #334155;border-radius:.75rem;background:#0f172a;color:#f8fafc;padding:1rem;box-shadow:0 12px 36px rgba(0,0,0,.35);font:14px/1.5 system-ui,sans-serif}" +
+      ".foldora-privacy{position:fixed;z-index:10000;right:1rem;bottom:1rem;max-width:25rem;border:1px solid #334155;border-radius:.75rem;background:#0f172a;color:#f8fafc;padding:.75rem;box-shadow:0 12px 36px rgba(0,0,0,.35);font:14px/1.4 system-ui,sans-serif}" +
       ".foldora-privacy[hidden]{display:none}" +
-      ".foldora-privacy p{margin:0 0 .75rem}" +
-      ".foldora-privacy-option{display:flex;gap:.55rem;align-items:flex-start;margin:0 0 .35rem;padding:.65rem;border:1px solid #334155;border-radius:.5rem;background:#020817}" +
-      ".foldora-privacy-option input{margin-top:.2rem}" +
-      ".foldora-privacy-current{margin:0 0 .75rem;color:#94a3b8;font-size:.82rem}" +
+      ".foldora-privacy p{margin:0 0 .5rem}" +
       ".foldora-privacy-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}" +
       ".foldora-privacy button,.foldora-privacy a{border-radius:.5rem;padding:.55rem .8rem;font:inherit}" +
       ".foldora-privacy button{cursor:pointer;border:1px solid #64748b;background:#1e293b;color:#f8fafc}" +
@@ -158,30 +140,19 @@
     banner.setAttribute("role", "dialog");
     banner.setAttribute("aria-label", "Privacy choices");
     banner.innerHTML =
-      "<p><strong>Optional analytics and support chat</strong><br>Allow usage analytics and the support chat to load. Checkout links still work if you reject.</p>" +
-      "<label class=\"foldora-privacy-option\"><input type=\"checkbox\" data-optional-choice> <span>Allow optional analytics and support chat</span></label>" +
-      "<div class=\"foldora-privacy-current\" data-current-choice aria-live=\"polite\"></div>" +
+      "<p><strong>Privacy choices</strong><br>Allow optional analytics and support chat?</p>" +
       "<div class=\"foldora-privacy-actions\">" +
-      "<button type=\"button\" data-reject>Reject optional</button>" +
-      "<button type=\"button\" data-accept>Accept optional</button>" +
-      "<button type=\"button\" data-save>Save preferences</button>" +
+      "<button type=\"button\" data-reject>Reject</button>" +
+      "<button type=\"button\" data-accept>Allow</button>" +
       "<a href=\"/docs/privacy/\">Privacy details</a>" +
       "</div>";
     document.body.appendChild(banner);
 
-    preferenceCheckbox = banner.querySelector("[data-optional-choice]");
-    currentChoice = banner.querySelector("[data-current-choice]");
-
     banner.querySelector("[data-reject]").addEventListener("click", function () {
-      preferenceCheckbox.checked = false;
       setOptionalConsent(false);
     });
     banner.querySelector("[data-accept]").addEventListener("click", function () {
-      preferenceCheckbox.checked = true;
       setOptionalConsent(true);
-    });
-    banner.querySelector("[data-save]").addEventListener("click", function () {
-      setOptionalConsent(preferenceCheckbox.checked);
     });
 
     document.addEventListener("click", function (event) {
@@ -195,7 +166,7 @@
     if (hasBrowserPrivacySignal()) {
       var message = banner.querySelector("p");
       message.innerHTML =
-        "<strong>Browser privacy signal respected</strong><br>Optional analytics and support chat are disabled.";
+        "<strong>Privacy signal detected</strong><br>Optional services are off.";
       banner.querySelector("[data-accept]").hidden = true;
     }
 

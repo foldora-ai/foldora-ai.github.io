@@ -103,12 +103,7 @@ describe("optional-service consent", () => {
 
   it("saves the selected preference and dismisses the banner", () => {
     const dom = loadConsent();
-    const checkbox = dom.window.document.querySelector<HTMLInputElement>(
-      "[data-optional-choice]",
-    )!;
-    checkbox.checked = true;
-
-    dom.window.document.querySelector<HTMLButtonElement>("[data-save]")!.click();
+    dom.window.document.querySelector<HTMLButtonElement>("[data-accept]")!.click();
 
     expect(dom.window.FoldoraPrivacy?.getState()).toBe("granted");
     expect(dom.window.localStorage.getItem("foldora.optional-consent.v1")).toBe(
@@ -126,9 +121,6 @@ describe("optional-service consent", () => {
     const banner = dom.window.document.querySelector<HTMLElement>(
       "#foldora-privacy-banner",
     )!;
-    const checkbox = dom.window.document.querySelector<HTMLInputElement>(
-      "[data-optional-choice]",
-    )!;
     const trigger = dom.window.document.createElement("button");
     trigger.setAttribute("data-foldora-privacy-open", "");
     dom.window.document.body.appendChild(trigger);
@@ -139,12 +131,9 @@ describe("optional-service consent", () => {
     trigger.click();
 
     expect(banner.hidden).toBe(false);
-    expect(checkbox.checked).toBe(true);
-    expect(
-      dom.window.document.querySelector("[data-current-choice]")?.textContent,
-    ).toContain("allowed");
+    expect(dom.window.document.querySelector("[data-accept]")).not.toBeNull();
 
-    dom.window.document.querySelector<HTMLButtonElement>("[data-save]")!.click();
+    dom.window.document.querySelector<HTMLButtonElement>("[data-accept]")!.click();
     expect(banner.hidden).toBe(true);
     expect(dom.window.localStorage.getItem("foldora.optional-consent.v1")).toBe(
       "granted",
@@ -160,11 +149,7 @@ describe("optional-service consent", () => {
     dom.window.sessionStorage.setItem("foldora.campaign", '{"utm_source":"qa"}');
     dom.window.FoldoraPrivacy?.showSettings();
 
-    const checkbox = dom.window.document.querySelector<HTMLInputElement>(
-      "[data-optional-choice]",
-    )!;
-    checkbox.checked = false;
-    dom.window.document.querySelector<HTMLButtonElement>("[data-save]")!.click();
+    dom.window.document.querySelector<HTMLButtonElement>("[data-reject]")!.click();
 
     expect(dom.window.FoldoraPrivacy?.optionalServicesAllowed()).toBe(false);
     expect(dom.window.localStorage.getItem("foldora.optional-consent.v1")).toBe(
