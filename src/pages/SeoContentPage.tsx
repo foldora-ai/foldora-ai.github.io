@@ -41,6 +41,41 @@ const SeoContentPage = () => {
 
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
 
+  const comparisonSection = (
+          <section aria-labelledby={page.comparisonFirst ? "organizer-selection" : undefined}>
+            <h2 id={page.comparisonFirst ? "organizer-selection" : undefined} className="content-section-title">{page.comparison.title}</h2>
+            <p className="mt-4 text-muted-foreground">{page.comparison.summary}</p>
+            <div className="mt-6 max-w-full overflow-x-auto rounded-xl border border-border">
+              <table className="w-full min-w-[640px] border-collapse bg-card text-left">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="p-4 text-sm font-semibold text-foreground">
+                      {page.comparison.headers?.option ?? "Option"}
+                    </th>
+                    <th className="p-4 text-sm font-semibold text-foreground">
+                      {page.comparison.headers?.bestFor ?? "Best for"}
+                    </th>
+                    <th className="p-4 text-sm font-semibold text-foreground">
+                      {page.comparison.headers?.tradeoff ?? "Tradeoff"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {page.comparison.rows.map((row) => (
+                    <tr key={row.option} className="border-b border-border last:border-b-0">
+                      <th scope="row" className="p-4 align-top text-sm font-semibold text-foreground">
+                        {row.option}
+                      </th>
+                      <td className="p-4 align-top text-sm text-muted-foreground">{row.bestFor}</td>
+                      <td className="p-4 align-top text-sm text-muted-foreground">{row.tradeoff}{row.sources && <span className="mt-3 flex flex-wrap gap-x-3 gap-y-2">{row.sources.map(source => <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground underline underline-offset-4">{source.label}</a>)}</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+  );
+
   return (
     <>
       <SeoHead
@@ -106,6 +141,8 @@ const SeoContentPage = () => {
               {page.directAnswer}
             </p>
           </section>
+
+          {page.comparisonFirst && comparisonSection}
 
           {page.evidence && (
             <section aria-labelledby="evidence-title">
@@ -211,38 +248,7 @@ const SeoContentPage = () => {
             </div>
           </section>
 
-          <section>
-            <h2 className="content-section-title">{page.comparison.title}</h2>
-            <p className="mt-4 text-muted-foreground">{page.comparison.summary}</p>
-            <div className="mt-6 max-w-full overflow-x-auto rounded-xl border border-border">
-              <table className="w-full min-w-[640px] border-collapse bg-card text-left">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="p-4 text-sm font-semibold text-foreground">
-                      {page.comparison.headers?.option ?? "Option"}
-                    </th>
-                    <th className="p-4 text-sm font-semibold text-foreground">
-                      {page.comparison.headers?.bestFor ?? "Best for"}
-                    </th>
-                    <th className="p-4 text-sm font-semibold text-foreground">
-                      {page.comparison.headers?.tradeoff ?? "Tradeoff"}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {page.comparison.rows.map((row) => (
-                    <tr key={row.option} className="border-b border-border last:border-b-0">
-                      <th scope="row" className="p-4 align-top text-sm font-semibold text-foreground">
-                        {row.option}
-                      </th>
-                      <td className="p-4 align-top text-sm text-muted-foreground">{row.bestFor}</td>
-                      <td className="p-4 align-top text-sm text-muted-foreground">{row.tradeoff}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
+          {!page.comparisonFirst && comparisonSection}
 
           {page.sources && (
             <section>

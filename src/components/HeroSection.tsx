@@ -104,6 +104,12 @@ const HeroSection = () => {
               See how Foldora organizes files with local AI
             </a>
           </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Comparing AI suggestions with free software or recurring rules?{' '}
+            <a href="/best-file-organizer-windows/" className="underline underline-offset-4 transition-colors hover:text-foreground">
+              Compare five Windows file organizers by workflow
+            </a>
+          </p>
 
           <div className="mx-auto mt-7 grid max-w-3xl grid-cols-2 gap-2 text-left sm:grid-cols-4">
             {trustItems.map((item) => (

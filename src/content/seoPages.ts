@@ -44,6 +44,7 @@ export interface SeoComparison {
     option: string;
     bestFor: string;
     tradeoff: string;
+    sources?: Array<{ label: string; url: string }>;
   }>;
 }
 
@@ -79,6 +80,7 @@ export interface SeoPage {
   steps: string[];
   examples: SeoExample[];
   comparison: SeoComparison;
+  comparisonFirst?: boolean;
   faqs: SeoFaq[];
   related: string[];
   sources?: Array<{
@@ -95,288 +97,436 @@ const updatedAt = "2026-09-08";
 
 export const seoPages: SeoPage[] = [
   {
-    route: "ai-file-organizer",
-    kind: "landing",
-    topic: "workflows",
-    title: "AI File Organizer for Windows: Preview Before Moving",
-    h1: "AI File Organizer for Windows: Preview Before Moving",
-    description:
-      "Sort selected Windows folders with local AI. Include subfolders, preview suggested moves and names, and check scan limits before buying. $14.99 once.",
-    eyebrow: "Local AI file organization",
-    updatedAt: "2026-11-06",
-    directAnswer:
-      "Foldora is a desktop AI file organizer for Windows 10 and 11. Choose a Downloads, Desktop, Documents, or project folder, with subfolder search on or off. Foldora analyzes filenames and supported file content locally, then previews suggested folders and clearer filenames before you approve moves or renames. It processes up to 1,000 eligible files per run; it is not an unattended whole-drive cleanup service. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
-    problemTitle: "Which Windows files and subfolders will it organize?",
-    problem: [
-      "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
-      "Foldora is best suited to a focused folder that contains mixed or inconsistently named files. If every action can be expressed as a fixed condition and must run continuously, a rule-based organizer may be a better fit; Foldora emphasizes a bounded choose, preview, and approve workflow.",
-      "Recursive search is on by default. Leave it on to include files in eligible subfolders, or switch it off to scan only files directly in your selected folder. For example, choosing Downloads with recursive search off leaves Downloads/ClientFiles/invoice.pdf outside the plan. Turn recursive search on if you want that nested file considered too.",
-      "The scanner excludes dot-prefixed file and folder names, dependency/version-control folders such as node_modules and .git, and the organization output folder. It does not inspect ZIP contents as subfolders. A run includes at most the first 1,000 eligible files and warns when the selection is limited. A completed run therefore does not mean every file in a larger tree was processed. Split large collections into smaller folders and review each plan; keep a separate backup before approving moves.",
-    ],
-    contextualLinks: [
-      { before: "Check ", anchor: "Foldora's individual license and pricing", href: "/#download", after: " once the selected-folder workflow fits your needs. The current price is $14.99 as a one-time purchase." },
-      { before: "Scan scope is different from content understanding: review the ", anchor: "supported formats and analysis limits", href: "/docs/supported-file-types/", after: " before choosing a batch." },
-      {
-        before: "If you are comparing another local AI organizer, see ",
-        anchor: "Foldora vs AI File Sorter",
-        href: "/alternatives/ai-file-sorter/",
-        after: " for the differences in pricing, model setup, and supported workflows.",
-      },
-    ],
-    steps: [
-      "Choose a focused folder such as Downloads, Desktop, or a project archive on Windows or macOS. Set Recursive search to include subfolders or just the selected folder's own files.",
-      "Let Foldora analyze filenames and supported file content locally.",
-      "Review the proposed categories, subfolders, and descriptive filenames.",
-      "Apply the approved changes and keep the resulting structure for future files.",
-    ],
-    examples: [
-      {
-        title: "Mixed Downloads folder",
-        before: "invoice_1042.pdf, IMG_4829.png, setup.exe, paper-final.pdf",
-        after:
-          "Finance/Invoices, Images/Screenshots, Software/Installers, Research/Papers",
-      },
-      {
-        title: "Client project",
-        before: "final.pdf, final2.docx, scan003.pdf, notes.txt",
-        after:
-          "Client Atlas/Contracts, Client Atlas/Deliverables, Client Atlas/Meeting Notes",
-      },
-    ],
-    comparison: {
-      title: "AI organization, rules, or manual sorting?",
-      summary:
-        "The right method depends on whether your files are predictable and how much setup you want.",
-      rows: [
-        {
-          option: "Foldora",
-          bestFor: "Context-aware local organization with minimal setup",
-          tradeoff: "Review the suggestions before applying changes; not every file type supports content analysis",
-        },
-        {
-          option: "Rule-based tools",
-          bestFor: "Repeatable conditions such as extension, date, or filename",
-          tradeoff: "Rules must be created and maintained",
-        },
-        {
-          option: "Manual folders",
-          bestFor: "Small collections with occasional changes",
-          tradeoff: "Time cost grows with every new file",
-        },
-      ],
+  "route": "ai-file-organizer",
+  "kind": "landing",
+  "topic": "workflows",
+  "title": "AI File Organizer for Windows: Preview Before Moving",
+  "h1": "AI File Organizer for Windows: Preview Before Moving",
+  "description": "Sort selected Windows folders with local AI. Include subfolders, preview suggested moves and names, and check scan limits before buying. $14.99 once.",
+  "eyebrow": "Local AI file organization",
+  "updatedAt": "2026-11-06",
+  "directAnswer": "Foldora is a desktop AI file organizer for Windows 10 and 11. Choose a Downloads, Desktop, Documents, or project folder, with subfolder search on or off. Foldora analyzes filenames and supported file content locally, then previews suggested folders and clearer filenames before you approve moves or renames. It processes up to 1,000 eligible files per run; it is not an unattended whole-drive cleanup service. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
+  "problemTitle": "Which Windows files and subfolders will it organize?",
+  "problem": [
+    "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
+    "Foldora is best suited to a focused folder that contains mixed or inconsistently named files. If every action can be expressed as a fixed condition and must run continuously, a rule-based organizer may be a better fit; Foldora emphasizes a bounded choose, preview, and approve workflow.",
+    "Recursive search is on by default. Leave it on to include files in eligible subfolders, or switch it off to scan only files directly in your selected folder. For example, choosing Downloads with recursive search off leaves Downloads/ClientFiles/invoice.pdf outside the plan. Turn recursive search on if you want that nested file considered too.",
+    "The scanner excludes dot-prefixed file and folder names, dependency/version-control folders such as node_modules and .git, and the organization output folder. It does not inspect ZIP contents as subfolders. A run includes at most the first 1,000 eligible files and warns when the selection is limited. A completed run therefore does not mean every file in a larger tree was processed. Split large collections into smaller folders and review each plan; keep a separate backup before approving moves."
+  ],
+  "contextualLinks": [
+    {
+      "before": "Check ",
+      "anchor": "Foldora's individual license and pricing",
+      "href": "/#download",
+      "after": " once the selected-folder workflow fits your needs. The current price is $14.99 as a one-time purchase."
     },
-    faqs: [
-      {
-        question: "Does an AI file organizer upload my files?",
-        answer:
-          "Foldora analyzes supported files locally without uploading them to a cloud organizer. Internet access is needed for purchase, download, license activation, periodic license validation, and updates.",
-      },
-      {
-        question: "Can I review changes before files move?",
-        answer:
-          "Yes. Foldora is designed around a preview step so you can inspect proposed folders and names before applying changes.",
-      },
-      {
-        question: "Which Windows folders can I organize?",
-        answer:
-          "Common starting points are Downloads, Desktop, Documents, and project folders. Use a focused folder first so the proposed structure is easy to review.",
-      },
-      {
-        question: "Does Foldora work on Windows 10 and Windows 11?",
-        answer:
-          "Yes. Foldora supports Windows 10 and Windows 11. Start with a small representative folder so you can review the suggested folders and filenames before applying them.",
-      },
-      {
-        question: "Does Foldora also work on a Mac?",
-        answer:
-          "Yes. Foldora supports macOS on Intel and Apple Silicon. Start with a small folder and review the proposed changes before applying them.",
-      },
-      {
-        question: "Which files can Foldora organize?",
-        answer:
-          "Foldora supports common documents such as PDF, DOCX, and TXT; spreadsheets such as XLSX and CSV; PPT and PPTX presentations; PNG, JPG, GIF, and WEBP images; and ZIP archives. The information available for analysis varies by format.",
-      },
-      {
-        question: "Does Foldora read every page of a PDF, including scans?",
-        answer:
-          "No. Foldora's PDF reader samples up to the first three pages, and files over 8 MiB are not read for content. It may attempt local OCR on the first page when embedded text is sparse; it does not OCR an entire scanned document. Cover pages and later-page details can therefore leave out useful context. Review the proposed folder and filename before applying changes.",
-      },
-      {
-        question: "What are Foldora's limits compared with a rules-based organizer?",
-        answer:
-          "Foldora runs on a folder you select and asks you to review its suggestions. It does not continuously watch folders or guarantee that every ambiguous file is categorized correctly. Content analysis varies by format; archives and installers may be organized from file type or name rather than readable contents. Use explicit rules when the same exact condition must run repeatedly, and keep a backup before large moves or renames.",
-      },
-    ],
-    evidence: {
-      title: "Measured runtime benchmark and real product demo",
-      summary:
-        "On September 6, 2026, Foldora's repeatable runtime benchmark completed 40,000 schema classifications and a bounded file-discovery fixture on a modest Windows 11 laptop. The recorded product demo shows the local desktop workflow.",
-      facts: [
-        { label: "Runtime classifications", value: "40,000 in 1.2745 seconds" },
-        { label: "File discovery", value: "1,001 files in 0.0091 seconds" },
-        { label: "Ignored dependency fixture", value: "300 files under node_modules" },
-        { label: "Test computer", value: "Windows 11 Pro, Core i5-8350U, 8 GB RAM" },
-      ],
-      media: [
-        {
-          kind: "video",
-          src: "/foldora-demo.mp4",
-          alt: "Recorded Foldora AI desktop file-organization workflow",
-          caption: "Recorded Foldora desktop workflow: choose a directory, review the organization process, and keep control before applying changes.",
-        },
-      ],
-      note:
-        "The benchmark measures the local runtime classifier and bounded file discovery, not end-to-end AI model latency or accuracy on every possible folder. Results vary by hardware, storage, file type, and file contents.",
+    {
+      "before": "Scan scope is different from content understanding: review the ",
+      "anchor": "supported formats and analysis limits",
+      "href": "/docs/supported-file-types/",
+      "after": " before choosing a batch."
     },
-    related: [
-      "best-file-organizer-windows",
-      "alternatives/ai-file-sorter",
-      "organize-files-windows",
-      "blog/foldora-file-organizer-benchmark",
-      "rename-files-automatically",
-      "organize-files-mac",
-      "blog/offline-ai-file-organizer",
-    ],
+    {
+      "before": "If you are comparing another local AI organizer, see ",
+      "anchor": "Foldora vs AI File Sorter",
+      "href": "/alternatives/ai-file-sorter/",
+      "after": " for the differences in pricing, model setup, and supported workflows."
+    },
+    {
+      "before": "Choosing between local AI, free software and recurring rules? Use the ",
+      "anchor": "Windows AI file organizer buying guide",
+      "href": "/best-file-organizer-windows/",
+      "after": " to compare models, review controls and total cost."
+    }
+  ],
+  "steps": [
+    "Choose a focused folder such as Downloads, Desktop, or a project archive on Windows or macOS. Set Recursive search to include subfolders or just the selected folder's own files.",
+    "Let Foldora analyze filenames and supported file content locally.",
+    "Review the proposed categories, subfolders, and descriptive filenames.",
+    "Apply the approved changes and keep the resulting structure for future files."
+  ],
+  "examples": [
+    {
+      "title": "Mixed Downloads folder",
+      "before": "invoice_1042.pdf, IMG_4829.png, setup.exe, paper-final.pdf",
+      "after": "Finance/Invoices, Images/Screenshots, Software/Installers, Research/Papers"
+    },
+    {
+      "title": "Client project",
+      "before": "final.pdf, final2.docx, scan003.pdf, notes.txt",
+      "after": "Client Atlas/Contracts, Client Atlas/Deliverables, Client Atlas/Meeting Notes"
+    }
+  ],
+  "comparison": {
+    "title": "AI organization, rules, or manual sorting?",
+    "summary": "The right method depends on whether your files are predictable and how much setup you want.",
+    "rows": [
+      {
+        "option": "Foldora",
+        "bestFor": "Context-aware local organization with minimal setup",
+        "tradeoff": "Review the suggestions before applying changes; not every file type supports content analysis"
+      },
+      {
+        "option": "Rule-based tools",
+        "bestFor": "Repeatable conditions such as extension, date, or filename",
+        "tradeoff": "Rules must be created and maintained"
+      },
+      {
+        "option": "Manual folders",
+        "bestFor": "Small collections with occasional changes",
+        "tradeoff": "Time cost grows with every new file"
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "Does an AI file organizer upload my files?",
+      "answer": "Foldora analyzes supported files locally without uploading them to a cloud organizer. Internet access is needed for purchase, download, license activation, periodic license validation, and updates."
+    },
+    {
+      "question": "Can I review changes before files move?",
+      "answer": "Yes. Foldora is designed around a preview step so you can inspect proposed folders and names before applying changes."
+    },
+    {
+      "question": "Which Windows folders can I organize?",
+      "answer": "Common starting points are Downloads, Desktop, Documents, and project folders. Use a focused folder first so the proposed structure is easy to review."
+    },
+    {
+      "question": "Does Foldora work on Windows 10 and Windows 11?",
+      "answer": "Yes. Foldora supports Windows 10 and Windows 11. Start with a small representative folder so you can review the suggested folders and filenames before applying them."
+    },
+    {
+      "question": "Does Foldora also work on a Mac?",
+      "answer": "Yes. Foldora supports macOS on Intel and Apple Silicon. Start with a small folder and review the proposed changes before applying them."
+    },
+    {
+      "question": "Which files can Foldora organize?",
+      "answer": "Foldora supports common documents such as PDF, DOCX, and TXT; spreadsheets such as XLSX and CSV; PPT and PPTX presentations; PNG, JPG, GIF, and WEBP images; and ZIP archives. The information available for analysis varies by format."
+    },
+    {
+      "question": "Does Foldora read every page of a PDF, including scans?",
+      "answer": "No. Foldora's PDF reader samples up to the first three pages, and files over 8 MiB are not read for content. It may attempt local OCR on the first page when embedded text is sparse; it does not OCR an entire scanned document. Cover pages and later-page details can therefore leave out useful context. Review the proposed folder and filename before applying changes."
+    },
+    {
+      "question": "What are Foldora's limits compared with a rules-based organizer?",
+      "answer": "Foldora runs on a folder you select and asks you to review its suggestions. It does not continuously watch folders or guarantee that every ambiguous file is categorized correctly. Content analysis varies by format; archives and installers may be organized from file type or name rather than readable contents. Use explicit rules when the same exact condition must run repeatedly, and keep a backup before large moves or renames."
+    }
+  ],
+  "evidence": {
+    "title": "Measured runtime benchmark and real product demo",
+    "summary": "On September 6, 2026, Foldora's repeatable runtime benchmark completed 40,000 schema classifications and a bounded file-discovery fixture on a modest Windows 11 laptop. The recorded product demo shows the local desktop workflow.",
+    "facts": [
+      {
+        "label": "Runtime classifications",
+        "value": "40,000 in 1.2745 seconds"
+      },
+      {
+        "label": "File discovery",
+        "value": "1,001 files in 0.0091 seconds"
+      },
+      {
+        "label": "Ignored dependency fixture",
+        "value": "300 files under node_modules"
+      },
+      {
+        "label": "Test computer",
+        "value": "Windows 11 Pro, Core i5-8350U, 8 GB RAM"
+      }
+    ],
+    "media": [
+      {
+        "kind": "video",
+        "src": "/foldora-demo.mp4",
+        "alt": "Recorded Foldora AI desktop file-organization workflow",
+        "caption": "Recorded Foldora desktop workflow: choose a directory, review the organization process, and keep control before applying changes."
+      }
+    ],
+    "note": "The benchmark measures the local runtime classifier and bounded file discovery, not end-to-end AI model latency or accuracy on every possible folder. Results vary by hardware, storage, file type, and file contents."
+  },
+  "related": [
+    "best-file-organizer-windows",
+    "alternatives/ai-file-sorter",
+    "organize-files-windows",
+    "blog/foldora-file-organizer-benchmark",
+    "rename-files-automatically",
+    "organize-files-mac",
+    "blog/offline-ai-file-organizer"
+  ]
+},
   {
-    route: "best-file-organizer-windows",
-    kind: "landing",
-    topic: "windows",
-    title: "Best AI File Organizer for Windows | Compare Tools",
-    h1: "Best AI File Organizer for Windows",
-    description:
-      "Compare Windows AI and rule-based file organizers by local processing, preview controls, limits, and price. Foldora is $14.99 once; see if it fits.",
-    eyebrow: "Windows software comparison",
-    updatedAt: "2026-11-05",
-    directAnswer:
-      "The best Windows file organizer depends on the job. Foldora costs $14.99 once and is a strong fit when you want local AI to propose folders and clearer names for review with little rule setup. File Juggler is better for detailed, recurring Windows rules. Power Automate is better for broader business processes that connect files with other Microsoft services.",
-    problemTitle: "Compare the workflow, safeguards, limits, and total price",
-    problem: [
-      "A useful comparison should go beyond a generic feature list. Check whether the tool handles selected cleanup runs or watches folders continuously, whether it understands supported file context or only matches rules, and whether it shows a preview before making changes.",
-      "For confidential PDFs, invoices, or client documents, also verify where analysis happens. A local workflow reduces the need to send file content to an external service.",
-      "Compare the complete buying terms as well: one-time purchase or subscription, trial limits, supported Windows versions, update terms, and the recovery controls available if a result is wrong.",
-      "Within Foldora, choose AI Content for context-based suggestions, Type for Category / Extension folders, or Date for Year / Month folders based on each file's modified date. Date mode does not extract an invoice date from a PDF or use a photo's capture date. If grouping by extension or modified date already solves the problem, you do not need content analysis for that run.",
-    ],
-    contextualLinks: [
-      { before: "For invoice batches, see ", anchor: "how Foldora handles invoice content versus exact vendor and date rules", href: "/blog/organize-invoices-automatically/", after: "." },
-      { before: "For another local AI option, compare ", anchor: "Foldora with AI File Sorter", href: "/alternatives/ai-file-sorter/", after: " by model setup, price, and workflow." },
-    ],
-    steps: [
-      "Choose one real folder and list the result you need: batch cleanup, recurring routing, renaming, or a broader business workflow.",
-      "Decide whether contextual AI suggestions or explicit if-then rules better match those files.",
-      "Verify local-processing claims, preview and recovery controls, supported file types, Windows compatibility, and the full pricing model.",
-      "Test a backed-up representative folder and judge the proposed destinations before expanding to a larger archive.",
-    ],
-    examples: [
-      {
-        title: "Low-setup cleanup",
-        before: "A Downloads folder with unrelated PDFs, images, and installers",
-        after: "Use Foldora to propose a contextual structure and review it",
-      },
-      {
-        title: "Deterministic workflow",
-        before: "Every PDF containing a known supplier code follows one process",
-        after: "Use a rule-based tool for an exact repeatable action",
-      },
-    ],
-    comparison: {
-      title: "Windows file organizer shortlist",
-      summary:
-        "These products solve different problems, so there is no universal winner.",
-      rows: [
-        {
-          option: "Foldora — $14.99 once",
-          bestFor: "Local AI organization and renaming with low setup",
-          tradeoff: "Review-first selected-folder cleanup, not detailed watched-folder automation",
-        },
-        {
-          option: "File Juggler",
-          bestFor: "Detailed file rules on Windows",
-          tradeoff: "Requires users to define and maintain rules",
-        },
-        {
-          option: "Power Automate",
-          bestFor: "Cross-application and business process automation",
-          tradeoff: "More setup than a focused folder organizer",
-        },
-      ],
+  "route": "best-file-organizer-windows",
+  "kind": "landing",
+  "topic": "windows",
+  "title": "AI File Organizer for Windows: Choose by Workflow",
+  "h1": "AI File Organizer for Windows: Which Workflow Fits?",
+  "description": "Compare five Windows file organizers by content analysis, free options, exact rules, model setup, preview, automation and cost. Find the workflow that fits.",
+  "eyebrow": "Windows software comparison",
+  "updatedAt": "2026-11-06",
+  "directAnswer": "Choose Foldora for a reviewed batch of local content-based filing and renaming; AI File Sorter is a credible free-core alternative if you want to configure models and categories. Choose File Juggler for exact recurring document rules, DropIt for free Windows rule/action profiles, and Power Automate when files are part of a larger business process. If extension or date sorting already solves the task, AI is not required. There is no tested overall winner here.",
+  "problemTitle": "The buying criteria that change the recommendation",
+  "problem": [
+    "For inconsistent filenames and a one-time backlog, compare Foldora with AI File Sorter. Both offer reviewed category/name suggestions. Foldora packages its models and runs selected-folder batches; choose AI File Sorter if its free core, configurable model providers or category constraints better match your requirements. This guide does not establish which gives better categories, takes less setup time or runs faster on your computer.",
+    "For exact rules and recurring arrivals, File Juggler or DropIt may be preferable. File Juggler reads PDF/DOCX text for conditions; its other files are examined as text, and image-only PDFs need OCR first. DropIt also has content filters, profiles and monitoring. AI is not necessary for a fixed extension rule, and neither tool should be dismissed as filename-only or lacking all review controls. Test the actions and scope you configure.",
+    "For a process spanning email, approvals, other apps or cloud services, consider Power Automate. The Free license has restricted rights for eligible accounts; Premium and unattended entitlements differ. Microsoft lists an active internet connection as a desktop prerequisite, and Home editions cannot trigger desktop flows from the cloud. Configured cloud connections are different from local file actions; do not assume every flow keeps every document local.",
+    "For private local analysis, compare the actual processing configuration. Foldora analyzes files locally but contacts Keygen for licensing. AI File Sorter supports local and remote model choices: a local-first label does not make a remotely configured run local. Rule tools can operate on local files, but upload or network actions you configure change that boundary. A separately running sync client can also upload files independently of the organizer.",
+    "For scans and large documents, check what the software actually reads. Foldora PDF text extraction samples the first three pages; sparse embedded text can trigger a local OCR attempt on the first page only when OCR is available. Content reading is skipped above 8 MiB, and ZIP files are not unpacked for analysis. AI File Sorter and File Juggler document prior OCR requirements for scanned PDFs. None of these facts proves reliable invoice fields or correct classification of a particular scan.",
+    "For predictable folder policies, distinguish AI classification from field extraction. Foldora suggests categories and filenames; it does not provide an arbitrary vendor/date folder-rule editor or structured invoice-field validation. Its Type mode groups Category / Extension; Date uses filesystem modification Year / Month, not an invoice date or photo capture date. Dedicated extraction software or explicit tested rules are better when those exact fields decide the destination.",
+    "For recovery and useful evidence, inspect the existing Foldora demo below, then test your own copied sample. It shows the workflow, not a comparative benchmark. Approval physically moves and may rename files into organized_folder inside the selected folder. Undo depends on files and original paths remaining available; no preview or undo system replaces an independent backup. Do not organize active project trees or live shared/synced collections without understanding the path effects.",
+    "For total cost and compatibility, compare the app, model downloads, optional add-ons, API usage and automation entitlements separately. File Juggler's public Offer metadata declared USD 40 when checked; its actual checkout determines applicable currency and tax. Microsoft prices here are its US annual-billing list prices, not a Moroccan or other regional quote. DropIt's old release date alone proves neither success nor failure on Windows 11. Verify installer source, Windows version and any restrictions before buying."
+  ],
+  "contextualLinks": [
+    {
+      "before": "For invoice batches, see ",
+      "anchor": "how Foldora handles invoice content versus exact vendor and date rules",
+      "href": "/blog/organize-invoices-automatically/",
+      "after": "."
     },
-    faqs: [
-      {
-        question: "What should a Windows file organizer do?",
-        answer:
-          "At minimum, it should move or categorize files reliably. Depending on your needs, look for content-aware organization, bulk renaming, previews, and local processing.",
-      },
-      {
-        question: "Is AI always better than rules?",
-        answer:
-          "No. AI is useful for inconsistent files and low-setup categorization. Rules are better when the condition and required action are exact.",
-      },
-      {
-        question: "How should I test a file organizer?",
-        answer:
-          "Use a copy or a small representative folder, inspect every proposed action, and confirm the resulting names and paths fit how you retrieve files.",
-      },
-      {
-        question: "How much does Foldora cost for Windows?",
-        answer:
-          "Foldora is currently $14.99 as a one-time purchase, not a subscription. The purchase includes the supported Windows and macOS desktop app delivered through the checkout provider.",
-      },
-      {
-        question: "Which files can Foldora analyze, and what can it miss?",
-        answer:
-          "Foldora can organize PDF, DOCX and TXT documents, XLSX and CSV spreadsheets, PPT and PPTX presentations, PNG, JPG, JPEG, GIF and WEBP images, and ZIP archives. Content analysis varies by format. PDF reading samples up to the first three pages, with a local first-page OCR attempt when embedded text is sparse. Files over 8 MiB skip content reading, and ZIP archives are not unpacked for analysis. Later-page details, unreadable scans and ambiguous images may therefore produce incomplete suggestions. Inspect the plan before applying it.",
-      },
-      {
-        question: "Can I use Foldora offline without uploading my files?",
-        answer:
-          "File analysis runs locally without uploading files to a cloud organizer. Local processing does not mean the product never needs internet: purchase, download, license activation, periodic license validation and updates require a connection. Consider that licensing requirement if you need an entirely disconnected computer.",
-      },
-      {
-        question: "What should I check before approving a Foldora plan?",
-        answer:
-          "Check the proposed destination folders and filenames against the original files, especially for scans and ambiguous names. Begin with a copied representative folder and keep a separate backup. Preview is a chance to reject an unsuitable plan; do not treat undo as a guaranteed recovery system or a replacement for backups. Foldora runs on selected folders and does not continuously monitor new arrivals.",
-      },
-    ],
-    evidence: {
-      title: "See the Foldora workflow, price, and limits before choosing",
-      summary:
-        "Foldora's recorded desktop demo shows its bounded workflow: choose a local folder, let the app propose folders and filenames, review the plan, and apply only the changes you approve.",
-      facts: [
-        { label: "Current price", value: "$14.99 one-time purchase" },
-        { label: "Supported Windows", value: "Windows 10 and Windows 11" },
-        { label: "Workflow", value: "Choose, preview, and approve" },
-        { label: "Best fit", value: "Mixed local folders with inconsistent names" },
-      ],
-      media: [
-        {
-          kind: "video",
-          src: "/foldora-demo.mp4",
-          alt: "Recorded Foldora desktop workflow for organizing a local folder",
-          caption:
-            "Recorded Foldora workflow showing a local folder organization run and the review-first process.",
-        },
-        {
-          kind: "image",
-          src: "/evidence/foldora-demo.png",
-          alt: "Foldora desktop application organizing files on Windows",
-          caption:
-            "A real Foldora application screen, included so buyers can inspect the product before checkout.",
-        },
-      ],
-      note:
-        "Limit: Foldora is a focused file organizer, not a general workflow platform or a substitute for detailed watched-folder rules. It supports specific file types; verify compatibility, keep a backup, and test a small folder first.",
+    {
+      "before": "For another local AI option, compare ",
+      "anchor": "Foldora with AI File Sorter",
+      "href": "/alternatives/ai-file-sorter/",
+      "after": " by model setup, price, and workflow."
     },
-    related: [
-      "ai-file-organizer",
-      "alternatives/file-juggler",
-      "alternatives/ai-file-sorter",
-      "alternatives/power-automate",
-      "organize-files-windows",
-      "docs/supported-file-types",
-      "docs/privacy",
-    ],
+    {
+      "before": "For repeatable free rules, compare ",
+      "anchor": "Foldora and DropIt",
+      "href": "/alternatives/dropit/",
+      "after": "."
+    },
+    {
+      "before": "For document-text rules and monitored arrivals, compare ",
+      "anchor": "Foldora and File Juggler",
+      "href": "/alternatives/file-juggler/",
+      "after": "."
+    },
+    {
+      "before": "If your files are cloud-backed, read ",
+      "anchor": "the OneDrive and Dropbox local-copy boundary",
+      "href": "/blog/organize-onedrive-dropbox-files/",
+      "after": "."
+    },
+    {
+      "before": "If Foldora fits, check its ",
+      "anchor": "individual lifetime-license offer",
+      "href": "/#pricing",
+      "after": "."
+    }
+  ],
+  "steps": [
+    "Write the actual outcome first: classify a mixed backlog, enforce a known condition, watch new arrivals, or connect file handling to other applications. For simple extension/date grouping, start without AI.",
+    "Check model location, supported content, OCR/sampling limits, platform requirements and the full app/add-on/API or automation cost. Use the official citations in the selection table.",
+    "Evaluate only a copied representative folder. Inspect what the tool proposes or which files a rule matches; verify names, scope, conflicts and any automatic-start or upload actions before approval.",
+    "Approve only suitable operations, verify resulting paths and contents, and keep the backup. Judge the product by your own result and retrieval needs, not this publisher's untested comparative claims."
+  ],
+  "examples": [
+    {
+      "title": "Illustrative mixed-folder workflow, not a benchmark",
+      "before": "A copied folder contains PDF, DOCX, TXT, images and installers with inconsistent filenames.",
+      "after": "In Foldora AI Content, review proposed categories and filenames before approving local moves. Format and sampling limits remain relevant; no exact output or accuracy percentage is promised."
+    },
+    {
+      "title": "Illustrative exact-rule workflow",
+      "before": "Every searchable PDF containing a known project code must go to a predefined location as it arrives.",
+      "after": "Evaluate an explicit File Juggler condition or another suitable rule tool rather than expecting Foldora to enforce an arbitrary project policy. Test the rule and backups before enabling recurring execution."
+    }
+  ],
+  "comparison": {
+    "title": "Choose an organizer by the job, not an overall ranking",
+    "summary": "Publisher disclosure: Computora AI publishes Foldora. These are workflow recommendations, not an independent review or measured ranking. Official sources checked November 6, 2026; prices are snapshots, not checkout guarantees.",
+    "headers": {
+      "option": "Tool and price model",
+      "bestFor": "Choose it for",
+      "tradeoff": "Check before choosing"
+    },
+    "rows": [
+      {
+        "option": "Foldora - $14.99 one-time",
+        "bestFor": "Reviewed content-based batches on Windows 10/11; also macOS. Filename signals and sampled content use built-in local models.",
+        "tradeoff": "Preview folders and names before approval. No watcher or arbitrary if/then editor. Activation and periodic license checks need internet; PDF, OCR and size limits apply.",
+        "sources": [
+          {
+            "label": "Formats and limits",
+            "url": "/docs/supported-file-types/"
+          },
+          {
+            "label": "Privacy and licensing",
+            "url": "/docs/privacy/"
+          }
+        ]
+      },
+      {
+        "option": "AI File Sorter - free core app",
+        "bestFor": "Local or optionally remote AI with category constraints and reviewable plans. Windows 10+, macOS and Linux downloads.",
+        "tradeoff": "Configure/download the chosen models; remote providers use your credentials and may charge separately. Scanned PDFs need prior OCR. The optional Explorer extension is paid, separate from the free app.",
+        "sources": [
+          {
+            "label": "Official features",
+            "url": "https://filesorter.app/features/"
+          },
+          {
+            "label": "Free core / paid extension",
+            "url": "https://filesorter.app/windows-explorer-extension/"
+          },
+          {
+            "label": "OCR and model FAQ",
+            "url": "https://filesorter.app/faq/"
+          }
+        ]
+      },
+      {
+        "option": "File Juggler - paid registration; 30-day trial",
+        "bestFor": "Exact recurring Windows document rules: monitor folders, match conditions and run configured actions. PDF/DOCX text can drive rules.",
+        "tradeoff": "Editor shows matches; automation is not approval of each batch. Scans need prior OCR. Official site metadata lists USD 40; confirm currency/tax at checkout. License includes future upgrades.",
+        "sources": [
+          {
+            "label": "Rules and review",
+            "url": "https://www.filejuggler.com/documentation/creating-rules/"
+          },
+          {
+            "label": "Content readers",
+            "url": "https://www.filejuggler.com/documentation/conditions/"
+          },
+          {
+            "label": "Vendor price",
+            "url": "https://www.filejuggler.com/"
+          },
+          {
+            "label": "License / upgrades",
+            "url": "https://www.filejuggler.com/documentation/buying-file-juggler/"
+          }
+        ]
+      },
+      {
+        "option": "DropIt - free and open source",
+        "bestFor": "Reusable Windows filters, profiles and actions, including move, copy, rename and archive handling; monitoring is available.",
+        "tradeoff": "Inspect or skip loaded files before Start; automatic-start/monitoring settings change the pause. Content filters are not a full AI/OCR pipeline. Offered release 8.5.1 is from 2018: test current Windows compatibility on copies.",
+        "sources": [
+          {
+            "label": "Official downloads / actions",
+            "url": "https://www.dropitproject.com/"
+          },
+          {
+            "label": "Review and monitoring guide",
+            "url": "https://www.dropitproject.com/assets/guides/GuideEN.pdf"
+          }
+        ]
+      },
+      {
+        "option": "Power Automate - limited free rights; paid plans",
+        "bestFor": "Windows 10/11 desktop flows and connected cloud/business workflows that you design. Local file actions are separate from configured cloud connections.",
+        "tradeoff": "Not a ready-made AI filing plan. Review/test the flow; action and connector choices control data transfer. US Premium lists $15/user/month, paid yearly; unattended runs need different entitlement. Account/Windows-edition limits apply.",
+        "sources": [
+          {
+            "label": "US pricing",
+            "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing"
+          },
+          {
+            "label": "Free and paid entitlements",
+            "url": "https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types"
+          },
+          {
+            "label": "Windows / internet requirements",
+            "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/requirements"
+          }
+        ]
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "What should a Windows file organizer do?",
+      "answer": "At minimum, it should move or categorize files reliably. Depending on your needs, look for content-aware organization, bulk renaming, previews, and local processing."
+    },
+    {
+      "question": "Is AI always better than rules?",
+      "answer": "No. AI is useful for inconsistent files and low-setup categorization. Rules are better when the condition and required action are exact."
+    },
+    {
+      "question": "How should I test a file organizer?",
+      "answer": "Use a copy or a small representative folder, inspect every proposed action, and confirm the resulting names and paths fit how you retrieve files."
+    },
+    {
+      "question": "How much does Foldora cost for Windows?",
+      "answer": "Foldora is currently $14.99 as a one-time purchase, not a subscription. The purchase includes the supported Windows and macOS desktop app delivered through the checkout provider."
+    },
+    {
+      "question": "Which files can Foldora analyze, and what can it miss?",
+      "answer": "Foldora can organize PDF, DOCX and TXT documents, XLSX and CSV spreadsheets, PPT and PPTX presentations, PNG, JPG, JPEG, GIF and WEBP images, and ZIP archives. Content analysis varies by format. PDF reading samples up to the first three pages, with a local first-page OCR attempt when embedded text is sparse. Files over 8 MiB skip content reading, and ZIP archives are not unpacked for analysis. Later-page details, unreadable scans and ambiguous images may therefore produce incomplete suggestions. Inspect the plan before applying it."
+    },
+    {
+      "question": "Can I use Foldora offline without uploading my files?",
+      "answer": "File analysis runs locally without uploading files to a cloud organizer. Local processing does not mean the product never needs internet: purchase, download, license activation, periodic license validation and updates require a connection. Consider that licensing requirement if you need an entirely disconnected computer."
+    },
+    {
+      "question": "What should I check before approving a Foldora plan?",
+      "answer": "Check the proposed destination folders and filenames against the original files, especially for scans and ambiguous names. Begin with a copied representative folder and keep a separate backup. Preview is a chance to reject an unsuitable plan; do not treat undo as a guaranteed recovery system or a replacement for backups. Foldora runs on selected folders and does not continuously monitor new arrivals."
+    }
+  ],
+  "evidence": {
+    "title": "See the Foldora workflow, price, and limits before choosing",
+    "summary": "Foldora's recorded desktop demo shows its bounded workflow: choose a local folder, let the app propose folders and filenames, review the plan, and apply only the changes you approve.",
+    "facts": [
+      {
+        "label": "Current price",
+        "value": "$14.99 one-time purchase"
+      },
+      {
+        "label": "Supported Windows",
+        "value": "Windows 10 and Windows 11"
+      },
+      {
+        "label": "Workflow",
+        "value": "Choose, preview, and approve"
+      },
+      {
+        "label": "Best fit",
+        "value": "Mixed local folders with inconsistent names"
+      }
+    ],
+    "media": [
+      {
+        "kind": "video",
+        "src": "/foldora-demo.mp4",
+        "alt": "Recorded Foldora desktop workflow for organizing a local folder",
+        "caption": "Recorded Foldora workflow showing a local folder organization run and the review-first process."
+      },
+      {
+        "kind": "image",
+        "src": "/evidence/foldora-demo.png",
+        "alt": "Foldora desktop application organizing files on Windows",
+        "caption": "A real Foldora application screen, included so buyers can inspect the product before checkout."
+      }
+    ],
+    "note": "Limit: Foldora is a focused file organizer, not a general workflow platform or a substitute for detailed watched-folder rules. It supports specific file types; verify compatibility, keep a backup, and test a small folder first."
+  },
+  "related": [
+    "ai-file-organizer",
+    "alternatives/file-juggler",
+    "alternatives/ai-file-sorter",
+    "alternatives/power-automate",
+    "organize-files-windows",
+    "docs/supported-file-types",
+    "docs/privacy"
+  ],
+  "comparisonFirst": true,
+  "sources": [
+    {
+      "label": "AI File Sorter official product and platform downloads",
+      "url": "https://filesorter.app/download/",
+      "note": "Windows 10+, macOS and Linux downloads; use the table citations for models, review, OCR and the separate paid extension."
+    },
+    {
+      "label": "File Juggler official trial terms",
+      "url": "https://www.filejuggler.com/faq/trial-and-licensing/",
+      "note": "Full-feature 30-day trial; paid registration is required for continued use."
+    },
+    {
+      "label": "Microsoft Power Automate pricing and entitlements",
+      "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing",
+      "note": "US list prices are time-sensitive; check region, tax, account eligibility and unattended licensing."
+    }
+  ]
+},
   {
     route: "clean-downloads-folder",
     kind: "landing",

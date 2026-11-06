@@ -652,6 +652,25 @@ function renderEvidence(page: SeoPage): string {
   </section>`;
 }
 
+function renderSelectionTable(page: SeoPage): string {
+  return `    <section${page.comparisonFirst ? ' aria-labelledby="organizer-selection"' : ""}>
+      <h2${page.comparisonFirst ? ' id="organizer-selection"' : ""}>${escapeHtml(page.comparison.title)}</h2>
+      <p>${escapeHtml(page.comparison.summary)}</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>${escapeHtml(page.comparison.headers?.option ?? "Option")}</th><th>${escapeHtml(page.comparison.headers?.bestFor ?? "Best for")}</th><th>${escapeHtml(page.comparison.headers?.tradeoff ?? "Tradeoff")}</th></tr></thead>
+          <tbody>
+            ${page.comparison.rows
+              .map(
+                (row) => `<tr><th scope="row">${escapeHtml(row.option)}</th><td>${escapeHtml(row.bestFor)}</td><td>${escapeHtml(row.tradeoff)}${row.sources ? `<div class="row-sources" style="margin-top:12px;font-size:.85rem">${row.sources.map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a>`).join(" · ")}</div>` : ""}</td></tr>`,
+              )
+              .join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>`;
+}
+
 function renderMainPage(page: SeoPage): string {
   const canonical = canonicalUrl(page);
   const robots = page.indexable === false
@@ -722,7 +741,7 @@ ${analyticsHead()}
       <p>${escapeHtml(page.directAnswer)}</p>
       <div class="updated">Reviewed and updated ${escapeHtml(page.updatedAt)}</div>
     </section>
-${renderEvidence(page)}
+${page.comparisonFirst ? renderSelectionTable(page) + "\n" : ""}${renderEvidence(page)}
     <section>
       <h2>${escapeHtml(page.problemTitle)}</h2>
       ${page.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${page.contextualLinks?.map((link) => `<p>${escapeHtml(link.before)}<a href="${escapeHtml(link.href)}">${escapeHtml(link.anchor)}</a>${escapeHtml(link.after)}</p>`).join("") ?? ""}
@@ -747,22 +766,7 @@ ${renderEvidence(page)}
           .join("")}
       </div>
     </section>
-    <section>
-      <h2>${escapeHtml(page.comparison.title)}</h2>
-      <p>${escapeHtml(page.comparison.summary)}</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>${escapeHtml(page.comparison.headers?.option ?? "Option")}</th><th>${escapeHtml(page.comparison.headers?.bestFor ?? "Best for")}</th><th>${escapeHtml(page.comparison.headers?.tradeoff ?? "Tradeoff")}</th></tr></thead>
-          <tbody>
-            ${page.comparison.rows
-              .map(
-                (row) => `<tr><th scope="row">${escapeHtml(row.option)}</th><td>${escapeHtml(row.bestFor)}</td><td>${escapeHtml(row.tradeoff)}</td></tr>`,
-              )
-              .join("")}
-          </tbody>
-        </table>
-      </div>
-    </section>
+${!page.comparisonFirst ? renderSelectionTable(page) : ""}
 ${page.sources ? `    <section>
         <h2>Official sources</h2>
         <p>Competitor facts are linked to the publisher's own product, store, and documentation pages.</p>
