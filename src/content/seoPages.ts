@@ -791,86 +791,133 @@ export const seoPages: SeoPage[] = [
     ],
   },
   {
-    route: "blog/organize-pdfs-automatically",
-    kind: "guide",
-    topic: "pdfs",
-    title: "Rename and Organize PDFs Automatically",
-    h1: "Rename and Organize PDFs Automatically",
-    description:
-      "Organize PDFs by purpose, project, person, and date instead of keeping every document in one PDF folder. Includes examples for study, finance, and work.",
-    eyebrow: "PDF organization guide",
-    updatedAt,
-    directAnswer:
-      "Organize PDFs automatically by using document context, not just the .pdf extension. Separate records, reading material, forms, invoices, and project documents; apply a consistent filename; and keep uncertain files in a review queue. Foldora can propose those categories and names locally.",
-    problemTitle: "PDF is a format, not a useful category",
-    problem: [
-      "A PDF folder can contain bank statements, research papers, product manuals, contracts, and scanned receipts. Grouping them together reduces clutter elsewhere but does not improve retrieval.",
-      "Scanned PDFs add another challenge because their filenames often contain only a scanner ID or date. They need descriptive names before search and browsing become dependable.",
-    ],
-    steps: [
-      "Identify the major purposes in the collection: records, research, work, or reference.",
-      "Create a shallow folder structure around those purposes.",
-      "Rename PDFs with dates, subjects, authors, clients, or document types.",
-      "Review duplicate and uncertain documents before archiving them.",
-    ],
-    examples: [
-      {
-        title: "Student library",
-        before: "All readings stored in one semester PDF folder",
-        after: "Course/Topic with author and paper title in each filename",
-      },
-      {
-        title: "Household records",
-        before: "Statements, receipts, policies, and manuals mixed together",
-        after: "Finance by year, Insurance, and Home/Manuals",
-      },
-    ],
-    comparison: {
-      title: "PDF organization options",
-      summary:
-        "Citation managers excel at papers; file organizers cover broader document collections.",
-      rows: [
-        {
-          option: "Foldora",
-          bestFor: "Mixed PDF collections and local folder organization",
-          tradeoff: "Not a citation manager",
-        },
-        {
-          option: "Reference manager",
-          bestFor: "Academic citations, metadata, and bibliographies",
-          tradeoff: "Less suitable for invoices, forms, and general records",
-        },
-        {
-          option: "Manual folders",
-          bestFor: "Small stable collections",
-          tradeoff: "Scanned and downloaded files require repeated cleanup",
-        },
-      ],
+  "route": "blog/organize-pdfs-automatically",
+  "kind": "guide",
+  "topic": "pdfs",
+  "title": "Organize PDFs by Content: Folders, Rules or Tags?",
+  "h1": "Organize PDFs by Content: Folders, Rules or Tags?",
+  "description": "Choose how to file PDFs with vague names: reviewed content suggestions, exact keyword rules or multi-subject tags. Check Foldora limits before moving files.",
+  "eyebrow": "PDF organization guide",
+  "updatedAt": "2026-11-06",
+  "directAnswer": "For PDFs with unhelpful filenames, Foldora can use locally extracted text to suggest categories and names for review. Choose content rules when a known word must always select the same destination. Choose a tagging or reference-management tool when a PDF belongs to several subjects: moving it to one folder does not create a searchable, multi-label library.",
+  "problemTitle": "Do you need a folder destination or several ways to find a PDF?",
+  "problem": [
+    "Renaming every PDF does not solve every retrieval problem. A paper may belong to several subjects at once. Foldora proposes ordinary folder destinations and names; it does not build a persistent tag catalog, citation database or full-text search index. A reference manager or tagging workflow can better suit a multi-subject collection.",
+    "For physical filing, distinguish meaning from exact conditions. Foldora uses filenames, semantic signals and bounded text extraction to propose a category. File Juggler on Windows can instead evaluate explicit document-text conditions. Neither approach guarantees correct filing of every ambiguous or poorly scanned document.",
+    "Foldora uses filename signals as well as selective local content analysis; it does not read every document from beginning to end. Content extraction is skipped above 8 MiB. PDF text analysis samples the first three pages, with an OCR attempt limited to the first page when text is sparse and the local OCR dependency is available. Categories and proposed names need review.",
+    "A subject explained only on page 20 may not influence a Foldora plan. Password-protected or unreadable PDFs and scans without usable OCR text need manual attention. Do not buy it as a complete OCR conversion tool, citation manager or structured data extractor.",
+    "Approving a Foldora plan physically moves and may rename files into organized_folder inside the selected folder. Preview is not a backup. Logged undo attempts reverse moves, but missing destination files or an occupied original path can prevent complete recovery. Keep an independent backup and verify the output.",
+    "Publisher disclosure: Computora AI publishes Foldora. Examples illustrate supported workflows, not measured classification results. Product behavior and linked official File Juggler conditions checked November 6, 2026."
+  ],
+  "steps": [
+    "Choose the retrieval goal: one physical home, exact recurring routing, or several subject labels without moving the PDF.",
+    "Keep a backup and select a small copied folder of representative text PDFs, scans and multi-topic documents.",
+    "Generate a Foldora AI Content preview. Inspect categories, names and output paths; manually check scans and documents whose relevant text is beyond the sampled pages.",
+    "Approve suitable moves, open the resulting PDFs and verify paths. Use a reference manager or tagging system if multiple subjects, citations or persistent search are the real requirement."
+  ],
+  "examples": [
+    {
+      "title": "Illustrative folder plan, not an observed test result",
+      "before": "input/scan001.pdf contains selectable bank-statement text on its opening pages; input/scan002.pdf contains recipe instructions. Their names do not explain the subjects.",
+      "after": "A possible reviewed plan is organized_folder/Finance/Bank Statements/statement.pdf and organized_folder/Personal/Recipes/recipe.pdf. Categories and names depend on actual signals; inspect the real preview instead of expecting these exact outputs."
     },
-    faqs: [
+    {
+      "title": "Illustrative case where a library is preferable",
+      "before": "A research PDF covers statistics, climate and public policy and must be found under all three subjects.",
+      "after": "Choose multiple labels and retrieval in an appropriate library or tagging workflow. A Foldora move supplies one physical destination, not three catalog entries or a citation record."
+    }
+  ],
+  "comparison": {
+    "title": "Choose the organizing model before the tool",
+    "summary": "One PDF collection can require different software depending on how you need to retrieve it.",
+    "headers": {
+      "option": "Need",
+      "bestFor": "Approach that fits",
+      "tradeoff": "Important limitation"
+    },
+    "rows": [
       {
-        question: "Should all PDFs go in one folder?",
-        answer:
-          "Usually not. Organize by the document's purpose or project so unrelated records and reading material do not compete in the same list.",
+        "option": "Vague names; reviewed physical filing",
+        "bestFor": "Foldora suggests categories and names from filename signals and selective local content analysis.",
+        "tradeoff": "Windows 10/11 and macOS; $14.99 one-time. Review is required; sampling and OCR limits apply."
       },
       {
-        question: "How should research PDFs be named?",
-        answer:
-          "A useful pattern is year, first author, and a shortened title. Add a course or topic only when it improves retrieval.",
+        "option": "Known phrase, exact destination",
+        "bestFor": "A content-rule tool such as File Juggler on Windows.",
+        "tradeoff": "You define and maintain conditions. Its PDF reader needs searchable text; scans require prior OCR."
       },
       {
-        question: "Can scanned PDFs be organized automatically?",
-        answer:
-          "They can when the organizer can derive enough context from the supported document. Always review low-confidence names and categories.",
+        "option": "Several subjects per document",
+        "bestFor": "A tagging tool or reference manager suited to the required retrieval model.",
+        "tradeoff": "Catalog setup and backup become part of the workflow. Foldora does not supply that library."
       },
-    ],
-    related: [
-      "use-cases/students",
-      "use-cases/researchers",
-      "rename-files-automatically",
-      "blog/organize-research-documents",
-    ],
+      {
+        "option": "Only extension or modification month matters",
+        "bestFor": "Simple type/date grouping, including Foldora non-content modes.",
+        "tradeoff": "All PDFs share an extension; modification date is not the date printed inside a document."
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "Can software organize scan001.pdf by its contents?",
+      "answer": "Potentially, if useful text is available in the analyzed sample. Foldora can use extracted text alongside filename signals, but does not read every page. Review the actual proposal; an unreadable scan may provide too little evidence."
+    },
+    {
+      "question": "Does Foldora read or OCR every PDF page?",
+      "answer": "No. Text extraction samples the first three pages. Sparse text can trigger a local OCR attempt on the first page only, dependent on OCR availability. Content is skipped above 8 MiB. Choose dedicated OCR software for full-document conversion."
+    },
+    {
+      "question": "Does PDF organization create tags or a reference library?",
+      "answer": "No. Approval moves and may rename files into ordinary folders. For multi-label subject browsing, citations or persistent full-text retrieval, use an appropriate library or tagging tool."
+    }
+  ],
+  "related": [
+    "blog/organize-research-documents",
+    "use-cases/researchers",
+    "alternatives/file-juggler",
+    "docs/supported-file-types"
+  ],
+  "contextualLinks": [
+    {
+      "before": "Check the ",
+      "anchor": "supported formats and analysis limits",
+      "href": "/docs/supported-file-types/",
+      "after": "."
+    },
+    {
+      "before": "Read about ",
+      "anchor": "local processing and privacy",
+      "href": "/docs/privacy/",
+      "after": "."
+    },
+    {
+      "before": "See ",
+      "anchor": "how preview and file moves work",
+      "href": "/docs/how-it-works/",
+      "after": "."
+    },
+    {
+      "before": "Review the ",
+      "anchor": "$14.99 one-time individual license",
+      "href": "/#pricing",
+      "after": " and current downloads before buying."
+    },
+    {
+      "before": "For recurring routing, compare ",
+      "anchor": "Foldora and File Juggler content workflows",
+      "href": "/alternatives/file-juggler/",
+      "after": "."
+    }
+  ],
+  "sources": [
+    {
+      "label": "File Juggler: official content conditions",
+      "url": "https://www.filejuggler.com/documentation/conditions/",
+      "note": "A rule-based alternative for searchable PDF/DOCX text; scanned PDFs need prior OCR."
+    }
+  ]
+},
   {
     route: "blog/organize-screenshots-automatically",
     kind: "guide",
@@ -953,86 +1000,88 @@ export const seoPages: SeoPage[] = [
     ],
   },
   {
-    route: "blog/organize-research-documents",
-    kind: "guide",
-    topic: "pdfs",
-    title: "How Researchers Can Organize Papers and Documents",
-    h1: "How to Organize Research Documents",
-    description:
-      "A practical system for papers, datasets, notes, protocols, drafts, and administrative research files, with clear boundaries for citation managers.",
-    eyebrow: "Research document workflow",
-    updatedAt,
-    directAnswer:
-      "Researchers should organize documents by project and stage, use a citation manager for scholarly metadata, and keep datasets, protocols, ethics files, notes, and drafts in a predictable project folder. A file organizer can clean the surrounding document system, while the citation manager remains the source of truth for references.",
-    problemTitle: "Research files have different retention and retrieval needs",
-    problem: [
-      "A paper library, raw data, analysis output, grant documents, and manuscript drafts should not share one undifferentiated folder. They have different owners, versioning requirements, and reasons for retrieval.",
-      "Duplicating every paper across project folders also creates version drift. Store citation-managed papers once, then organize project-specific exports, notes, and supporting documents around the project.",
-    ],
-    steps: [
-      "Create one folder per active research project with stable subfolders.",
-      "Use a citation manager for papers and bibliographic metadata.",
-      "Separate raw data, processed data, analysis, outputs, and manuscripts.",
-      "Archive completed projects with a readme describing the structure.",
-    ],
-    examples: [
-      {
-        title: "Literature review",
-        before: "Downloaded papers and notes mixed with manuscript drafts",
-        after: "Citation library plus Project/Notes, Screening, Exports, and Manuscript",
-      },
-      {
-        title: "Empirical study",
-        before: "Raw spreadsheets edited in place beside charts",
-        after: "Data/Raw read-only, Data/Processed, Analysis, Figures, and Manuscript",
-      },
-    ],
-    comparison: {
-      title: "Research organization tools",
-      summary:
-        "Use specialized tools for citations and broad file tools for the rest of the project.",
-      rows: [
-        {
-          option: "Foldora",
-          bestFor: "Local cleanup of mixed research project files",
-          tradeoff: "Does not replace citation or data-versioning tools",
-        },
-        {
-          option: "Citation manager",
-          bestFor: "Papers, metadata, annotations, and bibliographies",
-          tradeoff: "Does not organize every project artifact",
-        },
-        {
-          option: "Version control",
-          bestFor: "Code, text, and reproducible analysis",
-          tradeoff: "Not ideal for every large binary document",
-        },
-      ],
+  "route": "blog/organize-research-documents",
+  "kind": "guide",
+  "topic": "pdfs",
+  "title": "How Researchers Can Organize Papers and Documents",
+  "h1": "How to Organize Research Documents",
+  "description": "A practical system for papers, datasets, notes, protocols, drafts, and administrative research files, with clear boundaries for citation managers.",
+  "eyebrow": "Research document workflow",
+  "updatedAt": "2026-09-08",
+  "directAnswer": "Researchers should organize documents by project and stage, use a citation manager for scholarly metadata, and keep datasets, protocols, ethics files, notes, and drafts in a predictable project folder. A file organizer can clean the surrounding document system, while the citation manager remains the source of truth for references.",
+  "problemTitle": "Research files have different retention and retrieval needs",
+  "problem": [
+    "A paper library, raw data, analysis output, grant documents, and manuscript drafts should not share one undifferentiated folder. They have different owners, versioning requirements, and reasons for retrieval.",
+    "Duplicating every paper across project folders also creates version drift. Store citation-managed papers once, then organize project-specific exports, notes, and supporting documents around the project."
+  ],
+  "steps": [
+    "Create one folder per active research project with stable subfolders.",
+    "Use a citation manager for papers and bibliographic metadata.",
+    "Separate raw data, processed data, analysis, outputs, and manuscripts.",
+    "Archive completed projects with a readme describing the structure."
+  ],
+  "examples": [
+    {
+      "title": "Literature review",
+      "before": "Downloaded papers and notes mixed with manuscript drafts",
+      "after": "Citation library plus Project/Notes, Screening, Exports, and Manuscript"
     },
-    faqs: [
+    {
+      "title": "Empirical study",
+      "before": "Raw spreadsheets edited in place beside charts",
+      "after": "Data/Raw read-only, Data/Processed, Analysis, Figures, and Manuscript"
+    }
+  ],
+  "comparison": {
+    "title": "Research organization tools",
+    "summary": "Use specialized tools for citations and broad file tools for the rest of the project.",
+    "rows": [
       {
-        question: "Should researchers organize papers in folders?",
-        answer:
-          "Use a citation manager as the primary paper library. Folder organization remains useful for project-specific notes, exports, drafts, and supporting records.",
+        "option": "Foldora",
+        "bestFor": "Local cleanup of mixed research project files",
+        "tradeoff": "Does not replace citation or data-versioning tools"
       },
       {
-        question: "How should research data folders be structured?",
-        answer:
-          "Keep raw data unchanged, create separate processed and analysis outputs, and document the structure in a project readme.",
+        "option": "Citation manager",
+        "bestFor": "Papers, metadata, annotations, and bibliographies",
+        "tradeoff": "Does not organize every project artifact"
       },
       {
-        question: "Can AI organize confidential research files?",
-        answer:
-          "Check the data policy of any tool. A local workflow such as Foldora reduces the need to upload files, but institutional rules still apply.",
-      },
-    ],
-    related: [
-      "use-cases/researchers",
-      "blog/organize-pdfs-automatically",
-      "features/offline-processing",
-      "rename-files-automatically",
-    ],
+        "option": "Version control",
+        "bestFor": "Code, text, and reproducible analysis",
+        "tradeoff": "Not ideal for every large binary document"
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "Should researchers organize papers in folders?",
+      "answer": "Use a citation manager as the primary paper library. Folder organization remains useful for project-specific notes, exports, drafts, and supporting records."
+    },
+    {
+      "question": "How should research data folders be structured?",
+      "answer": "Keep raw data unchanged, create separate processed and analysis outputs, and document the structure in a project readme."
+    },
+    {
+      "question": "Can AI organize confidential research files?",
+      "answer": "Check the data policy of any tool. A local workflow such as Foldora reduces the need to upload files, but institutional rules still apply."
+    }
+  ],
+  "related": [
+    "use-cases/researchers",
+    "blog/organize-pdfs-automatically",
+    "features/offline-processing",
+    "rename-files-automatically"
+  ],
+  "contextualLinks": [
+    {
+      "before": "If unclear PDF names are hiding several subjects, choose between ",
+      "anchor": "content-based PDF folders, rules and tags",
+      "href": "/blog/organize-pdfs-automatically/",
+      "after": "."
+    }
+  ]
+},
   {
     route: "blog/organize-invoices-automatically",
     kind: "guide",
@@ -2003,87 +2052,147 @@ export const seoPages: SeoPage[] = [
     ],
   },
   {
-    route: "alternatives/file-juggler",
-    kind: "comparison",
-    topic: "windows",
-    title: "Foldora vs File Juggler for Windows File Organization",
-    h1: "Foldora vs File Juggler",
-    description:
-      "Compare Foldora's local AI suggestions with File Juggler's Windows file automation rules for moving, renaming, deleting, and document-based workflows.",
-    eyebrow: "Windows file organizer comparison",
-    updatedAt,
-    directAnswer:
-      "Choose Foldora when you want Windows file organization and renaming suggestions with little rule authoring. Choose File Juggler when you want detailed Windows rules that move, rename, delete, and process files based on known conditions, including document content. File Juggler offers deterministic workflow control; Foldora emphasizes lower-setup contextual organization.",
-    problemTitle: "Both are Windows tools, but their setup models differ",
-    problem: [
-      "File Juggler is built around automatic workflows and rules. That makes it suitable when users can state the exact condition and action for each incoming file.",
-      "Foldora is designed for mixed collections where filenames and categories are inconsistent. It proposes a structure and names, then asks the user to review the changes.",
-    ],
-    steps: [
-      "Identify whether your files follow stable, testable patterns.",
-      "List actions beyond organization, such as deletion or extraction.",
-      "Decide how much rule maintenance you are willing to perform.",
-      "Compare previews and test behavior on edge cases.",
-    ],
-    examples: [
-      {
-        title: "Known supplier documents",
-        before: "Every invoice contains a stable supplier phrase and date",
-        after: "File Juggler rule extracts fields and routes the invoice",
-      },
-      {
-        title: "Unstructured archive",
-        before: "Years of documents with inconsistent names",
-        after: "Foldora proposes categories and descriptive names for review",
-      },
-    ],
-    comparison: {
-      title: "Foldora and File Juggler at a glance",
-      summary:
-        "Choose by predictability of input and desired automation control.",
-      rows: [
-        {
-          option: "Foldora",
-          bestFor: "Low-setup contextual categorization and renaming",
-          tradeoff: "Review is important for AI suggestions",
-        },
-        {
-          option: "File Juggler",
-          bestFor: "Precise recurring Windows file workflows",
-          tradeoff: "Rules need configuration and maintenance",
-        },
-        {
-          option: "Both approaches",
-          bestFor: "AI cleanup followed by deterministic ongoing rules",
-          tradeoff: "More tools and workflow complexity",
-        },
-      ],
+  "route": "alternatives/file-juggler",
+  "kind": "comparison",
+  "topic": "windows",
+  "title": "Foldora vs File Juggler: Content Rules or AI Filing?",
+  "h1": "Foldora vs File Juggler: Content Rules or AI Filing?",
+  "description": "Compare File Juggler content-based Windows rules with Foldora reviewed AI suggestions. See supported documents, monitoring, previews and when each fits.",
+  "eyebrow": "Windows file organizer comparison",
+  "updatedAt": "2026-11-06",
+  "directAnswer": "Choose File Juggler when documents should follow explicit words, dates or pattern-based rules as they arrive on Windows. Choose Foldora for suggested categories and filenames for a mixed batch on Windows or macOS, with review before moving. Both can use document contents: File Juggler is not limited to filenames, and Foldora does not replace an exact rules engine.",
+  "problemTitle": "Do you need a repeatable policy or a proposed folder plan?",
+  "problem": [
+    "File Juggler combines monitored folders, conditions and actions. Its editor shows matching files, and configured rules process new or changed files. That suits a known phrase selecting a fixed destination. Inspecting matches is useful, but differs from approving each Foldora batch plan.",
+    "File Juggler documents PDF and DOCX content reading; other files are examined as text. Scans need an existing searchable text layer produced by OCR. Its word, date and pattern variables can support specific conventions, not unrestricted extraction of arbitrary business fields.",
+    "Foldora proposes categories from filename signals and selective local content analysis. It has no arbitrary vendor/date rule editor or structured invoice-field extraction workflow. Choose dedicated extraction software when field-level correctness and validation are required.",
+    "Foldora uses filename signals as well as selective local content analysis; it does not read every document from beginning to end. Content extraction is skipped above 8 MiB. PDF text analysis samples the first three pages, with an OCR attempt limited to the first page when text is sparse and the local OCR dependency is available. Categories and proposed names need review.",
+    "Approving a Foldora plan physically moves and may rename files into organized_folder inside the selected folder. Preview is not a backup. Logged undo attempts reverse moves, but missing destination files or an occupied original path can prevent complete recovery. Keep an independent backup and verify the output.",
+    "Publisher disclosure: Computora AI publishes Foldora. This is a product-selection guide, not an independent review. Official competitor documentation checked November 6, 2026; no comparative speed or accuracy test was performed."
+  ],
+  "steps": [
+    "Write a concrete policy, such as a searchable PDF containing an agreed project phrase going to a fixed folder. If it must run continuously, evaluate File Juggler rules.",
+    "Inspect matching files in the File Juggler rule editor and test with backups before enabling actions. Check collision settings and avoid destructive delete rules during evaluation.",
+    "In Foldora, select a copied mixed folder and generate AI Content preview. Inspect every proposed name and destination; a category is not extracted business data.",
+    "Approve only suitable moves, verify the resulting paths and retain backups. Choose the actual rule or approval model that matches your task."
+  ],
+  "examples": [
+    {
+      "title": "Illustrative rule workflow: a project phrase",
+      "before": "Searchable PDFs repeatedly arrive containing the same project reference.",
+      "after": "A File Juggler content condition can route matching documents to a defined destination. You define the condition; this does not establish automatic recognition of every project or arbitrary business field."
     },
-    faqs: [
+    {
+      "title": "Illustrative Foldora workflow: inconsistent names",
+      "before": "A copied folder contains unrelated PDF, DOCX and TXT documents without a common naming convention.",
+      "after": "Review proposed categories and names before moving. This is an illustrative workflow, not a tested accuracy result; Foldora cannot promise an exact custom taxonomy or continuous routing."
+    }
+  ],
+  "comparison": {
+    "title": "Content access is not the same as filing policy",
+    "summary": "Choose the control model you need rather than treating rules and AI as interchangeable.",
+    "headers": {
+      "option": "Buying question",
+      "bestFor": "Foldora",
+      "tradeoff": "File Juggler"
+    },
+    "rows": [
       {
-        question: "Can File Juggler read document content?",
-        answer:
-          "Its official site describes workflows that organize and rename documents based on words, dates, and PDF properties.",
+        "option": "Who selects destinations?",
+        "bestFor": "A generated category/name plan reviewed by the user; no arbitrary if/then rules.",
+        "tradeoff": "You configure conditions, actions and destination variables."
       },
       {
-        question: "Which product is better for exact rules?",
-        answer:
-          "File Juggler is the stronger fit when conditions and actions can be defined precisely.",
+        "option": "When does it run?",
+        "bestFor": "Selected-folder batches with preview and approval.",
+        "tradeoff": "Monitors folders and processes new or changed matching files; editor shows matches."
       },
       {
-        question: "Which product is better for an unstructured backlog?",
-        answer:
-          "Foldora is designed for contextual organization suggestions when the backlog does not follow one stable naming rule.",
+        "option": "Document analysis",
+        "bestFor": "Filename signals and sampled local content in documented formats; size and sampling limits apply.",
+        "tradeoff": "PDF/DOCX content readers; other files treated as text. Scans require prior OCR."
       },
-    ],
-    related: [
-      "best-file-organizer-windows",
-      "alternatives/hazel",
-      "alternatives/dropit",
-      "alternatives/power-automate",
-      "organize-files-windows",
-    ],
+      {
+        "option": "Changes and safeguards",
+        "bestFor": "Moves and possible renames into organized_folder; limited logged undo. Keep backups.",
+        "tradeoff": "Configured file actions and collision handling. Official rule guidance recommends backups."
+      },
+      {
+        "option": "Platforms and purchase",
+        "bestFor": "Windows 10/11 and macOS; $14.99 one-time. Online activation and periodic license checks.",
+        "tradeoff": "Windows; paid registration after a full-feature 30-day trial. Check official checkout for current total and tax."
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "Can File Juggler organize by document contents?",
+      "answer": "Yes. Official conditions cover PDF and DOCX text, with other files examined as text. Searchable content and defined rules matter; image-only PDFs require prior OCR."
+    },
+    {
+      "question": "Can Foldora enforce exact vendor and date folders?",
+      "answer": "It has no arbitrary vendor/date rule editor or structured invoice-field extraction workflow. Use rules or dedicated document software for exact conventions. Foldora Date mode uses filesystem modification time, not an invoice date in the document."
+    },
+    {
+      "question": "Which suits a constantly changing inbox?",
+      "answer": "File Juggler is designed around monitoring and rules. Foldora suits selected batches whose suggested paths you want to approve. Both require testing and independent backups."
+    }
+  ],
+  "related": [
+    "alternatives",
+    "alternatives/dropit",
+    "docs/supported-file-types",
+    "docs/how-it-works"
+  ],
+  "contextualLinks": [
+    {
+      "before": "Check the ",
+      "anchor": "supported formats and analysis limits",
+      "href": "/docs/supported-file-types/",
+      "after": "."
+    },
+    {
+      "before": "Read about ",
+      "anchor": "local processing and privacy",
+      "href": "/docs/privacy/",
+      "after": "."
+    },
+    {
+      "before": "See ",
+      "anchor": "how preview and file moves work",
+      "href": "/docs/how-it-works/",
+      "after": "."
+    },
+    {
+      "before": "Review the ",
+      "anchor": "$14.99 one-time individual license",
+      "href": "/#pricing",
+      "after": " and current downloads before buying."
+    }
+  ],
+  "sources": [
+    {
+      "label": "File Juggler: conditions",
+      "url": "https://www.filejuggler.com/documentation/conditions/",
+      "note": "Content readers, text conditions and OCR requirements."
+    },
+    {
+      "label": "File Juggler: creating rules",
+      "url": "https://www.filejuggler.com/documentation/creating-rules/",
+      "note": "Monitored folders, matching-file list and backup precautions."
+    },
+    {
+      "label": "File Juggler: actions",
+      "url": "https://www.filejuggler.com/documentation/actions/",
+      "note": "Physical actions and configurable collision behavior."
+    },
+    {
+      "label": "File Juggler: trial and licensing",
+      "url": "https://www.filejuggler.com/faq/trial-and-licensing/",
+      "note": "Trial duration and paid registration; check the current checkout separately."
+    }
+  ]
+},
   {
     route: "alternatives/power-automate",
     kind: "comparison",
@@ -2693,88 +2802,137 @@ if (sortioBase) {
 
 seoPages.push(
   {
-    route: "alternatives/dropit",
-    kind: "comparison",
-    topic: "windows",
-    title: "Foldora vs DropIt: AI Suggestions or Windows Rules",
-    h1: "Foldora vs DropIt",
-    description:
-      "Compare Foldora and DropIt for Windows file organization, including AI suggestions, configurable rules, folder monitoring, previews, and platform support.",
-    eyebrow: "DropIt alternative for Windows",
-    updatedAt: "2026-09-19",
-    directAnswer:
-      "Choose Foldora when you want local AI to propose contextual folders and clearer filenames, followed by a human review step on Windows or macOS. Choose DropIt when you want free, open-source Windows automation built from explicit filters, profiles, monitored folders, and a broad set of actions. DropIt's official download page currently lists version 8.5.1 from 2018, so verify compatibility with your current Windows environment before depending on it.",
-    problemTitle: "The choice is contextual suggestions versus configured actions",
-    problem: [
-      "DropIt matches files using conditions such as name, location, size, dates, properties, content, or regular expressions, then performs a selected action. Its official feature set includes moving, copying, renaming, compressing, extracting, monitoring folders, and maintaining profiles. That depth is useful when the condition and result can be written down in advance.",
-      "Foldora serves a different workflow. It analyzes supported files locally, proposes categories and names, and asks the user to review the plan. It is more suitable when a mixed folder contains documents whose purpose is difficult to express as one stable filename or extension rule.",
-    ],
-    steps: [
-      "Separate predictable recurring rules from ambiguous backlog cleanup in your requirements.",
-      "For DropIt, test every filter and action on copied files and confirm current operating-system compatibility.",
-      "For Foldora, inspect each proposed destination and filename, especially for sensitive or authoritative records.",
-      "Keep a backup and compare correction effort as well as initial setup time before choosing either workflow.",
-    ],
-    examples: [
-      {
-        title: "Known extension workflow",
-        before: "Every ZIP file in one intake folder must move to the same archive location",
-        after:
-          "A DropIt association can express the condition and repeat the configured action",
-      },
-      {
-        title: "Mixed document backlog",
-        before: "Contracts, reports, research, and notes have inconsistent names and extensions",
-        after:
-          "Foldora proposes contextual categories and descriptive names for review",
-      },
-    ],
-    comparison: {
-      title: "Foldora and DropIt at a glance",
-      summary:
-        "Both reduce manual moving, but one starts with suggestions and the other starts with rules.",
-      rows: [
-        {
-          option: "Foldora",
-          bestFor: "Contextual, review-first organization on Windows or macOS",
-          tradeoff: "AI suggestions require human review and supported formats",
-        },
-        {
-          option: "DropIt",
-          bestFor: "Free Windows rules, profiles, monitoring, and varied file actions",
-          tradeoff: "Rules require setup; verify the older official release on current systems",
-        },
-        {
-          option: "Manual organization",
-          bestFor: "Small collections and consequential exceptions",
-          tradeoff: "Repeated filing effort grows as the collection changes",
-        },
-      ],
+  "route": "alternatives/dropit",
+  "kind": "comparison",
+  "topic": "windows",
+  "title": "Foldora vs DropIt: AI Filing or Rule-Based Actions?",
+  "h1": "Foldora vs DropIt: Which Workflow Do You Need?",
+  "description": "Compare Foldora reviewed AI filing with DropIt Windows rules, profiles and monitoring. See actions, previews, platforms, cost and recovery precautions.",
+  "eyebrow": "DropIt alternative for Windows",
+  "updatedAt": "2026-11-06",
+  "directAnswer": "Choose DropIt when you can define repeatable Windows rules and need copying, archiving or folder monitoring. Choose Foldora on Windows or macOS when you want to review suggested categories and filenames for a mixed backlog before moving files. DropIt also supports content filters and a loaded-file review step: the distinction is the workflow and action set, not content access versus no content access.",
+  "problemTitle": "Are you replacing a rule engine or sorting a backlog?",
+  "problem": [
+    "DropIt associates filters with actions and groups associations into profiles. You can drop files onto it or configure periodic folder scans. Content and regular-expression filters are different from a semantic category suggestion workflow. If an existing profile expresses your policy, AI suggestions may add uncertainty rather than solve a problem.",
+    "Foldora provides a selected-folder preview and approval of proposed moves and names. It does not replace a continuous monitor, arbitrary if/then editor, archive extractor or general copy/delete automation. Its separate Type and Date modes suit simple grouping; Date uses filesystem modification time, not dates extracted from document text.",
+    "Foldora uses filename signals as well as selective local content analysis; it does not read every document from beginning to end. Content extraction is skipped above 8 MiB. PDF text analysis samples the first three pages, with an OCR attempt limited to the first page when text is sparse and the local OCR dependency is available. Categories and proposed names need review.",
+    "Approving a Foldora plan physically moves and may rename files into organized_folder inside the selected folder. Preview is not a backup. Logged undo attempts reverse moves, but missing destination files or an occupied original path can prevent complete recovery. Keep an independent backup and verify the output.",
+    "DropIt also lets users inspect or skip loaded files before Start; an option starts processing automatically after loading. Test your profile and settings on disposable copies. Its official homepage currently offers version 8.5.1 from 2018: test compatibility with your Windows installation rather than assuming support or failure from age alone.",
+    "Publisher disclosure: Computora AI publishes Foldora. This is a product-selection guide, not an independent review. Official competitor documentation checked November 6, 2026; no comparative speed or accuracy test was performed."
+  ],
+  "steps": [
+    "List the required actions: review and move a backlog, or repeatedly copy, rename, archive or route arriving files.",
+    "For DropIt, create one association and profile using disposable copies. Inspect the loaded list and check automatic-start and monitoring settings.",
+    "For Foldora, select a copied sample folder and AI Content mode. Inspect proposed categories, filenames and destinations before approving.",
+    "Verify the physical output against your policy and retain backups. Choose rules when exact repeated conditions matter more than suggested categories."
+  ],
+  "examples": [
+    {
+      "title": "Illustrative rule task: downloaded archives",
+      "before": "New ZIP files must be copied to a fixed archive location and extracted.",
+      "after": "A suitable DropIt profile can express archive actions. Foldora can group an archive by name or type, but does not unpack its contents for semantic filing or replace that action chain."
     },
-    faqs: [
+    {
+      "title": "Illustrative Foldora task: a mixed backlog",
+      "before": "A copied folder contains text PDFs, DOCX notes and TXT records with inconsistent filenames.",
+      "after": "Review suggested categories and names, then approve physical moves. This illustrates the workflow, not measured accuracy or guaranteed output."
+    }
+  ],
+  "comparison": {
+    "title": "Compare the operation you actually need",
+    "summary": "Both tools provide ways to inspect files before processing. Their actions and ongoing automation differ.",
+    "headers": {
+      "option": "Decision",
+      "bestFor": "Foldora",
+      "tradeoff": "DropIt"
+    },
+    "rows": [
       {
-        question: "Is Foldora a DropIt alternative?",
-        answer:
-          "Yes, for organizing and renaming mixed files. Foldora emphasizes local AI suggestions and review, while DropIt emphasizes user-defined Windows rules and a larger range of configured actions.",
+        "option": "Starting work",
+        "bestFor": "Select a folder, inspect a plan, then approve.",
+        "tradeoff": "Drop files onto configured associations, or enable periodic monitoring."
       },
       {
-        question: "Is DropIt still available?",
-        answer:
-          "The official site still provides installer, portable, and source packages and lists version 8.5.1 dated 2018. Test it carefully on the Windows version you use today.",
+        "option": "Decision logic",
+        "bestFor": "Filename signals and selective local content analysis; no custom rule editor.",
+        "tradeoff": "Explicit filters, including content and regular expressions, grouped into profiles."
       },
       {
-        question: "Which is better for monitored folders?",
-        answer:
-          "DropIt explicitly supports scanning monitored folders at intervals. Foldora is the stronger fit when you prefer a bounded choose-preview-approve cleanup rather than continuous rules.",
+        "option": "Physical actions",
+        "bestFor": "Moves and proposed renames into an ordinary output folder.",
+        "tradeoff": "Broader actions including move, copy, rename, compress and extract."
       },
-    ],
-    related: [
-      "alternatives",
-      "alternatives/file-juggler",
-      "best-file-organizer-windows",
-      "alternatives/manual-organization",
-    ],
+      {
+        "option": "Review and recovery",
+        "bestFor": "Proposed tree before approval; limited logged undo. Keep backups.",
+        "tradeoff": "Inspect or skip loaded items before Start; optional automatic start changes this workflow. Test on copies."
+      },
+      {
+        "option": "Platform and cost",
+        "bestFor": "Windows 10/11 and macOS; $14.99 one-time. Internet for activation and periodic license checks.",
+        "tradeoff": "Free, open-source Windows software. Check official downloads and compatibility."
+      }
+    ]
   },
+  "faqs": [
+    {
+      "question": "Is DropIt only an extension-based sorter?",
+      "answer": "No. Its documented filters include name, directory, size, date, properties, content and regular expressions. Compare configurable actions with suggested categories rather than assuming only Foldora can use content."
+    },
+    {
+      "question": "Can Foldora replace monitoring and archive actions?",
+      "answer": "No. Foldora runs selected-folder plans with review and approval. Choose appropriate automation software when recurring monitoring, copying or archive actions are essential."
+    },
+    {
+      "question": "Does a preview replace a backup?",
+      "answer": "No. DropIt profiles can perform destructive actions, and Foldora approval changes physical paths and may rename files. Test copies and keep independent backups; Foldora undo depends on the files and paths still available."
+    }
+  ],
+  "related": [
+    "alternatives",
+    "alternatives/file-juggler",
+    "docs/how-it-works",
+    "docs/supported-file-types"
+  ],
+  "contextualLinks": [
+    {
+      "before": "Check the ",
+      "anchor": "supported formats and analysis limits",
+      "href": "/docs/supported-file-types/",
+      "after": "."
+    },
+    {
+      "before": "Read about ",
+      "anchor": "local processing and privacy",
+      "href": "/docs/privacy/",
+      "after": "."
+    },
+    {
+      "before": "See ",
+      "anchor": "how preview and file moves work",
+      "href": "/docs/how-it-works/",
+      "after": "."
+    },
+    {
+      "before": "Review the ",
+      "anchor": "$14.99 one-time individual license",
+      "href": "/#pricing",
+      "after": " and current downloads before buying."
+    }
+  ],
+  "sources": [
+    {
+      "label": "DropIt official downloads and capabilities",
+      "url": "https://www.dropitproject.com/",
+      "note": "Free Windows distribution, offered version and actions."
+    },
+    {
+      "label": "DropIt official guide",
+      "url": "https://www.dropitproject.com/assets/guides/GuideEN.pdf",
+      "note": "Associations, profiles, monitoring, loaded-file inspection and automatic-start settings."
+    }
+  ]
+},
   {
     route: "alternatives/tagspaces",
     kind: "comparison",
@@ -3027,90 +3185,84 @@ seoPages.push(
 );
 
 seoPages.push({
-  route: "alternatives",
-  kind: "comparison",
-  topic: "workflows",
-  title: "Best AI File Organizer Alternatives",
-  h1: "AI File Organizer Alternatives",
-  description:
-    "Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.",
-  eyebrow: "AI file organizer comparison hub",
-  updatedAt: "2026-09-19",
-  directAnswer:
-    "Choose Foldora when you want local, review-first file organization with proposed folders and filenames on Windows or macOS. NudgeFile focuses on monitored Windows folders, Sortio emphasizes cross-platform prompt routing, and DropIt provides explicit Windows rules and actions. TagSpaces is better suited to offline tags, search, and notes. Hazel, File Juggler, and Power Automate serve rule-based or broader automation workflows.",
-  problemTitle: "The right organizer depends on platform, privacy, and control",
-  problem: [
+  "route": "alternatives",
+  "kind": "comparison",
+  "topic": "workflows",
+  "title": "Best AI File Organizer Alternatives",
+  "h1": "AI File Organizer Alternatives",
+  "description": "Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.",
+  "eyebrow": "AI file organizer comparison hub",
+  "updatedAt": "2026-09-19",
+  "directAnswer": "Choose Foldora when you want local, review-first file organization with proposed folders and filenames on Windows or macOS. NudgeFile focuses on monitored Windows folders, Sortio emphasizes cross-platform prompt routing, and DropIt provides explicit Windows rules and actions. TagSpaces is better suited to offline tags, search, and notes. Hazel, File Juggler, and Power Automate serve rule-based or broader automation workflows.",
+  "problemTitle": "The right organizer depends on platform, privacy, and control",
+  "problem": [
     "Products described as AI file organizers can behave very differently. Some suggest categories from file context, some execute deterministic conditions, and others coordinate actions across cloud applications. A useful comparison should explain where processing occurs and what happens before a file moves.",
-    "Review controls matter because organization is contextual. Check whether the tool exposes exact destinations, proposed names, exclusions, collision behavior, history, and undo. Test sensitive or irreplaceable material only after you understand those safeguards and have a separate backup.",
+    "Review controls matter because organization is contextual. Check whether the tool exposes exact destinations, proposed names, exclusions, collision behavior, history, and undo. Test sensitive or irreplaceable material only after you understand those safeguards and have a separate backup."
   ],
-  steps: [
+  "steps": [
     "List the operating systems, folders, file types, and privacy requirements in your workflow.",
     "Decide whether you prefer AI suggestions, prompt-based routing, or explicit automation rules.",
     "Compare previews, rename control, conflicts, exclusions, audit history, undo, and recurring automation.",
-    "Run each shortlisted tool on a copied representative folder before committing to a large archive.",
+    "Run each shortlisted tool on a copied representative folder before committing to a large archive."
   ],
-  examples: [
+  "examples": [
     {
-      title: "Low-setup mixed folder cleanup",
-      before: "Invoices, reports, notes, images, and archives with inconsistent names",
-      after: "Foldora proposes contextual folders and names for review before applying moves",
+      "title": "Low-setup mixed folder cleanup",
+      "before": "Invoices, reports, notes, images, and archives with inconsistent names",
+      "after": "Foldora proposes contextual folders and names for review before applying moves"
     },
     {
-      title: "Predictable recurring intake",
-      before: "Known filename patterns must trigger the same action every week",
-      after: "A rule-based organizer may provide more explicit recurring control",
-    },
+      "title": "Predictable recurring intake",
+      "before": "Known filename patterns must trigger the same action every week",
+      "after": "A rule-based organizer may provide more explicit recurring control"
+    }
   ],
-  comparison: {
-    title: "File organizer alternatives by workflow",
-    summary:
-      "Platform support and control model are more useful selection criteria than a long generic feature checklist.",
-    rows: [
+  "comparison": {
+    "title": "File organizer alternatives by workflow",
+    "summary": "Platform support and control model are more useful selection criteria than a long generic feature checklist.",
+    "rows": [
       {
-        option: "Foldora",
-        bestFor: "Local AI suggestions with preview-first folders and renaming",
-        tradeoff: "Suggestions still need human review for ambiguous files",
+        "option": "Foldora",
+        "bestFor": "Local AI suggestions with preview-first folders and renaming",
+        "tradeoff": "Suggestions still need human review for ambiguous files"
       },
       {
-        option: "Sortio",
-        bestFor: "Prompt-based cross-platform routing and ongoing automation",
-        tradeoff: "Processing and automation settings require careful review",
+        "option": "Sortio",
+        "bestFor": "Prompt-based cross-platform routing and ongoing automation",
+        "tradeoff": "Processing and automation settings require careful review"
       },
       {
-        option: "NudgeFile",
-        bestFor: "Monitored Windows folders, routing, and recurring workflows",
-        tradeoff: "Automation, recovery, and duplicate settings need evaluation",
+        "option": "NudgeFile",
+        "bestFor": "Monitored Windows folders, routing, and recurring workflows",
+        "tradeoff": "Automation, recovery, and duplicate settings need evaluation"
       },
       {
-        option: "DropIt or TagSpaces",
-        bestFor: "Explicit Windows actions or offline tag-based retrieval",
-        tradeoff: "Different setup and metadata models from AI folder suggestions",
+        "option": "DropIt or TagSpaces",
+        "bestFor": "Explicit Windows actions or offline tag-based retrieval",
+        "tradeoff": "Different setup and metadata models from AI folder suggestions"
       },
       {
-        option: "Hazel, File Juggler, or Power Automate",
-        bestFor: "Explicit rules or broader workflow automation",
-        tradeoff: "More configuration than a focused suggestion-based organizer",
-      },
-    ],
+        "option": "Hazel, File Juggler, or Power Automate",
+        "bestFor": "Explicit rules or broader workflow automation",
+        "tradeoff": "More configuration than a focused suggestion-based organizer"
+      }
+    ]
   },
-  faqs: [
+  "faqs": [
     {
-      question: "What is the best Foldora alternative?",
-      answer:
-        "NudgeFile is relevant for monitored Windows workflows, Sortio for prompt routing, DropIt for explicit Windows actions, TagSpaces for offline tags and search, Hazel for macOS rules, and File Juggler for Windows rules. The best choice depends on your retrieval and control model.",
+      "question": "What is the best Foldora alternative?",
+      "answer": "NudgeFile is relevant for monitored Windows workflows, Sortio for prompt routing, DropIt for explicit Windows actions, TagSpaces for offline tags and search, Hazel for macOS rules, and File Juggler for Windows rules. The best choice depends on your retrieval and control model."
     },
     {
-      question: "Is Foldora better than a rule-based organizer?",
-      answer:
-        "Foldora reduces rule authoring by suggesting folders and names. A rule-based organizer is better when conditions are predictable and you want every action explicitly configured.",
+      "question": "Is Foldora better than a rule-based organizer?",
+      "answer": "Foldora reduces rule authoring by suggesting folders and names. A rule-based organizer is better when conditions are predictable and you want every action explicitly configured."
     },
     {
-      question: "Can I compare Foldora changes before files move?",
-      answer:
-        "Yes. Foldora is built around reviewing proposed folders and filenames before applying organization to the selected files.",
-    },
+      "question": "Can I compare Foldora changes before files move?",
+      "answer": "Yes. Foldora is built around reviewing proposed folders and filenames before applying organization to the selected files."
+    }
   ],
-  related: [
+  "related": [
     "alternatives/nudgefile",
     "alternatives/ai-file-sorter",
     "alternatives/dropit",
@@ -3118,8 +3270,22 @@ seoPages.push({
     "alternatives/sortio",
     "alternatives/hazel",
     "alternatives/file-juggler",
-    "alternatives/power-automate",
+    "alternatives/power-automate"
   ],
+  "contextualLinks": [
+    {
+      "before": "For reusable Windows profiles and actions, compare ",
+      "anchor": "Foldora with DropIt",
+      "href": "/alternatives/dropit/",
+      "after": "."
+    },
+    {
+      "before": "For documents following exact content conditions as they arrive, compare ",
+      "anchor": "Foldora with File Juggler",
+      "href": "/alternatives/file-juggler/",
+      "after": "."
+    }
+  ]
 });
 
 seoPages.push({
