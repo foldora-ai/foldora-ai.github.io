@@ -725,7 +725,7 @@ ${analyticsHead()}
 ${renderEvidence(page)}
     <section>
       <h2>${escapeHtml(page.problemTitle)}</h2>
-      ${page.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      ${page.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${page.contextualLinks?.map((link) => `<p>${escapeHtml(link.before)}<a href="${escapeHtml(link.href)}">${escapeHtml(link.anchor)}</a>${escapeHtml(link.after)}</p>`).join("") ?? ""}
     </section>
     <section>
       <h2>Step-by-step workflow</h2>

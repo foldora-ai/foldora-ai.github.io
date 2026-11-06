@@ -163,6 +163,11 @@ const SeoContentPage = () => {
                 {paragraph}
               </p>
             ))}
+            {page.contextualLinks?.map((link) => (
+              <p key={link.href} className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                {link.before}<a className="text-primary underline underline-offset-4" href={link.href}>{link.anchor}</a>{link.after}
+              </p>
+            ))}
           </section>
 
           <section>

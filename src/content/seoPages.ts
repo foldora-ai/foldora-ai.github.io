@@ -25,6 +25,13 @@ export interface SeoFaq {
   answer: string;
 }
 
+export interface ContextualLink {
+  before: string;
+  anchor: string;
+  href: string;
+  after: string;
+}
+
 export interface SeoComparison {
   title: string;
   summary: string;
@@ -68,6 +75,7 @@ export interface SeoPage {
   directAnswer: string;
   problemTitle: string;
   problem: string[];
+  contextualLinks?: ContextualLink[];
   steps: string[];
   examples: SeoExample[];
   comparison: SeoComparison;
@@ -235,6 +243,9 @@ export const seoPages: SeoPage[] = [
       "For confidential PDFs, invoices, or client documents, also verify where analysis happens. A local workflow reduces the need to send file content to an external service.",
       "Compare the complete buying terms as well: one-time purchase or subscription, trial limits, supported Windows versions, update terms, and the recovery controls available if a result is wrong.",
       "Within Foldora, choose AI Content for context-based suggestions, Type for Category / Extension folders, or Date for Year / Month folders based on each file's modified date. Date mode does not extract an invoice date from a PDF or use a photo's capture date. If grouping by extension or modified date already solves the problem, you do not need content analysis for that run.",
+    ],
+    contextualLinks: [
+      { before: "For invoice batches, see ", anchor: "how Foldora handles invoice content versus exact vendor and date rules", href: "/blog/organize-invoices-automatically/", after: "." },
     ],
     steps: [
       "Choose one real folder and list the result you need: batch cleanup, recurring routing, renaming, or a broader business workflow.",
@@ -1026,6 +1037,9 @@ export const seoPages: SeoPage[] = [
       "Content analysis has an 8 MiB per-file size guard. For a PDF whose first page has fewer than 50 extracted characters, the reader attempts local OCR on that page at 150 dpi. This requires a working OCR runtime and can fail; it is not full-document OCR. A photograph of an invoice is not a supported structured invoice-extraction workflow. Unreadable text, scans and larger files need manual checking, and filename fallbacks may still suggest a category.",
       "Foldora runs on Windows 10/11 and macOS. Document analysis is local; purchase, download, license activation, periodic license validation and updates require internet access. This guide is published by Computora AI, Foldora's publisher.",
     ],
+    contextualLinks: [
+      { before: "Comparing low-setup AI suggestions with Windows rules tools? Use the ", anchor: "Windows file organizer comparison", href: "/best-file-organizer-windows/", after: " to choose the workflow that fits." },
+    ],
     steps: [
       "Back up a small invoice batch and select it in Foldora. Choose AI Content for category and naming suggestions; do not expect exact vendor/date routing controls.",
       "Generate Preview. Compare each proposed folder and filename with the actual invoice, especially scans, ambiguous names, large files and fields on later pages.",
@@ -1764,6 +1778,10 @@ export const seoPages: SeoPage[] = [
       "The same client may generate bank statements, invoices, payroll exports, tax records, correspondence, and completed reports. Generic year folders are not enough when several entities and filing periods are involved.",
       "These documents often contain personal and financial information. Any automated organizer should be evaluated for storage location, access, auditability, and data handling.",
     ],
+    contextualLinks: [
+      { before: "For local invoice filing, read the ", anchor: "invoice content and exact-field guide", href: "/blog/organize-invoices-automatically/", after: "." },
+      { before: "If you are choosing an organizer for a Windows workstation, compare ", anchor: "Windows organizer workflows and limits", href: "/best-file-organizer-windows/", after: "." },
+    ],
     steps: [
       "Create a client or entity folder with accounting-period subfolders.",
       "Separate Source, Workpapers, Correspondence, and Final Deliverables.",
@@ -1822,7 +1840,6 @@ export const seoPages: SeoPage[] = [
       },
     ],
     related: [
-      "blog/organize-invoices-automatically",
       "use-cases/small-business",
       "features/offline-processing",
       "docs/privacy",
