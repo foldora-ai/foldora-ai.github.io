@@ -41,6 +41,7 @@
 - [File Organization for Real Estate Agents](https://foldoraai.com/use-cases/real-estate-agents/): Organize real-estate transaction files by property, stage, document type, and status while keeping client records, working copies, and final documents distinct.
 - [File Organization for Teachers](https://foldoraai.com/use-cases/teachers/): Organize lesson plans, worksheets, slides, assessments, classroom resources, and administrative files by school year, course, unit, and teaching purpose.
 - [AI File Organizer Alternatives](https://foldoraai.com/alternatives/): Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.
+- [Foldora vs AI Sorter](https://foldoraai.com/alternatives/ai-file-sorter/): Compare Foldora and AI File Sorter by price, platforms, local models, file analysis, previews, and workflow limits before choosing an organizer.
 
 ## Documentation
 

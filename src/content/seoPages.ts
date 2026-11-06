@@ -111,6 +111,14 @@ export const seoPages: SeoPage[] = [
       "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
       "Foldora is best suited to a focused folder that contains mixed or inconsistently named files. If every action can be expressed as a fixed condition and must run continuously, a rule-based organizer may be a better fit; Foldora emphasizes a bounded choose, preview, and approve workflow.",
     ],
+    contextualLinks: [
+      {
+        before: "If you are comparing another local AI organizer, see ",
+        anchor: "Foldora vs AI File Sorter",
+        href: "/alternatives/ai-file-sorter/",
+        after: " for the differences in pricing, model setup, and supported workflows.",
+      },
+    ],
     steps: [
       "Choose a folder such as Downloads, Desktop, or a project archive on Windows or macOS.",
       "Let Foldora analyze filenames and supported file content locally.",
@@ -218,6 +226,7 @@ export const seoPages: SeoPage[] = [
     },
     related: [
       "best-file-organizer-windows",
+      "alternatives/ai-file-sorter",
       "organize-files-windows",
       "blog/foldora-file-organizer-benchmark",
       "rename-files-automatically",
@@ -246,6 +255,7 @@ export const seoPages: SeoPage[] = [
     ],
     contextualLinks: [
       { before: "For invoice batches, see ", anchor: "how Foldora handles invoice content versus exact vendor and date rules", href: "/blog/organize-invoices-automatically/", after: "." },
+      { before: "For another local AI option, compare ", anchor: "Foldora with AI File Sorter", href: "/alternatives/ai-file-sorter/", after: " by model setup, price, and workflow." },
     ],
     steps: [
       "Choose one real folder and list the result you need: batch cleanup, recurring routing, renaming, or a broader business workflow.",
@@ -356,6 +366,7 @@ export const seoPages: SeoPage[] = [
     related: [
       "ai-file-organizer",
       "alternatives/file-juggler",
+      "alternatives/ai-file-sorter",
       "alternatives/power-automate",
       "organize-files-windows",
       "docs/supported-file-types",
@@ -3101,12 +3112,173 @@ seoPages.push({
   ],
   related: [
     "alternatives/nudgefile",
+    "alternatives/ai-file-sorter",
     "alternatives/dropit",
     "alternatives/tagspaces",
     "alternatives/sortio",
     "alternatives/hazel",
     "alternatives/file-juggler",
     "alternatives/power-automate",
+  ],
+});
+
+seoPages.push({
+  route: "alternatives/ai-file-sorter",
+  kind: "comparison",
+  topic: "workflows",
+  title: "AI File Sorter Alternative: Foldora Compared",
+  h1: "Foldora vs AI Sorter",
+  description:
+    "Compare Foldora and AI File Sorter by price, platforms, local models, file analysis, previews, and workflow limits before choosing an organizer.",
+  eyebrow: "AI file organizer alternative",
+  updatedAt: "2026-11-06",
+  directAnswer:
+    "Choose AI File Sorter if you want a free, open-source organizer, Linux support, and more choice over local or cloud models. Choose Foldora if you want a paid Windows or Mac app with its analysis models bundled, a focused set of modes, and a preview before you approve moves and renames. Both support review-first batch organization; neither is a continuous watched-folder service.",
+  problemTitle: "The main trade-off is model control versus a focused setup",
+  problem: [
+    "Publisher disclosure: this comparison is published by Computora AI, the company behind Foldora. We checked AI File Sorter's official home, features, download, pricing, and FAQ pages on November 6, 2026. Its site describes a free, open-source core app, optional paid Windows Explorer Extension, and versions for Windows, macOS, and Linux.",
+    "AI File Sorter offers several local model choices and can also use a cloud provider with your own account. That flexibility can suit people who want model control, image-analysis options, or Linux support. The trade-off is choosing and managing models and checking hardware fit; its own guidance notes local image analysis can be resource-intensive. Its FAQ says scanned PDFs need OCR first and that the app is a batch tool, not an always-running background service.",
+    "Foldora packages its local analysis models and presents AI Content, Type, and Date workflows in a Windows/macOS desktop app. AI Content makes category and filename suggestions from filenames and supported content; it does not promise exact invoice-field extraction or let you create arbitrary if-then rules. PDF text sampling, OCR attempts, and the 8 MiB content-reading limit can leave details unseen. File analysis runs locally, but activation and periodic license validation need internet access.",
+    "Neither product is a dedicated duplicate-cleanup or continuous-monitoring solution. Foldora's planner can annotate byte-identical files within a selected plan, but that is not a similarity search or a standalone duplicate-review workflow. AI File Sorter's FAQ says duplicate detection is not currently supported. For explicit recurring conditions and actions, a rule-based tool such as File Juggler on Windows may fit better.",
+  ],
+  contextualLinks: [
+    {
+      before: "For a format-by-format explanation of Foldora's content-reading limits, see ",
+      anchor: "supported file types and analysis limits",
+      href: "/docs/supported-file-types/",
+      after: ".",
+    },
+    {
+      before: "For the individual one-time offer, see ",
+      anchor: "Foldora pricing and checkout",
+      href: "/#pricing",
+      after: ".",
+    },
+  ],
+  steps: [
+    "Choose the operating systems you need: Foldora supports Windows 10/11 and Intel or Apple Silicon Macs; AI File Sorter currently lists Windows 10+, Apple Silicon Macs, and Linux builds.",
+    "Decide whether you want fixed bundled models or the ability to select local models and optionally connect your own cloud provider.",
+    "Compare supported content carefully: both can classify supported documents and images, but AI File Sorter documents more format and provider choices; Foldora has bounded PDF sampling and OCR behavior.",
+    "Run a small copied folder through each preview, inspect every destination and suggested name, and keep a separate backup before applying a large cleanup.",
+  ],
+  examples: [
+    {
+      title: "Illustrative Foldora workflow — synthetic files, not a benchmark",
+      before:
+        "A selected test folder contains invoice.txt with office-supply text and recipe.txt with recipe text.",
+      after:
+        "In a verified synthetic run, Foldora proposed Finance/Invoices/synthetic_invoice_office_paper.txt and Personal/Recipes/synthetic_cooking_recipe_mix_flour.txt. The user reviewed the plan before approving the moves. This demonstrates category suggestions, not invoice-number or date extraction.",
+    },
+    {
+      title: "When AI File Sorter is the better choice",
+      before:
+        "You need a no-cost, open-source tool, Linux support, selectable local models, or the option to use your own cloud provider.",
+      after:
+        "AI File Sorter is the stronger fit if you are comfortable choosing models and checking their hardware requirements.",
+    },
+  ],
+  comparison: {
+    title: "Foldora and AI File Sorter compared",
+    summary:
+      "Details checked against each publisher's current public documentation on November 6, 2026. Prices and availability can change.",
+    rows: [
+      {
+        option: "Platforms",
+        bestFor: "Foldora: Windows 10/11 and macOS on Intel or Apple Silicon",
+        tradeoff: "AI File Sorter: Windows 10+, Apple Silicon macOS, and listed Linux distributions",
+      },
+      {
+        option: "Price model",
+        bestFor: "$14.99 one-time purchase for Foldora",
+        tradeoff: "AI File Sorter core app is free and open source; its optional Windows Explorer Extension is paid, and support is optional",
+      },
+      {
+        option: "Models and processing",
+        bestFor: "Foldora's bundled models analyze supported files locally; internet is still needed for activation and periodic license validation",
+        tradeoff: "AI File Sorter supports local models and optional user-supplied cloud providers; local-model choice and hardware are part of setup",
+      },
+      {
+        option: "Workflow and review",
+        bestFor: "Foldora offers AI Content, Type, or modified-Date organization, then previews a selected-folder plan before approval",
+        tradeoff: "AI File Sorter offers guided cleanup jobs, configurable categories, model options, and a review step before applying changes",
+      },
+      {
+        option: "Content limits",
+        bestFor: "Foldora supports PDF, DOCX, TXT, XLSX, CSV, PPT/PPTX, PNG/JPG/JPEG/GIF/WEBP, and ZIP; content reading varies by type, and PDFs are sampled",
+        tradeoff: "AI File Sorter documents content analysis for supported documents and images plus metadata-based audio/video naming; its FAQ says scanned PDFs need OCR first",
+      },
+      {
+        option: "Exact rules and fields",
+        bestFor: "Foldora suggests categories and short names; it is not a user-defined if-then rule editor or structured invoice-field extractor",
+        tradeoff: "AI File Sorter supports category whitelists, but its documented AI workflow is suggestions and review, not guaranteed extraction of exact business fields",
+      },
+      {
+        option: "Duplicates and monitoring",
+        bestFor: "Foldora can annotate exact-content duplicates in a selected plan, but does not provide a standalone duplicate-search workflow or folder watcher",
+        tradeoff: "AI File Sorter states it does not currently detect duplicates and is designed for batch runs, not a continuously running background service",
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "Is AI File Sorter free compared with Foldora?",
+      answer:
+        "AI File Sorter's publisher describes its core app as free and open source, with an optional paid Windows Explorer Extension and optional support. Foldora is a $14.99 one-time purchase. This is a trade-off between price/model flexibility and Foldora's bundled, focused workflow.",
+    },
+    {
+      question: "Can either product organize files fully offline?",
+      answer:
+        "AI File Sorter says local models can run offline, while cloud models require your provider connection. Foldora analyzes files locally, but purchase, activation, periodic license validation, and updates require internet at the relevant times.",
+    },
+    {
+      question: "Does Foldora extract invoice dates or exact fields?",
+      answer:
+        "No. Foldora classifies supported file content and suggests categories and short filenames. It does not promise structured vendor, invoice-number, or invoice-date extraction, and its Date mode uses the file's modified date rather than a date read from document contents.",
+    },
+    {
+      question: "Which is better for exact recurring rules or duplicate cleanup?",
+      answer:
+        "Neither is designed as a continuously watched if-then rule engine. Foldora can annotate byte-identical files in a selected plan but is not a dedicated duplicate manager; AI File Sorter says duplicate detection is not currently supported. Consider a rules tool for exact recurring triggers and a dedicated duplicate utility for collection-wide duplicate review.",
+    },
+  ],
+  related: [
+    "best-file-organizer-windows",
+    "ai-file-organizer",
+    "docs/supported-file-types",
+    "docs/privacy",
+    "alternatives/file-juggler",
+  ],
+  sources: [
+    {
+      label: "AI File Sorter official overview",
+      url: "https://filesorter.app/",
+      note: "Publisher overview of platforms, supported file types, local/cloud processing, review flow, and open-source status; checked November 6, 2026.",
+    },
+    {
+      label: "AI File Sorter official features",
+      url: "https://filesorter.app/features/",
+      note: "Publisher details on model choices, content analysis, review, undo, and hardware guidance; checked November 6, 2026.",
+    },
+    {
+      label: "AI File Sorter official downloads",
+      url: "https://filesorter.app/download/",
+      note: "Publisher platform and minimum OS listings; checked November 6, 2026.",
+    },
+    {
+      label: "AI File Sorter official pricing and comparison",
+      url: "https://filesorter.app/pricing/",
+      note: "Publisher's current free core, paid optional Explorer Extension, and support model; checked November 6, 2026.",
+    },
+    {
+      label: "AI File Sorter official FAQ",
+      url: "https://filesorter.app/faq/",
+      note: "Publisher's current notes on offline models, OCR, duplicates, setup, and batch workflow; checked November 6, 2026.",
+    },
+    {
+      label: "AlternativeTo: AI File Sorter alternatives",
+      url: "https://alternativeto.net/software/ai-file-sorter/",
+      note: "Public software-discovery page explicitly listing alternatives for AI File Sorter; used as evidence of comparison intent, not search-volume data; checked November 6, 2026.",
+    },
   ],
 });
 
