@@ -11,8 +11,12 @@ if (redirect) {
   window.history.replaceState(null, "", redirect);
 }
 
-createRoot(document.getElementById("root")!).render(
+const root = document.getElementById("root")!;
+// Keep the server-provided content usable while the initial route chunk loads.
+const initialPage = { pathname: window.location.pathname, html: root.innerHTML };
+
+createRoot(root).render(
   <HelmetProvider>
-    <App />
+    <App initialPage={initialPage} />
   </HelmetProvider>
 );
