@@ -683,6 +683,7 @@ function renderMainPage(page: SeoPage): string {
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
+  const hideBundle = singleOffer || page.route === "alternatives/sortio";
 
   return `<!doctype html>
 <html lang="en">
@@ -735,8 +736,8 @@ ${analyticsHead()}
       <div class="eyebrow">${escapeHtml(page.eyebrow)}</div>
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="lede">${escapeHtml(page.description)}</p>
-      ${page.route === "ai-file-organizer" ? `<p><a href="/${FRENCH_ROUTE}/" lang="fr" hreflang="fr">Lire cette page en français</a></p>` : ""}
-      ${page.route === "ai-file-organizer" ? `<div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p></div>` : ""}
+${page.route === "ai-file-organizer" ? `      <p><a href="/${FRENCH_ROUTE}/" lang="fr" hreflang="fr">Lire cette page en français</a></p>` : ""}
+${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p></div>` : ""}
     </div>
   </section>
   <main class="container">
@@ -801,8 +802,8 @@ ${page.sources ? `    <section>
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
-      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${singleOffer ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
-${singleOffer ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
+      <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${hideBundle ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
+${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
     </section>
   </main>
   ${renderPageFooter(!singleOffer)}

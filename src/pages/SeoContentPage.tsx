@@ -40,6 +40,7 @@ const SeoContentPage = () => {
   }
 
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
+  const hideBundle = singleOffer || page.route === "alternatives/sortio";
 
   const comparisonSection = (
           <section aria-labelledby={page.comparisonFirst ? "organizer-selection" : undefined}>
@@ -301,11 +302,11 @@ const SeoContentPage = () => {
                 {...checkoutTrackingAttributes("gumroad", page.route)}
                 className="content-primary-button"
               >
-                {singleOffer
+                {hideBundle
                   ? `Get Foldora - ${product.price.display}`
                   : "Get Foldora"}
               </a>
-              {!singleOffer && (
+              {!hideBundle && (
                 <a
                   href={bundleUrl}
                   target="_blank"
