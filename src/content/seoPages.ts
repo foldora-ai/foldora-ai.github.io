@@ -117,7 +117,7 @@ export const seoPages: SeoPage[] = [
     {
       "before": "Check ",
       "anchor": "Foldora's individual license and pricing",
-      "href": "/#download",
+      "href": "/#pricing",
       "after": " once the selected-folder workflow fits your needs. The current price is $14.99 as a one-time purchase."
     },
     {
@@ -1590,7 +1590,7 @@ export const seoPages: SeoPage[] = [
     contextualLinks: [
       { before: "For the boundary between file processing, checkout, and optional website services, read ", anchor: "Foldora's privacy explanation", href: "/docs/privacy/", after: "." },
       { before: "Before testing a mixed folder, check the ", anchor: "supported formats and content-analysis limits", href: "/docs/supported-file-types/", after: "; unsupported or unreadable content needs manual review." },
-      { before: "If periodic online licensing fits your workflow, see ", anchor: "Foldora's $14.99 one-time license and purchase options", href: "/#download", after: ". A lifetime purchase does not remove periodic validation." },
+      { before: "If periodic online licensing fits your workflow, see ", anchor: "Foldora's $14.99 one-time license and purchase options", href: "/#pricing", after: ". A lifetime purchase does not remove periodic validation." },
     ],
     steps: [
       "While connected, download and install the complete package, activate normally, and generate a preview from a small folder to check model initialization before traveling. Keep an independent backup of the original files.",
