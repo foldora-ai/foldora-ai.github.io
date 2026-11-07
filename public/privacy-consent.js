@@ -121,6 +121,7 @@
 
   function mountControls() {
     if (document.getElementById("foldora-privacy-banner")) return;
+    var french = document.documentElement.lang === "fr";
 
     var style = document.createElement("style");
     style.textContent =
@@ -138,14 +139,20 @@
     banner.id = "foldora-privacy-banner";
     banner.className = "foldora-privacy";
     banner.setAttribute("role", "dialog");
-    banner.setAttribute("aria-label", "Privacy choices");
-    banner.innerHTML =
-      "<p><strong>Privacy choices</strong><br>Allow optional analytics and support chat?</p>" +
-      "<div class=\"foldora-privacy-actions\">" +
-      "<button type=\"button\" data-reject>Reject</button>" +
-      "<button type=\"button\" data-accept>Allow</button>" +
-      "<a href=\"/docs/privacy/\">Privacy details</a>" +
-      "</div>";
+    banner.setAttribute("aria-label", french ? "Choix de confidentialité" : "Privacy choices");
+    banner.innerHTML = french
+      ? "<p><strong>Confidentialité</strong><br>Autoriser les statistiques facultatives et le chat d'assistance ?</p>" +
+        "<div class=\"foldora-privacy-actions\">" +
+        "<button type=\"button\" data-reject>Refuser</button>" +
+        "<button type=\"button\" data-accept>Autoriser</button>" +
+        "<a href=\"/docs/privacy/\" lang=\"en\">Détails (en anglais)</a>" +
+        "</div>"
+      : "<p><strong>Privacy choices</strong><br>Allow optional analytics and support chat?</p>" +
+        "<div class=\"foldora-privacy-actions\">" +
+        "<button type=\"button\" data-reject>Reject</button>" +
+        "<button type=\"button\" data-accept>Allow</button>" +
+        "<a href=\"/docs/privacy/\">Privacy details</a>" +
+        "</div>";
     document.body.appendChild(banner);
 
     banner.querySelector("[data-reject]").addEventListener("click", function () {
@@ -165,8 +172,9 @@
 
     if (hasBrowserPrivacySignal()) {
       var message = banner.querySelector("p");
-      message.innerHTML =
-        "<strong>Privacy signal detected</strong><br>Optional services are off.";
+      message.innerHTML = french
+        ? "<strong>Signal de confidentialité détecté</strong><br>Les services facultatifs sont désactivés."
+        : "<strong>Privacy signal detected</strong><br>Optional services are off.";
       banner.querySelector("[data-accept]").hidden = true;
     }
 

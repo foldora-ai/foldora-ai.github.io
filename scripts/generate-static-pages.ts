@@ -18,6 +18,8 @@ const OUTPUT_DIR = path.resolve("public");
 const SOCIAL_IMAGE_SOURCE = path.resolve("src/assets/foldora-demo.png");
 const SOCIAL_IMAGE_PATH = "/foldora-social-preview.png";
 const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
+const FRENCH_ROUTE = "fr/organisateur-fichiers-ia";
+const FRENCH_URL = `${SITE_URL}/${FRENCH_ROUTE}/`;
 const HOME_UPDATED_AT = "2026-11-05";
 const SUPPORT_UPDATED_AT = "2026-09-08";
 const CATEGORY_UPDATED_AT: Record<string, string> = {
@@ -692,7 +694,8 @@ function renderMainPage(page: SeoPage): string {
   <meta name="robots" content="${robots}">
   <meta name="author" content="Foldora AI">
   <link rel="canonical" href="${canonical}">
-  <link rel="alternate" hrefLang="en" href="${canonical}">
+  <link rel="alternate" hrefLang="en" href="${canonical}">${page.route === "ai-file-organizer" ? `
+  <link rel="alternate" hreflang="fr" href="${FRENCH_URL}">` : ""}
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="${page.kind === "landing" ? "website" : "article"}">
@@ -732,6 +735,7 @@ ${analyticsHead()}
       <div class="eyebrow">${escapeHtml(page.eyebrow)}</div>
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="lede">${escapeHtml(page.description)}</p>
+      ${page.route === "ai-file-organizer" ? `<p><a href="/${FRENCH_ROUTE}/" lang="fr" hreflang="fr">Lire cette page en français</a></p>` : ""}
       ${page.route === "ai-file-organizer" ? `<div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p></div>` : ""}
     </div>
   </section>
@@ -802,6 +806,104 @@ ${singleOffer ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" tar
     </section>
   </main>
   ${renderPageFooter(!singleOffer)}
+  ${TAWK_LOADER_TAG}
+</body>
+</html>`;
+}
+
+function renderFrenchAiFileOrganizer(): string {
+  const title = "Organisateur de fichiers IA pour Windows et Mac : vérifiez avant de déplacer";
+  const description = "Foldora classe les fichiers d'un dossier avec une IA locale. Vérifiez les propositions avant de les appliquer. Windows 10/11 et macOS, licence à 14,99 $ en paiement unique.";
+  const checkout = trackedCheckout("seo-page-fr", "organisateur-fichiers-ia");
+  const checkoutAttributes = checkoutTrackingAttributes("fr/organisateur-fichiers-ia");
+  const faqs = [
+    ["Mes fichiers sont-ils envoyés dans le cloud ?", "Non. L'analyse et l'organisation des fichiers pris en charge se font localement. Un accès à Internet reste nécessaire pour l'achat, le téléchargement, l'activation de la licence et sa validation périodique."],
+    ["Puis-je vérifier les changements avant le déplacement ?", "Oui. Foldora affiche la structure et les nouveaux noms proposés avant leur application. Vérifiez les suggestions incertaines et gardez une sauvegarde avant une opération importante."],
+    ["Quels systèmes sont pris en charge ?", "Windows 10, Windows 11 et macOS sur processeurs Intel ou Apple Silicon. L'interface actuelle de l'application est en anglais ; cette page en français ne traduit pas le logiciel."],
+    ["Quels formats peut-il analyser ?", "Foldora prend notamment en charge PDF, DOCX, TXT, XLSX, CSV, PPT, PPTX, PNG, JPG, GIF, WEBP et ZIP. La profondeur de l'analyse dépend du format ; une archive ZIP ou un programme d'installation n'est pas lu comme un document."],
+    ["Lit-il tous les PDF numérisés ?", "Non. Pour un PDF, l'analyse porte au maximum sur les trois premières pages et les fichiers de plus de 8 Mio ne sont pas lus pour leur contenu. Une reconnaissance locale de texte peut être tentée sur la première page si le texte intégré est insuffisant ; ce n'est pas une lecture OCR de tout le document."],
+    ["Comprend-il le contenu en français ?", "La prise en charge fiable de l'analyse de contenu en français n'est pas vérifiée. Testez d'abord un petit dossier représentatif et examinez chaque proposition avant de l'appliquer."],
+    ["Surveille-t-il automatiquement mes dossiers ?", "Non. Vous choisissez un dossier et lancez une analyse ponctuelle. Foldora ne surveille pas les dossiers en continu et ne garantit pas un classement correct pour chaque fichier ambigu."],
+    ["Quel est le prix et comment recevoir le logiciel ?", `La licence individuelle est actuellement proposée à ${product.price.display} en paiement unique, sans abonnement. L'achat et la livraison du téléchargement et de la licence passent par une page de paiement en anglais.`],
+  ];
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${FRENCH_URL}#page`,
+    url: FRENCH_URL,
+    name: title,
+    description,
+    inLanguage: "fr",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+  }).replaceAll("<", "\\u003c");
+
+  return `<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>${escapeHtml(title)} | Foldora</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="author" content="Foldora AI">
+  <link rel="canonical" href="${FRENCH_URL}">
+  <link rel="alternate" hreflang="fr" href="${FRENCH_URL}">
+  <link rel="alternate" hreflang="en" href="${SITE_URL}/ai-file-organizer/">
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${FRENCH_URL}">
+  <meta property="og:site_name" content="Foldora AI">
+  <meta property="og:image" content="${SOCIAL_IMAGE_URL}">
+  <meta property="og:image:alt" content="Aperçu de Foldora AI">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
+  <meta name="twitter:url" content="${FRENCH_URL}">
+  <script type="application/ld+json">${schema}</script>
+${analyticsHead()}
+  <style>${pageStyles()}</style>
+</head>
+<body>
+  <header class="site-header"><nav class="container site-nav" aria-label="Navigation principale">
+    <a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a>
+    <div class="nav-links"><a href="#fonctionnement">Fonctionnement</a><a href="#formats">Formats et limites</a><a href="#questions">Questions</a><a href="/#pricing" lang="en">Prix (en anglais)</a><a href="/ai-file-organizer/" lang="en" hreflang="en">English</a></div>
+    <a class="mobile-menu" href="/ai-file-organizer/" lang="en" hreflang="en" aria-label="Read this page in English">English</a>
+    <a class="nav-cta" href="${checkout}" ${checkoutAttributes}>Acheter Foldora</a>
+  </nav></header>
+  <div class="container breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil (en anglais)</a> / <span aria-current="page">Organisateur de fichiers IA</span></div>
+  <section class="hero"><div class="container">
+    <div class="eyebrow">Classement local de fichiers avec IA</div>
+    <h1>${escapeHtml(title)}</h1>
+    <p class="lede">${escapeHtml(description)}</p>
+    <div class="hero-cta"><a class="button" href="${checkout}" ${checkoutAttributes}>Acheter Foldora — ${escapeHtml(product.price.display)} (paiement en anglais)</a><p>Licence individuelle en paiement unique. Windows 10/11 et macOS sur Intel ou Apple Silicon.</p></div>
+  </div></section>
+  <main class="container">
+    <section class="answer"><h2>En bref</h2><p>Foldora est un logiciel de bureau qui propose un classement et des noms plus clairs pour les fichiers d'un dossier choisi. L'analyse des fichiers pris en charge se fait localement. Vous voyez les changements proposés avant de les approuver. Une connexion est nécessaire pour acheter, télécharger, activer la licence et la valider périodiquement. L'interface de l'application est actuellement en anglais.</p></section>
+    <section id="fonctionnement"><h2>Comment fonctionne Foldora ?</h2>
+      <ol><li>Choisissez un dossier comme Téléchargements, Bureau ou Documents. Activez ou désactivez la recherche dans les sous-dossiers selon votre besoin.</li><li>Foldora analyse les noms et, lorsque le format le permet, le contenu des fichiers sur votre appareil.</li><li>Examinez l'arborescence et les nouveaux noms proposés.</li><li>Appliquez les modifications approuvées. Conservez une sauvegarde indépendante avant un grand classement.</li></ol>
+      <figure class="evidence-media"><img src="/evidence/foldora-demo.png" alt="Capture réelle de Foldora : structure actuelle à gauche et structure proposée à droite" width="1902" height="918" loading="lazy" style="display:block;width:100%;height:auto"><figcaption>Capture réelle de l'interface Foldora en anglais : comparaison entre les fichiers actuels et la structure proposée. Les propositions visibles ne représentent pas une garantie de résultat pour vos fichiers.</figcaption></figure>
+      <figure class="evidence-media"><video controls preload="metadata" playsinline aria-label="Démonstration enregistrée de Foldora, interface en anglais"><source src="/foldora-demo.mp4" type="video/mp4"><track kind="captions" src="/foldora-demo-captions.vtt" srclang="en" label="Descriptions visuelles en anglais"></video><figcaption>Démonstration enregistrée du parcours dans Foldora. L'interface et les descriptions de la vidéo sont en anglais.</figcaption></figure>
+    </section>
+    <section><h2>Éléments de démonstration et portée des mesures</h2><p>Le site anglais présente une démonstration réelle et un test technique reproductible réalisé le 6 septembre 2026 sur un ordinateur Windows 11 Pro (Core i5-8350U, 8 Go de mémoire). Le test a traité 40 000 classifications de schémas en 1,2745 seconde et découvert 1 001 fichiers en 0,0091 seconde, dont 300 fichiers de test ignorés sous node_modules. Ces nombres ne mesurent ni la durée complète d'analyse par les modèles d'IA ni la précision du classement sur vos dossiers. Les résultats dépendent de l'appareil et des fichiers. <a href="/blog/foldora-file-organizer-benchmark/" lang="en">Voir la méthode détaillée (en anglais)</a>.</p></section>
+    <section><h2>Exemples de dossiers</h2><p>Exemples illustratifs de catégories possibles, à vérifier dans l'aperçu ; ils ne proviennent pas d'un test sur vos fichiers.</p>
+      <div class="grid"><article class="card"><h3>Téléchargements mélangés</h3><div class="label">Avant</div><p>invoice_1042.pdf, IMG_4829.png, setup.exe</p><div class="label">Après, si l'analyse le propose</div><p>Finance/Factures, Images/Captures, Logiciels/Installateurs</p></article><article class="card"><h3>Documents de projet</h3><div class="label">Avant</div><p>final.pdf, notes.txt, presentation.pptx</p><div class="label">Après, si l'analyse le propose</div><p>Projet/Documentation, Projet/Notes, Projet/Présentations</p></article></div>
+    </section>
+    <section id="formats"><h2>Formats, portée et limites</h2>
+      <p>Les formats courants comprennent PDF, DOCX, TXT, XLSX, CSV, PPT, PPTX, PNG, JPG, GIF, WEBP et ZIP. Le traitement dépend du format. Foldora ne lit pas le contenu d'une archive ZIP comme un document. Les fichiers de plus de 8 Mio ne sont pas lus pour leur contenu. Pour les PDF, il examine au plus les trois premières pages ; il peut tenter une reconnaissance locale du texte sur la première page seulement si le texte intégré est insuffisant.</p>
+      <p>La recherche dans les sous-dossiers est activée par défaut et peut être désactivée. Le programme exclut certains dossiers techniques, noms commençant par un point et son dossier de sortie. Une analyse prend au plus 1 000 fichiers admissibles. Il ne surveille pas les dossiers en continu, ne garantit pas un classement parfait et n'est pas un moteur de règles exactes. Si vous devez répéter une règle stricte sur chaque nouveau fichier, choisissez plutôt un outil à règles.</p>
+      <p>Consultez <a href="/docs/supported-file-types/" lang="en">les formats et limites détaillés (en anglais)</a> ainsi que <a href="/docs/privacy/" lang="en">la politique de confidentialité (en anglais)</a>.</p>
+    </section>
+    <section><h2>Foldora, règles automatiques ou classement manuel ?</h2><p>Choisissez selon la régularité de vos fichiers et le niveau de contrôle souhaité.</p><div class="table-wrap"><table><thead><tr><th>Approche</th><th>Adaptée à</th><th>Limite</th></tr></thead><tbody><tr><th>Foldora</th><td>Dossiers mélangés dont les noms ou contenus donnent des indices</td><td>Suggestions à vérifier ; analyse variable selon le format</td></tr><tr><th>Outil à règles</th><td>Critères exacts à appliquer régulièrement</td><td>Règles à créer et à entretenir</td></tr><tr><th>Classement manuel</th><td>Petit nombre de fichiers occasionnels</td><td>Chaque nouveau fichier demande du temps</td></tr></tbody></table></div></section>
+    <section id="questions"><h2>Questions fréquentes</h2>${faqs.map(([question, answer]) => `<article class="faq"><h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p></article>`).join("")}</section>
+    <section><h2>Pour aller plus loin</h2><div class="related"><a href="/docs/install/" lang="en">Installation et activation (en anglais)</a><a href="/docs/supported-file-types/" lang="en">Formats pris en charge (en anglais)</a><a href="/docs/privacy/" lang="en">Confidentialité (en anglais)</a><a href="/ai-file-organizer/" lang="en" hreflang="en">Read this guide in English</a></div></section>
+    <section class="cta"><h2>Prêt à vérifier vos propres fichiers ?</h2><p>Commencez par un petit dossier, examinez les suggestions, puis décidez des modifications à appliquer. L'achat, les instructions de téléchargement et l'activation de la licence sont en anglais.</p><a class="button" href="${checkout}" ${checkoutAttributes}>Acheter Foldora — ${escapeHtml(product.price.display)} (paiement en anglais)</a></section>
+  </main>
+  <footer><div class="container"><div class="footer-inner"><a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a><a class="publisher" href="https://computoraai.com/">Par Computora AI</a><div class="footer-links"><a href="/ai-file-organizer/" lang="en" hreflang="en">English</a><a href="/docs/privacy/" lang="en">Confidentialité (en anglais)</a><a href="/docs/troubleshooting/" lang="en">Assistance (en anglais)</a><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Préférences de confidentialité</button></div><a href="mailto:${escapeHtml(site.supportEmail)}">${escapeHtml(site.supportEmail)}</a></div></div></footer>
   ${TAWK_LOADER_TAG}
 </body>
 </html>`;
@@ -1034,6 +1136,7 @@ function writeSitemap(): void {
     ...seoPages
       .filter((page) => page.indexable !== false)
       .map((page) => ({ route: page.route, updatedAt: page.updatedAt })),
+    { route: FRENCH_ROUTE, updatedAt: "2026-11-07" },
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
       .map((page) => ({ route: page.route, updatedAt: SUPPORT_UPDATED_AT })),
@@ -1135,6 +1238,8 @@ validatePages();
 for (const page of seoPages) {
   writeRoute(page.route, renderMainPage(page));
 }
+
+writeRoute(FRENCH_ROUTE, renderFrenchAiFileOrganizer());
 
 for (const page of supportPages) {
   writeRoute(page.route, renderSupportPage(page));

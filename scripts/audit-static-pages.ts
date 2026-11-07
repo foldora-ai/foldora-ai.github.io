@@ -66,6 +66,7 @@ for (const url of urls) {
   }
 
   const html = read(filePath);
+  const french = route === "/fr/organisateur-fichiers-ia/";
   const privacyConsentCount = (html.match(/src=["']\/privacy-consent\.js["']/g) ?? []).length;
   const checkoutTrackerCount = (html.match(/src=["']\/checkout-tracking\.js["']/g) ?? []).length;
   const eagerGoogleTagCount = (
@@ -101,8 +102,15 @@ for (const url of urls) {
   if (!html.includes('<meta name="author" content="Foldora AI">') && !html.includes('<meta name="author" content="Foldora AI" />')) {
     errors.push(`${route}: missing author metadata`);
   }
-  if (!html.includes(`<link rel="alternate" hrefLang="en" href="${url}">`) && !html.includes(`<link rel="alternate" hrefLang="en" href="${url}" />`)) {
+  const ownLanguage = french ? "fr" : "en";
+  if (!new RegExp(`<link rel="alternate" href[Ll]ang="${ownLanguage}" href="${url}"`).test(html)) {
+    errors.push(`${route}: missing self-language alternate link`);
+  }
+  if (french && !html.includes('<link rel="alternate" hreflang="en" href="https://foldoraai.com/ai-file-organizer/">')) {
     errors.push(`${route}: missing English alternate link`);
+  }
+  if (french && !html.includes('<html lang="fr">')) {
+    errors.push(`${route}: missing French document language`);
   }
   if (!html.includes('property="og:image:type" content="image/png"')) {
     errors.push(`${route}: missing Open Graph image type`);
@@ -161,13 +169,9 @@ for (const url of urls) {
     !route.startsWith("/category/") &&
     route !== "/"
   ) {
-    for (const requiredHeading of [
-      "Direct answer",
-      "Step-by-step workflow",
-      "Use-case examples",
-      "Frequently asked questions",
-      "Related guides",
-    ]) {
+    for (const requiredHeading of french
+      ? ["En bref", "Comment fonctionne Foldora ?", "Exemples de dossiers", "Questions fréquentes", "Pour aller plus loin"]
+      : ["Direct answer", "Step-by-step workflow", "Use-case examples", "Frequently asked questions", "Related guides"]) {
       if (!html.includes(requiredHeading)) {
         errors.push(`${route}: missing ${requiredHeading} section`);
       }
