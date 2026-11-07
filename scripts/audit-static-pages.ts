@@ -66,7 +66,7 @@ for (const url of urls) {
   }
 
   const html = read(filePath);
-  const french = route === "/fr/organisateur-fichiers-ia/";
+  const french = route === "/fr/organisateur-fichiers-ia/" || route === "/fr/installation-activation/";
   const privacyConsentCount = (html.match(/src=["']\/privacy-consent\.js["']/g) ?? []).length;
   const checkoutTrackerCount = (html.match(/src=["']\/checkout-tracking\.js["']/g) ?? []).length;
   const eagerGoogleTagCount = (
@@ -106,7 +106,7 @@ for (const url of urls) {
   if (!new RegExp(`<link rel="alternate" href[Ll]ang="${ownLanguage}" href="${url}"`).test(html)) {
     errors.push(`${route}: missing self-language alternate link`);
   }
-  if (french && !html.includes('<link rel="alternate" hreflang="en" href="https://foldoraai.com/ai-file-organizer/">')) {
+  if (route === "/fr/organisateur-fichiers-ia/" && !html.includes('<link rel="alternate" hreflang="en" href="https://foldoraai.com/ai-file-organizer/">')) {
     errors.push(`${route}: missing English alternate link`);
   }
   if (french && !html.includes('<html lang="fr">')) {
@@ -169,7 +169,9 @@ for (const url of urls) {
     !route.startsWith("/category/") &&
     route !== "/"
   ) {
-    for (const requiredHeading of french
+    for (const requiredHeading of route === "/fr/installation-activation/"
+      ? ["Avant de commencer", "Configuration et installation", "Premier classement", "Besoin d’aide ?", "Retour au produit"]
+      : french
       ? ["En bref", "Comment fonctionne Foldora ?", "Exemples de dossiers", "Questions fréquentes", "Pour aller plus loin"]
       : ["Direct answer", "Step-by-step workflow", "Use-case examples", "Frequently asked questions", "Related guides"]) {
       if (!html.includes(requiredHeading)) {

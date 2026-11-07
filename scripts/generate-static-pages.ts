@@ -19,6 +19,8 @@ const SOCIAL_IMAGE_SOURCE = path.resolve("src/assets/foldora-demo.png");
 const SOCIAL_IMAGE_PATH = "/foldora-social-preview.png";
 const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
 const FRENCH_ROUTE = "fr/organisateur-fichiers-ia";
+const FRENCH_INSTALL_ROUTE = "fr/installation-activation";
+const FRENCH_INSTALL_URL = `${SITE_URL}/${FRENCH_INSTALL_ROUTE}/`;
 const FRENCH_URL = `${SITE_URL}/${FRENCH_ROUTE}/`;
 const HOME_UPDATED_AT = "2026-11-05";
 const SUPPORT_UPDATED_AT = "2026-09-08";
@@ -901,10 +903,85 @@ ${analyticsHead()}
     </section>
     <section><h2>Foldora, règles automatiques ou classement manuel ?</h2><p>Choisissez selon la régularité de vos fichiers et le niveau de contrôle souhaité.</p><div class="table-wrap"><table><thead><tr><th>Approche</th><th>Adaptée à</th><th>Limite</th></tr></thead><tbody><tr><th>Foldora</th><td>Dossiers mélangés dont les noms ou contenus donnent des indices</td><td>Suggestions à vérifier ; analyse variable selon le format</td></tr><tr><th>Outil à règles</th><td>Critères exacts à appliquer régulièrement</td><td>Règles à créer et à entretenir</td></tr><tr><th>Classement manuel</th><td>Petit nombre de fichiers occasionnels</td><td>Chaque nouveau fichier demande du temps</td></tr></tbody></table></div></section>
     <section id="questions"><h2>Questions fréquentes</h2>${faqs.map(([question, answer]) => `<article class="faq"><h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p></article>`).join("")}</section>
-    <section><h2>Pour aller plus loin</h2><div class="related"><a href="/docs/install/" lang="en">Installation et activation (en anglais)</a><a href="/docs/supported-file-types/" lang="en">Formats pris en charge (en anglais)</a><a href="/docs/privacy/" lang="en">Confidentialité (en anglais)</a><a href="/ai-file-organizer/" hreflang="en">Lire ce guide en anglais</a></div></section>
+    <section><h2>Pour aller plus loin</h2><div class="related"><a href="/${FRENCH_INSTALL_ROUTE}/">Guide d’installation et d’activation</a><a href="/docs/supported-file-types/" lang="en">Formats pris en charge (en anglais)</a><a href="/docs/privacy/" lang="en">Confidentialité (en anglais)</a><a href="/ai-file-organizer/" hreflang="en">Lire ce guide en anglais</a></div></section>
     <section class="cta"><h2>Prêt à vérifier vos propres fichiers ?</h2><p>Commencez par un petit dossier, examinez les suggestions, puis décidez des modifications à appliquer. L'achat, les instructions de téléchargement et l'activation de la licence sont en anglais.</p><a class="button" href="${checkout}" ${checkoutAttributes}>Acheter Foldora — ${escapeHtml(product.price.display)} (paiement en anglais)</a></section>
   </main>
   <footer><div class="container"><div class="footer-inner"><a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a><a class="publisher" href="https://computoraai.com/">Par Computora AI</a><div class="footer-links"><a href="/ai-file-organizer/" hreflang="en">Version anglaise</a><a href="/docs/privacy/" lang="en">Confidentialité (en anglais)</a><a href="/docs/troubleshooting/" lang="en">Assistance (en anglais)</a><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Préférences de confidentialité</button></div><a href="mailto:${escapeHtml(site.supportEmail)}">${escapeHtml(site.supportEmail)}</a></div></div></footer>
+  ${TAWK_LOADER_TAG}
+</body>
+</html>`;
+}
+
+function renderFrenchInstallGuide(): string {
+  const title = "Installer et activer Foldora";
+  const description = "Guide en français pour recevoir, installer et activer Foldora sur Windows ou macOS, puis vérifier ses premières suggestions avant de modifier vos fichiers.";
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${FRENCH_INSTALL_URL}#page`,
+    url: FRENCH_INSTALL_URL,
+    name: title,
+    description,
+    inLanguage: "fr",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+  }).replaceAll("<", "\\u003c");
+
+  return `<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>${escapeHtml(title)} | Foldora</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="author" content="Foldora AI">
+  <link rel="canonical" href="${FRENCH_INSTALL_URL}">
+  <link rel="alternate" hreflang="fr" href="${FRENCH_INSTALL_URL}">
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${FRENCH_INSTALL_URL}">
+  <meta property="og:site_name" content="Foldora AI">
+  <meta property="og:image" content="${SOCIAL_IMAGE_URL}">
+  <meta property="og:image:alt" content="Aperçu de Foldora AI">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
+  <meta name="twitter:url" content="${FRENCH_INSTALL_URL}">
+  <script type="application/ld+json">${schema}</script>
+${analyticsHead()}
+  <style>${pageStyles()}</style>
+</head>
+<body>
+  <header class="site-header"><nav class="container site-nav" aria-label="Navigation principale">
+    <a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a>
+    <div class="nav-links"><a href="/${FRENCH_ROUTE}/">Produit en français</a><a href="/docs/install/" lang="en">Documentation anglaise</a></div>
+    <a class="mobile-menu" href="/${FRENCH_ROUTE}/" aria-label="Retour au produit en français">Produit</a>
+  </nav></header>
+  <div class="container breadcrumbs" aria-label="Fil d'Ariane"><a href="/${FRENCH_ROUTE}/">Organisateur de fichiers IA</a> / <span aria-current="page">Installation et activation</span></div>
+  <section class="hero"><div class="container"><div class="eyebrow">Documentation</div><h1>${escapeHtml(title)}</h1><p class="lede">${escapeHtml(description)}</p></div></section>
+  <main class="container">
+    <section class="answer"><h2>Avant de commencer</h2><p>L’interface de Foldora est en anglais. Après l’achat, la page de paiement en anglais fournit le téléchargement et les instructions de licence. Utilisez le programme d’installation ou le paquet fourni pour votre système ; aucune adresse de téléchargement distincte n’est nécessaire.</p></section>
+    <section><h2>Configuration et installation</h2><ol>
+      <li>Vérifiez votre système : Windows 10 ou 11, ou macOS sur processeur Intel ou Apple Silicon. Foldora doit pouvoir accéder au dossier choisi et disposer d’assez d’espace libre pour les déplacements et renommages.</li>
+      <li>Terminez l’achat sur la page de paiement en anglais. Suivez les instructions de téléchargement et de licence fournies après le paiement.</li>
+      <li>Téléchargez le paquet destiné à votre système, puis exécutez son programme d’installation ou ouvrez le paquet reçu. Suivez les indications de ce paquet pour installer Foldora.</li>
+      <li>Activez la licence en suivant les instructions reçues. Une connexion Internet est nécessaire pour l’achat, le téléchargement et l’activation, puis périodiquement pour valider la licence et pour les mises à jour. L’analyse des fichiers se fait localement.</li>
+    </ol></section>
+    <section><h2>Premier classement</h2><ol>
+      <li>Gardez une sauvegarde indépendante, puis commencez par une copie ou un petit dossier facile à vérifier.</li>
+      <li>Sélectionnez ce dossier dans Foldora. Le mode <span lang="en">AI Content</span> propose des catégories et des noms à partir des indices disponibles.</li>
+      <li>Lancez <span lang="en">Generate Preview</span> pour produire l’aperçu. Comparez <span lang="en">Current Structure</span> (structure actuelle) et <span lang="en">Proposed Structure</span> (structure proposée), notamment les dossiers de destination et les nouveaux noms.</li>
+      <li>Appliquez uniquement un plan qui vous convient. Si une suggestion est incertaine, ne l’appliquez pas ; réduisez le dossier sélectionné et vérifiez à nouveau. L’aperçu ne constitue pas une sauvegarde.</li>
+    </ol></section>
+    <section><h2>Besoin d’aide ?</h2><p>Consultez <a href="/docs/troubleshooting/" lang="en">l’aide au dépannage (en anglais)</a> ou contactez <a href="mailto:${escapeHtml(site.supportEmail)}">${escapeHtml(site.supportEmail)}</a> pour une question d’installation ou d’achat. Indiquez votre version du système, le nom du fichier téléchargé et le message d’erreur exact. N’envoyez pas votre clé de licence ni le contenu de vos fichiers dans le chat d’assistance.</p></section>
+    <section><h2>Retour au produit</h2><div class="related"><a href="/${FRENCH_ROUTE}/">Organisateur de fichiers IA : page française</a><a href="/docs/install/" lang="en">Guide d’installation original (en anglais)</a></div></section>
+  </main>
+  <footer><div class="container"><div class="footer-inner"><a class="brand" href="/"><img src="/foldora-logo-32.png" alt="" width="32" height="32">Foldora AI</a><a href="/${FRENCH_ROUTE}/">Produit en français</a><a href="/docs/privacy/" lang="en">Confidentialité (en anglais)</a><button type="button" class="footer-privacy-settings" data-foldora-privacy-open>Préférences de confidentialité</button><a href="mailto:${escapeHtml(site.supportEmail)}">${escapeHtml(site.supportEmail)}</a></div></div></footer>
   ${TAWK_LOADER_TAG}
 </body>
 </html>`;
@@ -1138,6 +1215,7 @@ function writeSitemap(): void {
       .filter((page) => page.indexable !== false)
       .map((page) => ({ route: page.route, updatedAt: page.updatedAt })),
     { route: FRENCH_ROUTE, updatedAt: "2026-11-07" },
+    { route: FRENCH_INSTALL_ROUTE, updatedAt: "2026-11-07" },
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
       .map((page) => ({ route: page.route, updatedAt: SUPPORT_UPDATED_AT })),
@@ -1241,6 +1319,7 @@ for (const page of seoPages) {
 }
 
 writeRoute(FRENCH_ROUTE, renderFrenchAiFileOrganizer());
+writeRoute(FRENCH_INSTALL_ROUTE, renderFrenchInstallGuide());
 
 for (const page of supportPages) {
   writeRoute(page.route, renderSupportPage(page));
