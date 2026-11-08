@@ -757,6 +757,12 @@ ${page.comparisonFirst ? renderSelectionTable(page) + "\n" : ""}${renderEvidence
       <h2>Step-by-step workflow</h2>
       <ol>${page.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
     </section>
+${page.route === "organize-files-windows" ? `    <section>
+      <h2>Free folder structure template</h2>
+      <p>This small ZIP suits Windows users starting a simple home or work filing system. It contains empty Work, Personal, Finance, Reference, and Archive folders plus a README with ways to adapt them and suggested filename examples. Extract it into a new, empty location and adjust the categories to your needs. It creates a starting structure; it does not sort, move, or rename your files.</p>
+      <p><a href="/downloads/folder-structure-template.zip" download>Download the free folder structure template (ZIP)</a></p>
+      <p>For reviewed organization suggestions, <a href="/ai-file-organizer/">see how Foldora works</a>: select a folder, generate a preview, inspect proposed destinations and names, then apply only the changes you approve.</p>
+    </section>` : ""}
     <section>
       <h2>Use-case examples</h2>
       <div class="grid">

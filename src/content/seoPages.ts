@@ -617,7 +617,7 @@ export const seoPages: SeoPage[] = [
     description:
       "Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.",
     eyebrow: "Windows file management",
-    updatedAt,
+    updatedAt: "2026-11-08",
     directAnswer:
       "Organize Windows files around projects and retrieval, not only file extensions. Start with a few durable top-level folders, process inbox folders such as Downloads and Desktop, and use automation for repeated categorization and renaming. Foldora can propose that structure locally and show a preview before applying it.",
     problemTitle: "Deep folder trees and vague names both reduce findability",

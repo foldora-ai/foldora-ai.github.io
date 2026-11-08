@@ -217,6 +217,28 @@ const SeoContentPage = () => {
             </ol>
           </section>
 
+          {page.route === "organize-files-windows" && (
+            <section>
+              <h2 className="content-section-title">Free folder structure template</h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                This small ZIP suits Windows users starting a simple home or work filing system. It contains empty
+                Work, Personal, Finance, Reference, and Archive folders plus a README with ways to adapt them and
+                suggested filename examples. Extract it into a new, empty location and adjust the categories to your
+                needs. It creates a starting structure; it does not sort, move, or rename your files.
+              </p>
+              <p className="mt-5">
+                <a className="text-primary underline underline-offset-4" href="/downloads/folder-structure-template.zip" download>
+                  Download the free folder structure template (ZIP)
+                </a>
+              </p>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                For reviewed organization suggestions, <a className="text-primary underline underline-offset-4" href="/ai-file-organizer/">see how Foldora works</a>:
+                select a folder, generate a preview, inspect proposed destinations and names, then apply only the
+                changes you approve.
+              </p>
+            </section>
+          )}
+
           <section>
             <h2 className="content-section-title">Use-case examples</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
