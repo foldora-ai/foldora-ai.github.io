@@ -698,7 +698,7 @@ export const seoPages: SeoPage[] = [
     description:
       "Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.",
     eyebrow: "macOS file organization",
-    updatedAt: "2026-10-28",
+    updatedAt: "2026-11-08",
     directAnswer:
       "Foldora is a $14.99 one-time AI file organizer for Intel and Apple Silicon Macs. It analyzes supported files locally in selected Downloads, Desktop, Documents, or project folders, then proposes folders and clearer filenames. Preview suggested moves and renames before applying them. Purchase, download, license activation, and periodic license validation require internet access.",
     problemTitle: "macOS folders become inboxes for every app",
@@ -752,7 +752,7 @@ export const seoPages: SeoPage[] = [
       {
         question: "Does Foldora support macOS?",
         answer:
-          "Yes. Foldora supports macOS as well as Windows 10 and Windows 11.",
+          "Yes. The published Mac release lists macOS on Intel or Apple Silicon. The Mac package is separate from the current Windows installer.",
       },
       {
         question: "Does Foldora upload my Mac files?",

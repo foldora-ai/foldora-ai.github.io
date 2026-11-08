@@ -12,11 +12,11 @@ export const docs = {
       },
       {
         title: "Run the installer",
-        content: `The supported systems are ${product.platforms.supported.join(", ")}. Use the installer or download package provided by the checkout flow for your platform.`,
+        content: `The supported systems are ${product.platforms.supported.join(", ")}. Use the package for your operating system. The Windows EXE is not a macOS installer; the published Mac package is a ZIP archive.`,
       },
       {
         title: "Current release information",
-        content: "These instructions apply to Foldora 1.0.1 and were reviewed on September 6, 2026. Use only the package delivered through the official Foldora checkout and download flow.",
+        content: "The published Windows 1.0.4 release contains FoldoraAI-Setup-Windows.exe. The separate macOS 1.0.0-mac release contains FoldoraAI-Setup-mac.zip for Intel or Apple Silicon Macs; unzip it and move FoldoraAI.app to Applications. The public checkout listing currently describes a Windows download, so Mac buyers should confirm package delivery and license compatibility with Foldora support before paying. A public release download alone does not grant a license. Reviewed November 8, 2026.",
       },
       {
         title: "Choose a focused folder first",

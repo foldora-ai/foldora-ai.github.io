@@ -7,7 +7,7 @@ import { seoPagesByRoute } from "@/content/seoPages";
 import { docs } from "@/content/docs";
 import { features } from "@/content/features";
 import { categories } from "@/content/categories";
-import { checkoutTrackingAttributes, checkoutUrl, product } from "@/config/product";
+import { checkoutTrackingAttributes, checkoutUrl, product, site } from "@/config/product";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 const bundleUrl = "https://computora.gumroad.com/l/computoraai";
@@ -289,10 +289,31 @@ const SeoContentPage = () => {
             </div>
           </section>
 
+          {page.route === "organize-files-mac" && (
+            <section>
+              <h2 className="content-section-title">Before buying for Mac</h2>
+              <p className="content-copy mt-4">
+                The <a href="/#pricing">Foldora product and pricing page</a> lists Intel and Apple Silicon Macs. The{" "}
+                <a href="https://github.com/foldora-ai/foldora-releases/releases/tag/1.0.0-mac">published Mac release notes</a>{" "}
+                identify a separate macOS ZIP package, <code>FoldoraAI-Setup-mac.zip</code>, and explain its installation.
+                The newer 1.0.4 release contains a Windows installer only. See the{" "}
+                <a href="/docs/install/">installation guide</a> for the checkout and license steps.
+              </p>
+              <p className="content-copy mt-4">
+                The public checkout listing currently says “Download Foldora for Windows”; it does not confirm Mac
+                package delivery or whether a purchased license applies to the Mac release.{" "}
+                <a href={`mailto:${site.supportEmail}`}>Ask Foldora support</a> to confirm both for your order
+                before paying. A public installer download alone does not include a license.
+              </p>
+            </section>
+          )}
+
           <section className="content-callout text-center">
             <h2 className="content-section-title">Organize a folder with Foldora</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Run local AI on Windows or macOS, review proposed folders and filenames, then apply the changes you approve.
+              {page.route === "organize-files-mac"
+                ? "On a Mac, confirm package delivery and license compatibility with support before checkout. Then review proposed folders and filenames before applying changes."
+                : "Run local AI on Windows or macOS, review proposed folders and filenames, then apply the changes you approve."}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
