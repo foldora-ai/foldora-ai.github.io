@@ -40,7 +40,7 @@ const SeoContentPage = () => {
   }
 
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
-  const hideBundle = singleOffer || page.route === "alternatives/sortio";
+  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai";
 
   const comparisonSection = (
           <section aria-labelledby={page.comparisonFirst ? "organizer-selection" : undefined}>

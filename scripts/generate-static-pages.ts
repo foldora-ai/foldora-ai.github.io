@@ -685,7 +685,7 @@ function renderMainPage(page: SeoPage): string {
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
-  const hideBundle = singleOffer || page.route === "alternatives/sortio";
+  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai";
 
   return `<!doctype html>
 <html lang="en">
