@@ -3436,6 +3436,7 @@ seoPages.push({
     "alternatives/nudgefile",
     "alternatives/ai-file-sorter",
     "alternatives/renamer-ai",
+    "alternatives/filex-ai",
     "alternatives/dropit",
     "alternatives/tagspaces",
     "alternatives/sortio",
@@ -3460,6 +3461,12 @@ seoPages.push({
       "before": "For AI naming templates and watched folders, compare ",
       "anchor": "Foldora with Renamer.ai",
       "href": "/alternatives/renamer-ai/",
+      "after": "."
+    },
+    {
+      "before": "For a cloud library with phone scanning and search, compare ",
+      "anchor": "Foldora with Filex AI",
+      "href": "/alternatives/filex-ai/",
       "after": "."
     }
   ]
@@ -3664,6 +3671,12 @@ seoPages.push({
   ],
   "contextualLinks": [
     {
+      "before": "If you want a separate cloud library with mobile scanning and search, compare ",
+      "anchor": "Foldora and Filex AI",
+      "href": "/alternatives/filex-ai/",
+      "after": "."
+    },
+    {
       "before": "Before selecting a workflow, read ",
       "anchor": "Foldora processing and privacy details",
       "href": "/docs/privacy/",
@@ -3859,6 +3872,70 @@ seoPages.push({
     { label: "Renamer.ai processing options", url: "https://renamer.ai/guides/processing-options", note: "Default cloud processing, downloadable local models, hardware limits, and eligible own-provider mode." },
     { label: "Renamer.ai plans and credits", url: "https://renamer.ai/guides/understanding-credits-and-plans", note: "Monthly credits, subscriptions, and optional paid-plan top-ups." },
     { label: "Renamer.ai public pricing", url: "https://renamer.ai/", note: "Free 25-file monthly tier and current paid plan presentation." }
+  ]
+});
+
+seoPages.push({
+  route: "alternatives/filex-ai",
+  kind: "comparison",
+  topic: "privacy",
+  title: "Foldora vs Filex AI: Local Folders or Cloud Library?",
+  h1: "Foldora vs Filex AI: Which Should You Choose?",
+  description: "Compare Foldora and Filex AI for local folder moves, cloud uploads, review controls, mobile scanning, document search, privacy, and pricing.",
+  eyebrow: "Local organizer and cloud library comparison",
+  updatedAt: "2026-11-11",
+  directAnswer: "Choose Foldora if you want to organize files already on a Windows or Mac computer: select a local folder, review suggested destinations and names, then approve the moves. Its file analysis stays on the device, although activation and periodic license checks require internet. Choose Filex AI if you want to upload copies into a searchable, synced cloud library that you can use on the web and phone, scan documents into, and export as sorted folders. Filex does not automatically rename or move your original local files.",
+  problemTitle: "The deciding question: where should the organized files live?",
+  problem: [
+    "Publisher disclosure: Computora AI publishes Foldora. We reviewed both publishers' public product and documentation pages on November 11, 2026. This is a documented workflow comparison, not a hands-on accuracy, speed, security, or installation test.",
+    "Foldora is a desktop organizer for a folder you choose. Its AI Content mode uses filenames and supported file content locally to propose categories and names. You inspect a plan before applying actual moves and possible renames beneath the selected folder. It is a bounded run, not a background watcher or a cloud document library. Its analysis can be limited by file format, size, or unreadable content; review the proposal and keep a separate backup.",
+    "Filex AI's web and mobile workflow uploads a copy, analyzes it, gives it a name and folder inside Filex, and syncs that library across devices. Filex says originals on the phone or computer keep their location and original name. You can download sorted folders as a ZIP. That makes Filex useful for retrieving documents from anywhere, but a ZIP export is a separate step if your goal is a new local folder structure.",
+    "Filex says files are encrypted in transit and at rest on Cloudflare cloud storage and are not used for AI training. Those are its published privacy claims, not an independent audit. If documents must stay off a vendor cloud, Foldora's local analysis fits that requirement more directly. Foldora still needs internet to purchase, download, activate, and periodically validate its license. A separate sync client can upload files from a synced folder even when Foldora itself analyzes them locally.",
+    "Foldora costs $14.99 once for an individual license. Filex offers 10 organized files free one time, then monthly or annual Premium subscriptions with file allowances. Foldora's public checkout has shown a Windows-labelled delivery; Mac buyers should confirm the Mac package and license route with support before purchasing. Prices and checkout details can change, so check the linked official pages before paying."
+  ],
+  contextualLinks: [
+    { before: "For Foldora's supported formats and content limits, read ", anchor: "the file-type guide", href: "/docs/supported-file-types/", after: "." },
+    { before: "For individual purchase terms and the current offer, see ", anchor: "Foldora pricing", href: "/#pricing", after: "." }
+  ],
+  steps: [
+    "Decide whether the result must change folders on your own computer or live as organized copies in a cloud library.",
+    "If uploads are restricted, keep the sample in a verified local folder outside any separate sync root. Foldora's analysis is local; Filex's documented workflow uploads copies.",
+    "For a local cleanup, compare Foldora's proposed names and destinations before approval. For cross-device retrieval, assess Filex's web/mobile library, search, OCR, and ZIP export.",
+    "Compare the one-time Foldora license with Filex's free allowance and subscription limits, then verify the current purchase and delivery details on the official sites."
+  ],
+  examples: [
+    { title: "Private local backlog: Foldora fits", before: "A Windows or Mac project folder contains mixed PDFs, images, and notes that should remain on the computer.", after: "Select a backed-up local sample in Foldora, inspect suggested folders and names, and approve suitable moves. Keep the sample outside any separate cloud-sync root if uploads are prohibited." },
+    { title: "Documents needed on phone and web: Filex fits", before: "Receipts and photographed forms arrive on a phone, and the owner needs to find them later from another device.", after: "Filex's mobile scan, OCR, searchable synced library, and optional sorted ZIP export fit that retrieval workflow. The original files are not moved on the phone or computer." },
+    { title: "A tidy local folder from a cloud library: allow an export step", before: "A buyer expects cloud organization to rearrange the Downloads folder automatically.", after: "Filex organizes uploaded copies in its library; download its sorted ZIP if a local folder copy is desired. Foldora instead proposes changes to the selected local folder and waits for approval." }
+  ],
+  comparison: {
+    title: "Foldora and Filex AI at a glance",
+    summary: "Product claims are from official pages reviewed November 11, 2026. Filex privacy statements are publisher claims; neither product was tested for this comparison.",
+    headers: { option: "Decision", bestFor: "Foldora", tradeoff: "Filex AI" },
+    rows: [
+      { option: "Where organization happens", bestFor: "Native Windows 10/11 and macOS app; approved moves and possible renames in the selected local folder.", tradeoff: "Web, iPhone/iPad, and Android library; uploaded copies are organized inside Filex, leaving local originals unchanged.", sources: [{ label: "Filex FAQ", url: "https://filexai.com/" }] },
+      { option: "Upload and processing", bestFor: "Supported file analysis runs locally; purchase, activation, and periodic license checks need internet.", tradeoff: "Upload a copy for cloud analysis and storage; Filex says transit and storage are encrypted and files are not used for AI training.", sources: [{ label: "Filex privacy FAQ", url: "https://filexai.com/" }] },
+      { option: "Review before changing originals", bestFor: "Shows proposed local destinations and names before approved moves.", tradeoff: "Auto-files uploaded copies; originals remain untouched. Its public workflow does not document a comparable pre-apply plan for changes to original local folders.", sources: [{ label: "Filex workflow", url: "https://filexai.com/tools/auto-organize-files" }] },
+      { option: "Local output", bestFor: "Applies approved folder moves and renames to selected local files.", tradeoff: "Download organized folders as a ZIP; export does not itself rearrange the original local folder.", sources: [{ label: "Filex export", url: "https://filexai.com/tools/auto-organize-files" }] },
+      { option: "Finding and capturing documents", bestFor: "Folder organization; no documented mobile scan, synced document library, or natural-language library search.", tradeoff: "Cross-device search and sync, OCR for scans, and mobile document capture.", sources: [{ label: "Filex features", url: "https://filexai.com/ai-file-management" }] },
+      { option: "Payment", bestFor: "$14.99 one-time individual license; internet license checks remain required.", tradeoff: "10 organized files free one time; Premium is $7.99/month for 500 files/month or $44.99/year for 6,000 files/year as listed at review.", sources: [{ label: "Filex pricing", url: "https://filexai.com/" }] }
+    ]
+  },
+  faqs: [
+    { question: "Does Filex AI organize my original computer folders?", answer: "No automatic original-folder change is documented. Filex says it names and files an uploaded copy inside its library while the original keeps its name and location. You may download organized folders as a ZIP, then decide separately how to use that export." },
+    { question: "Can I use Filex without uploading documents?", answer: "Its published organizing workflow asks you to upload files into a cloud library. If vendor-cloud upload is not acceptable, use a local workflow such as Foldora on a folder outside any separate sync service; Foldora still needs internet for purchase, activation, and periodic license validation." },
+    { question: "Does Filex provide a review screen like Foldora's local move plan?", answer: "Foldora documents a proposed local move and rename plan before approval. Filex describes automatic organization of uploaded copies and leaves originals alone. Its public pages do not establish an equivalent plan for applying moves to original local files, so do not infer one." },
+    { question: "When is Filex the better choice?", answer: "Choose Filex when phone scanning, OCR of scans, natural-language document search, web access, and a synced library matter more than reorganizing the original computer folder. Check its file allowance and subscription terms for your volume." }
+  ],
+  related: ["alternatives", "ai-file-organizer", "docs/privacy", "docs/supported-file-types", "blog/organize-onedrive-dropbox-files"],
+  sources: [
+    { label: "Foldora product and pricing", url: "https://foldoraai.com/", note: "Local desktop workflow, platforms, one-time price, activation and periodic checks." },
+    { label: "Foldora organizer workflow", url: "https://foldoraai.com/ai-file-organizer/", note: "Selected-folder analysis, review, approval and run limits." },
+    { label: "Foldora privacy and analysis", url: "https://foldoraai.com/docs/privacy/", note: "Local analysis and internet licensing boundaries." },
+    { label: "Foldora Mac buyer guide", url: "https://foldoraai.com/organize-files-mac/", note: "Mac availability and public checkout delivery caveat." },
+    { label: "Filex AI product, FAQ and pricing", url: "https://filexai.com/", note: "Platforms, cloud storage, original files, sync, privacy claims, prices and allowances." },
+    { label: "Filex AI auto-organize workflow", url: "https://filexai.com/tools/auto-organize-files", note: "Browser upload, organization inside Filex, search and sorted ZIP export." },
+    { label: "Filex AI file management", url: "https://filexai.com/ai-file-management", note: "Mobile and web library, OCR, document search and scanning." }
   ]
 });
 
