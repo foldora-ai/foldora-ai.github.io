@@ -40,7 +40,7 @@ const SeoContentPage = () => {
   }
 
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
-  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai";
+  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai" || page.route === "local-vs-cloud-ai-file-organizer";
 
   const comparisonSection = (
           <section aria-labelledby={page.comparisonFirst ? "organizer-selection" : undefined}>
@@ -209,7 +209,7 @@ const SeoContentPage = () => {
           </section>
 
           <section>
-            <h2 className="content-section-title">Step-by-step workflow</h2>
+            <h2 className="content-section-title">{page.stepsTitle ?? "Step-by-step workflow"}</h2>
             <ol className="mt-6 list-decimal space-y-4 pl-6 text-lg text-muted-foreground">
               {page.steps.map((step) => (
                 <li key={step}>{step}</li>

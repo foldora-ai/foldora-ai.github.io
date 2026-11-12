@@ -685,7 +685,7 @@ function renderMainPage(page: SeoPage): string {
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
-  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai";
+  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai" || page.route === "local-vs-cloud-ai-file-organizer";
 
   return `<!doctype html>
 <html lang="en">
@@ -754,7 +754,7 @@ ${page.comparisonFirst ? renderSelectionTable(page) + "\n" : ""}${renderEvidence
       ${page.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${page.contextualLinks?.map((link) => `<p>${escapeHtml(link.before)}<a href="${escapeHtml(link.href)}">${escapeHtml(link.anchor)}</a>${escapeHtml(link.after)}</p>`).join("") ?? ""}
     </section>
     <section>
-      <h2>Step-by-step workflow</h2>
+      <h2>${escapeHtml(page.stepsTitle ?? "Step-by-step workflow")}</h2>
       <ol>${page.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
     </section>
 ${page.route === "organize-files-windows" ? `    <section>
