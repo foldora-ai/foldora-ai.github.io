@@ -407,6 +407,20 @@ function schemaForPage(page: SeoPage): object {
             },
           ]
         : []),
+      ...(page.route === "tools/file-organization-planner"
+        ? [{
+            "@type": "WebApplication",
+            "@id": `${pageUrl}#tool`,
+            name: "Free File Organization Planner",
+            url: pageUrl,
+            applicationCategory: "UtilitiesApplication",
+            operatingSystem: "Any modern browser",
+            browserRequirements: "JavaScript enabled",
+            isAccessibleForFree: true,
+            description: "Client-side filename-based folder tree and CSV mapping preview. Does not access or change files.",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+          }]
+        : []),
     ],
   };
 }
@@ -720,7 +734,15 @@ ${articlePage ? `  <meta property="article:modified_time" content="${page.update
   <meta name="twitter:url" content="${canonical}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
-  <style>${pageStyles()}${page.route === "tools/file-naming-convention-generator" ? `
+  <style>${pageStyles()}${page.route === "tools/file-organization-planner" ? `
+    .planner-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.planner-panel{padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--card);min-width:0}
+    .planner-panel h3{margin-top:0}.planner-panel label{display:block;margin:12px 0 5px;font-weight:700}.planner-panel textarea,.planner-panel select,.planner-panel input{width:100%;min-height:42px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:var(--text);font:inherit}
+    .planner-panel textarea{min-height:210px;resize:vertical}.planner-panel button{min-height:42px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:var(--text);font:inherit;cursor:pointer}.planner-panel button:disabled{opacity:.5;cursor:not-allowed}
+    .planner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}.planner-panel pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--secondary)}
+    .planner-panel [hidden]{display:none!important}.planner-rules{list-style:none;padding:0;margin:10px 0}.planner-rules li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) 42px 42px auto;gap:6px;margin:8px 0}
+    .planner-map{overflow-x:auto}.planner-map table{width:100%;border-collapse:collapse}.planner-map th,.planner-map td{text-align:left;padding:9px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.planner-note{font-size:.9rem;color:var(--muted)}
+    @media(max-width:740px){.planner-grid{grid-template-columns:1fr}.planner-panel{padding:18px}.planner-rules li{grid-template-columns:1fr 1fr 42px 42px}.planner-rules li input{grid-column:span 2}}
+  ` : ""}${page.route === "tools/file-naming-convention-generator" ? `
     .tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
     .tool-panel{padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
     .tool-panel h3{margin:0 0 18px;color:white}.tool-panel label,.tool-panel legend{display:block;color:var(--text);font-weight:700}
@@ -788,6 +810,34 @@ ${page.route === "tools/file-naming-convention-generator" ? `    <section id="na
         <button id="copy-examples" class="copy-button" type="button">Copy examples</button><p id="tool-feedback" role="status" aria-live="polite" class="tool-note">Examples are illustrative suggestions, not Foldora AI output.</p>
       </div>
       <noscript><p>Turn on JavaScript to change components or copy results. The example pattern above is available without it.</p></noscript>
+    </section>` : ""}
+${page.route === "tools/file-organization-planner" ? `    <section id="organization-planner" aria-labelledby="planner-heading">
+      <h2 id="planner-heading">Preview a folder plan from filenames</h2>
+      <p>Paste names only, one per line. This is a browser-only text preview: no upload, AI classification, file access, folder creation, renaming, or moving. The example is illustrative, not Foldora output.</p>
+      <div class="planner-grid">
+        <div class="planner-panel">
+          <h3>Input and rules</h3>
+          <label for="filenames">Filenames, one per line</label>
+          <textarea id="filenames" spellcheck="false" aria-describedby="filename-help">2026-04-18_acme_invoice.pdf&#10;2026-04-20_receipt_coffee.jpg&#10;project-brief.docx&#10;family-photo.jpg&#10;2026-05-03_budget.xlsx&#10;scan001.pdf</textarea>
+          <p id="filename-help" class="planner-note">Maximum 1,000 lines. Paste basenames, not full paths. Names stay in this tab.</p>
+          <label for="mode">Organization rule</label>
+          <select id="mode"><option value="keyword">Editable keywords, first match wins</option><option value="type">File extension</option><option value="date">One valid YYYY-MM-DD date</option></select>
+          <div id="keyword-controls"><p class="planner-note">Top rule wins when several keywords occur in a name. Use the arrows to change priority. Use relative folder names only.</p>
+            <ol id="rule-list" class="planner-rules"></ol><button id="add-rule" type="button">Add keyword rule</button>
+          </div>
+          <div class="planner-actions"><button id="reset-example" type="button">Reset example</button></div>
+        </div>
+        <div class="planner-panel">
+          <h3>Proposed folder tree</h3><pre id="plan-tree">Proposed structure/</pre>
+          <div class="planner-actions"><button id="copy-tree" type="button">Copy structure</button><button id="download-csv" type="button">Download CSV mapping</button></div>
+          <p id="planner-feedback" class="planner-note" role="status" aria-live="polite">Review the real folder before moving anything.</p>
+          <p class="planner-note">CSV exports a checklist, not a script. Check backups, duplicate names, and existing destinations before manual changes.</p>
+        </div>
+      </div>
+      <div class="planner-panel planner-map" style="margin-top:24px"><h3>Before and proposed destination</h3>
+        <table><thead><tr><th scope="col">Line</th><th scope="col">Filename before</th><th scope="col">Proposed folder</th><th scope="col">Review note</th></tr></thead><tbody id="mapping-body"></tbody></table>
+      </div>
+      <noscript><p>Enable JavaScript to change rules and preview mappings. The explanation and example filenames above remain available without it.</p></noscript>
     </section>` : ""}
 ${page.comparisonFirst ? renderSelectionTable(page) + "\n" : ""}${renderEvidence(page)}
     <section>
@@ -863,6 +913,7 @@ ${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" targ
   ${renderPageFooter(!singleOffer)}
   ${TAWK_LOADER_TAG}
 ${page.route === "tools/file-naming-convention-generator" ? '  <script type="module" src="/tools/file-naming-convention-generator/tool.js"></script>' : ""}
+${page.route === "tools/file-organization-planner" ? '  <script type="module" src="/tools/file-organization-planner/tool.js"></script>' : ""}
 </body>
 </html>`;
 }

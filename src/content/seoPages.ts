@@ -626,6 +626,9 @@ export const seoPages: SeoPage[] = [
       "A single folder becomes noisy, but an excessively deep hierarchy is also hard to use. The goal is a small number of predictable locations with filenames that remain understandable in search results.",
       "Windows users often have several inboxes: Downloads, Desktop, email attachments, and synchronized work folders. Unless each inbox feeds the same structure, duplicate and misplaced files accumulate.",
     ],
+    contextualLinks: [
+      { before: "Before touching a crowded folder, ", anchor: "preview a filename-based folder plan", href: "/tools/file-organization-planner/", after: " and check uncertain cases by hand." },
+    ],
     steps: [
       "Create stable top-level folders for Work, Personal, Finance, Reference, and Archive.",
       "Treat Downloads and Desktop as temporary inboxes.",
@@ -4045,7 +4048,8 @@ seoPages.push({
   ],
   contextualLinks: [
     { before: "For the verified Foldora workflow, see ", anchor: "how local preview and approval work", href: "/docs/how-it-works/", after: "." },
-    { before: "For a ready-made folder layout instead of a filename pattern, use ", anchor: "the free folder structure ZIP", href: "/organize-files-windows/", after: "." }
+    { before: "For a ready-made folder layout instead of a filename pattern, use ", anchor: "the free folder structure ZIP", href: "/organize-files-windows/", after: "." },
+    { before: "To preview destinations for a list of existing names, use the ", anchor: "file organization planner", href: "/tools/file-organization-planner/", after: "." }
   ],
   steps: [
     "Choose invoices, business documents, personal files, or project files to load realistic sample values.",
@@ -4080,6 +4084,64 @@ seoPages.push({
     { label: "Microsoft: Naming Files, Paths, and Namespaces", url: "https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file", note: "Windows reserved characters, device names, and trailing space or period guidance." },
     { label: "Foldora workflow", url: "https://foldoraai.com/docs/how-it-works/", note: "Selected local analysis, preview, approval, and file changes." },
     { label: "Foldora product and pricing", url: "https://foldoraai.com/", note: "Supported systems, one-time individual price, local analysis, and internet licensing needs." }
+  ]
+});
+
+seoPages.push({
+  route: "tools/file-organization-planner",
+  kind: "guide",
+  topic: "workflows",
+  title: "Free File Organization Planner — Preview Folder Structures Online",
+  h1: "Free File Organization Planner",
+  description: "Paste filenames to preview a folder tree by file type, clear date, or editable keyword rules. Copy the structure or export a CSV. No files are uploaded or moved.",
+  eyebrow: "Free browser tool",
+  updatedAt: "2026-11-12",
+  directAnswer: "To plan a folder structure for a mixed batch, list the filenames, choose a simple rule, and review every proposed destination before moving anything. This free browser tool builds an illustrative folder tree and filename-to-folder map from text you paste. It does not read file contents, upload files, create folders, rename files, or move them. Use it to spot ambiguous dates, duplicate names, and rule conflicts before you organize a real folder.",
+  problemTitle: "How do you plan folders for hundreds of files?",
+  problem: [
+    "Start with a small set of categories you can explain to another person. Paste a representative filename list and choose one rule at a time. Extension rules group formats such as PDFs and images; keyword rules use words already present in the names. Compare the proposed locations with how you actually retrieve those files, then refine the rules before handling a large batch.",
+    "For a mixed Downloads folder, separate predictable groups first: documents, photos, archives, and installers. A PDF named scan001.pdf has little context, so a format-only rule can place it under Documents but cannot tell whether it is a receipt, contract, or medical record. Keyword rules work only when a meaningful term appears in a name. Ordered rules resolve overlaps by choosing the first matching rule and flagging every conflict for review.",
+    "Dates are used only when a filename contains one unambiguous, calendar-valid YYYY-MM-DD date. A missing, impossible, or multiple date goes to Needs review rather than an invented year. A date in a filename may still describe a download, meeting, or invoice; verify its meaning before using it as a permanent filing rule.",
+    "Before making real changes, back up important folders, review the proposed destination of each file, check duplicate basenames and existing destination names, and move a small sample manually. This planner cannot see current folder contents or detect collisions with files already on disk. A CSV is a review checklist, not an instruction for an automated mover.",
+    "Foldora is a separate paid desktop organizer for supported local files. It analyzes selected file context locally, proposes folders and clearer names, and lets you review the plan before approving changes. The browser planner uses filename text only; its output is not Foldora AI output. Foldora's individual license is a one-time purchase and requires internet for purchase, activation, and periodic validation."
+  ],
+  contextualLinks: [
+    { before: "For a blank starting layout, see the ", anchor: "folder structure ZIP", href: "/organize-files-windows/", after: "." },
+    { before: "For a consistent name format, use the ", anchor: "filename convention generator", href: "/tools/file-naming-convention-generator/", after: "." },
+    { before: "For Foldora's actual review and approval workflow, read ", anchor: "how it works", href: "/docs/how-it-works/", after: "." }
+  ],
+  steps: [
+    "Paste one filename per line, or keep the built-in mixed Downloads example. The text stays in this browser tab.",
+    "Choose file type, strict filename date, or keyword rules. For keywords, edit the rows and move higher-priority rules upward.",
+    "Inspect the proposed tree and every before-and-after row. Treat conflicts, duplicates, and uncertain names as manual review items.",
+    "Copy the folder structure or download the CSV mapping as a checklist. Create folders and move files only after verifying real originals and backups."
+  ],
+  examples: [
+    { title: "Mixed Downloads by format", before: "invoice-april.pdf, family-photo.jpg, project-brief.docx", after: "Documents/PDF, Images, and Documents/Word are format-based suggestions; the tool cannot read their contents." },
+    { title: "Invoice names by keyword", before: "2026-04-18_acme_invoice.pdf", after: "A rule for invoice can propose Finance/Invoices. A filename matching two rules is flagged and the first rule wins." },
+    { title: "A filename without a clear date", before: "scan001.pdf or report-2026-02-30.pdf", after: "Date mode places these under Needs review/No clear date; it does not guess the document date." }
+  ],
+  comparison: {
+    title: "Choose the right level of help",
+    summary: "A text plan, blank folders, a naming pattern, and reviewed local file changes solve different problems.",
+    rows: [
+      { option: "This planner", bestFor: "Preview rule-based destinations from pasted filenames.", tradeoff: "No content analysis or filesystem access; you perform any changes yourself." },
+      { option: "Folder structure ZIP", bestFor: "Create a small empty starting hierarchy.", tradeoff: "It does not classify or sort existing files." },
+      { option: "Filename generator", bestFor: "Design a repeatable naming convention.", tradeoff: "It does not propose folder destinations." },
+      { option: "Foldora", bestFor: "Get local content-aware suggestions for supported files and review them before applying.", tradeoff: "It is paid software; results still need human review and license validation needs periodic internet." }
+    ]
+  },
+  faqs: [
+    { question: "Does the planner upload or inspect my files?", answer: "No. You paste filename text into the page. Its rule engine runs in your browser without file, folder, account, or network access for those names. Do not paste sensitive names on a shared screen." },
+    { question: "Can it organize a Downloads folder automatically?", answer: "No. It produces a text preview and CSV checklist. It cannot see your Downloads folder or perform moves, so check the actual folder before doing anything manually." },
+    { question: "What if a filename matches two keywords?", answer: "The first rule in the visible rule list wins. The row is flagged as a conflict so you can change rule order or review it manually." },
+    { question: "How does date organization work?", answer: "The planner accepts one real YYYY-MM-DD date in the filename. Missing, invalid, or multiple dates go to Needs review. It cannot determine whether a valid date describes the document itself." },
+    { question: "When is local AI more useful than filename rules?", answer: "When names are vague and supported file contents supply the needed context, Foldora can propose folders and names from local analysis. You must inspect its suggestions before applying changes." }
+  ],
+  related: ["organize-files-windows", "tools/file-naming-convention-generator", "docs/how-it-works", "ai-file-organizer"],
+  sources: [
+    { label: "Foldora workflow", url: "https://foldoraai.com/docs/how-it-works/", note: "Local analysis, proposal review, and approval before file changes." },
+    { label: "Foldora product and licensing", url: "https://foldoraai.com/", note: "Desktop product, individual purchase, and licensing requirements." }
   ]
 });
 
