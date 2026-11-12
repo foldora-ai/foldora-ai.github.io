@@ -720,7 +720,19 @@ ${articlePage ? `  <meta property="article:modified_time" content="${page.update
   <meta name="twitter:url" content="${canonical}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
-  <style>${pageStyles()}</style>
+  <style>${pageStyles()}${page.route === "tools/file-naming-convention-generator" ? `
+    .tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .tool-panel{padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+    .tool-panel h3{margin:0 0 18px;color:white}.tool-panel label,.tool-panel legend{display:block;color:var(--text);font-weight:700}
+    .tool-panel input:not([type=checkbox]),.tool-panel select{width:100%;min-height:44px;margin:7px 0 17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:white;font:inherit}
+    .tool-panel fieldset{margin:0 0 18px;padding:0;border:0}.tool-panel legend{margin-bottom:9px}
+    .component-list{list-style:none;margin:0;padding:0}.component-list li{display:flex;align-items:center;gap:8px;margin:7px 0;padding:9px;border:1px solid var(--line);border-radius:8px}
+    .component-list label{flex:1}.component-list button,.copy-button{min-width:38px;min-height:38px;border:1px solid var(--line);border-radius:7px;background:var(--secondary);color:white;cursor:pointer}
+    .component-list button:disabled,.copy-button:disabled{opacity:.45;cursor:not-allowed}.copy-button{padding:8px 14px;margin:8px 8px 8px 0}
+    .tool-output{overflow-wrap:anywhere}.tool-output code{display:block;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:white}
+    .tool-output ul{padding-left:22px}.tool-output li{margin:8px 0}.tool-note{font-size:.9rem;color:var(--muted)}
+    @media(max-width:700px){.tool-grid{grid-template-columns:1fr}.tool-panel{padding:18px}}
+  ` : ""}</style>
 </head>
 <body>
   ${renderPageHeader(campaign, !singleOffer, "seo-header", `seo-header/${page.route}`)}
@@ -748,6 +760,35 @@ ${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="bu
       <p>${escapeHtml(page.directAnswer)}</p>
       <div class="updated">Reviewed and updated ${escapeHtml(page.updatedAt)}</div>
     </section>
+${page.route === "tools/file-naming-convention-generator" ? `    <section id="naming-tool" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Generate a file naming convention</h2>
+      <p>Choose a workflow, select and reorder the fields, then copy a pattern or illustrative examples. This tool only creates text; it does not rename, read, or upload files.</p>
+      <div class="tool-grid">
+        <div class="tool-panel">
+          <h3>Build your pattern</h3>
+          <label for="workflow">Workflow</label><select id="workflow"><option value="invoices">Invoices</option><option value="business">Business documents</option><option value="personal">Personal files</option><option value="projects">Project files</option></select>
+          <fieldset><legend>Filename components and order</legend><p class="tool-note">Use the arrows to move a component. Uncheck anything you do not need.</p><ul id="component-list" class="component-list"></ul></fieldset>
+          <label for="separator">Separator</label><select id="separator"><option value="hyphen">Hyphen (-)</option><option value="underscore">Underscore (_)</option><option value="space">Space</option></select>
+          <label for="date-format">Date format</label><select id="date-format"><option value="iso">YYYY-MM-DD</option><option value="compact">YYYYMMDD</option><option value="month">YYYY-MM</option></select>
+        </div>
+        <div class="tool-panel">
+          <h3>Sample details</h3>
+          <label for="date">Date</label><input id="date" type="date" value="2026-04-18">
+          <label for="category">Category</label><input id="category" type="text" maxlength="80" value="Invoice" autocomplete="off">
+          <label for="project">Project or client</label><input id="project" type="text" maxlength="80" value="Acme" autocomplete="off">
+          <label for="description">Description</label><input id="description" type="text" maxlength="80" value="April services" autocomplete="off">
+          <label for="sequence">Starting sequence number</label><input id="sequence" type="number" min="1" max="9999" step="1" value="1">
+          <label for="extension">Example file extension</label><input id="extension" type="text" maxlength="10" value="pdf" autocomplete="off" aria-describedby="extension-help"><p id="extension-help" class="tool-note">Letters and digits only. Keep the real file's extension when naming it.</p>
+        </div>
+      </div>
+      <div class="tool-panel tool-output" style="margin-top:24px">
+        <h3>Your pattern</h3><code id="pattern-output">{date}-{project}-{category}-{description}-{sequence}.{extension}</code><button id="copy-pattern" class="copy-button" type="button">Copy pattern</button>
+        <h3>Illustrative filename examples</h3><p class="tool-note">Suggestions for planning only. These are not actual Foldora AI output.</p>
+        <ul id="example-output"><li>2026-04-18-Acme-Invoice-April services-001.pdf</li><li>2026-05-03-Northstar-Invoice-Design retainer-002.pdf</li><li>2026-05-14-Acme-Receipt-Office supplies-003.pdf</li></ul>
+        <button id="copy-examples" class="copy-button" type="button">Copy examples</button><p id="tool-feedback" role="status" aria-live="polite" class="tool-note">Examples are illustrative suggestions, not Foldora AI output.</p>
+      </div>
+      <noscript><p>Turn on JavaScript to change components or copy results. The example pattern above is available without it.</p></noscript>
+    </section>` : ""}
 ${page.comparisonFirst ? renderSelectionTable(page) + "\n" : ""}${renderEvidence(page)}
     <section>
       <h2>${escapeHtml(page.problemTitle)}</h2>
@@ -821,6 +862,7 @@ ${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" targ
   </main>
   ${renderPageFooter(!singleOffer)}
   ${TAWK_LOADER_TAG}
+${page.route === "tools/file-naming-convention-generator" ? '  <script type="module" src="/tools/file-naming-convention-generator/tool.js"></script>' : ""}
 </body>
 </html>`;
 }

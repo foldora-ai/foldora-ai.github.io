@@ -877,6 +877,9 @@ export const seoPages: SeoPage[] = [
       "A filename should identify a document outside its original folder. Camera numbers, download IDs, and repeated final versions create ambiguity in search results and shared folders.",
       "The best naming convention is consistent but not overloaded. Include only the fields that help retrieval, and keep dates in a sortable format such as YYYY-MM-DD.",
     ],
+    contextualLinks: [
+      { before: "To design a manual pattern before renaming, use the ", anchor: "free file naming convention generator", href: "/tools/file-naming-convention-generator/", after: "." },
+    ],
     steps: [
       "Choose a pattern such as date, subject, document type, and organization.",
       "Analyze each file for the context needed by that pattern.",
@@ -1253,6 +1256,7 @@ export const seoPages: SeoPage[] = [
       "Foldora runs on Windows 10/11 and macOS. Document analysis is local; purchase, download, license activation, periodic license validation and updates require internet access. This guide is published by Computora AI, Foldora's publisher.",
     ],
     contextualLinks: [
+      { before: "If you already know the fields your accounting workflow requires, draft a pattern with the ", anchor: "free naming convention generator", href: "/tools/file-naming-convention-generator/", after: "." },
       { before: "Comparing low-setup AI suggestions with Windows rules tools? Use the ", anchor: "Windows file organizer comparison", href: "/best-file-organizer-windows/", after: " to choose the workflow that fits." },
     ],
     steps: [
@@ -4018,6 +4022,64 @@ seoPages.push({
     { label: "AI File Sorter FAQ", url: "https://filesorter.app/faq/", note: "Local or remote model choice, preview, and local hardware considerations." },
     { label: "Microsoft OneDrive Files On-Demand", url: "https://support.microsoft.com/en-us/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows", note: "Online-only and locally available file behavior in a synced folder." },
     { label: "Microsoft OneDrive sharing", url: "https://support.microsoft.com/en-us/onedrive/share-files-and-folders-in-microsoft-onedrive", note: "Cloud sharing and permission controls." }
+  ]
+});
+
+seoPages.push({
+  route: "tools/file-naming-convention-generator",
+  kind: "guide",
+  topic: "renaming",
+  title: "Free File Naming Convention Generator",
+  h1: "Free File Naming Convention Generator",
+  description: "Build a practical file naming pattern for invoices, business, personal, or project files. Rearrange fields, preview safe examples, and copy the result.",
+  eyebrow: "Free browser tool",
+  updatedAt: "2026-11-12",
+  directAnswer: "A useful naming convention combines a few stable details, such as a sortable date, project or client, document type, and short description. Choose the fields your team can enter consistently. This free tool creates a pattern and illustrative filenames for four workflows; it does not inspect, rename, move, or upload your files. You can copy the result and apply it manually to future files.",
+  problemTitle: "What makes a filename useful later?",
+  problem: [
+    "Use the smallest set of fields that tells you what a file is when it appears in search or outside its original folder. Keep field order and separators consistent. A project label helps when several clients have similar documents; a sequence number helps when several files otherwise have the same name. A naming rule only works if people use the same terms and check for duplicates.",
+    "Include a date when the date helps retrieval or order, especially for invoices, meeting records, reports, and versioned exports. YYYY-MM-DD sorts chronologically as text. Decide whether it means the document date, service period, or download date, and use that meaning consistently. Dates can be omitted from timeless references; a wrong date is less useful than no date.",
+    "For invoices, a practical manual pattern is date, client or supplier, document type, and an identifier or short subject: 2026-04-18-Acme-Invoice-April services-001.pdf. Use the issue date and verified invoice number if accounting rules require them. The tool's sequence is only an example counter; it does not read or validate an invoice number.",
+    "Windows forbids < > : \" / \\ | ? * and control characters in ordinary filenames. It also reserves device names such as CON, PRN, AUX, NUL, COM1–COM9, and LPT1–LPT9, including names followed by an extension. Avoid trailing spaces and periods. This tool cleans unsafe text in examples and warns when it changes an entry. Other systems and cloud services may impose additional limits, so check the destination too.",
+    "A naming convention is enough when a small number of files can be named manually and the folder structure is already clear. It does not classify mixed backlogs or decide where documents should move. Foldora is a separate paid desktop organizer: it analyzes supported local file context, suggests folders and clearer names, and lets you review a proposed plan before approved moves or renames. It does not enforce arbitrary patterns generated by this tool. Foldora's individual license costs $14.99 once and needs internet for purchase, activation, and periodic validation."
+  ],
+  contextualLinks: [
+    { before: "For the verified Foldora workflow, see ", anchor: "how local preview and approval work", href: "/docs/how-it-works/", after: "." },
+    { before: "For a ready-made folder layout instead of a filename pattern, use ", anchor: "the free folder structure ZIP", href: "/organize-files-windows/", after: "." }
+  ],
+  steps: [
+    "Choose invoices, business documents, personal files, or project files to load realistic sample values.",
+    "Select only the components you can fill reliably, and move them up or down into your preferred order.",
+    "Choose a separator and date format, then edit the sample details. Check the preview for unclear names or duplicates.",
+    "Copy the pattern and examples for your own documentation. Apply names manually and keep each real file's correct extension."
+  ],
+  examples: [
+    { title: "Invoice naming suggestion", before: "invoice-final-new.pdf", after: "2026-04-18-Acme-Invoice-April services-001.pdf. The date and client are sample values, and 001 is a sequence suggestion, not a verified invoice ID." },
+    { title: "Project naming suggestion", before: "final-copy-3.docx", after: "Website Redesign-2026-04-18-Draft-Homepage copy-001.docx. A project label and stage distinguish this draft from unrelated documents." },
+    { title: "Personal record naming suggestion", before: "scan002.pdf", after: "2026-04-18-Home-Insurance policy.pdf. A stable category and short subject can be enough without a sequence number." }
+  ],
+  comparison: {
+    title: "A pattern, a folder template, and an AI organizer do different jobs",
+    summary: "Choose based on whether you need written naming rules, empty folders, or reviewed suggestions for existing files.",
+    headers: { option: "Approach", bestFor: "Useful when", tradeoff: "What it does not do" },
+    rows: [
+      { option: "This free generator", bestFor: "Design and copy a consistent filename pattern with illustrative examples.", tradeoff: "It does not touch files, extract document fields, or enforce the pattern." },
+      { option: "Free folder structure ZIP", bestFor: "Start a new Work, Personal, Finance, Reference, and Archive layout.", tradeoff: "Empty folders do not sort existing files or generate names." },
+      { option: "Foldora", bestFor: "Review suggested destinations and descriptive names for a selected local batch.", tradeoff: "Suggestions require review and do not enforce this generator's exact field order or wording.", sources: [{ label: "Foldora workflow", url: "https://foldoraai.com/docs/how-it-works/" }] }
+    ]
+  },
+  faqs: [
+    { question: "Should every filename include a date?", answer: "No. Use a date when it helps identify or sort time-bound files, and define whether it means issue, service, event, or revision date. For timeless references, subject and project may be clearer." },
+    { question: "How should I name invoices?", answer: "A practical manual order is issue date, verified supplier or client, Invoice, and a short identifier or subject. Keep the real extension. If invoice numbers and dates must be exact for accounting, verify them against the invoice; this tool does not extract fields." },
+    { question: "Which characters should Windows filenames avoid?", answer: "Windows excludes < > : \" / \\ | ? * and control characters, reserves names such as CON and NUL even with an extension, and discourages names ending in a space or period. The tool cleans unsafe sample text and flags the change." },
+    { question: "Does this tool rename my files or produce Foldora AI results?", answer: "No. It generates illustrative text in your browser and can copy it to the clipboard. It neither accesses files nor calls Foldora's AI. Foldora's own suggestions depend on the selected files and must be reviewed separately." },
+    { question: "When is a manual naming convention enough?", answer: "A convention is often enough for a small, predictable flow whose fields you already know and can apply consistently. For a mixed backlog needing folder and name suggestions, a reviewed organizer can save manual planning, but verify its output before applying it." }
+  ],
+  related: ["rename-files-automatically", "blog/organize-invoices-automatically", "organize-files-windows", "docs/how-it-works", "docs/supported-file-types"],
+  sources: [
+    { label: "Microsoft: Naming Files, Paths, and Namespaces", url: "https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file", note: "Windows reserved characters, device names, and trailing space or period guidance." },
+    { label: "Foldora workflow", url: "https://foldoraai.com/docs/how-it-works/", note: "Selected local analysis, preview, approval, and file changes." },
+    { label: "Foldora product and pricing", url: "https://foldoraai.com/", note: "Supported systems, one-time individual price, local analysis, and internet licensing needs." }
   ]
 });
 

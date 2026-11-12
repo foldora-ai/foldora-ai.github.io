@@ -154,7 +154,8 @@
       <div class="eyebrow">Invoice organization guide</div>
       <h1>How to Organize Invoices Automatically</h1>
       <p class="lede">Can Foldora organize invoices by content? Learn its local classification workflow, PDF and OCR limits, and when exact vendor/date rules need another tool.</p>
-      
+
+
     </div>
   </section>
   <main class="container">
@@ -164,14 +165,16 @@
       <div class="updated">Reviewed and updated 2026-11-05</div>
     </section>
 
+
     <section>
       <h2>Content classification is different from invoice-field extraction</h2>
-      <p>A document can be recognized as an invoice without reliably identifying its supplier, issue date, invoice number or payment status. Foldora classifies against its folder categories and may suggest a short descriptive name. Names are summaries, not accounting records: dates and identifiers are not guaranteed to be retained. A strong filename match can finish classification before content is read.</p><p>Invoice-relevant text readers include PDF, DOCX, TXT, CSV and XLSX. PDF text is sampled from at most the first three pages; TXT reads up to 3,000 characters, DOCX up to 200 nonempty paragraph parts, and spreadsheets use a small row summary rather than the entire workbook. The text-classification path caps content at 5,000 characters; name generation can use a much shorter selected line. Do not assume every field or page is inspected.</p><p>Content analysis has an 8 MiB per-file size guard. For a PDF whose first page has fewer than 50 extracted characters, the reader attempts local OCR on that page at 150 dpi. This requires a working OCR runtime and can fail; it is not full-document OCR. A photograph of an invoice is not a supported structured invoice-extraction workflow. Unreadable text, scans and larger files need manual checking, and filename fallbacks may still suggest a category.</p><p>Foldora runs on Windows 10/11 and macOS. Document analysis is local; purchase, download, license activation, periodic license validation and updates require internet access. This guide is published by Computora AI, Foldora&#39;s publisher.</p><p>Comparing low-setup AI suggestions with Windows rules tools? Use the <a href="/best-file-organizer-windows/">Windows file organizer comparison</a> to choose the workflow that fits.</p>
+      <p>A document can be recognized as an invoice without reliably identifying its supplier, issue date, invoice number or payment status. Foldora classifies against its folder categories and may suggest a short descriptive name. Names are summaries, not accounting records: dates and identifiers are not guaranteed to be retained. A strong filename match can finish classification before content is read.</p><p>Invoice-relevant text readers include PDF, DOCX, TXT, CSV and XLSX. PDF text is sampled from at most the first three pages; TXT reads up to 3,000 characters, DOCX up to 200 nonempty paragraph parts, and spreadsheets use a small row summary rather than the entire workbook. The text-classification path caps content at 5,000 characters; name generation can use a much shorter selected line. Do not assume every field or page is inspected.</p><p>Content analysis has an 8 MiB per-file size guard. For a PDF whose first page has fewer than 50 extracted characters, the reader attempts local OCR on that page at 150 dpi. This requires a working OCR runtime and can fail; it is not full-document OCR. A photograph of an invoice is not a supported structured invoice-extraction workflow. Unreadable text, scans and larger files need manual checking, and filename fallbacks may still suggest a category.</p><p>Foldora runs on Windows 10/11 and macOS. Document analysis is local; purchase, download, license activation, periodic license validation and updates require internet access. This guide is published by Computora AI, Foldora&#39;s publisher.</p><p>If you already know the fields your accounting workflow requires, draft a pattern with the <a href="/tools/file-naming-convention-generator/">free naming convention generator</a>.</p><p>Comparing low-setup AI suggestions with Windows rules tools? Use the <a href="/best-file-organizer-windows/">Windows file organizer comparison</a> to choose the workflow that fits.</p>
     </section>
     <section>
       <h2>Step-by-step workflow</h2>
       <ol><li>Back up a small invoice batch and select it in Foldora. Choose AI Content for category and naming suggestions; do not expect exact vendor/date routing controls.</li><li>Generate Preview. Compare each proposed folder and filename with the actual invoice, especially scans, ambiguous names, large files and fields on later pages.</li><li>Check that required supplier names, dates and invoice numbers remain usable before approving moves or renames. Do not approve an unsuitable plan; retain the originals for your accounting workflow.</li><li>After applying an approved plan, verify the resulting files and reconcile them with the accounting system. Keep payment status and retention decisions in your authoritative records.</li></ol>
     </section>
+
     <section>
       <h2>Use-case examples</h2>
       <div class="grid">
@@ -213,6 +216,7 @@
         <a href="/use-cases/accountants/">File Organization for Accountants</a><a href="/docs/supported-file-types/">Supported File Types</a><a href="/docs/privacy/">Foldora Privacy</a><a href="/docs/how-it-works/">How Foldora Works</a>
       </div>
     </section>
+
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
@@ -233,5 +237,6 @@
     <p class="copyright">Copyright 2026 Foldora AI. All rights reserved.</p>
   </div></footer>
   <script src="/tawk-loader.js" defer></script>
+
 </body>
 </html>
