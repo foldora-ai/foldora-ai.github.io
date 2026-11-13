@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SeoHead from "@/components/SeoHead";
-import { seoPagesByRoute } from "@/content/seoPages";
+import { seoPagesByRoute, type SeoComparison } from "@/content/seoPages";
 import { docs } from "@/content/docs";
 import { features } from "@/content/features";
 import { categories } from "@/content/categories";
@@ -42,27 +42,27 @@ const SeoContentPage = () => {
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
   const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai" || page.route === "local-vs-cloud-ai-file-organizer";
 
-  const comparisonSection = (
-          <section aria-labelledby={page.comparisonFirst ? "organizer-selection" : undefined}>
-            <h2 id={page.comparisonFirst ? "organizer-selection" : undefined} className="content-section-title">{page.comparison.title}</h2>
-            <p className="mt-4 text-muted-foreground">{page.comparison.summary}</p>
+  const comparisonSection = (comparison: SeoComparison, first = false) => (
+          <section aria-labelledby={first ? "organizer-selection" : undefined}>
+            <h2 id={first ? "organizer-selection" : undefined} className="content-section-title">{comparison.title}</h2>
+            <p className="mt-4 text-muted-foreground">{comparison.summary}</p>
             <div className="mt-6 max-w-full overflow-x-auto rounded-xl border border-border">
               <table className="w-full min-w-[640px] border-collapse bg-card text-left">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="p-4 text-sm font-semibold text-foreground">
-                      {page.comparison.headers?.option ?? "Option"}
+                      {comparison.headers?.option ?? "Option"}
                     </th>
                     <th className="p-4 text-sm font-semibold text-foreground">
-                      {page.comparison.headers?.bestFor ?? "Best for"}
+                      {comparison.headers?.bestFor ?? "Best for"}
                     </th>
                     <th className="p-4 text-sm font-semibold text-foreground">
-                      {page.comparison.headers?.tradeoff ?? "Tradeoff"}
+                      {comparison.headers?.tradeoff ?? "Tradeoff"}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {page.comparison.rows.map((row) => (
+                  {comparison.rows.map((row) => (
                     <tr key={row.option} className="border-b border-border last:border-b-0">
                       <th scope="row" className="p-4 align-top text-sm font-semibold text-foreground">
                         {row.option}
@@ -143,7 +143,8 @@ const SeoContentPage = () => {
             </p>
           </section>
 
-          {page.comparisonFirst && comparisonSection}
+          {page.comparisonFirst && comparisonSection(page.comparison, true)}
+          {page.decisionComparison && comparisonSection(page.decisionComparison)}
 
           {page.evidence && (
             <section aria-labelledby="evidence-title">
@@ -271,7 +272,7 @@ const SeoContentPage = () => {
             </div>
           </section>
 
-          {!page.comparisonFirst && comparisonSection}
+          {!page.comparisonFirst && comparisonSection(page.comparison)}
 
           {page.sources && (
             <section>

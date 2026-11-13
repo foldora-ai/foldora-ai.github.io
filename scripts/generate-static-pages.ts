@@ -8,6 +8,7 @@ import {
   seoPages,
   seoPagesByRoute,
   type SeoFaq,
+  type SeoComparison,
   type SeoPage,
 } from "../src/content/seoPages";
 import { product, site } from "../src/config/product";
@@ -171,6 +172,7 @@ function uniqueContent(page: SeoPage): string {
       row.bestFor,
       row.tradeoff,
     ]),
+    ...(page.decisionComparison ? [page.decisionComparison.title, page.decisionComparison.summary, ...page.decisionComparison.rows.flatMap((row) => [row.option, row.bestFor, row.tradeoff])] : []),
     ...page.faqs.flatMap((faq) => [faq.question, faq.answer]),
     ...(page.sources ?? []).flatMap((source) => [
       source.label,
@@ -670,15 +672,15 @@ function renderEvidence(page: SeoPage): string {
   </section>`;
 }
 
-function renderSelectionTable(page: SeoPage): string {
-  return `    <section${page.comparisonFirst ? ' aria-labelledby="organizer-selection"' : ""}>
-      <h2${page.comparisonFirst ? ' id="organizer-selection"' : ""}>${escapeHtml(page.comparison.title)}</h2>
-      <p>${escapeHtml(page.comparison.summary)}</p>
+function renderSelectionTable(page: SeoPage, comparison: SeoComparison = page.comparison, first = page.comparisonFirst): string {
+  return `    <section${first ? ' aria-labelledby="organizer-selection"' : ""}>
+      <h2${first ? ' id="organizer-selection"' : ""}>${escapeHtml(comparison.title)}</h2>
+      <p>${escapeHtml(comparison.summary)}</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>${escapeHtml(page.comparison.headers?.option ?? "Option")}</th><th>${escapeHtml(page.comparison.headers?.bestFor ?? "Best for")}</th><th>${escapeHtml(page.comparison.headers?.tradeoff ?? "Tradeoff")}</th></tr></thead>
+          <thead><tr><th>${escapeHtml(comparison.headers?.option ?? "Option")}</th><th>${escapeHtml(comparison.headers?.bestFor ?? "Best for")}</th><th>${escapeHtml(comparison.headers?.tradeoff ?? "Tradeoff")}</th></tr></thead>
           <tbody>
-            ${page.comparison.rows
+            ${comparison.rows
               .map(
                 (row) => `<tr><th scope="row">${escapeHtml(row.option)}</th><td>${escapeHtml(row.bestFor)}</td><td>${escapeHtml(row.tradeoff)}${row.sources ? `<div class="row-sources" style="margin-top:12px;font-size:.85rem">${row.sources.map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a>`).join(" · ")}</div>` : ""}</td></tr>`,
               )
@@ -840,6 +842,7 @@ ${page.route === "tools/file-organization-planner" ? `    <section id="organizat
       <noscript><p>Enable JavaScript to change rules and preview mappings. The explanation and example filenames above remain available without it.</p></noscript>
     </section>` : ""}
 ${page.comparisonFirst ? renderSelectionTable(page) + "\n" : ""}${renderEvidence(page)}
+${page.decisionComparison ? renderSelectionTable(page, page.decisionComparison, false) : ""}
     <section>
       <h2>${escapeHtml(page.problemTitle)}</h2>
       ${page.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${page.contextualLinks?.map((link) => `<p>${escapeHtml(link.before)}<a href="${escapeHtml(link.href)}">${escapeHtml(link.anchor)}</a>${escapeHtml(link.after)}</p>`).join("") ?? ""}

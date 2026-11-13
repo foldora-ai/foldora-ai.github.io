@@ -81,6 +81,7 @@ export interface SeoPage {
   stepsTitle?: string;
   examples: SeoExample[];
   comparison: SeoComparison;
+  decisionComparison?: SeoComparison;
   comparisonFirst?: boolean;
   faqs: SeoFaq[];
   related: string[];
@@ -1591,7 +1592,7 @@ export const seoPages: SeoPage[] = [
     description:
       "Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.",
     eyebrow: "Privacy and local AI",
-    updatedAt: "2026-11-06",
+    updatedAt: "2026-11-13",
     directAnswer:
       "Foldora can analyze supported files, preview proposed folders and names, and organize local files on Windows 10/11 and macOS without uploading them for analysis. Install the complete package and activate online first. The current license code allows offline use for less than seven days after the last saved validation; reconnect before that window expires. It is not a permanently disconnected workflow.",
     problemTitle: "What local processing covers, and what it can miss",
@@ -1604,6 +1605,7 @@ export const seoPages: SeoPage[] = [
     contextualLinks: [
       { before: "To choose between a local folder tool and a cloud library, use ", anchor: "the local vs cloud buyer checklist", href: "/local-vs-cloud-ai-file-organizer/", after: "." },
       { before: "For the boundary between file processing, checkout, and optional website services, read ", anchor: "Foldora's privacy explanation", href: "/docs/privacy/", after: "." },
+      { before: "For the supported systems, package delivery, and first setup, read ", anchor: "Foldora's installation guide", href: "/docs/install/", after: "." },
       { before: "Before testing a mixed folder, check the ", anchor: "supported formats and content-analysis limits", href: "/docs/supported-file-types/", after: "; unsupported or unreadable content needs manual review." },
       { before: "If periodic online licensing fits your workflow, see ", anchor: "Foldora's $14.99 one-time license and purchase options", href: "/#pricing", after: ". A lifetime purchase does not remove periodic validation." },
     ],
@@ -1625,6 +1627,16 @@ export const seoPages: SeoPage[] = [
         after: "Foldora samples up to three pages and attempts OCR only on the first page when its text is sparse. It may miss the later-page details. Review the suggestion manually, or prepare searchable text with a dedicated OCR tool before relying on content classification.",
       },
     ],
+    decisionComparison: {
+      title: "Which private file-organization workflow fits?",
+      summary: "Choose by what may leave the device, how much interpretation you need, and where the result must live. Check the specific product's data flow before using sensitive files.",
+      headers: { option: "Method", bestFor: "Good fit", tradeoff: "What to check" },
+      rows: [
+        { option: "Manual or rule-based local organization", bestFor: "Predictable filenames, extensions, or dates; you define folders and rules yourself without sending content to an AI service.", tradeoff: "Rules cannot infer a document's subject when its filename is vague. You must maintain rules and inspect conflicts; a local rule tool can still have its own network needs." },
+        { option: "Local AI with review", bestFor: "Mixed local documents whose supported content may help suggest folders or names, with a human checking every proposed change. Foldora analyzes on-device and applies approved local moves or renames.", tradeoff: "Confirm the selected app's processing mode, format and OCR limits, preview, backup, hardware, and license window. Foldora needs online activation and periodic validation; it cannot run permanently disconnected." },
+        { option: "Cloud-based AI organization", bestFor: "A searchable library across phone and browser, scanning, sync, or sharing when uploading to a provider is acceptable.", tradeoff: "Confirm what content or metadata is uploaded, retention and permissions, whether changes affect original local folders or only cloud copies, connection needs, and recurring costs. Cloud processing is not inherently insecure." },
+      ],
+    },
     comparison: {
       title: "When you need a connection",
       summary: "Local file processing and online service requirements are separate. Prepare the complete installation before relying on offline use.",
