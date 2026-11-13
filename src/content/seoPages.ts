@@ -4165,6 +4165,62 @@ seoPages.push({
   ]
 });
 
+seoPages.push({
+  route: "tools/downloads-folder-cleanup-checklist",
+  kind: "guide",
+  topic: "downloads",
+  title: "Downloads Folder Cleanup Checklist for Windows",
+  h1: "Downloads Folder Cleanup Checklist",
+  description: "Work through a safe Windows Downloads cleanup: decide what to keep, archive, or review; sort by file type; check uncertain files before any move or deletion.",
+  eyebrow: "Free Windows checklist",
+  updatedAt: "2026-11-13",
+  directAnswer: "Open Downloads in File Explorer, identify records and active work first, then separate installers, documents, images, ZIP archives, and temporary downloads. Give each item a keep, archive, or review decision before moving it. This checklist tracks your decisions only; it never scans, uploads, moves, or deletes files.",
+  problemTitle: "Decide what each download is for before moving it",
+  problem: [
+    "A file type is a starting clue, not a final destination. An invoice PDF belongs with financial records; a project brief belongs with its project. Put uncertain files in a review group until you know their owner, purpose, and whether another app still uses that location.",
+    "Organization means choosing a durable home and moving a verified file there. Deletion removes a file and needs a separate decision. Do not infer that an old installer, archive, or duplicate-looking name is safe to delete from its age or name alone."
+  ],
+  contextualLinks: [
+    { before: "If you need a destination map for a list of names, use the ", anchor: "file organization planner", href: "/tools/file-organization-planner/", after: "." },
+    { before: "For a blank Work, Personal, Finance, Reference, and Archive layout, see the ", anchor: "folder structure template", href: "/organize-files-windows/", after: "." }
+  ],
+  stepsTitle: "A safe order of work",
+  steps: [
+    "Open Downloads in File Explorer and review by type or date. Keep a separate backup of important records before large changes.",
+    "Mark records and active work to keep; mark finished material to archive; leave ambiguous items for review. Separate installers, documents, images, ZIP archives, and temporary downloads.",
+    "Check lookalike names and files that might be used by an application. Compare actual contents, versions, and destinations yourself; this checklist cannot detect duplicates or dependencies.",
+    "Create destinations, move a small verified batch using File Explorer, and open a sample from its new location. Decide about deletion separately only after checking that the file is truly unneeded."
+  ],
+  examples: [
+    { title: "Invoice and draft", before: "invoice.pdf and proposal-final.docx in Downloads", after: "Keep the invoice with financial records; keep an active proposal with its project. Verify each document before moving." },
+    { title: "Two familiar names", before: "setup.exe and setup (1).exe", after: "Review version, source, and whether either installer is needed for reinstall or repair. Similar names alone do not prove identical contents." },
+    { title: "App-supplied archive", before: "project-assets.zip beside a design project", after: "Check whether the project or an app expects that path. Keep it in place until you understand the dependency." }
+  ],
+  comparison: {
+    title: "Choose the right amount of help",
+    summary: "Use a method that fits the amount of uncertainty in your Downloads folder.",
+    rows: [
+      { option: "Manual checklist", bestFor: "A small batch that you can identify and file yourself.", tradeoff: "You inspect every file and make every move." },
+      { option: "Filename rules", bestFor: "Repeated, predictable names or extensions.", tradeoff: "A PDF extension does not reveal whether the file is a receipt or a report." },
+      { option: "Reviewed local organizer", bestFor: "A mixed batch of supported files whose names need context.", tradeoff: "Review every proposed folder and name; Foldora is paid and does not perform deletion or duplicate detection." }
+    ]
+  },
+  faqs: [
+    { question: "How should I organize my Windows Downloads folder?", answer: "Treat Downloads as an inbox. Open it in File Explorer, separate documents, images, installers, ZIP archives, and temporary items, then file what you keep by purpose or project. Leave uncertain files for review instead of forcing a category." },
+    { question: "What files are safe to move?", answer: "Move a file after confirming what it is, where it belongs, and that no app or active workflow depends on its current path. Back up important records first and test a small move in File Explorer. If unsure, leave the file in place." },
+    { question: "Should I delete old installers?", answer: "Only after confirming the app is installed, you can obtain a trusted installer again if needed, and the file is not needed for repair, reinstall, or offline use. Deleting an installer is different from uninstalling its app." },
+    { question: "How can I prevent Downloads from becoming disorganized?", answer: "Set a short weekly review, move records to stable homes when you receive them, and use consistent names. In Windows, check Storage Sense settings before enabling any Downloads deletion rule; Microsoft says Downloads is not managed by its default settings." },
+    { question: "When are manual rules enough?", answer: "Manual rules are enough when the batch is small, names are clear, and destinations are predictable. A simple weekly review can then be faster than setting up another tool." },
+    { question: "When is a reviewed local AI file organizer useful?", answer: "For many mixed, supported documents and images with unclear names, Foldora can analyze available local context and propose folders and filenames for your review. You approve changes before they apply. It does not delete files or detect duplicates, and support varies by format." }
+  ],
+  related: ["tools/file-organization-planner", "organize-files-windows", "docs/supported-file-types", "docs/how-it-works"],
+  sources: [
+    { label: "Microsoft: File Explorer in Windows", url: "https://support.microsoft.com/en-us/windows/experience/fileexplorer/file-explorer-in-windows", note: "Opening File Explorer and moving files with Cut and Paste." },
+    { label: "Microsoft: Manage drive space with Storage Sense", url: "https://support.microsoft.com/en-gb/windows/experience/storage-filemanagement/manage-drive-space-with-storage-sense", note: "Downloads is untouched by default unless you configure its deletion setting." },
+    { label: "Microsoft: Uninstall apps in Windows", url: "https://support.microsoft.com/en-us/windows/apps/uninstall-or-remove-apps-and-programs-in-windows", note: "Uninstalling an app is a separate Windows workflow." }
+  ]
+});
+
 export const seoPagesByRoute = Object.fromEntries(
   seoPages.map((page) => [page.route, page]),
 ) as Record<string, SeoPage>;

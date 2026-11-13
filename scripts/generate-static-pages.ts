@@ -410,17 +410,17 @@ function schemaForPage(page: SeoPage): object {
             },
           ]
         : []),
-      ...(page.route === "tools/file-organization-planner"
+      ...(["tools/file-organization-planner", "tools/downloads-folder-cleanup-checklist"].includes(page.route)
         ? [{
             "@type": "WebApplication",
             "@id": `${pageUrl}#tool`,
-            name: "Free File Organization Planner",
+            name: page.route === "tools/file-organization-planner" ? "Free File Organization Planner" : "Downloads Folder Cleanup Checklist",
             url: pageUrl,
             applicationCategory: "UtilitiesApplication",
             operatingSystem: "Any modern browser",
             browserRequirements: "JavaScript enabled",
             isAccessibleForFree: true,
-            description: "Client-side filename-based folder tree and CSV mapping preview. Does not access or change files.",
+            description: page.route === "tools/file-organization-planner" ? "Client-side filename-based folder tree and CSV mapping preview. Does not access or change files." : "Browser-only checklist for planning a safe Windows Downloads cleanup. Does not access or change files.",
             publisher: { "@id": `${SITE_URL}/#organization` },
           }]
         : []),
@@ -702,7 +702,8 @@ function renderMainPage(page: SeoPage): string {
   const schema = JSON.stringify(schemaForPage(page)).replaceAll("<", "\\u003c");
   const campaign = page.route.replaceAll("/", "-");
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
-  const hideBundle = singleOffer || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai" || page.route === "local-vs-cloud-ai-file-organizer";
+  const isDownloadsChecklist = page.route === "tools/downloads-folder-cleanup-checklist";
+  const hideBundle = singleOffer || isDownloadsChecklist || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai" || page.route === "local-vs-cloud-ai-file-organizer";
 
   return `<!doctype html>
 <html lang="en">
@@ -737,7 +738,20 @@ ${articlePage ? `  <meta property="article:modified_time" content="${page.update
   <meta name="twitter:url" content="${canonical}">
   <script type="application/ld+json">${schema}</script>
 ${analyticsHead()}
-  <style>${pageStyles()}${page.route === "tools/file-organization-planner" ? `
+  <style>${pageStyles()}${isDownloadsChecklist ? `
+    .checklist-shell{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:28px}
+    .checklist-intro{color:var(--muted)}
+    .checklist-progress{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:20px 0}
+    .checklist-progress progress{width:100%;height:14px;accent-color:var(--primary)}
+    .checklist-shell fieldset{margin:24px 0;padding:0;border:0}
+    .checklist-shell legend{margin-bottom:10px;color:white;font-size:1.2rem;font-weight:800}
+    .check-item{display:flex;align-items:flex-start;gap:13px;margin:8px 0;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--secondary);cursor:pointer}
+    .check-item input{flex:none;width:20px;height:20px;margin:3px 0 0;accent-color:var(--primary)}
+    .check-item span{min-width:0}.check-item strong{display:block;color:white}.check-item small{display:block;margin-top:3px;color:var(--muted);font-size:.9rem;line-height:1.5}
+    .checklist-shell button{min-height:44px;padding:9px 16px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:white;font:inherit;cursor:pointer}
+    .checklist-shell button:focus-visible,.check-item:focus-within{outline:2px solid var(--primary);outline-offset:3px}
+    @media(max-width:700px){.checklist-shell{padding:20px}.check-item{padding:12px}}
+  ` : ""}${page.route === "tools/file-organization-planner" ? `
     .planner-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.planner-panel{padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--card);min-width:0}
     .planner-panel h3{margin-top:0}.planner-panel label{display:block;margin:12px 0 5px;font-weight:700}.planner-panel textarea,.planner-panel select,.planner-panel input{width:100%;min-height:42px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:var(--text);font:inherit}
     .planner-panel textarea{min-height:210px;resize:vertical}.planner-panel button{min-height:42px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--secondary);color:var(--text);font:inherit;cursor:pointer}.planner-panel button:disabled{opacity:.5;cursor:not-allowed}
@@ -760,7 +774,7 @@ ${analyticsHead()}
   ` : ""}</style>
 </head>
 <body>
-  ${renderPageHeader(campaign, !singleOffer, "seo-header", `seo-header/${page.route}`)}
+  ${renderPageHeader(campaign, !singleOffer && !isDownloadsChecklist, "seo-header", `seo-header/${page.route}`)}
   <div class="container breadcrumbs" aria-label="Breadcrumb">
     ${breadcrumbs
       .map((item, index) =>
@@ -785,6 +799,32 @@ ${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="bu
       <p>${escapeHtml(page.directAnswer)}</p>
       <div class="updated">Reviewed and updated ${escapeHtml(page.updatedAt)}</div>
     </section>
+${isDownloadsChecklist ? `    <section id="cleanup-checklist" aria-labelledby="checklist-heading">
+      <h2 id="checklist-heading">Plan your Downloads cleanup</h2>
+      <p>Work through these checks while you inspect your own folder. A checked box means you completed that review step, not that any file was moved or deleted. Your progress stays in this browser; this page never requests uploads or accesses your files.</p>
+      <div class="checklist-shell">
+        <div class="checklist-progress"><strong id="progress-text" role="status" aria-live="polite">0 of 12 checks complete</strong><button id="reset-checklist" type="button">Reset checklist</button><progress id="checklist-progress" value="0" max="12" aria-label="Checklist progress"></progress></div>
+        <fieldset><legend>1. Decide what stays</legend>
+          <label class="check-item"><input type="checkbox" data-check="backup"><span><strong>Protect important originals</strong><small>Keep a separate backup of records and irreplaceable files before a large move.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="keep"><span><strong>Identify files to keep</strong><small>Mark active work and records you will need again; choose a durable project or subject folder.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="archive"><span><strong>Identify files to archive</strong><small>Set aside finished material you must retain but rarely open.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="review"><span><strong>Leave uncertain files for review</strong><small>Do not move or delete a file until you know its purpose and owner.</small></span></label>
+        </fieldset>
+        <fieldset><legend>2. Separate the mixed pile</legend>
+          <label class="check-item"><input type="checkbox" data-check="documents"><span><strong>Review documents</strong><small>File PDFs and Office documents by purpose, such as Finance or a project, rather than extension alone.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="images"><span><strong>Review images</strong><small>Separate screenshots and reference images from photos or project assets you need to retain.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="archives"><span><strong>Review archives</strong><small>Check ZIP contents and whether an archive is a backup or required project package before moving it.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="installers"><span><strong>Review installers</strong><small>Check whether an installer is still needed for repair, reinstall, or offline use. Deleting it does not uninstall the app.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="temporary"><span><strong>Review temporary downloads</strong><small>Confirm an export or temporary copy is genuinely replaceable before deciding whether to delete it.</small></span></label>
+        </fieldset>
+        <fieldset><legend>3. Check risks before acting</legend>
+          <label class="check-item"><input type="checkbox" data-check="lookalikes"><span><strong>Compare duplicate-looking names</strong><small>Names such as report.pdf and report (1).pdf are only a prompt for manual comparison; this page does not detect duplicates.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="dependencies"><span><strong>Check app dependencies</strong><small>An app, project, or shortcut may expect a file at its current path. Leave it there if you are unsure.</small></span></label>
+          <label class="check-item"><input type="checkbox" data-check="sample"><span><strong>Plan a small test move</strong><small>Choose destinations, move a small verified batch in File Explorer, and open a sample from its new location. Decide on deletion separately.</small></span></label>
+        </fieldset>
+      </div>
+      <noscript><p>The review steps above are available without JavaScript. Enable JavaScript to track and reset progress.</p></noscript>
+    </section>` : ""}
 ${page.route === "tools/file-naming-convention-generator" ? `    <section id="naming-tool" aria-labelledby="tool-heading">
       <h2 id="tool-heading">Generate a file naming convention</h2>
       <p>Choose a workflow, select and reorder the fields, then copy a pattern or illustrative examples. This tool only creates text; it does not rename, read, or upload files.</p>
@@ -878,7 +918,7 @@ ${page.route === "organize-files-windows" ? `    <section>
 ${!page.comparisonFirst ? renderSelectionTable(page) : ""}
 ${page.sources ? `    <section>
         <h2>Official sources</h2>
-        <p>Competitor facts are linked to the publisher's own product, store, and documentation pages.</p>
+        <p>${isDownloadsChecklist ? "Windows actions and settings are linked to Microsoft's current support guidance." : "Competitor facts are linked to the publisher's own product, store, and documentation pages."}</p>
         <div class="related">${page.sources
           .map(
             (source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(source.label)}</strong><span style="display:block;margin-top:.45rem;color:var(--muted);font-weight:400">${escapeHtml(source.note)}</span></a>`,
@@ -910,15 +950,16 @@ ${page.route === "organize-files-mac" ? `    <section>
     </section>` : ""}
 ${page.route === "best-file-organizer-windows" ? "" : `    <section class="cta">
       <h2>Organize a folder with Foldora</h2>
-      <p>${page.route === "organize-files-mac" ? "On a Mac, confirm package delivery and license compatibility with support before checkout. Then review proposed folders and filenames before applying changes." : "Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve."}</p>
+      <p>${isDownloadsChecklist ? "For a mixed Downloads batch of supported PDFs, documents, spreadsheets, presentations, images, and ZIP files, Foldora can suggest folders and names from local analysis. Review its plan before approving moves or renames. It does not delete files or detect duplicates. The individual license costs $14.99 once; purchase, download, activation, periodic validation, and updates need internet access." : page.route === "organize-files-mac" ? "On a Mac, confirm package delivery and license compatibility with support before checkout. Then review proposed folders and filenames before applying changes." : "Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve."}</p>
       <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${hideBundle ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
 ${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
     </section>`}
   </main>
-  ${renderPageFooter(!singleOffer)}
+  ${renderPageFooter(!singleOffer && !isDownloadsChecklist)}
   ${TAWK_LOADER_TAG}
 ${page.route === "tools/file-naming-convention-generator" ? '  <script type="module" src="/tools/file-naming-convention-generator/tool.js"></script>' : ""}
 ${page.route === "tools/file-organization-planner" ? '  <script type="module" src="/tools/file-organization-planner/tool.js"></script>' : ""}
+${isDownloadsChecklist ? '  <script type="module" src="/tools/downloads-folder-cleanup-checklist/tool.js"></script>' : ""}
 </body>
 </html>`;
 }
