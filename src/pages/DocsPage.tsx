@@ -83,8 +83,24 @@ const DocsPage = () => {
         <section>
           <div className="content-body">
 
-            <article className="space-y-16">
-
+            {slug === "how-it-works" ? <article className="space-y-12">
+              <p className="content-copy">Foldora organizes a selected folder in a user-started run. Its preview shows proposed destinations and names before approved changes are applied; the app does not continuously watch the folder.</p>
+              <ol className="list-decimal space-y-8 pl-6">
+                {post.sections.map((section, index) => <li key={section.title}>
+                  <h2 className="content-section-title">{section.title}</h2>
+                  <p className="content-copy">{section.content}</p>
+                  {index === 3 && <figure className="mt-5 overflow-hidden rounded-xl border border-border bg-card">
+                    <a href="/evidence/foldora-demo.png" aria-label="Open the full-size Foldora preview screenshot"><img src="/evidence/foldora-demo.png" alt="Real Foldora review screen comparing Current Structure with Proposed Structure before files are changed" width="1902" height="918" loading="lazy" className="block h-auto w-full" /></a>
+                    <figcaption className="border-t border-border p-4 text-sm text-muted-foreground">Actual Foldora application preview on Windows. The right-hand tree is a proposal; this capture does not show approved moves or the final folder.</figcaption>
+                  </figure>}
+                </li>)}
+              </ol>
+              <section>
+                <h2 className="content-section-title">What the preview cannot guarantee</h2>
+                <p className="content-copy">Foldora can use filenames and available supported content, but it does not understand every file completely. Content reading skips files above 8 MiB; PDF text is sampled from up to three pages, with a first-page local OCR attempt only when embedded text is sparse and OCR is available. ZIP contents are not unpacked. Review unclear suggestions and keep a backup before applying changes.</p>
+                <p className="content-copy mt-4">Check <a href="/docs/supported-file-types/">supported formats and analysis limits</a>, <a href="/docs/privacy/">local processing and internet requirements</a>, and <a href="/ai-file-organizer/">Foldora's product details</a> before buying.</p>
+              </section>
+            </article> : <article className="space-y-16">
               {post.sections.map((section, index) => (
                 <div key={index}>
 
@@ -99,7 +115,7 @@ const DocsPage = () => {
                 </div>
               ))}
 
-            </article>
+            </article>}
 
             <div className="content-callout text-center">
 

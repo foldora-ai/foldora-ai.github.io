@@ -92,23 +92,31 @@ export const docs = {
   "how-it-works": {
     title: "How Foldora Works",
     description:
-      "See how Foldora analyzes supported files locally, proposes clearer folders and filenames, and lets you review the plan before applying changes.",
+      "See the real Foldora preview screen and follow the six-step local folder workflow, from choosing a mode to checking approved moves and renames.",
     sections: [
       {
-        title: "Select a folder",
-        content: `Choose a messy folder such as Downloads, Desktop, Documents, screenshots, PDFs, invoices, work files, or research files.`,
+        title: "Choose a folder",
+        content: "Use Choose a folder to select a small, backed-up local folder. Foldora works on a selected folder, not individual files; choose whether Recursive Search should include its subfolders.",
       },
       {
-        title: "Analyze locally",
-        content: `Foldora analyzes filenames and supported file content locally to infer useful folders and clearer names.`,
+        title: "Choose an organization method",
+        content: "Select Organize Content (AI-powered) for local suggestions from filenames and supported content, By Date for modification year/month, or By Type for category/extension. Select Continue.",
       },
       {
-        title: "Preview the plan",
-        content: `Review proposed categories and filenames before files move or names change.`,
+        title: "Generate suggestions",
+        content: "Foldora generates a proposed structure in a dry run. No file moves or renames happen at this step. Content-based suggestions can be uncertain when readable content is missing or ambiguous.",
       },
       {
-        title: "Apply approved changes",
-        content: `Apply changes only after the result matches your retrieval workflow.`,
+        title: "Review Current Structure and Proposed Structure",
+        content: "Compare the original names and paths with every proposed folder and filename. The real app screenshot below shows this preview state, not an applied result. Use Cancel or change the mode and Update if the plan does not fit.",
+      },
+      {
+        title: "Apply the reviewed plan",
+        content: "Only when the preview is suitable, choose Continue with Changes. Foldora then moves and may rename eligible files into organized_folder inside the selected folder. A preview and Undo are not substitutes for an independent backup.",
+      },
+      {
+        title: "Inspect the resulting folder",
+        content: "The completion screen shows the output path and offers Open Folder. Check the actual files and names there before relying on the result; the preview screenshot does not establish what happened after approval.",
       },
     ],
   },

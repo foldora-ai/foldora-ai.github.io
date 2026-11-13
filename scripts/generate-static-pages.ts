@@ -25,6 +25,7 @@ const FRENCH_INSTALL_URL = `${SITE_URL}/${FRENCH_INSTALL_ROUTE}/`;
 const FRENCH_URL = `${SITE_URL}/${FRENCH_ROUTE}/`;
 const HOME_UPDATED_AT = "2026-11-05";
 const SUPPORT_UPDATED_AT = "2026-09-08";
+const HOW_IT_WORKS_UPDATED_AT = "2026-11-13";
 const CATEGORY_UPDATED_AT: Record<string, string> = {
   productivity: "2026-09-19",
   windows: "2026-09-19",
@@ -1135,6 +1136,7 @@ function supportFaqs(page: SupportPage): SeoFaq[] {
 }
 
 function renderSupportPage(page: SupportPage): string {
+  const isWorkflowGuide = page.route === "docs/how-it-works";
   const canonicalRoute = page.canonicalTarget ?? page.route;
   const canonical = absoluteUrl(canonicalRoute);
   const metaDescription = page.description;
@@ -1147,7 +1149,7 @@ function renderSupportPage(page: SupportPage): string {
     page.route,
     page.title,
     metaDescription,
-    SUPPORT_UPDATED_AT,
+    isWorkflowGuide ? HOW_IT_WORKS_UPDATED_AT : SUPPORT_UPDATED_AT,
   ) as {
     "@context": string;
     "@graph": object[];
@@ -1164,6 +1166,9 @@ function renderSupportPage(page: SupportPage): string {
     })),
   });
   const schema = JSON.stringify(supportSchema).replaceAll("<", "\\u003c");
+  const workflowBody = isWorkflowGuide ? `    <section class="answer"><h2>Direct answer</h2><p>Foldora organizes a selected folder in a user-started run. Choose Content, Date, or Type; generate a proposal; compare Current Structure with Proposed Structure; then apply only a suitable plan. It does not continuously watch the folder.</p></section>
+    <section><h2>Six steps from folder to reviewed result</h2><ol>${page.sections.map((section, index) => `<li><h3>${escapeHtml(section.title)}</h3><p>${escapeHtml(stripIndent(section.content))}</p>${index === 3 ? `<div class="evidence-media"><figure><a href="/evidence/foldora-demo.png" aria-label="Open the full-size Foldora preview screenshot"><img src="/evidence/foldora-demo.png" alt="Real Foldora review screen comparing Current Structure with Proposed Structure before files are changed" width="1902" height="918" loading="lazy"></a><figcaption>Actual Foldora application preview on Windows. The right-hand tree is a proposal; this capture does not show approved moves or the final folder.</figcaption></figure></div>` : ""}</li>`).join("")}</ol></section>
+    <section><h2>What the preview cannot guarantee</h2><p>Foldora can use filenames and available supported content, but it does not understand every file completely. Content reading skips files above 8 MiB; PDF text is sampled from up to three pages, with a first-page local OCR attempt only when embedded text is sparse and OCR is available. ZIP contents are not unpacked. Review unclear suggestions and keep a backup before applying changes.</p><p>Check <a href="/docs/supported-file-types/">supported formats and analysis limits</a>, <a href="/docs/privacy/">local processing and internet requirements</a>, and <a href="/ai-file-organizer/">Foldora's product details</a> before buying.</p></section>` : "";
 
   return `<!doctype html>
 <html lang="en">
@@ -1202,10 +1207,10 @@ ${analyticsHead()}
   <div class="container breadcrumbs"><a href="/">Home</a> / <span>${escapeHtml(page.title)}</span></div>
   <section class="hero"><div class="container"><div class="eyebrow">${escapeHtml(page.kind)}</div><h1>${escapeHtml(page.title)}</h1><p class="lede">${escapeHtml(page.description)}</p></div></section>
   <main class="container">
-    <section class="answer"><h2>Direct answer</h2><p>${escapeHtml(page.description)} Foldora keeps the organization workflow local and lets you review changes before applying them.</p></section>
+${workflowBody || `    <section class="answer"><h2>Direct answer</h2><p>${escapeHtml(page.description)} Foldora keeps the organization workflow local and lets you review changes before applying them.</p></section>
     <section><h2>What to know</h2>${page.sections.map((section) => `<h3>${escapeHtml(section.title)}</h3><p>${escapeHtml(stripIndent(section.content))}</p>`).join("")}</section>
     <section><h2>Step-by-step</h2><ol>${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}<li>Review the proposed result before applying changes to important files.</li></ol></section>
-    <section><h2>Example</h2><div class="card"><p>Start with a small representative folder, confirm that the resulting names and locations match your workflow, and only then process a larger collection.</p></div></section>
+    <section><h2>Example</h2><div class="card"><p>Start with a small representative folder, confirm that the resulting names and locations match your workflow, and only then process a larger collection.</p></div></section>`}
     <section><h2>Frequently asked questions</h2>${faqs.map((faq) => `<article class="faq"><h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</section>
     <section><h2>Related resources</h2><div class="related"><a href="/ai-file-organizer/">AI File Organizer</a><a href="/organize-files-windows/">Organize Files on Windows</a><a href="/features/offline-processing/">Offline Processing</a><a href="/docs/privacy/">Foldora Privacy</a></div></section>
   </main>
@@ -1326,7 +1331,7 @@ function writeSitemap(): void {
     { route: FRENCH_INSTALL_ROUTE, updatedAt: "2026-11-07" },
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
-      .map((page) => ({ route: page.route, updatedAt: SUPPORT_UPDATED_AT })),
+      .map((page) => ({ route: page.route, updatedAt: page.route === "docs/how-it-works" ? HOW_IT_WORKS_UPDATED_AT : SUPPORT_UPDATED_AT })),
     ...Object.keys(categories).filter((slug) => slug !== "downloads").map((slug) => ({
       route: `category/${slug}`,
       updatedAt: CATEGORY_UPDATED_AT[slug] ?? SUPPORT_UPDATED_AT,
