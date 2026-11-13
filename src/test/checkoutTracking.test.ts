@@ -63,6 +63,42 @@ function loadTracker(
 
 describe("checkout acquisition tracking", () => {
   it.each([
+    ["/tools/", "tools-hub"],
+    ["/tools/file-organization-planner/", "file-organization-planner"],
+    ["/tools/file-naming-convention-generator/", "file-naming-convention-generator"],
+    ["/tools/downloads-folder-cleanup-checklist/", "downloads-folder-cleanup-checklist"],
+  ])("sends one privacy-gated tool-to-product event from %s", (pagePath, toolId) => {
+    const file = path.resolve("dist", pagePath.slice(1), "index.html");
+    const markup = fs.readFileSync(file, "utf8");
+    const dom = new JSDOM(markup, { url: `https://foldoraai.com${pagePath}`, runScripts: "outside-only" });
+    const gtag = vi.fn();
+    Object.defineProperty(dom.window, "FoldoraPrivacy", { value: { optionalServicesAllowed: () => true }, configurable: true });
+    Object.defineProperty(dom.window, "gtag", { value: gtag, configurable: true });
+    dom.window.eval(trackingScript);
+    dom.window.eval(trackingScript);
+    const productLink = dom.window.document.querySelector<HTMLAnchorElement>(`a[data-free-tool-product="${toolId}"]`)!;
+    expect(productLink).toBeTruthy();
+    productLink.addEventListener("click", (event) => event.preventDefault());
+    productLink.click();
+    expect(gtag.mock.calls).toEqual([["event", "free_tool_product_navigation", { page_path: pagePath, tool_id: toolId }]]);
+    expect(productLink.pathname).toBe("/ai-file-organizer/");
+    dom.window.close();
+  });
+
+  it("does not send tool-to-product events without optional consent", () => {
+    const markup = '<!doctype html><html><body><a href="/ai-file-organizer/" data-free-tool-product="tools-hub">Product</a></body></html>';
+    const dom = new JSDOM(markup, { url: "https://foldoraai.com/tools/", runScripts: "outside-only" });
+    const gtag = vi.fn();
+    Object.defineProperty(dom.window, "FoldoraPrivacy", { value: { optionalServicesAllowed: () => false }, configurable: true });
+    Object.defineProperty(dom.window, "gtag", { value: gtag, configurable: true });
+    dom.window.eval(trackingScript);
+    const link = dom.window.document.querySelector<HTMLAnchorElement>("a")!;
+    link.addEventListener("click", (event) => event.preventDefault());
+    link.click();
+    expect(gtag).not.toHaveBeenCalled();
+    dom.window.close();
+  });
+  it.each([
     ["/ai-file-organizer/", ["seo-header/ai-file-organizer", "ai-file-organizer-hero", "ai-file-organizer", "footer"]],
     ["/blog/offline-ai-file-organizer/", ["seo-header/blog/offline-ai-file-organizer", "blog/offline-ai-file-organizer", "footer"]],
     ["/best-file-organizer-windows/", ["seo-header/best-file-organizer-windows", "best-file-organizer-windows", "footer"]],

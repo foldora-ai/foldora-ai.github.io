@@ -219,6 +219,16 @@
     "click",
     function (event) {
       var target = event.target instanceof Element ? event.target : null;
+      var productLink = target && target.closest("a[data-free-tool-product]");
+      if (productLink) {
+        var toolId = productLink.getAttribute("data-free-tool-product");
+        if (["tools-hub", "file-organization-planner", "file-naming-convention-generator", "downloads-folder-cleanup-checklist"].includes(toolId)) {
+          queueEvent("free_tool_product_navigation", {
+            page_path: window.location.pathname,
+            tool_id: toolId,
+          });
+        }
+      }
       var link = target && target.closest(CHECKOUT_SELECTOR);
       if (!link) return;
 

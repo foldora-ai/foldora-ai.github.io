@@ -34,9 +34,11 @@ const Navbar = ({ showCheckout = true }: NavbarProps) => {
           <a href="/#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Features</a>
           <a href="/#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">How It Works</a>
           <a href="/alternatives/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Comparisons</a>
+          <a href="/tools/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Free Tools</a>
           <a href="/#pricing" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Pricing</a>
           <a href="/#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a>
         </div>
+        <a href="/tools/" className="text-sm font-semibold text-foreground md:hidden">Free Tools</a>
         <a href="/#pricing" className="rounded-lg border border-border p-2 text-muted-foreground md:hidden" aria-label="Open pricing and FAQ">
           <Menu className="h-5 w-5" />
         </a>

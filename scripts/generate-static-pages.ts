@@ -703,6 +703,9 @@ function renderMainPage(page: SeoPage): string {
   const campaign = page.route.replaceAll("/", "-");
   const singleOffer = page.route === "alternatives/hazel" || page.route === "blog/organize-invoices-automatically";
   const isDownloadsChecklist = page.route === "tools/downloads-folder-cleanup-checklist";
+  const freeToolId = ["tools/file-organization-planner", "tools/file-naming-convention-generator", "tools/downloads-folder-cleanup-checklist"].includes(page.route)
+    ? page.route.slice("tools/".length)
+    : null;
   const hideBundle = singleOffer || isDownloadsChecklist || page.route === "alternatives/sortio" || page.route === "alternatives/renamer-ai" || page.route === "alternatives/filex-ai" || page.route === "local-vs-cloud-ai-file-organizer";
 
   return `<!doctype html>
@@ -824,6 +827,11 @@ ${isDownloadsChecklist ? `    <section id="cleanup-checklist" aria-labelledby="c
         </fieldset>
       </div>
       <noscript><p>The review steps above are available without JavaScript. Enable JavaScript to track and reset progress.</p></noscript>
+    </section>` : ""}
+${freeToolId ? `    <section class="answer" aria-labelledby="tool-next-step">
+      <h2 id="tool-next-step">Your next step</h2>
+      <p>${freeToolId === "file-organization-planner" ? "This planner maps names with rules; it cannot read file contents or move anything. If vague names leave too many files to classify, " : freeToolId === "file-naming-convention-generator" ? "This generator creates a pattern to apply manually; Foldora does not enforce that pattern. If you need reviewed suggestions for an existing mixed folder, " : "This checklist helps you decide what to keep, archive, or review; it cannot inspect files. If a mixed batch of supported files needs organization suggestions, "}<a href="/ai-file-organizer/" data-free-tool-product="${freeToolId}">see Foldora's local analysis and review workflow</a>. Foldora proposes folders and names for your approval; it does not delete files or detect duplicates.</p>
+      <p><a href="/tools/">Browse all free file organization tools</a> for a related manual step.</p>
     </section>` : ""}
 ${page.route === "tools/file-naming-convention-generator" ? `    <section id="naming-tool" aria-labelledby="tool-heading">
       <h2 id="tool-heading">Generate a file naming convention</h2>
@@ -960,6 +968,151 @@ ${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" targ
 ${page.route === "tools/file-naming-convention-generator" ? '  <script type="module" src="/tools/file-naming-convention-generator/tool.js"></script>' : ""}
 ${page.route === "tools/file-organization-planner" ? '  <script type="module" src="/tools/file-organization-planner/tool.js"></script>' : ""}
 ${isDownloadsChecklist ? '  <script type="module" src="/tools/downloads-folder-cleanup-checklist/tool.js"></script>' : ""}
+</body>
+</html>`;
+}
+
+function renderToolsHub(): string {
+  const route = "tools";
+  const url = absoluteUrl(route);
+  const title = "Free File Organization Tools";
+  const description = "Use four free Foldora resources to plan folders, name files, and review a messy Downloads folder. See what each resource can and cannot do before changing files.";
+  const entries = [
+    { name: "File Organization Planner", url: absoluteUrl("tools/file-organization-planner") },
+    { name: "Folder Structure ZIP Template", url: `${SITE_URL}/downloads/folder-structure-template.zip` },
+    { name: "File Naming Convention Generator", url: absoluteUrl("tools/file-naming-convention-generator") },
+    { name: "Downloads Folder Cleanup Checklist", url: absoluteUrl("tools/downloads-folder-cleanup-checklist") },
+  ];
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#page`,
+    name: title,
+    url,
+    description,
+    inLanguage: "en",
+    dateModified: "2026-11-13",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: entries.map((entry, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: entry.name,
+        url: entry.url,
+      })),
+    },
+  }).replaceAll("<", "\\u003c");
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>${title} | Foldora</title>
+  <meta name="description" content="${description}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="author" content="Foldora AI">
+  <link rel="canonical" href="${url}">
+  <link rel="alternate" hreflang="en" href="${url}">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${url}">
+  <meta property="og:site_name" content="Foldora AI">
+  <meta property="og:image" content="${SOCIAL_IMAGE_URL}">
+  <meta property="og:image:alt" content="Foldora desktop organization preview">
+  <meta property="og:image:width" content="1902">
+  <meta property="og:image:height" content="918">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="${SOCIAL_IMAGE_URL}">
+  <meta name="twitter:url" content="${url}">
+  <script type="application/ld+json">${schema}</script>
+${analyticsHead()}
+  <style>${pageStyles()}
+    .tool-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+    .tool-card{min-width:0;padding:25px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+    .tool-card p{color:var(--muted);margin-bottom:12px}
+    .tool-card strong{color:var(--text)}
+    .tool-card a{display:inline-flex;min-height:44px;align-items:center;font-weight:700}
+    .tool-card .eyebrow{margin-bottom:7px}
+    .tool-card h3{margin-bottom:12px}
+    .tool-path{padding:26px;border:1px solid rgba(91,127,229,.45);border-radius:12px;background:var(--card)}
+    .tool-path ol{margin:0 0 15px;color:var(--muted)}
+    .tool-path p:last-child{margin-bottom:0}
+    @media(max-width:700px){.tool-cards{grid-template-columns:1fr}.tool-card,.tool-path{padding:20px}}
+  </style>
+</head>
+<body>
+  ${renderPageHeader(route, false)}
+  <div class="container breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Free Tools</span></div>
+  <section class="hero"><div class="container">
+    <div class="eyebrow">Practical browser and download resources</div>
+    <h1>Free file organization tools</h1>
+    <p class="lede">Choose a task before you change a folder: plan destinations, settle on names, or review a crowded Downloads folder. Each resource below works on its own and explains its limits.</p>
+  </div></section>
+  <main class="container">
+    <section class="answer" aria-labelledby="hub-answer">
+      <h2 id="hub-answer">Choose the right free starting point</h2>
+      <p>Use the planner when you have a list of filenames but no folder map. Use the ZIP template when you need empty destination folders. Use the naming generator for a consistent manual pattern, or the Downloads checklist when you need to decide what to keep, archive, or review. These resources do not inspect or change the files on your device.</p>
+    </section>
+    <section aria-labelledby="planning-tools">
+      <h2 id="planning-tools">Plan where files belong</h2>
+      <div class="tool-cards">
+        <article class="tool-card">
+          <div class="eyebrow">Preview destinations</div><h3>File Organization Planner</h3>
+          <p><strong>Problem:</strong> A mixed batch has unclear destinations. Paste filename text and preview a folder tree and CSV map using file type, strict date, or editable keyword rules.</p>
+          <p><strong>Limit:</strong> It sees only the names you paste. It cannot read contents, create folders, move files, or resolve an ambiguous name for you.</p>
+          <a href="/tools/file-organization-planner/">Open the planner</a>
+        </article>
+        <article class="tool-card">
+          <div class="eyebrow">Start a structure</div><h3>Folder Structure ZIP Template</h3>
+          <p><strong>Problem:</strong> You need a blank, adaptable home for kept files. The ZIP provides Work, Personal, Finance, Reference, and Archive folders with a README.</p>
+          <p><strong>Limit:</strong> It is only an empty layout. Extract it into a new location and choose how to use it; it does not classify or move existing files.</p>
+          <a href="/downloads/folder-structure-template.zip" download>Download the folder template (ZIP)</a>
+        </article>
+      </div>
+    </section>
+    <section aria-labelledby="naming-tools">
+      <h2 id="naming-tools">Choose consistent names</h2>
+      <div class="tool-cards">
+        <article class="tool-card">
+          <div class="eyebrow">Design a pattern</div><h3>File Naming Convention Generator</h3>
+          <p><strong>Problem:</strong> Names like final2.pdf are hard to find later. Choose and reorder date, project, category, description, and sequence fields, then copy examples.</p>
+          <p><strong>Limit:</strong> The examples are illustrative text. It does not read or rename files, and Foldora does not enforce its generated pattern.</p>
+          <a href="/tools/file-naming-convention-generator/">Open the naming generator</a>
+        </article>
+      </div>
+    </section>
+    <section aria-labelledby="downloads-tools">
+      <h2 id="downloads-tools">Triage Downloads safely</h2>
+      <div class="tool-cards">
+        <article class="tool-card">
+          <div class="eyebrow">Review before acting</div><h3>Downloads Folder Cleanup Checklist</h3>
+          <p><strong>Problem:</strong> Installers, documents, images, archives, and temporary downloads are mixed together. Track keep, archive, and review steps before any move.</p>
+          <p><strong>Limit:</strong> It does not scan, upload, move, delete, or detect duplicate files. Similar filenames still need manual comparison.</p>
+          <a href="/tools/downloads-folder-cleanup-checklist/">Open the cleanup checklist</a>
+        </article>
+      </div>
+    </section>
+    <section class="tool-path" aria-labelledby="next-step">
+      <h2 id="next-step">When a manual plan is not enough</h2>
+      <ol>
+        <li>A folder plan and the ZIP template help you choose destinations; you make any changes yourself.</li>
+        <li>Filename rules use names, dates, or extensions. They cannot reliably tell a receipt from a research paper when both are PDFs with vague names.</li>
+        <li>Foldora is a separate paid desktop organizer. It analyzes available context from supported files locally, proposes folders and clearer names, and lets you review the plan before approving moves or renames.</li>
+      </ol>
+      <p>Foldora does not delete files, detect duplicates, continuously watch folders, or follow arbitrary naming patterns from the generator. Its individual license costs ${escapeHtml(product.price.display)} once. File analysis stays local; purchase, download, activation, periodic validation, and updates need internet access.</p>
+      <p><a class="button" href="/ai-file-organizer/" data-free-tool-product="tools-hub">See Foldora's reviewed workflow and supported formats</a></p>
+    </section>
+  </main>
+  ${renderPageFooter(false)}
+  ${TAWK_LOADER_TAG}
 </body>
 </html>`;
 }
@@ -1365,6 +1518,7 @@ function renderRedirect(from: string, to: string): string {
 function writeSitemap(): void {
   const entries = [
     { route: "", updatedAt: HOME_UPDATED_AT },
+    { route: "tools", updatedAt: "2026-11-13" },
     ...seoPages
       .filter((page) => page.indexable !== false)
       .map((page) => ({ route: page.route, updatedAt: page.updatedAt })),
@@ -1467,6 +1621,7 @@ function writeSocialPreview(): void {
 
 writeSocialPreview();
 validatePages();
+writeRoute("tools", renderToolsHub());
 
 for (const page of seoPages) {
   writeRoute(page.route, renderMainPage(page));
