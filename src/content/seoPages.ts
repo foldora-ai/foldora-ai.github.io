@@ -103,10 +103,10 @@ export const seoPages: SeoPage[] = [
   "topic": "workflows",
   "title": "AI File Organizer for Windows: Preview Before Moving",
   "h1": "AI File Organizer for Windows: Preview Before Moving",
-  "description": "Sort selected Windows folders with local AI. Include subfolders, preview suggested moves and names, and check scan limits before buying. $14.99 once.",
+  "description": "AI file organizer for Windows 10/11. Foldora proposes folders and names from local analysis; review the plan before applying changes. $14.99 once.",
   "eyebrow": "Local AI file organization",
-  "updatedAt": "2026-11-06",
-  "directAnswer": "Foldora is a desktop AI file organizer for Windows 10 and 11. Choose a Downloads, Desktop, Documents, or project folder, with subfolder search on or off. Foldora analyzes filenames and supported file content locally, then previews suggested folders and clearer filenames before you approve moves or renames. It processes up to 1,000 eligible files per run; it is not an unattended whole-drive cleanup service. Foldora costs $14.99 as a one-time purchase and also supports macOS. Purchase, download, license activation, and periodic validation require internet access.",
+  "updatedAt": "2026-11-13",
+  "directAnswer": "Foldora is a desktop AI file organizer for Windows 10/11 and macOS, suited to mixed Downloads, Desktop, Documents, or project folders. It analyzes filenames and supported file content locally to suggest folders and clearer names automatically; you review the plan before approving moves or renames. Choose whether to include subfolders. Each run handles up to 1,000 eligible files, and Foldora does not watch folders continuously. File analysis stays local, while purchase, download, license activation, and periodic validation require internet. The individual license costs $14.99 once.",
   "problemTitle": "Which Windows files and subfolders will it organize?",
   "problem": [
     "A useful Windows file organizer should do more than group files by extension. Foldora uses available filename and supported file context to suggest purpose-based folders and descriptive names, then shows the proposed result before anything moves or changes name.",
@@ -120,6 +120,12 @@ export const seoPages: SeoPage[] = [
       "anchor": "Foldora's individual license and pricing",
       "href": "/#pricing",
       "after": " once the selected-folder workflow fits your needs. The current price is $14.99 as a one-time purchase."
+    },
+    {
+      "before": "Before purchasing, read the ",
+      "anchor": "installation and activation guide",
+      "href": "/docs/install/",
+      "after": " for package delivery, platform-specific setup, and internet requirements."
     },
     {
       "before": "Scan scope is different from content understanding: review the ",
