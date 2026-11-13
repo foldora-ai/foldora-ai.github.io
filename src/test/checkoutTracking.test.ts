@@ -8,7 +8,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import RelatedProducts from "@/components/RelatedProducts";
 
 const trackingScript = fs.readFileSync(
-  path.resolve("public", "checkout-tracking.js"),
+  path.resolve("dist", "checkout-tracking.js"),
   "utf8",
 );
 
@@ -62,6 +62,34 @@ function loadTracker(
 }
 
 describe("checkout acquisition tracking", () => {
+  it.each([
+    ["/ai-file-organizer/", ["seo-header/ai-file-organizer", "ai-file-organizer-hero", "ai-file-organizer", "footer"]],
+    ["/blog/offline-ai-file-organizer/", ["seo-header/blog/offline-ai-file-organizer", "blog/offline-ai-file-organizer", "footer"]],
+    ["/best-file-organizer-windows/", ["seo-header/best-file-organizer-windows", "best-file-organizer-windows", "footer"]],
+    ["/", ["static-windows", "static-macos"]],
+  ])("tracks each generated purchase CTA on %s with its own placement and originating path", (pagePath, placements) => {
+    const file = pagePath === "/" ? "index.html" : `${pagePath.slice(1)}index.html`;
+    const markup = fs.readFileSync(path.resolve("dist", file), "utf8");
+    const dom = new JSDOM(markup, { url: `https://foldoraai.com${pagePath}`, runScripts: "outside-only" });
+    Object.defineProperty(dom.window, "FoldoraPrivacy", { value: { optionalServicesAllowed: () => true }, configurable: true });
+    const gtag = vi.fn();
+    Object.defineProperty(dom.window, "gtag", { value: gtag, configurable: true });
+    dom.window.eval(trackingScript);
+    const links = Array.from(dom.window.document.querySelectorAll<HTMLAnchorElement>('a[data-foldora-checkout][data-product-id="foldora"]'));
+    expect(links.map((link) => link.dataset.checkoutLocation)).toEqual(placements);
+    for (const link of links) {
+      link.addEventListener("click", (event) => event.preventDefault());
+      const originalDestination = new URL(link.href);
+      link.click();
+      expect(new URL(link.href).pathname).toBe(originalDestination.pathname);
+    }
+    const events = gtag.mock.calls.filter((call) => call[1] === "foldora_checkout_click");
+    expect(events).toHaveLength(placements.length);
+    expect(events.map((call) => call[2].cta_placement)).toEqual(placements);
+    expect(events.every((call) => call[2].origin_page_path === pagePath)).toBe(true);
+    dom.window.close();
+  });
+
   it.each([false, true])("does not treat related product visits as checkout (privacy disabled: %s)", (privacyDisabled) => {
     const { dom, gtag, link } = loadTracker(
       "https://foldoraai.com/?utm_source=chatgpt&utm_medium=referral",
@@ -82,17 +110,26 @@ describe("checkout acquisition tracking", () => {
     dom.window.close();
   });
 
-  it("sends one GA4 begin_checkout event with product and destination data", () => {
+  it("sends one purchase-intent and one existing checkout event per click, including rapid separate clicks", () => {
     const { dom, gtag, link } = loadTracker("https://foldoraai.com/");
     link.addEventListener("click", (event) => event.preventDefault());
 
     link.dispatchEvent(new dom.window.MouseEvent("click", { bubbles: true, cancelable: true }));
+    expect(gtag.mock.calls.filter((call) => call[1] === "foldora_checkout_click")).toHaveLength(1);
+    expect(gtag.mock.calls.filter((call) => call[1] === "begin_checkout")).toHaveLength(1);
     link.dispatchEvent(new dom.window.MouseEvent("click", { bubbles: true, cancelable: true }));
 
-    expect(gtag).toHaveBeenCalledTimes(1);
+    expect(gtag).toHaveBeenCalledTimes(4);
     expect(gtag.mock.calls[0][0]).toBe("event");
-    expect(gtag.mock.calls[0][1]).toBe("begin_checkout");
-    expect(gtag.mock.calls[0][2]).toMatchObject({
+    expect(gtag.mock.calls[0][1]).toBe("foldora_checkout_click");
+    expect(gtag.mock.calls[0][2]).toEqual({
+      origin_page_path: "/",
+      cta_placement: "hero-windows",
+      checkout_provider: "gumroad",
+      product_id: "foldora",
+    });
+    expect(gtag.mock.calls[1][1]).toBe("begin_checkout");
+    expect(gtag.mock.calls[1][2]).toMatchObject({
       currency: "USD",
       value: 14.99,
       checkout_provider: "gumroad",
@@ -112,6 +149,31 @@ describe("checkout acquisition tracking", () => {
       ],
     });
     expect(gtag.mock.calls.some((call) => call[1] === "purchase")).toBe(false);
+    dom.window.close();
+  });
+
+  it("loads only one listener and does not track unrelated tool inputs or bundle links", () => {
+    const markup = checkoutMarkup().replace("</body>", '<input id="filenames" value="private-contract.pdf"><button id="preview">Preview</button><a href="https://computora.gumroad.com/l/computoraai" data-foldora-checkout="true" data-product-id="bundle">Bundle</a></body>');
+    const { dom, gtag, link } = loadTracker("https://foldoraai.com/tools/file-organization-planner/", undefined, false, markup);
+    dom.window.eval(trackingScript);
+    link.addEventListener("click", (event) => event.preventDefault());
+    link.click();
+    dom.window.document.getElementById("preview")!.click();
+    dom.window.document.querySelector<HTMLAnchorElement>('[data-product-id="bundle"]')!.dispatchEvent(new dom.window.MouseEvent("click", { bubbles: true, cancelable: true }));
+    const intent = gtag.mock.calls.filter((call) => call[1] === "foldora_checkout_click");
+    expect(intent).toHaveLength(1);
+    expect(intent[0][2]).toEqual({ origin_page_path: "/tools/file-organization-planner/", cta_placement: "hero-windows", checkout_provider: "gumroad", product_id: "foldora" });
+    expect(JSON.stringify(gtag.mock.calls)).not.toContain("private-contract.pdf");
+    dom.window.close();
+  });
+
+  it("records the individual PayPal button without changing its payment destination", () => {
+    const markup = checkoutMarkup().replace(/href="[^"]+"/, 'href="https://www.paypal.com/ncp/payment/YDYSDRF5NRCUW?utm_source=foldoraai.com"').replace('data-checkout-provider="gumroad"', 'data-checkout-provider="paypal"').replace('data-checkout-location="hero-windows"', 'data-checkout-location="pricing-paypal"');
+    const { dom, gtag, link } = loadTracker("https://foldoraai.com/", undefined, false, markup);
+    link.addEventListener("click", (event) => event.preventDefault());
+    link.click();
+    expect(new URL(link.href).pathname).toBe("/ncp/payment/YDYSDRF5NRCUW");
+    expect(gtag.mock.calls.filter((call) => call[1] === "foldora_checkout_click")[0][2]).toEqual({ origin_page_path: "/", cta_placement: "pricing-paypal", checkout_provider: "paypal", product_id: "foldora" });
     dom.window.close();
   });
 

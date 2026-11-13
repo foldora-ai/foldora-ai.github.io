@@ -14,7 +14,6 @@
     "utm_content",
   ];
   var CHECKOUT_SELECTOR = "a[data-foldora-checkout]";
-  var lastClickAt = new WeakMap();
 
   function safeCampaignValue(value) {
     if (typeof value !== "string") return "";
@@ -205,6 +204,17 @@
     return payload;
   }
 
+  function isIndividualFoldoraCheckout(link) {
+    if (link.dataset.productId !== "foldora") return false;
+    try {
+      var destination = new URL(link.href, window.location.href);
+      return (destination.hostname === "computora.gumroad.com" && destination.pathname === "/l/foldora") ||
+        (destination.hostname === "www.paypal.com" && destination.pathname === "/ncp/payment/YDYSDRF5NRCUW");
+    } catch (_error) {
+      return false;
+    }
+  }
+
   document.addEventListener(
     "click",
     function (event) {
@@ -213,11 +223,16 @@
       if (!link) return;
 
       updateCheckoutLink(link);
-      var now = Date.now();
-      if (now - (lastClickAt.get(link) || 0) < 1200) return;
-      lastClickAt.set(link, now);
 
       try {
+        if (isIndividualFoldoraCheckout(link)) {
+          queueEvent("foldora_checkout_click", {
+            origin_page_path: window.location.pathname,
+            cta_placement: link.dataset.checkoutLocation || "unknown",
+            checkout_provider: link.dataset.checkoutProvider || "unknown",
+            product_id: "foldora",
+          });
+        }
         queueEvent("begin_checkout", checkoutPayload(link));
       } catch (_error) {
         // Analytics must never interrupt checkout navigation.
