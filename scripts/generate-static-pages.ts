@@ -850,6 +850,7 @@ ${page.decisionComparison ? renderSelectionTable(page, page.decisionComparison, 
     <section>
       <h2>${escapeHtml(page.stepsTitle ?? "Step-by-step workflow")}</h2>
       <ol>${page.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
+${page.route === "best-file-organizer-windows" ? `      <div class="hero-cta"><p>If the reviewed batch workflow fits, <a href="/ai-file-organizer/">see Foldora's product details</a> and <a href="/docs/supported-file-types/">check its format limits</a>.</p><a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>Get Foldora - ${escapeHtml(product.price.display)} one-time</a></div>` : ""}
     </section>
 ${page.route === "organize-files-windows" ? `    <section>
       <h2>Free folder structure template</h2>
@@ -906,12 +907,12 @@ ${page.route === "organize-files-mac" ? `    <section>
       <p>The <a href="/#pricing">Foldora product and pricing page</a> lists Intel and Apple Silicon Macs. The <a href="https://github.com/foldora-ai/foldora-releases/releases/tag/1.0.0-mac">published Mac release notes</a> identify a separate macOS ZIP package, <code>FoldoraAI-Setup-mac.zip</code>, and explain its installation. The newer 1.0.4 release contains a Windows installer only. See the <a href="/docs/install/">installation guide</a> for the checkout and license steps.</p>
       <p>The public checkout listing currently says “Download Foldora for Windows”; it does not confirm Mac package delivery or whether a purchased license applies to the Mac release. <a href="mailto:${escapeHtml(site.supportEmail)}">Ask Foldora support</a> to confirm both for your order before paying. A public installer download alone does not include a license.</p>
     </section>` : ""}
-    <section class="cta">
+${page.route === "best-file-organizer-windows" ? "" : `    <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>${page.route === "organize-files-mac" ? "On a Mac, confirm package delivery and license compatibility with support before checkout. Then review proposed folders and filenames before applying changes." : "Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve."}</p>
       <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${hideBundle ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
 ${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
-    </section>
+    </section>`}
   </main>
   ${renderPageFooter(!singleOffer)}
   ${TAWK_LOADER_TAG}

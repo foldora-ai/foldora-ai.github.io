@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { seoPagesByRoute } from "../src/content/seoPages";
 
 const SITE_URL = "https://foldoraai.com";
 const PUBLIC_DIR = path.resolve("public");
@@ -173,7 +174,7 @@ for (const url of urls) {
       ? ["Avant de commencer", "Configuration et installation", "Premier classement", "Besoin d’aide ?", "Retour au produit"]
       : french
       ? ["En bref", "Comment fonctionne Foldora ?", "Exemples de dossiers", "Questions fréquentes", "Pour aller plus loin"]
-      : ["Direct answer", "Step-by-step workflow", "Use-case examples", "Frequently asked questions", "Related guides"]) {
+      : ["Direct answer", seoPagesByRoute[route.replace(/^\/|\/$/g, "")]?.stepsTitle ?? "Step-by-step workflow", "Use-case examples", "Frequently asked questions", "Related guides"]) {
       if (!html.includes(requiredHeading)) {
         errors.push(`${route}: missing ${requiredHeading} section`);
       }

@@ -216,6 +216,12 @@ const SeoContentPage = () => {
                 <li key={step}>{step}</li>
               ))}
             </ol>
+            {page.route === "best-file-organizer-windows" && (
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <p className="text-muted-foreground">If the reviewed batch workflow fits, <a className="text-primary underline underline-offset-4" href="/ai-file-organizer/">see Foldora's product details</a> and <a className="text-primary underline underline-offset-4" href="/docs/supported-file-types/">check its format limits</a>.</p>
+                <a href={checkoutUrl("seo-page", "best-file-organizer-windows")} target="_blank" rel="noopener noreferrer" {...checkoutTrackingAttributes("gumroad", page.route)} className="content-primary-button shrink-0">Get Foldora - {product.price.display} one-time</a>
+              </div>
+            )}
           </section>
 
           {page.route === "organize-files-windows" && (
@@ -331,7 +337,7 @@ const SeoContentPage = () => {
             </section>
           )}
 
-          <section className="content-callout text-center">
+          {page.route !== "best-file-organizer-windows" && <section className="content-callout text-center">
             <h2 className="content-section-title">Organize a folder with Foldora</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               {page.route === "organize-files-mac"
@@ -361,7 +367,7 @@ const SeoContentPage = () => {
                 </a>
               )}
             </div>
-          </section>
+          </section>}
         </div>
       </main>
       <Footer showCheckout={!singleOffer} />

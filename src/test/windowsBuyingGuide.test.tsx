@@ -31,6 +31,11 @@ describe("Windows organizer buying guide", () => {
     for (const row of rows) expect(within(row).getAllByRole("link").length).toBeGreaterThanOrEqual(2);
     expect(screen.getByText(/Publisher disclosure: Computora AI publishes Foldora/)).toBeVisible();
     expect(screen.getByRole("link", { name: "individual lifetime-license offer" })).toHaveAttribute("href", "/#pricing");
+    const decision = screen.getByRole("heading", { name: "Which Windows File Organizer Should You Choose?" });
+    const purchase = screen.getByRole("link", { name: "Get Foldora - $14.99 one-time" });
+    expect(decision.compareDocumentPosition(purchase) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(purchase).toHaveAttribute("href", expect.stringContaining("https://computora.gumroad.com/l/foldora"));
+    expect(screen.getByText(/Foldora does not watch folders continuously/)).toBeVisible();
   });
 
   it("keeps the early selection table and citations in initial HTML without review-rating markup", () => {
@@ -47,6 +52,11 @@ describe("Windows organizer buying guide", () => {
     const schema = [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!));
     expect(JSON.stringify(schema)).not.toMatch(/AggregateRating|reviewRating/);
     expect(document.querySelector('link[rel="canonical"]')?.getAttribute("href")).toBe("https://foldoraai.com/best-file-organizer-windows/");
+    const decision = [...document.querySelectorAll("h2")].find((heading) => heading.textContent === "Which Windows File Organizer Should You Choose?")!;
+    const purchase = document.querySelector('a[data-checkout-location="best-file-organizer-windows"]')!;
+    expect(decision.compareDocumentPosition(purchase) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(purchase.getAttribute("href")).toContain("https://computora.gumroad.com/l/foldora");
+    expect(document.querySelectorAll('a[data-checkout-location="best-file-organizer-windows"]')).toHaveLength(1);
   });
 
   it("preserves the later comparison placement on an existing workflow page", () => {
