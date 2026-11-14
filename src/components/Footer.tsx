@@ -66,6 +66,9 @@ const Footer = ({ showCheckout = true }: FooterProps) => {
             <a href="/docs/troubleshooting/" className="transition-colors hover:text-foreground">
               Support
             </a>
+            <a href="/#business" className="transition-colors hover:text-foreground">
+              Business
+            </a>
             <a href="https://computoraai.com/" className="transition-colors hover:text-foreground">
               Computora AI desktop software
             </a>

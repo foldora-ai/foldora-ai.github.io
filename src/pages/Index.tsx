@@ -18,6 +18,7 @@ import { trackEvent } from "@/lib/analytics";
 import { useEffect } from "react";
 import { homepageFaqs } from "@/content/homepageFaqs";
 import RoiCalculator from "@/components/RoiCalculator";
+import BusinessContactSection from "@/components/BusinessContactSection";
 
 const Index = () => {
   useEffect(() => {
@@ -57,6 +58,7 @@ const Index = () => {
         <PricingSection />
       </AnalyticsSection>
       <ArticleSection />
+      <BusinessContactSection />
       <Footer />
       </main>
     </div>
