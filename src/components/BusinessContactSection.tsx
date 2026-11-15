@@ -2,7 +2,19 @@ import { ArrowUpRight } from "lucide-react";
 
 import { site } from "@/config/product";
 
-const businessEmail = `mailto:${site.supportEmail}?subject=${encodeURIComponent("Foldora AI — Business Inquiry")}`;
+const businessEmailBody = [
+  "Hello Computora AI team,",
+  "",
+  "Product(s): Foldora AI",
+  "Company or team:",
+  "Approximate computers/users:",
+  "Platforms needed (Windows, macOS, or mixed):",
+  "Organization workflow:",
+  "Reply email:",
+  "",
+  "Please do not attach files or confidential documents.",
+].join("\n");
+const businessEmail = "mailto:" + site.supportEmail + "?subject=" + encodeURIComponent("Foldora AI — Business Inquiry") + "&body=" + encodeURIComponent(businessEmailBody);
 
 const BusinessContactSection = () => (
   <section id="business" aria-labelledby="business-heading" className="border-y border-border/60 bg-secondary/30 py-16 sm:py-20">
