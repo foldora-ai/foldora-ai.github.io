@@ -110,6 +110,12 @@ for (const url of urls) {
   if (route === "/fr/organisateur-fichiers-ia/" && !html.includes('<link rel="alternate" hreflang="en" href="https://foldoraai.com/ai-file-organizer/">')) {
     errors.push(`${route}: missing English alternate link`);
   }
+  if (route === "/fr/installation-activation/" && !html.includes('<link rel="alternate" hreflang="en" href="https://foldoraai.com/docs/install/">')) {
+    errors.push(`${route}: missing English installation alternate link`);
+  }
+  if (route === "/docs/install/" && !html.includes('<link rel="alternate" hreflang="fr" href="https://foldoraai.com/fr/installation-activation/">')) {
+    errors.push(`${route}: missing French installation alternate link`);
+  }
   if (french && !html.includes('<html lang="fr">')) {
     errors.push(`${route}: missing French document language`);
   }

@@ -26,6 +26,7 @@ const FRENCH_URL = `${SITE_URL}/${FRENCH_ROUTE}/`;
 const HOME_UPDATED_AT = "2026-11-05";
 const SUPPORT_UPDATED_AT = "2026-09-08";
 const HOW_IT_WORKS_UPDATED_AT = "2026-11-13";
+const FRENCH_PURCHASE_UPDATED_AT = "2026-11-15";
 const CATEGORY_UPDATED_AT: Record<string, string> = {
   productivity: "2026-09-19",
   windows: "2026-09-19",
@@ -1186,7 +1187,7 @@ ${analyticsHead()}
     <div class="eyebrow">Classement local de fichiers avec IA</div>
     <h1>${escapeHtml(title)}</h1>
     <p class="lede">${escapeHtml(description)}</p>
-    <div class="hero-cta"><a class="button" href="${checkout}" ${checkoutAttributes}>Acheter Foldora — ${escapeHtml(product.price.display)} (paiement en anglais)</a><p>Licence individuelle en paiement unique. Windows 10/11 et macOS sur Intel ou Apple Silicon.</p></div>
+    <div class="hero-cta"><a class="button" href="${checkout}" ${checkoutAttributes}>Acheter Foldora — ${escapeHtml(product.price.display)} (paiement en anglais)</a><p>Licence individuelle en paiement unique. Windows 10/11 et macOS sur Intel ou Apple Silicon. <a href="/${FRENCH_INSTALL_ROUTE}/">Vérifier la livraison et l'installation avant d'acheter</a>.</p></div>
   </div></section>
   <main class="container">
     <section class="answer"><h2>En bref</h2><p>Foldora est un logiciel de bureau qui propose un classement et des noms plus clairs pour les fichiers d'un dossier choisi. L'analyse des fichiers pris en charge se fait localement. Vous voyez les changements proposés avant de les approuver. Une connexion est nécessaire pour acheter, télécharger, activer la licence et la valider périodiquement. L'interface de l'application est actuellement en anglais.</p></section>
@@ -1218,6 +1219,8 @@ ${analyticsHead()}
 function renderFrenchInstallGuide(): string {
   const title = "Installer et activer Foldora";
   const description = "Guide en français pour recevoir, installer et activer Foldora sur Windows ou macOS, puis vérifier ses premières suggestions avant de modifier vos fichiers.";
+  const checkout = trackedCheckout("seo-page-fr", "installation-activation");
+  const checkoutAttributes = checkoutTrackingAttributes(FRENCH_INSTALL_ROUTE);
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -1240,6 +1243,7 @@ function renderFrenchInstallGuide(): string {
   <meta name="author" content="Foldora AI">
   <link rel="canonical" href="${FRENCH_INSTALL_URL}">
   <link rel="alternate" hreflang="fr" href="${FRENCH_INSTALL_URL}">
+  <link rel="alternate" hreflang="en" href="${SITE_URL}/docs/install/">
   <link rel="icon" href="/favicon.ico">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHtml(title)}">
@@ -1268,11 +1272,12 @@ ${analyticsHead()}
   <div class="container breadcrumbs" aria-label="Fil d'Ariane"><a href="/${FRENCH_ROUTE}/">Organisateur de fichiers IA</a> / <span aria-current="page">Installation et activation</span></div>
   <section class="hero"><div class="container"><div class="eyebrow">Documentation</div><h1>${escapeHtml(title)}</h1><p class="lede">${escapeHtml(description)}</p></div></section>
   <main class="container">
-    <section class="answer"><h2>Avant de commencer</h2><p>L’interface de Foldora est en anglais. Après l’achat, la page de paiement en anglais fournit le téléchargement et les instructions de licence. Utilisez le programme d’installation ou le paquet fourni pour votre système ; aucune adresse de téléchargement distincte n’est nécessaire.</p></section>
+    <section class="answer"><h2>Avant de commencer</h2><p>L’interface de Foldora est en anglais. La page de paiement, également en anglais, indique comment recevoir le téléchargement et la licence. Vérifiez que le paquet proposé convient à votre système avant de payer. Si vous achetez pour Mac et souhaitez confirmer la livraison du paquet macOS ou la compatibilité de la licence, contactez <a href="mailto:${escapeHtml(site.supportEmail)}">${escapeHtml(site.supportEmail)}</a> avant l’achat.</p></section>
+    <section class="cta"><h2>Achat et livraison</h2><p>La licence individuelle coûte actuellement ${escapeHtml(product.price.display)} en paiement unique. Le paiement et les instructions de livraison sont en anglais ; ce guide reste disponible en français. Après avoir vérifié le paquet adapté à votre système, vous pouvez passer par la page d’achat officielle.</p><a class="button" href="${checkout}" ${checkoutAttributes}>Acheter Foldora — ${escapeHtml(product.price.display)} (paiement en anglais)</a></section>
     <section><h2>Configuration et installation</h2><ol>
       <li>Vérifiez votre système : Windows 10 ou 11, ou macOS sur processeur Intel ou Apple Silicon. Foldora doit pouvoir accéder au dossier choisi et disposer d’assez d’espace libre pour les déplacements et renommages.</li>
       <li>Terminez l’achat sur la page de paiement en anglais. Suivez les instructions de téléchargement et de licence fournies après le paiement.</li>
-      <li>Téléchargez le paquet destiné à votre système, puis exécutez son programme d’installation ou ouvrez le paquet reçu. Suivez les indications de ce paquet pour installer Foldora.</li>
+      <li>Téléchargez le paquet destiné à votre système. Sous Windows, lancez le programme d’installation EXE fourni. Sur Mac, ouvrez l’archive ZIP du paquet macOS et placez FoldoraAI.app dans Applications. Suivez les indications fournies avec votre téléchargement.</li>
       <li>Activez la licence en suivant les instructions reçues. Une connexion Internet est nécessaire pour l’achat, le téléchargement et l’activation, puis périodiquement pour valider la licence et pour les mises à jour. L’analyse des fichiers se fait localement.</li>
     </ol></section>
     <section><h2>Premier classement</h2><ol>
@@ -1331,6 +1336,7 @@ function supportFaqs(page: SupportPage): SeoFaq[] {
 
 function renderSupportPage(page: SupportPage): string {
   const isWorkflowGuide = page.route === "docs/how-it-works";
+  const isInstallGuide = page.route === "docs/install";
   const canonicalRoute = page.canonicalTarget ?? page.route;
   const canonical = absoluteUrl(canonicalRoute);
   const metaDescription = page.description;
@@ -1343,7 +1349,7 @@ function renderSupportPage(page: SupportPage): string {
     page.route,
     page.title,
     metaDescription,
-    isWorkflowGuide ? HOW_IT_WORKS_UPDATED_AT : SUPPORT_UPDATED_AT,
+    isWorkflowGuide ? HOW_IT_WORKS_UPDATED_AT : isInstallGuide ? FRENCH_PURCHASE_UPDATED_AT : SUPPORT_UPDATED_AT,
   ) as {
     "@context": string;
     "@graph": object[];
@@ -1375,6 +1381,7 @@ function renderSupportPage(page: SupportPage): string {
   <meta name="author" content="Foldora AI">
   <link rel="canonical" href="${canonical}">
   <link rel="alternate" hrefLang="en" href="${canonical}">
+${isInstallGuide ? `  <link rel="alternate" hreflang="fr" href="${FRENCH_INSTALL_URL}">` : ""}
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
@@ -1399,7 +1406,7 @@ ${analyticsHead()}
 <body>
   ${renderPageHeader(page.route.replaceAll("/", "-"))}
   <div class="container breadcrumbs"><a href="/">Home</a> / <span>${escapeHtml(page.title)}</span></div>
-  <section class="hero"><div class="container"><div class="eyebrow">${escapeHtml(page.kind)}</div><h1>${escapeHtml(page.title)}</h1><p class="lede">${escapeHtml(page.description)}</p></div></section>
+  <section class="hero"><div class="container"><div class="eyebrow">${escapeHtml(page.kind)}</div><h1>${escapeHtml(page.title)}</h1><p class="lede">${escapeHtml(page.description)}</p>${isInstallGuide ? `<p><a href="/${FRENCH_INSTALL_ROUTE}/" lang="fr" hreflang="fr">Lire ce guide en français</a></p>` : ""}</div></section>
   <main class="container">
 ${workflowBody || `    <section class="answer"><h2>Direct answer</h2><p>${escapeHtml(page.description)} Foldora keeps the organization workflow local and lets you review changes before applying them.</p></section>
     <section><h2>What to know</h2>${page.sections.map((section) => `<h3>${escapeHtml(section.title)}</h3><p>${escapeHtml(stripIndent(section.content))}</p>`).join("")}</section>
@@ -1522,11 +1529,11 @@ function writeSitemap(): void {
     ...seoPages
       .filter((page) => page.indexable !== false)
       .map((page) => ({ route: page.route, updatedAt: page.updatedAt })),
-    { route: FRENCH_ROUTE, updatedAt: "2026-11-07" },
-    { route: FRENCH_INSTALL_ROUTE, updatedAt: "2026-11-07" },
+    { route: FRENCH_ROUTE, updatedAt: FRENCH_PURCHASE_UPDATED_AT },
+    { route: FRENCH_INSTALL_ROUTE, updatedAt: FRENCH_PURCHASE_UPDATED_AT },
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
-      .map((page) => ({ route: page.route, updatedAt: page.route === "docs/how-it-works" ? HOW_IT_WORKS_UPDATED_AT : SUPPORT_UPDATED_AT })),
+      .map((page) => ({ route: page.route, updatedAt: page.route === "docs/how-it-works" ? HOW_IT_WORKS_UPDATED_AT : page.route === "docs/install" ? FRENCH_PURCHASE_UPDATED_AT : SUPPORT_UPDATED_AT })),
     ...Object.keys(categories).filter((slug) => slug !== "downloads").map((slug) => ({
       route: `category/${slug}`,
       updatedAt: CATEGORY_UPDATED_AT[slug] ?? SUPPORT_UPDATED_AT,
