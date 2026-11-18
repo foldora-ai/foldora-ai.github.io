@@ -10,7 +10,7 @@ import {
 import { trackEvent } from "@/lib/analytics";
 
 const included = [
-  "Foldora desktop app for supported Windows and macOS systems",
+  "Foldora desktop app; confirm the package for your operating system before paying",
   "Local AI organization workflow",
   "Smart renaming suggestions",
   "Preview before applying file moves or filename changes",
@@ -103,6 +103,9 @@ const PricingSection = () => {
 
             <p className="mt-4 text-center text-xs text-muted-foreground">
               After payment, use the download and license instructions supplied by the checkout provider.
+            </p>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Buying for Mac? <a href="/docs/install/" className="underline underline-offset-4">Confirm package delivery and license compatibility before paying.</a>
             </p>
           </div>
 

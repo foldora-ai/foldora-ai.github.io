@@ -130,6 +130,9 @@ const SeoContentPage = () => {
                 <p className="text-sm text-muted-foreground">
                   One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.
                 </p>
+                <p className="text-sm text-muted-foreground">
+                  Buying for Mac? <a className="text-primary underline underline-offset-4" href="/docs/install/">Confirm package delivery and license compatibility before paying.</a>
+                </p>
               </div>
             )}
           </div>

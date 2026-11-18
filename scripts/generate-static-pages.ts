@@ -794,7 +794,7 @@ ${analyticsHead()}
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="lede">${escapeHtml(page.description)}</p>
 ${page.route === "ai-file-organizer" ? `      <p><a href="/${FRENCH_ROUTE}/" lang="fr" hreflang="fr">Lire cette page en français</a></p>` : ""}
-${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p></div>` : ""}
+${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p><p>Buying for Mac? <a href="/docs/install/">Confirm package delivery and license compatibility before paying.</a></p></div>` : ""}
     </div>
   </section>
   <main class="container">

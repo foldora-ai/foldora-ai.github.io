@@ -106,7 +106,7 @@ export const seoPages: SeoPage[] = [
   "h1": "AI File Organizer for Windows: Preview Before Moving",
   "description": "AI file organizer for Windows 10/11. Foldora proposes folders and names from local analysis; review the plan before applying changes. $14.99 once.",
   "eyebrow": "Local AI file organization",
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-18",
   "directAnswer": "Foldora is a desktop AI file organizer for Windows 10/11 and macOS, suited to mixed Downloads, Desktop, Documents, or project folders. It analyzes filenames and supported file content locally to suggest folders and clearer names automatically; you review the plan before approving moves or renames. Choose whether to include subfolders. Each run handles up to 1,000 eligible files, and Foldora does not watch folders continuously. File analysis stays local, while purchase, download, license activation, and periodic validation require internet. The individual license costs $14.99 once.",
   "problemTitle": "Which Windows files and subfolders will it organize?",
   "problem": [
@@ -155,14 +155,14 @@ export const seoPages: SeoPage[] = [
   ],
   "examples": [
     {
-      "title": "Mixed Downloads folder",
-      "before": "invoice_1042.pdf, IMG_4829.png, setup.exe, paper-final.pdf",
-      "after": "Finance/Invoices, Images/Screenshots, Software/Installers, Research/Papers"
+      "title": "Observed synthetic invoice",
+      "before": "invoice.txt in an isolated Windows test folder.",
+      "after": "Foldora moved and renamed it under organized_folder/Finance/Invoices. Its size and SHA-256 matched the original."
     },
     {
-      "title": "Client project",
-      "before": "final.pdf, final2.docx, scan003.pdf, notes.txt",
-      "after": "Client Atlas/Contracts, Client Atlas/Deliverables, Client Atlas/Meeting Notes"
+      "title": "Observed synthetic recipe",
+      "before": "recipe.txt in the same isolated Windows test folder.",
+      "after": "Foldora moved and renamed it under organized_folder/Personal/Recipes. Its size and SHA-256 matched the original."
     }
   ],
   "comparison": {
@@ -221,24 +221,24 @@ export const seoPages: SeoPage[] = [
     }
   ],
   "evidence": {
-    "title": "Measured runtime benchmark and real product demo",
-    "summary": "On September 6, 2026, Foldora's repeatable runtime benchmark completed 40,000 schema classifications and a bounded file-discovery fixture on a modest Windows 11 laptop. The recorded product demo shows the local desktop workflow.",
+    "title": "Observed Windows result and real app preview",
+    "summary": "In a separate isolated Windows test, Foldora's reviewed plan moved and renamed two synthetic TXT files. The existing app recording shows folder choice, the proposed structure, and processing after approval; it stops before the final folder appears.",
     "facts": [
       {
-        "label": "Runtime classifications",
-        "value": "40,000 in 1.2745 seconds"
+        "label": "Test input",
+        "value": "invoice.txt and recipe.txt"
       },
       {
-        "label": "File discovery",
-        "value": "1,001 files in 0.0091 seconds"
+        "label": "Observed destinations",
+        "value": "Finance/Invoices and Personal/Recipes"
       },
       {
-        "label": "Ignored dependency fixture",
-        "value": "300 files under node_modules"
+        "label": "Content check",
+        "value": "Both files matched by SHA-256 and size"
       },
       {
-        "label": "Test computer",
-        "value": "Windows 11 Pro, Core i5-8350U, 8 GB RAM"
+        "label": "Evidence scope",
+        "value": "Two synthetic TXT files; no accuracy rate"
       }
     ],
     "media": [
@@ -246,10 +246,10 @@ export const seoPages: SeoPage[] = [
         "kind": "video",
         "src": "/foldora-demo.mp4",
         "alt": "Recorded Foldora AI desktop file-organization workflow",
-        "caption": "Recorded Foldora desktop workflow: choose a directory, review the organization process, and keep control before applying changes."
+        "caption": "Existing app recording: choose a folder, inspect the proposed structure, then start applying changes. The clip ends during processing; the verified two-file result came from a separate test."
       }
     ],
-    "note": "The benchmark measures the local runtime classifier and bounded file discovery, not end-to-end AI model latency or accuracy on every possible folder. Results vary by hardware, storage, file type, and file contents."
+    "note": "The two-file result does not establish accuracy for other files or formats. The review screenshot and recording are from a different session. See the separate runtime benchmark for classifier and file-discovery measurements; those are not end-to-end AI speed or accuracy results."
   },
   "related": [
     "best-file-organizer-windows",
@@ -269,7 +269,7 @@ export const seoPages: SeoPage[] = [
   "h1": "Best File Organizer for Windows? Compare 5 Workflows",
   "description": "Compare Foldora, AI File Sorter, File Juggler, DropIt and Power Automate for Windows file organization: review steps, local processing, automation and cost.",
   "eyebrow": "Windows software comparison",
-  "updatedAt": "2026-11-15",
+  "updatedAt": "2026-11-18",
   "directAnswer": "Choose Foldora for a reviewed batch of local content-based filing and renaming; AI File Sorter is a credible free-core alternative if you want to configure models and categories. Choose File Juggler for exact recurring document rules, DropIt for free Windows rule/action profiles, and Power Automate when files are part of a larger business process. If extension or date sorting already solves the task, AI is not required. There is no tested overall winner here.",
   "problemTitle": "The buying criteria that change the recommendation",
   "problem": [
@@ -457,7 +457,7 @@ export const seoPages: SeoPage[] = [
     },
     {
       "question": "How much does Foldora cost for Windows?",
-      "answer": "Foldora is currently $14.99 as a one-time purchase, not a subscription. The purchase includes the supported Windows and macOS desktop app delivered through the checkout provider."
+      "answer": "Foldora is currently $14.99 as a one-time purchase, not a subscription. The checkout listing currently describes a Windows download. Mac buyers should confirm package delivery and license compatibility with Foldora support before paying."
     },
     {
       "question": "Which files can Foldora analyze, and what can it miss?",
@@ -474,7 +474,7 @@ export const seoPages: SeoPage[] = [
   ],
   "evidence": {
     "title": "See the Foldora workflow, price, and limits before choosing",
-    "summary": "Foldora's recorded desktop demo shows its bounded workflow: choose a local folder, let the app propose folders and filenames, review the plan, and apply only the changes you approve.",
+    "summary": "The existing Foldora recording shows folder choice, a proposed structure, and processing after approval. It ends before the resulting folder appears. A separate two-file Windows test confirms actual moves; see the product page for that result.",
     "facts": [
       {
         "label": "Current price",
@@ -498,13 +498,13 @@ export const seoPages: SeoPage[] = [
         "kind": "video",
         "src": "/foldora-demo.mp4",
         "alt": "Recorded Foldora desktop workflow for organizing a local folder",
-        "caption": "Recorded Foldora workflow showing a local folder organization run and the review-first process."
+        "caption": "Existing Foldora recording: folder choice, review, and processing. It ends before the final folder appears."
       },
       {
         "kind": "image",
         "src": "/evidence/foldora-demo.png",
-        "alt": "Foldora desktop application organizing files on Windows",
-        "caption": "A real Foldora application screen, included so buyers can inspect the product before checkout."
+        "alt": "Foldora desktop application showing current and proposed folder structures on Windows",
+        "caption": "Genuine app review screen from a separate session; it shows a proposal, not applied moves."
       }
     ],
     "note": "Limit: Foldora is a focused file organizer, not a general workflow platform or a substitute for detailed watched-folder rules. It supports specific file types; verify compatibility, keep a backup, and test a small folder first."
