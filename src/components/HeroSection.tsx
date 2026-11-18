@@ -71,11 +71,20 @@ const HeroSection = () => {
               </a>
 
               <a
-                href="/docs/install/"
+                href={checkout}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...checkoutTrackingAttributes("gumroad", "hero-macos", "macos")}
+                onClick={() => {
+                  trackEvent("platform_download_cta_clicked", {
+                    platform: "macos",
+                    location: "hero",
+                  });
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-[#111] to-[#222] px-8 py-4 text-lg font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1a1a1a]"
               >
                 <span aria-hidden="true">🍎</span>
-                Mac setup and purchase details
+                Get Foldora for macOS
               </a>
             </div>
 
