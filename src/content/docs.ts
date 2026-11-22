@@ -36,7 +36,7 @@ export const docs = {
   privacy: {
     title: "Foldora Privacy",
     description:
-      "Learn how Foldora processes supported files locally, how checkout and support remain separate, and how to protect sensitive folders.",
+      "Learn how Foldora processes files locally, how Keygen handles license validation, and which website services are optional.",
     sections: [
       {
         title: "Organization runs locally",
@@ -45,6 +45,10 @@ export const docs = {
       {
         title: "Checkout is separate from file organization",
         content: `Internet access is needed for purchase, download, license activation, periodic license validation, and updates. File analysis runs locally; the checkout provider does not need your file names or file contents.`,
+      },
+      {
+        title: "License activation and validation",
+        content: `Foldora uses Keygen to activate and periodically validate paid licenses. For these checks, Foldora sends your entered license key and a hashed machine fingerprint to Keygen. This processing is separate from local file analysis: your selected file contents are not included in license checks. Internet access is required for activation and periodic license validation. For questions or requests concerning licensing data, contact ${site.supportEmail}. Do not post your license key publicly.`,
       },
       {
         title: "Website support chat",

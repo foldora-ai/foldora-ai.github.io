@@ -25,6 +25,7 @@ const FRENCH_INSTALL_URL = `${SITE_URL}/${FRENCH_INSTALL_ROUTE}/`;
 const FRENCH_URL = `${SITE_URL}/${FRENCH_ROUTE}/`;
 const HOME_UPDATED_AT = "2026-11-05";
 const SUPPORT_UPDATED_AT = "2026-09-08";
+const PRIVACY_UPDATED_AT = "2026-11-21";
 const HOW_IT_WORKS_UPDATED_AT = "2026-11-13";
 const FRENCH_PURCHASE_UPDATED_AT = "2026-11-15";
 const CATEGORY_UPDATED_AT: Record<string, string> = {
@@ -1349,7 +1350,7 @@ function renderSupportPage(page: SupportPage): string {
     page.route,
     page.title,
     metaDescription,
-    isWorkflowGuide ? HOW_IT_WORKS_UPDATED_AT : isInstallGuide ? FRENCH_PURCHASE_UPDATED_AT : SUPPORT_UPDATED_AT,
+    isWorkflowGuide ? HOW_IT_WORKS_UPDATED_AT : isInstallGuide ? FRENCH_PURCHASE_UPDATED_AT : page.route === "docs/privacy" ? PRIVACY_UPDATED_AT : SUPPORT_UPDATED_AT,
   ) as {
     "@context": string;
     "@graph": object[];
@@ -1533,7 +1534,7 @@ function writeSitemap(): void {
     { route: FRENCH_INSTALL_ROUTE, updatedAt: FRENCH_PURCHASE_UPDATED_AT },
     ...supportPages
       .filter((page) => page.indexable && !page.canonicalTarget)
-      .map((page) => ({ route: page.route, updatedAt: page.route === "docs/how-it-works" ? HOW_IT_WORKS_UPDATED_AT : page.route === "docs/install" ? FRENCH_PURCHASE_UPDATED_AT : SUPPORT_UPDATED_AT })),
+      .map((page) => ({ route: page.route, updatedAt: page.route === "docs/how-it-works" ? HOW_IT_WORKS_UPDATED_AT : page.route === "docs/install" ? FRENCH_PURCHASE_UPDATED_AT : page.route === "docs/privacy" ? PRIVACY_UPDATED_AT : SUPPORT_UPDATED_AT })),
     ...Object.keys(categories).filter((slug) => slug !== "downloads").map((slug) => ({
       route: `category/${slug}`,
       updatedAt: CATEGORY_UPDATED_AT[slug] ?? SUPPORT_UPDATED_AT,

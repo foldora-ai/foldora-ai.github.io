@@ -102,7 +102,7 @@ describe("checkout acquisition tracking", () => {
     ["/ai-file-organizer/", ["seo-header/ai-file-organizer", "ai-file-organizer-hero", "ai-file-organizer", "footer"]],
     ["/blog/offline-ai-file-organizer/", ["seo-header/blog/offline-ai-file-organizer", "blog/offline-ai-file-organizer", "footer"]],
     ["/best-file-organizer-windows/", ["seo-header/best-file-organizer-windows", "best-file-organizer-windows", "footer"]],
-    ["/", ["static-windows"]],
+    ["/", ["static-windows", "static-macos"]],
   ])("tracks each generated purchase CTA on %s with its own placement and originating path", (pagePath, placements) => {
     const file = pagePath === "/" ? "index.html" : `${pagePath.slice(1)}index.html`;
     const markup = fs.readFileSync(path.resolve("dist", file), "utf8");
