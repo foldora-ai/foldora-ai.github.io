@@ -1594,7 +1594,7 @@ export const seoPages: SeoPage[] = [
     description:
       "Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.",
     eyebrow: "Privacy and local AI",
-    updatedAt: "2026-11-13",
+    updatedAt: "2026-11-23",
     directAnswer:
       "Foldora can analyze supported files, preview proposed folders and names, and organize local files on Windows 10/11 and macOS without uploading them for analysis. Install the complete package and activate online first. The current license code allows offline use for less than seven days after the last saved validation; reconnect before that window expires. It is not a permanently disconnected workflow.",
     problemTitle: "What local processing covers, and what it can miss",
@@ -1605,6 +1605,7 @@ export const seoPages: SeoPage[] = [
       "Local analysis does not make every surrounding service offline. Licensing communicates with Keygen; checkout, installer downloads, updates, and anything you send to website support are separate online activities. A folder synchronized by OneDrive, Dropbox, or another service can still be uploaded by that service: use a local, non-synced test folder if that matters to your policy.",
     ],
     contextualLinks: [
+      { before: "See ", anchor: "Foldora's real preview and observed Windows file-organization result", href: "/ai-file-organizer/#evidence-title", after: ", then compare the product details and purchase options on the same page." },
       { before: "To choose between a local folder tool and a cloud library, use ", anchor: "the local vs cloud buyer checklist", href: "/local-vs-cloud-ai-file-organizer/", after: "." },
       { before: "For the boundary between file processing, checkout, and optional website services, read ", anchor: "Foldora's privacy explanation", href: "/docs/privacy/", after: "." },
       { before: "For the supported systems, package delivery, and first setup, read ", anchor: "Foldora's installation guide", href: "/docs/install/", after: "." },
