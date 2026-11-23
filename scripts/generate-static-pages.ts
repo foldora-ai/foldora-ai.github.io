@@ -795,7 +795,7 @@ ${analyticsHead()}
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="lede">${escapeHtml(page.description)}</p>
 ${page.route === "ai-file-organizer" ? `      <p><a href="/${FRENCH_ROUTE}/" lang="fr" hreflang="fr">Lire cette page en français</a></p>` : ""}
-${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p><p>Buying for Mac? <a href="/docs/install/">Confirm package delivery and license compatibility before paying.</a></p></div>` : ""}
+${page.route === "ai-file-organizer" ? `      <div class="hero-cta"><a class="button" href="${trackedCheckout("seo-page", "ai-file-organizer-hero")}" ${checkoutTrackingAttributes("ai-file-organizer-hero")}>Get Foldora - ${escapeHtml(product.price.display)}</a><p>One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.</p><p><a href="/docs/install/">Windows and macOS installation guide</a></p></div>` : ""}
     </div>
   </section>
   <main class="container">
@@ -954,13 +954,13 @@ ${page.sources ? `    <section>
       </div>
     </section>
 ${page.route === "organize-files-mac" ? `    <section>
-      <h2>Before buying for Mac</h2>
+      <h2>Install Foldora on macOS</h2>
       <p>The <a href="/#pricing">Foldora product and pricing page</a> lists Intel and Apple Silicon Macs. The <a href="https://github.com/foldora-ai/foldora-releases/releases/tag/1.0.0-mac">published Mac release notes</a> identify a separate macOS ZIP package, <code>FoldoraAI-Setup-mac.zip</code>, and explain its installation. The newer 1.0.4 release contains a Windows installer only. See the <a href="/docs/install/">installation guide</a> for the checkout and license steps.</p>
-      <p>The public checkout listing currently says “Download Foldora for Windows”; it does not confirm Mac package delivery or whether a purchased license applies to the Mac release. <a href="mailto:${escapeHtml(site.supportEmail)}">Ask Foldora support</a> to confirm both for your order before paying. A public installer download alone does not include a license.</p>
+      <p>Follow the installation guide for your operating system, or <a href="mailto:${escapeHtml(site.supportEmail)}">ask Foldora support</a> for setup help.</p>
     </section>` : ""}
 ${page.route === "best-file-organizer-windows" ? "" : `    <section class="cta">
       <h2>Organize a folder with Foldora</h2>
-      <p>${isDownloadsChecklist ? "For a mixed Downloads batch of supported PDFs, documents, spreadsheets, presentations, images, and ZIP files, Foldora can suggest folders and names from local analysis. Review its plan before approving moves or renames. It does not delete files or detect duplicates. The individual license costs $14.99 once; purchase, download, activation, periodic validation, and updates need internet access." : page.route === "organize-files-mac" ? "On a Mac, confirm package delivery and license compatibility with support before checkout. Then review proposed folders and filenames before applying changes." : "Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve."}</p>
+      <p>${isDownloadsChecklist ? "For a mixed Downloads batch of supported PDFs, documents, spreadsheets, presentations, images, and ZIP files, Foldora can suggest folders and names from local analysis. Review its plan before approving moves or renames. It does not delete files or detect duplicates. The individual license costs $14.99 once; purchase, download, activation, periodic validation, and updates need internet access." : page.route === "organize-files-mac" ? "Use the macOS installation guide, then review proposed folders and filenames before applying changes." : "Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve."}</p>
       <a class="button" href="${trackedCheckout("seo-page", campaign)}" ${checkoutTrackingAttributes(page.route)}>${hideBundle ? `Get Foldora - ${escapeHtml(product.price.display)}` : "Get Foldora"}</a>
 ${hideBundle ? "" : `      <a class="button secondary" href="${BUNDLE_URL}" target="_blank" rel="noopener noreferrer">Get the complete bundle</a>`}
     </section>`}

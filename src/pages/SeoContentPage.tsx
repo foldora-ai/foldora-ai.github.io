@@ -131,7 +131,7 @@ const SeoContentPage = () => {
                   One-time purchase. Windows 10/11 and macOS on Intel or Apple Silicon.
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Buying for Mac? <a className="text-primary underline underline-offset-4" href="/docs/install/">Confirm package delivery and license compatibility before paying.</a>
+                  <a className="text-primary underline underline-offset-4" href="/docs/install/">Windows and macOS installation guide</a>
                 </p>
               </div>
             )}
@@ -323,7 +323,7 @@ const SeoContentPage = () => {
 
           {page.route === "organize-files-mac" && (
             <section>
-              <h2 className="content-section-title">Before buying for Mac</h2>
+              <h2 className="content-section-title">Install Foldora on macOS</h2>
               <p className="content-copy mt-4">
                 The <a href="/#pricing">Foldora product and pricing page</a> lists Intel and Apple Silicon Macs. The{" "}
                 <a href="https://github.com/foldora-ai/foldora-releases/releases/tag/1.0.0-mac">published Mac release notes</a>{" "}
@@ -332,10 +332,8 @@ const SeoContentPage = () => {
                 <a href="/docs/install/">installation guide</a> for the checkout and license steps.
               </p>
               <p className="content-copy mt-4">
-                The public checkout listing currently says “Download Foldora for Windows”; it does not confirm Mac
-                package delivery or whether a purchased license applies to the Mac release.{" "}
-                <a href={`mailto:${site.supportEmail}`}>Ask Foldora support</a> to confirm both for your order
-                before paying. A public installer download alone does not include a license.
+                Follow the installation guide for your operating system, or{" "}
+                <a href={`mailto:${site.supportEmail}`}>ask Foldora support</a> for setup help.
               </p>
             </section>
           )}
@@ -344,7 +342,7 @@ const SeoContentPage = () => {
             <h2 className="content-section-title">Organize a folder with Foldora</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               {page.route === "organize-files-mac"
-                ? "On a Mac, confirm package delivery and license compatibility with support before checkout. Then review proposed folders and filenames before applying changes."
+                ? "Use the macOS installation guide, then review proposed folders and filenames before applying changes."
                 : "Run local AI on Windows or macOS, review proposed folders and filenames, then apply the changes you approve."}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">

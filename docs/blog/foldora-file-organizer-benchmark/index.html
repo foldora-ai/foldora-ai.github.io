@@ -154,7 +154,8 @@
       <div class="eyebrow">Reproducible product evidence</div>
       <h1>Foldora File Organizer Benchmark</h1>
       <p class="lede">See Foldora&#39;s reproducible Windows runtime benchmark, test environment, measured results, product demonstration, and the limits of what the test proves.</p>
-      
+
+
     </div>
   </section>
   <main class="container">
@@ -163,6 +164,10 @@
       <p>Foldora&#39;s September 6, 2026 runtime benchmark completed 40,000 schema-classification calls in 1.2745 seconds and discovered 1,001 eligible files in 0.0091 seconds. It ran on Windows 11 Pro with an Intel Core i5-8350U and 8 GB of RAM. These are runtime measurements, not a claim of perfect organization accuracy.</p>
       <div class="updated">Reviewed and updated 2026-09-06</div>
     </section>
+
+
+
+
 <section aria-labelledby="evidence-title">
     <h2 id="evidence-title">Results recorded on the test machine</h2>
     <p>The benchmark was executed from the current Foldora workspace immediately before these results were published.</p>
@@ -174,6 +179,7 @@
     </div>
     <p class="evidence-note">One machine and one synthetic fixture cannot represent every user&#39;s files. The raw timings are reported without converting them into a guaranteed speed or accuracy claim.</p>
   </section>
+
     <section>
       <h2>What this benchmark is designed to verify</h2>
       <p>The benchmark checks two bounded parts of the local workflow: repeated schema classification and recursive file discovery. Its discovery fixture creates 1,200 normal files plus 300 dependency files under node_modules, applies a 1,001-file limit, and verifies that the dependency directory is ignored.</p><p>It deliberately does not turn a synthetic timing result into a broad accuracy claim. Real folders contain larger documents, unusual formats, slower drives, and ambiguous context, so Foldora keeps the proposed result reviewable before changes are applied.</p>
@@ -181,7 +187,9 @@
     <section>
       <h2>Step-by-step workflow</h2>
       <ol><li>Create four representative classification inputs covering an invoice, source code, a vacation photo, and meeting notes.</li><li>Run those four inputs 10,000 times through the local schema classifier for 40,000 total classifications.</li><li>Create 1,200 eligible files and 300 files inside an ignored node_modules directory.</li><li>Run recursive discovery with a 1,001-file safety limit and record elapsed time and the returned file count.</li></ol>
+
     </section>
+
     <section>
       <h2>Use-case examples</h2>
       <div class="grid">
@@ -223,6 +231,7 @@
         <a href="/ai-file-organizer/">AI File Organizer for Windows: Preview Before Moving</a><a href="/docs/how-it-works/">How Foldora Works</a><a href="/docs/privacy/">Foldora Privacy</a><a href="/docs/troubleshooting/">Foldora Troubleshooting</a>
       </div>
     </section>
+
     <section class="cta">
       <h2>Organize a folder with Foldora</h2>
       <p>Run local AI on Windows or macOS, review the proposed structure and filenames, then apply the changes you approve.</p>
@@ -243,5 +252,8 @@
     <p class="copyright">Copyright 2026 Foldora AI. All rights reserved.</p>
   </div></footer>
   <script src="/tawk-loader.js" defer></script>
+
+
+
 </body>
 </html>

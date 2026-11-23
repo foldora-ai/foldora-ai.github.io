@@ -17,8 +17,8 @@
 
 ## Core pages
 
-- [AI File Organizer for Windows: Preview Before Moving](https://foldoraai.com/ai-file-organizer/): Sort selected Windows folders with local AI. Include subfolders, preview suggested moves and names, and check scan limits before buying. $14.99 once.
-- [AI File Organizer for Windows: Which Workflow Fits?](https://foldoraai.com/best-file-organizer-windows/): Compare five Windows file organizers by content analysis, free options, exact rules, model setup, preview, automation and cost. Find the workflow that fits.
+- [AI File Organizer for Windows: Preview Before Moving](https://foldoraai.com/ai-file-organizer/): AI file organizer for Windows 10/11. Foldora proposes folders and names from local analysis; review the plan before applying changes. $14.99 once.
+- [Best File Organizer for Windows? Compare 5 Workflows](https://foldoraai.com/best-file-organizer-windows/): Compare Foldora, AI File Sorter, File Juggler, DropIt and Power Automate for Windows file organization: review steps, local processing, automation and cost.
 - [How to Organize Files Automatically on Windows](https://foldoraai.com/organize-files-windows/): Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.
 - [AI File Organizer for Mac](https://foldoraai.com/organize-files-mac/): Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.
 - [How to Organize Thousands of Files](https://foldoraai.com/organize-files-automatically/): A safe workflow for categorizing, renaming, and archiving thousands of files with previews, small batches, and a structure built for retrieval.
@@ -34,7 +34,7 @@
 - [File Organization for Consultants](https://foldoraai.com/use-cases/consultants/): Organize consulting proposals, statements of work, research, meeting notes, deliverables, invoices, and client handoffs with a repeatable system.
 - [File Organization for Small Businesses](https://foldoraai.com/use-cases/small-business/): Organize small-business finance, operations, sales, vendor, employee, and project files with a practical local folder and naming system.
 - [Foldora vs NudgeFile](https://foldoraai.com/alternatives/nudgefile/): Compare Foldora and NudgeFile for Windows file organization, including review-first cleanup, monitored folders, renaming, local AI, and workflow scope.
-- [Foldora vs Sortio](https://foldoraai.com/alternatives/sortio/): Compare Foldora and Sortio for Windows file organization, privacy, previews, renaming, and ongoing automation before choosing a workflow.
+- [Foldora vs Sortio](https://foldoraai.com/alternatives/sortio/): Compare Foldora's $14.99 one-time local file organizer with Sortio's free trial, subscriptions, cloud or local models, previews, and watched-folder automation.
 - [Best Sortio Alternative for Windows](https://foldoraai.com/alternatives/sortio-alternative/): Looking for a Sortio alternative on Windows? Compare Foldora's local, review-first file organization with prompt-based automation.
 - [Foldora vs DropIt: Which Workflow Do You Need?](https://foldoraai.com/alternatives/dropit/): Compare Foldora reviewed AI filing with DropIt Windows rules, profiles and monitoring. See actions, previews, platforms, cost and recovery precautions.
 - [Foldora vs TagSpaces](https://foldoraai.com/alternatives/tagspaces/): Compare Foldora and TagSpaces for private file organization, including AI folder suggestions, offline tags, search, previews, notes, and platform support.
@@ -42,6 +42,8 @@
 - [File Organization for Teachers](https://foldoraai.com/use-cases/teachers/): Organize lesson plans, worksheets, slides, assessments, classroom resources, and administrative files by school year, course, unit, and teaching purpose.
 - [AI File Organizer Alternatives](https://foldoraai.com/alternatives/): Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.
 - [Foldora vs AI Sorter](https://foldoraai.com/alternatives/ai-file-sorter/): Compare Foldora and AI File Sorter by price, platforms, local models, file analysis, previews, and workflow limits before choosing an organizer.
+- [Foldora vs Renamer.ai: Which Should You Choose?](https://foldoraai.com/alternatives/renamer-ai/): Compare Foldora and Renamer.ai for local AI, folder organization, naming templates, previews, watched folders, pricing, and control before files change.
+- [Foldora vs Filex AI: Which Should You Choose?](https://foldoraai.com/alternatives/filex-ai/): Compare Foldora and Filex AI for local folder moves, cloud uploads, review controls, mobile scanning, document search, privacy, and pricing.
 
 ## Documentation
 

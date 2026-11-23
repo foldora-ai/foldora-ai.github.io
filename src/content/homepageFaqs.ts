@@ -35,7 +35,7 @@ export const homepageFaqs = [
   },
   {
     q: "How do I install it?",
-    a: "For Windows, complete the official checkout, install the supplied download, and activate your license. For Mac, first confirm package delivery and license compatibility with Foldora support. Then start with a small folder and review the plan before applying changes.",
+    a: "Follow Foldora's installation guide for your operating system and activate your license. Then start with a small folder and review the plan before applying changes.",
   },
   {
     q: "What happens if it does not work on my device?",
