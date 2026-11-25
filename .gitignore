@@ -27,3 +27,6 @@ src.zip
 # Local Google Search Console exports
 /Pages.csv
 /Queries.csv
+
+# Isolated local SEO verification builds
+/.seo-check-*/

@@ -1,5 +1,57 @@
 # Foldora acquisition and checkout analytics
 
+## Four-site visibility check — November 25, 2026
+
+Public HTTP snapshots were collected at approximately 20:40 UTC. All 108
+sitemap pages returned HTTP 200, self-consistent canonicals, indexable directives,
+an H1, descriptions, and parseable structured data. Directly linked JS/CSS
+assets returned HTTP 200. All four robots files allow crawling, llms.txt files
+are available, and the sampled nonexistent paths correctly return HTTP 404.
+These checks do not establish Google indexing, rankings, traffic, or AI citations.
+
+| Site | Sitemap pages | Analytics finding |
+| --- | ---: | --- |
+| Foldora | 53 | GA4 ID `G-HZ5J8QN6FF`; existing code requires optional-service consent and honors browser privacy signals. |
+| Cleanora | 24 | Empty `analyticsMeasurementId`; no GA4 ID detected in checked live HTML or directly linked scripts. |
+| Galoria | 27 | Empty `analyticsMeasurementId`; no GA4 ID detected in checked live HTML or directly linked scripts. |
+| Computora | 4 | No analytics integration in the inspected source; no GA4 ID detected in checked live HTML or directly linked scripts. |
+
+Missing configuration explains a measurement gap, not a proven recent loss of
+visitors. No current Search Console or GA4 account data was available. Local
+Foldora CSV exports have an October 21 filesystem timestamp and no daily series
+or explicit reporting period, so they cannot establish the timing or cause of
+a new drop. No measurement IDs were invented or reused across unrelated sites.
+
+Local improvements: build-time homepage FAQ HTML and matching JSON-LD on all
+four sites; shared answers between initial HTML and React; retained initial
+content while Cleanora/Galoria lazy routes load; homepage-only sitemap dates
+updated for these content changes. No ranking or citation uplift is claimed.
+
+Validation: all four isolated production builds and the 108-page static audits
+passed; four FAQ parity tests and four loading regression tests passed.
+Computora's TypeScript check passed. The other three repositories have broader
+TypeScript failures in unchanged files: Foldora's checkout tests; Cleanora's
+event-name types, string-library target, SEO content typing, and tool tests;
+Galoria's event-name types, string-library target, pricing navigation, and tool
+tests. No errors were reported in the changed implementation or new tests.
+No visual browser QA was run.
+Existing uncommitted builds and unrelated work were preserved. At the time of this audit, nothing had been
+pushed, deployed, or submitted for indexing.
+
+Evidence: [Foldora snapshot](SEO-LIVE-2026-11-25.json),
+[Cleanora snapshot](../CleanoraAI-Website/SEO-LIVE-2026-11-25.json),
+[Galoria snapshot](../GaloriaAI-Website/SEO-LIVE-2026-11-25.json), and
+[Computora snapshot](../ComputoraAI-Website/SEO-LIVE-2026-11-25.json).
+The read-only crawl can be repeated with
+`node scripts/audit-live-seo.mjs https://example.com report.json`.
+
+Next: authorize deployment; supply the correct GA4 web-stream IDs for the
+unconfigured sites if measurement is wanted; compare the latest complete
+28 days with the preceding 28 days in Search Console by query and landing page.
+Check indexing, manual actions, and security reports before attributing the drop.
+See Google's [traffic-drop diagnosis](https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops)
+and [AI search guidance](https://developers.google.com/search/docs/appearance/ai-features).
+
 Foldora uses the existing GA4 property `G-HZ5J8QN6FF`. The site has one GA4
 initialization path per rendered page: React initializes GA4 on the homepage,
 while generated SEO pages include the same measurement ID in their static HTML.

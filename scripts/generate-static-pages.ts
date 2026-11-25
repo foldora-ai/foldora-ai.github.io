@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { homepageFaqs } from "../src/content/homepageFaqs";
+import { syncHomepageFaqs } from "./sync-homepage-faqs";
 
 import { categories } from "../src/content/categories";
 import { docs } from "../src/content/docs";
@@ -23,7 +25,7 @@ const FRENCH_ROUTE = "fr/organisateur-fichiers-ia";
 const FRENCH_INSTALL_ROUTE = "fr/installation-activation";
 const FRENCH_INSTALL_URL = `${SITE_URL}/${FRENCH_INSTALL_ROUTE}/`;
 const FRENCH_URL = `${SITE_URL}/${FRENCH_ROUTE}/`;
-const HOME_UPDATED_AT = "2026-11-05";
+const HOME_UPDATED_AT = "2026-11-25";
 const SUPPORT_UPDATED_AT = "2026-09-08";
 const PRIVACY_UPDATED_AT = "2026-11-21";
 const HOW_IT_WORKS_UPDATED_AT = "2026-11-13";
@@ -1627,6 +1629,7 @@ function writeSocialPreview(): void {
   );
 }
 
+syncHomepageFaqs(homepageFaqs);
 writeSocialPreview();
 validatePages();
 writeRoute("tools", renderToolsHub());

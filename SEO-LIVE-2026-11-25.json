@@ -1,0 +1,1384 @@
+{
+  "checkedAt": "2026-11-25T20:40:16.623Z",
+  "origin": "https://foldoraai.com",
+  "limits": "Public HTTP snapshot only; cannot prove Google indexing, rankings, traffic changes, consent rate, or browser rendering. Analytics IDs are detected only in returned HTML and directly linked JS/CSS.",
+  "sitemap": {
+    "status": 200,
+    "urlCount": 53
+  },
+  "pages": [
+    {
+      "url": "https://foldoraai.com/",
+      "finalUrl": "https://foldoraai.com/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora AI File Organizer for Windows and macOS | Local &amp; Private",
+      "canonical": "https://foldoraai.com/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Foldora organizes, categorizes, and renames files with local AI. Clean Downloads, Desktop, PDFs, and work folders on Windows and macOS.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "SoftwareApplication"
+      ],
+      "visibleWords": 325,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/ai-file-organizer/",
+      "finalUrl": "https://foldoraai.com/ai-file-organizer/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "AI File Organizer for Windows: Preview Before Moving | Foldora",
+      "canonical": "https://foldoraai.com/ai-file-organizer/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "AI file organizer for Windows 10/11. Foldora proposes folders and names from local analysis; review the plan before applying changes. $14.99 once.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage",
+        "SoftwareApplication"
+      ],
+      "visibleWords": 1291,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/",
+      "finalUrl": "https://foldoraai.com/alternatives/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Best AI File Organizer Alternatives | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora with NudgeFile, Sortio, Hazel, File Juggler, and Power Automate for review-first, monitored, rule-based, or cross-platform workflows.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 715,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/ai-file-sorter/",
+      "finalUrl": "https://foldoraai.com/alternatives/ai-file-sorter/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "AI File Sorter Alternative: Foldora Compared | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/ai-file-sorter/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora and AI File Sorter by price, platforms, local models, file analysis, previews, and workflow limits before choosing an organizer.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1352,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/dropit/",
+      "finalUrl": "https://foldoraai.com/alternatives/dropit/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs DropIt: AI Filing or Rule-Based Actions? | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/dropit/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora reviewed AI filing with DropIt Windows rules, profiles and monitoring. See actions, previews, platforms, cost and recovery precautions.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1000,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/file-juggler/",
+      "finalUrl": "https://foldoraai.com/alternatives/file-juggler/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs File Juggler: Content Rules or AI Filing? | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/file-juggler/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare File Juggler content-based Windows rules with Foldora reviewed AI suggestions. See supported documents, monitoring, previews and when each fits.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1037,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/filex-ai/",
+      "finalUrl": "https://foldoraai.com/alternatives/filex-ai/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs Filex AI: Local Folders or Cloud Library? | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/filex-ai/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora and Filex AI for local folder moves, cloud uploads, review controls, mobile scanning, document search, privacy, and pricing.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1421,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/hazel/",
+      "finalUrl": "https://foldoraai.com/alternatives/hazel/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs Hazel: AI Suggestions or Mac Rules | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/hazel/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora and Hazel by platform, setup, preview, automation, recovery, local processing, and current one-time pricing.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 984,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/manual-organization/",
+      "finalUrl": "https://foldoraai.com/alternatives/manual-organization/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs Manual File Organization | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/manual-organization/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare automatic and manual file organization by setup time, review, control, scale, consistency, and the types of files each method handles best.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 470,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/nudgefile/",
+      "finalUrl": "https://foldoraai.com/alternatives/nudgefile/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs NudgeFile: Review-First or Folder Monitoring | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/nudgefile/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora and NudgeFile for Windows file organization, including review-first cleanup, monitored folders, renaming, local AI, and workflow scope.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 592,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/power-automate/",
+      "finalUrl": "https://foldoraai.com/alternatives/power-automate/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs Power Automate for File Workflows | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/power-automate/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare a focused local AI file organizer with Microsoft&#39;s broader workflow automation platform for desktop, cloud, and business processes.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 493,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/renamer-ai/",
+      "finalUrl": "https://foldoraai.com/alternatives/renamer-ai/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs Renamer.ai: Review-First or Watched Folders? | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/renamer-ai/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora and Renamer.ai for local AI, folder organization, naming templates, previews, watched folders, pricing, and control before files change.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1415,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/sortio-alternative/",
+      "finalUrl": "https://foldoraai.com/alternatives/sortio-alternative/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Best Sortio Alternative for Windows | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/sortio-alternative/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Looking for a Sortio alternative on Windows? Compare Foldora&#39;s local, review-first file organization with prompt-based automation.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 664,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/sortio/",
+      "finalUrl": "https://foldoraai.com/alternatives/sortio/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs Sortio: Local Filing or Recurring Automation? | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/sortio/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora&#39;s $14.99 one-time local file organizer with Sortio&#39;s free trial, subscriptions, cloud or local models, previews, and watched-folder automation.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1264,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/alternatives/tagspaces/",
+      "finalUrl": "https://foldoraai.com/alternatives/tagspaces/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora vs TagSpaces: AI Folders or Offline Tags | Foldora",
+      "canonical": "https://foldoraai.com/alternatives/tagspaces/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora and TagSpaces for private file organization, including AI folder suggestions, offline tags, search, previews, notes, and platform support.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 624,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/best-file-organizer-windows/",
+      "finalUrl": "https://foldoraai.com/best-file-organizer-windows/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Best File Organizer for Windows? Compare 5 Workflows | Foldora",
+      "canonical": "https://foldoraai.com/best-file-organizer-windows/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Compare Foldora, AI File Sorter, File Juggler, DropIt and Power Automate for Windows file organization: review steps, local processing, automation and cost.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 2142,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/clean-desktop-clutter/",
+      "finalUrl": "https://foldoraai.com/blog/clean-desktop-clutter/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How to Clean Desktop Clutter Without Hiding Files | Foldora",
+      "canonical": "https://foldoraai.com/blog/clean-desktop-clutter/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Clear a crowded Windows desktop by separating shortcuts, active work, temporary captures, and files that belong in permanent project folders.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 450,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/desktop-file-management/",
+      "finalUrl": "https://foldoraai.com/blog/desktop-file-management/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Desktop File Management: Inbox, Projects, and Archive | Foldora",
+      "canonical": "https://foldoraai.com/blog/desktop-file-management/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Manage desktop files with a three-stage system for incoming items, active projects, and completed archives instead of repeated emergency cleanups.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 484,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/digital-file-minimalism/",
+      "finalUrl": "https://foldoraai.com/blog/digital-file-minimalism/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Digital File Minimalism: Keep Less, Find More | Foldora",
+      "canonical": "https://foldoraai.com/blog/digital-file-minimalism/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Reduce file clutter without deleting important records. Use retention rules, trusted archives, clear names, and fewer duplicate copies.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 463,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/foldora-file-organizer-benchmark/",
+      "finalUrl": "https://foldoraai.com/blog/foldora-file-organizer-benchmark/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organizer Benchmark | Test Method and Results | Foldora",
+      "canonical": "https://foldoraai.com/blog/foldora-file-organizer-benchmark/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "See Foldora&#39;s reproducible Windows runtime benchmark, test environment, measured results, product demonstration, and the limits of what the test proves.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 620,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/offline-ai-file-organizer/",
+      "finalUrl": "https://foldoraai.com/blog/offline-ai-file-organizer/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Offline AI File Organizer for Windows and Mac | Foldora",
+      "canonical": "https://foldoraai.com/blog/offline-ai-file-organizer/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize files with local AI on Windows or Mac without uploading them for analysis. Learn what offline processing protects and what to verify.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1344,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/organize-invoices-automatically/",
+      "finalUrl": "https://foldoraai.com/blog/organize-invoices-automatically/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How to Organize Invoices Automatically | Foldora",
+      "canonical": "https://foldoraai.com/blog/organize-invoices-automatically/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Can Foldora organize invoices by content? Learn its local classification workflow, PDF and OCR limits, and when exact vendor/date rules need another tool.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 986,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/organize-onedrive-dropbox-files/",
+      "finalUrl": "https://foldoraai.com/blog/organize-onedrive-dropbox-files/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora with OneDrive or Dropbox: Local Files First | Foldora",
+      "canonical": "https://foldoraai.com/blog/organize-onedrive-dropbox-files/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Understand local copies versus OneDrive or Dropbox integration, online-only files, sync effects and reviewed Foldora moves before organizing cloud-backed files.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1198,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/organize-pdfs-automatically/",
+      "finalUrl": "https://foldoraai.com/blog/organize-pdfs-automatically/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Organize PDFs by Content: Folders, Rules or Tags? | Foldora",
+      "canonical": "https://foldoraai.com/blog/organize-pdfs-automatically/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Choose how to file PDFs with vague names: reviewed content suggestions, exact keyword rules or multi-subject tags. Check Foldora limits before moving files.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1046,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/organize-research-documents/",
+      "finalUrl": "https://foldoraai.com/blog/organize-research-documents/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How Researchers Can Organize Papers and Documents | Foldora",
+      "canonical": "https://foldoraai.com/blog/organize-research-documents/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "A practical system for papers, datasets, notes, protocols, drafts, and administrative research files, with clear boundaries for citation managers.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 498,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/blog/organize-screenshots-automatically/",
+      "finalUrl": "https://foldoraai.com/blog/organize-screenshots-automatically/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How to Organize Screenshots Automatically | Foldora",
+      "canonical": "https://foldoraai.com/blog/organize-screenshots-automatically/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Turn screenshot folders into a useful reference system with project categories, descriptive names, review dates, and automatic cleanup.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 431,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/category/privacy/",
+      "finalUrl": "https://foldoraai.com/category/privacy/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Offline AI &amp; Privacy | Foldora",
+      "canonical": "https://foldoraai.com/category/privacy/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Discover privacy-first offline AI file organization. Browse practical Foldora guides, workflows, examples, comparisons, and related resources.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "visibleWords": 290,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/category/productivity/",
+      "finalUrl": "https://foldoraai.com/category/productivity/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization Productivity | Foldora",
+      "canonical": "https://foldoraai.com/category/productivity/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Improve productivity using AI-powered file organization. Browse practical Foldora guides, workflows, examples, comparisons, and related resources.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "visibleWords": 626,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/category/windows/",
+      "finalUrl": "https://foldoraai.com/category/windows/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Windows File Organization | Foldora",
+      "canonical": "https://foldoraai.com/category/windows/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Organize Windows files automatically using local AI. Browse practical Foldora guides, workflows, examples, comparisons, and related resources.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "visibleWords": 552,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/docs/how-it-works/",
+      "finalUrl": "https://foldoraai.com/docs/how-it-works/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How Foldora Works | Foldora",
+      "canonical": "https://foldoraai.com/docs/how-it-works/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "See the real Foldora preview screen and follow the six-step local folder workflow, from choosing a mode to checking approved moves and renames.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 528,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/docs/install/",
+      "finalUrl": "https://foldoraai.com/docs/install/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How to Install Foldora | Foldora",
+      "canonical": "https://foldoraai.com/docs/install/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Install Foldora on Windows or macOS, confirm the system requirements, and test a small folder before organizing a larger collection.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 575,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/docs/privacy/",
+      "finalUrl": "https://foldoraai.com/docs/privacy/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora Privacy | Foldora",
+      "canonical": "https://foldoraai.com/docs/privacy/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Learn how Foldora processes files locally, how Keygen handles license validation, and which website services are optional.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 734,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/docs/supported-file-types/",
+      "finalUrl": "https://foldoraai.com/docs/supported-file-types/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Supported File Types | Foldora",
+      "canonical": "https://foldoraai.com/docs/supported-file-types/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Check the documents, spreadsheets, presentations, images, and archives that Foldora can organize and rename in supported local workflows.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 717,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/docs/troubleshooting/",
+      "finalUrl": "https://foldoraai.com/docs/troubleshooting/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Foldora Troubleshooting | Foldora",
+      "canonical": "https://foldoraai.com/docs/troubleshooting/",
+      "robots": "index,follow,max-snippet:-1",
+      "description": "Resolve common Foldora installation, folder-access, preview, AI initialization, download, and checkout issues on Windows and macOS.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 505,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/fr/installation-activation/",
+      "finalUrl": "https://foldoraai.com/fr/installation-activation/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Installer et activer Foldora | Foldora",
+      "canonical": "https://foldoraai.com/fr/installation-activation/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1",
+      "description": "Guide en français pour recevoir, installer et activer Foldora sur Windows ou macOS, puis vérifier ses premières suggestions avant de modifier vos fichiers.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "WebPage"
+      ],
+      "visibleWords": 460,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/fr/organisateur-fichiers-ia/",
+      "finalUrl": "https://foldoraai.com/fr/organisateur-fichiers-ia/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Organisateur de fichiers IA pour Windows et Mac : vérifiez avant de déplacer | Foldora",
+      "canonical": "https://foldoraai.com/fr/organisateur-fichiers-ia/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1",
+      "description": "Foldora classe les fichiers d&#39;un dossier avec une IA locale. Vérifiez les propositions avant de les appliquer. Windows 10/11 et macOS, licence à 14,99 $ en paiement unique.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "WebPage"
+      ],
+      "visibleWords": 1084,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/local-vs-cloud-ai-file-organizer/",
+      "finalUrl": "https://foldoraai.com/local-vs-cloud-ai-file-organizer/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Local vs Cloud AI File Organizers: Privacy, Cost &amp; Control | Foldora",
+      "canonical": "https://foldoraai.com/local-vs-cloud-ai-file-organizer/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Choose a local or cloud AI file organizer with a practical checklist covering uploads, folder changes, offline use, review, sync, hardware, and cost.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1745,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/organize-files-automatically/",
+      "finalUrl": "https://foldoraai.com/organize-files-automatically/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How to Organize Thousands of Files Automatically | Foldora",
+      "canonical": "https://foldoraai.com/organize-files-automatically/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "A safe workflow for categorizing, renaming, and archiving thousands of files with previews, small batches, and a structure built for retrieval.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 473,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/organize-files-mac/",
+      "finalUrl": "https://foldoraai.com/organize-files-mac/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "AI File Organizer for Mac | Local, Preview-First | Foldora",
+      "canonical": "https://foldoraai.com/organize-files-mac/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize files on Mac with local AI. Preview suggested folders and filenames before changing Downloads, Desktop, Documents, or project folders.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 664,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/organize-files-windows/",
+      "finalUrl": "https://foldoraai.com/organize-files-windows/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "How to Organize Files on Windows Automatically | Foldora",
+      "canonical": "https://foldoraai.com/organize-files-windows/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Build a practical Windows file system for Downloads, Desktop, Documents, and project folders, then automate repeated sorting and renaming.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 602,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/rename-files-automatically/",
+      "finalUrl": "https://foldoraai.com/rename-files-automatically/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Rename Files Automatically with Clear, Consistent Names | Foldora",
+      "canonical": "https://foldoraai.com/rename-files-automatically/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Automatically rename PDFs, invoices, screenshots, and work documents with readable patterns while keeping previews and local processing.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 444,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/tools/",
+      "finalUrl": "https://foldoraai.com/tools/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Free File Organization Tools | Foldora",
+      "canonical": "https://foldoraai.com/tools/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Use four free Foldora resources to plan folders, name files, and review a messy Downloads folder. See what each resource can and cannot do before changing files.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "CollectionPage"
+      ],
+      "visibleWords": 502,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/tools/downloads-folder-cleanup-checklist/",
+      "finalUrl": "https://foldoraai.com/tools/downloads-folder-cleanup-checklist/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Downloads Folder Cleanup Checklist for Windows | Foldora",
+      "canonical": "https://foldoraai.com/tools/downloads-folder-cleanup-checklist/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Work through a safe Windows Downloads cleanup: decide what to keep, archive, or review; sort by file type; check uncertain files before any move or deletion.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebApplication"
+      ],
+      "visibleWords": 1351,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/tools/file-naming-convention-generator/",
+      "finalUrl": "https://foldoraai.com/tools/file-naming-convention-generator/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Free File Naming Convention Generator | Foldora",
+      "canonical": "https://foldoraai.com/tools/file-naming-convention-generator/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Build a practical file naming pattern for invoices, business, personal, or project files. Rearrange fields, preview safe examples, and copy the result.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 1352,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/tools/file-organization-planner/",
+      "finalUrl": "https://foldoraai.com/tools/file-organization-planner/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Free File Organization Planner — Preview Folder Structures Online | Foldora",
+      "canonical": "https://foldoraai.com/tools/file-organization-planner/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Paste filenames to preview a folder tree by file type, clear date, or editable keyword rules. Copy the structure or export a CSV. No files are uploaded or moved.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebApplication"
+      ],
+      "visibleWords": 1274,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/accountants/",
+      "finalUrl": "https://foldoraai.com/use-cases/accountants/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization for Accountants and Bookkeepers | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/accountants/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize client records, invoices, statements, tax documents, workpapers, and exports with year, entity, status, and retention controls.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 479,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/consultants/",
+      "finalUrl": "https://foldoraai.com/use-cases/consultants/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization for Consultants and Client Projects | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/consultants/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize consulting proposals, statements of work, research, meeting notes, deliverables, invoices, and client handoffs with a repeatable system.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 557,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/freelancers/",
+      "finalUrl": "https://foldoraai.com/use-cases/freelancers/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization for Freelancers and Client Work | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/freelancers/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize briefs, contracts, invoices, source files, deliverables, and feedback with a repeatable client folder lifecycle.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 441,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/real-estate-agents/",
+      "finalUrl": "https://foldoraai.com/use-cases/real-estate-agents/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization for Real Estate Agents | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/real-estate-agents/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize real-estate transaction files by property, stage, document type, and status while keeping client records, working copies, and final documents distinct.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 576,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/researchers/",
+      "finalUrl": "https://foldoraai.com/use-cases/researchers/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization for Researchers | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/researchers/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize literature, protocols, data, analysis, figures, manuscripts, and administrative records without replacing specialist research tools.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 447,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/small-business/",
+      "finalUrl": "https://foldoraai.com/use-cases/small-business/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Small Business File Organization for Windows and Mac | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/small-business/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize small-business finance, operations, sales, vendor, employee, and project files with a practical local folder and naming system.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 590,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/students/",
+      "finalUrl": "https://foldoraai.com/use-cases/students/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "File Organization for Students: Courses, PDFs, and Assignments | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/students/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize course readings, lecture slides, assignments, notes, and screenshots with a semester system that remains easy to archive.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 454,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/use-cases/teachers/",
+      "finalUrl": "https://foldoraai.com/use-cases/teachers/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null,
+      "issues": [],
+      "title": "Digital File Organization for Teachers | Foldora",
+      "canonical": "https://foldoraai.com/use-cases/teachers/",
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "description": "Organize lesson plans, worksheets, slides, assessments, classroom resources, and administrative files by school year, course, unit, and teaching purpose.",
+      "h1Count": 1,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visibleWords": 568,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://foldoraai.com/assets/animation-BRsySF4U.js",
+      "finalUrl": "https://foldoraai.com/assets/animation-BRsySF4U.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/assets/charts-C_KtFLeW.js",
+      "finalUrl": "https://foldoraai.com/assets/charts-C_KtFLeW.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/assets/index-DMeGnxAQ.js",
+      "finalUrl": "https://foldoraai.com/assets/index-DMeGnxAQ.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": [
+        "G-HZ5J8QN6FF"
+      ]
+    },
+    {
+      "url": "https://foldoraai.com/assets/index-Lmg6F7lp.css",
+      "finalUrl": "https://foldoraai.com/assets/index-Lmg6F7lp.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/assets/react-DK_JcHL8.js",
+      "finalUrl": "https://foldoraai.com/assets/react-DK_JcHL8.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/checkout-tracking.js",
+      "finalUrl": "https://foldoraai.com/checkout-tracking.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/privacy-consent.js",
+      "finalUrl": "https://foldoraai.com/privacy-consent.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/tawk-loader.js",
+      "finalUrl": "https://foldoraai.com/tawk-loader.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/tools/downloads-folder-cleanup-checklist/tool.js",
+      "finalUrl": "https://foldoraai.com/tools/downloads-folder-cleanup-checklist/tool.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/tools/file-naming-convention-generator/tool.js",
+      "finalUrl": "https://foldoraai.com/tools/file-naming-convention-generator/tool.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    },
+    {
+      "url": "https://foldoraai.com/tools/file-organization-planner/tool.js",
+      "finalUrl": "https://foldoraai.com/tools/file-organization-planner/tool.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "xRobotsTag": null,
+      "analyticsIds": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://foldoraai.com/robots.txt",
+      "finalUrl": "https://foldoraai.com/robots.txt",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "xRobotsTag": null,
+      "body": "User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: https://foldoraai.com/sitemap.xml\n"
+    },
+    {
+      "url": "https://foldoraai.com/llms.txt",
+      "finalUrl": "https://foldoraai.com/llms.txt",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "xRobotsTag": null
+    },
+    {
+      "url": "https://foldoraai.com/seo-audit-missing-page-20261125/",
+      "finalUrl": "https://foldoraai.com/seo-audit-missing-page-20261125/",
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "xRobotsTag": null
+    }
+  ]
+}
